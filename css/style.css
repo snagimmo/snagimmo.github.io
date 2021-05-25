@@ -28,16 +28,6 @@ main {
   text-decoration: underline;
 }
 
-/* Table of Contents, if wanted
-
-Add to yaml:
-
-output:
-  blogdown::html_page:
-    toc: true
-
-    */
-
 #TableOfContents, #TOC {
   border: 1px solid #eee;
   border-radius: 5px;
