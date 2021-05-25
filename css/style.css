@@ -400,13 +400,13 @@ img, iframe, video {
   background: #0F0F1F;
   color: #ddd;
   font-size: 0.8em;
-  outline: 0; /* don't display outline*/
+  outline: 0;
 }
 .search-text:focus {
   background: #2F2F3F;
 }
 .search-text::-ms-clear {
-  display: none; /* disable 'X' mark */
+  display: none;
 }
 
 .search-button {
@@ -433,7 +433,7 @@ img, iframe, video {
   background: #0F0F1F;
   color: #ddd;
   font-size: 0.75em;
-  outline: 0; /* don't display outline*/
+  outline: 0;
   position: relative;
   z-index: 1;
 }
