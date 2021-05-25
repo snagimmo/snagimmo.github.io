@@ -4,12 +4,12 @@
     xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>snagim( 'e' )mo</title>
-        <link>https:localhost:1313/categories/</link>
+        <link>https://snagimmo.github.io/categories/</link>
         <description>Recent content in Categories on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
         
-            <atom:link href="http://1313/categories/rss.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://snagimmo.github.io/categories/rss.xml" rel="self" type="application/rss+xml" />
         
         
     </channel>
