@@ -2,10 +2,10 @@
     xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>snagim( 'e' )mo</title>
-        <link>https://snagimmo.github.io/tags/</link>
+        <link>https://snagimmo.net/tags/</link>
         <description>Recent content in Tags on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <atom:link href="https://snagimmo.github.io/tags/feed.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://snagimmo.net/tags/feed.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
