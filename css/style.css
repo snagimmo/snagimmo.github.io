@@ -52,7 +52,7 @@ output:
 }
 .article-meta a { font-size: 1.14em; }
 
-.home-title { text-align: center; }
+/* .home-title { text-align: center; } */
 .menu { text-align: center; }
 .title {
   font-size: 1.2em;
@@ -78,7 +78,7 @@ output:
   margin-top: 1em;
   padding-bottom: 0.8em;
 }
-.contents {
+.contacts {
   /* width: 0.1em; */
   /* max-width: 20%; */
 }
@@ -102,9 +102,6 @@ hr {
 }
 .pull-left {
   float: left;
-  /* margin-top: 0.1em; */
-  /* margin-top: -0.1em; */
-  /* padding-top: -0.5em; */
   padding-top: -0.5em;
 }
 .pull-right {
