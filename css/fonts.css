@@ -11,6 +11,7 @@
 header, footer { font-family:
     'Inter',
     'Segoe UI',
+    SegoeUI,
     'Courier New',
     Courier,
     monospace,
@@ -25,6 +26,7 @@ header, footer { font-family:
   header, footer { font-family:
       'Inter var',
       'Segoe UI',
+      SegoeUI,
       'Courier New',
       Courier,
       monospace,
@@ -39,6 +41,7 @@ header, footer { font-family:
 html, .home-description, .search-results, .copyright {
   font-family:
     'Segoe UI',
+    SegoeUI,
     'Consolas',
     "Meiryo UI",
     Meiryo,
@@ -72,6 +75,7 @@ html {
 .home-title {
   font-family:
     'Segoe UI',
+    SegoeUI,
     "Meiryo UI",
     Meiryo,
     "メイリオ",
@@ -86,6 +90,7 @@ pre, code {
     'Consolas',
     'Ricty Diminished',
     'Segoe UI',
+    SegoeUI,
     'Courier New',
     Courier,
     monospace,
