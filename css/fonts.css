@@ -10,50 +10,20 @@
 }
 header, footer { font-family:
     'Inter',
-    'Segoe UI',
-    SegoeUI,
-    'Courier New',
-    Courier,
-    monospace,
-    Helvetica,
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol';
+    SegoeUI !Important;
 }
 @supports (font-variation-settings: normal) {
   header, footer { font-family:
       'Inter var',
-      'Segoe UI',
-      SegoeUI,
-      'Courier New',
-      Courier,
-      monospace,
-      Helvetica,
-      Arial,
-      sans-serif,
-      'Apple Color Emoji',
-      'Segoe UI Emoji',
-      'Segoe UI Symbol';
+      SegoeUI !Important;
   }
 }
 html, .home-description, .search-results, .copyright {
   font-family:
-    'Segoe UI',
     SegoeUI,
-    'Consolas',
-    "Meiryo UI",
     Meiryo,
     "メイリオ",
-    "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
-    "Hiragino Sans",
-    "Hiragino Kaku Gothic ProN",
     monospace,
-    Helvetica,
-    Arial,
-    sans-serif,
     'Apple Color Emoji',
     'Segoe UI Emoji',
     'Segoe UI Symbol';
@@ -73,15 +43,7 @@ html {
   font-size: 1em;
 }
 .home-title {
-  font-family:
-    'Segoe UI',
-    SegoeUI,
-    "Meiryo UI",
-    Meiryo,
-    "メイリオ",
-    "Hiragino Sans",
-    "Hiragino Kaku Gothic ProN",
-    sans-serif !Important;
+  font-family: SegoeUI !Important;
   font-size: 1.8em;
   line-height: 1.1em;
 }
@@ -89,20 +51,13 @@ pre, code {
   font-family:
     'Consolas',
     'Ricty Diminished',
-    'Segoe UI',
-    SegoeUI,
-    'Courier New',
-    Courier,
     monospace,
-    "Meiryo UI",
+    SegoeUI,
     Meiryo,
     "メイリオ",
-    Helvetica,
-    Arial,
-    sans-serif,
     'Apple Color Emoji',
     'Segoe UI Emoji',
-    'Segoe UI Symbol';
+    'Segoe UI Symbol' !Important;
   font-size: 0.9rem;
   line-height: 1.45em;
 }
