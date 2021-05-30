@@ -27,8 +27,10 @@ header, footer { font-family:
       'Segoe UI Symbol';
   }
 }
-html { font-family:
+html, .home-description, .search-results, .copyright {
+  font-family:
     'Segoe UI',
+    'Consolas',
     'Courier New',
     Courier,
     "Hiragino Kaku Gothic ProN",
@@ -42,7 +44,40 @@ html { font-family:
     'Apple Color Emoji',
     'Segoe UI Emoji',
     'Segoe UI Symbol';
-    font-size: 1.2em;
+}
+html {
+  font-size: 1.2em;
+}
+.home-description {
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
+.search-results {
+  font-size: 0.8em;
+  line-height: 1.15em;
+}
+.copyright {
+  font-size: 1em;
+}
+.home-title {
+  font-family:
+    'Segoe UI',
+    'Consolas',
+    'Courier New',
+    Courier,
+    "Hiragino Kaku Gothic ProN",
+    "ヒラギノ角ゴ ProN",
+    Meiryo,
+    "メイリオ",
+    monospace,
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-size: 1.8em;
+  line-height: 1.1em;
 }
 pre, code {
   font-family:
@@ -64,63 +99,4 @@ pre, code {
     'Segoe UI Symbol';
   font-size: 0.9rem;
   line-height: 1.45em;
-}
-.home-title {
-  font-family:
-    'Segoe UI',
-    'Consolas',
-    'Courier New',
-    Courier,
-    "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
-    Helvetica,
-    Arial,
-    sans-serif;
-  font-size: 1.8em;
-  line-height: 1.1em;
-}
-.home-description {
-  font-family:
-    'Segoe UI',
-    'Consolas',
-    'Courier New',
-    Courier,
-    "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
-    Helvetica,
-    Arial,
-    sans-serif;
-  font-size: 0.9em;
-  line-height: 1.3em;
-}
-.search-results {
-  font-family:
-    'Segoe UI',
-    'Consolas',
-    'Courier New',
-    Courier,
-    "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
-    Helvetica,
-    Arial,
-    sans-serif;
-  font-size: 0.8em;
-  line-height: 1.15em;
-}
-.copyright { font-family:
-    'Segoe UI',
-    'Courier New',
-    Courier,
-    "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
-    Meiryo,
-    "メイリオ",
-    monospace,
-    Helvetica,
-    Arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol';
-    font-size: 1em;
 }
