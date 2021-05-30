@@ -31,12 +31,13 @@ html, .home-description, .search-results, .copyright {
   font-family:
     'Segoe UI',
     'Consolas',
-    'Courier New',
-    Courier,
-    "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
+    "Meiryo UI",
     Meiryo,
     "メイリオ",
+    "Hiragino Kaku Gothic ProN",
+    "ヒラギノ角ゴ ProN",
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
     monospace,
     Helvetica,
     Arial,
@@ -62,14 +63,12 @@ html {
 .home-title {
   font-family:
     'Segoe UI',
+    "Meiryo UI",
     Meiryo,
     "メイリオ",
-    sans-serif,
+    "Hiragino Sans",
     "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol';
+    sans-serif !Important;
   font-size: 1.8em;
   line-height: 1.1em;
 }
@@ -81,8 +80,7 @@ pre, code {
     'Courier New',
     Courier,
     monospace,
-    "Hiragino Kaku Gothic ProN",
-    "ヒラギノ角ゴ ProN",
+    "Meiryo UI",
     Meiryo,
     "メイリオ",
     Helvetica,
