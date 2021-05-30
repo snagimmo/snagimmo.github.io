@@ -1,4 +1,38 @@
-@import url('https://rsms.me/inter/inter.css');
+/* Inter */
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Inter-Regular.woff2?v=3.18") format("woff2"),
+       url("/fonts/Inter-Regular.woff?v=3.18") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Inter-Italic.woff2?v=3.18") format("woff2"),
+       url("/fonts/Inter-Italic.woff?v=3.18") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Inter-SemiBold.woff2?v=3.18") format("woff2"),
+       url("/fonts/Inter-SemiBold.woff?v=3.18") format("woff");
+}
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Inter-Bold.woff2?v=3.18") format("woff2"),
+       url("/fonts/Inter-Bold.woff?v=3.18") format("woff");
+}
+
+/* Segoe UI */
 @font-face {
   font-family: SegoeUI;
   src:
@@ -8,22 +42,40 @@
       url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf) format("truetype");
   font-weight: 400;
 }
-header, footer { font-family:
-    'Inter',
-    SegoeUI !Important;
+
+/* Inconsolata */
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/inconsolata-v21-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/inconsolata-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/inconsolata-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/inconsolata-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/inconsolata-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/inconsolata-v21-latin-regular.svg#Inconsolata') format('svg'); /* Legacy iOS */
 }
-@supports (font-variation-settings: normal) {
-  header, footer { font-family:
-      'Inter var',
-      SegoeUI !Important;
-  }
+
+header, footer {
+  font-family:
+    'Inter' !important;
+}
+pre, code {
+  font-family:
+    'Consolas',
+    'Ricty Diminished',
+    'Inconsolata',
+    Meiryo,
+    "メイリオ" !important;
+  font-size: 0.9rem;
+  line-height: 1.45em;
 }
 html, .home-description, .search-results, .copyright {
   font-family:
     SegoeUI,
     Meiryo,
     "メイリオ",
-    monospace,
     'Apple Color Emoji',
     'Segoe UI Emoji',
     'Segoe UI Symbol';
@@ -43,21 +95,7 @@ html {
   font-size: 1em;
 }
 .home-title {
-  font-family: SegoeUI !Important;
+  font-family: SegoeUI !important;
   font-size: 1.8em;
   line-height: 1.1em;
-}
-pre, code {
-  font-family:
-    'Consolas',
-    'Ricty Diminished',
-    monospace,
-    SegoeUI,
-    Meiryo,
-    "メイリオ",
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol' !Important;
-  font-size: 0.9rem;
-  line-height: 1.45em;
 }
