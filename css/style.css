@@ -28,11 +28,6 @@ main {
   text-decoration: underline;
 }
 
-#TableOfContents, #TOC {
-  border: 1px solid #eee;
-  border-radius: 5px;
-}
-
 /* Various classes */
 .menu li { display: inline-block; }
 .article-meta, .menu a {
@@ -469,5 +464,4 @@ input::-ms-input-placeholder {
 .steam-link {
   width: 450px;
   height: 200px;
-  /* margin: auto; */
 }
