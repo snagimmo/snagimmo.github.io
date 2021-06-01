@@ -67,15 +67,27 @@ main {
   /* width: 0.1em; */
   /* max-width: 20%; */
 }
-.prev-link, .left-arrow {
-  float: left;
-}
-.next-link, .right-arrow {
-  float: right;
-}
 .page-links {
   margin-top: 1rem;
   margin-bottom: 4rem;
+}
+.arrow-left {
+  float: left;
+  margin-right: 0.5em;
+  margin-top: 0.1em;
+}
+.arrow-right {
+  float: right;
+  margin-left: 0.5em;
+  margin-top: 0.1em;
+}
+.prev-link {
+  float: left;
+  display: absolute;
+}
+.next-link {
+  float: right;
+  display: absolute;
 }
 
 hr {
