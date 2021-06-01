@@ -67,6 +67,16 @@ main {
   /* width: 0.1em; */
   /* max-width: 20%; */
 }
+.prev-link, .left-arrow {
+  float: left;
+}
+.next-link, .right-arrow {
+  float: right;
+}
+.page-links {
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
 
 hr {
   border-color: #eee;
@@ -448,7 +458,7 @@ input::-ms-input-placeholder {
   color: #bbb;
 }
 
-/* shortcodes */
+/* Shortcodes */
 .private {
   background: #fee;
   color: #f11;
