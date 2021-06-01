@@ -123,6 +123,8 @@ pre, code {
     'Consolas',
     'Ricty Diminished',
     'Inconsolata',
+    Meiryo,
+    "メイリオ",
     'Noto Sans JP',
     'Kosugi', !important;
   font-size: 0.9rem;
@@ -131,6 +133,8 @@ pre, code {
 html, .home-description, .search-results, .copyright {
   font-family:
     SegoeUI,
+    Meiryo,
+    "メイリオ",
     'Noto Sans JP',
     'Kosugi',
     'Apple Color Emoji',
