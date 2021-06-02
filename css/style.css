@@ -513,6 +513,9 @@ input::-ms-input-placeholder {
 .sharing-button-soundcloud .inline-svg:hover {
   color: #ff7521 !important;
 }
+.sharing-button-share .inline-svg:hover {
+  color: #337777 !important;
+}
 
 /* Shortcodes */
 .private {
