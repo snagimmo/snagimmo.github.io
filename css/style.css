@@ -484,13 +484,12 @@ input::-ms-input-placeholder {
 .sharing-buttons-area {
   float: left;
   margin-top: 0em;
-  margin-right: 0.5em;
 }
 .sharing-buttons .inline-svg {
   float: left;
   padding: 0.1em 1em 0.1em 1em;
-  margin-left: 0.9em;
-  margin-right: 0.9em;
+  margin-left: 1vw;
+  margin-right: 1vw;
   background-color: #ddd;
   border-radius: 8px;
   border-color: #fff;
