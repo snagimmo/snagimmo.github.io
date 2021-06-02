@@ -70,6 +70,7 @@ main {
 .page-links {
   margin-top: 1rem;
   margin-bottom: 4rem;
+  text-decoration: none !important;
 }
 .arrow-left {
   float: left;
@@ -84,10 +85,15 @@ main {
 .prev-link {
   float: left;
   display: absolute;
+  font-size: 0.9em;
 }
 .next-link {
   float: right;
   display: absolute;
+  font-size: 0.9em;
+}
+.prev-link a, .next-link a {
+  text-decoration: none !important;
 }
 
 hr {
@@ -468,6 +474,44 @@ input:-ms-input-placeholder {
 }
 input::-ms-input-placeholder {
   color: #bbb;
+}
+
+/* Sharing buttons */
+.sharing-buttons {
+  display: inline-block;
+  margin-bottom: -1.5em;
+}
+.sharing-buttons-area {
+  float: left;
+  margin-top: 0em;
+  margin-right: 0.5em;
+}
+.sharing-buttons .inline-svg {
+  float: left;
+  padding: 0.1em 1em 0.1em 1em;
+  margin-left: 0.9em;
+  margin-right: 0.9em;
+  background-color: #ddd;
+  border-radius: 8px;
+  border-color: #fff;
+}
+.sharing-buttons .inline-svg:hover {
+  background-color: #fff;
+}
+.sharing-button-twitter .inline-svg:hover {
+  color: #1d9bf0 !important;
+}
+.sharing-button-facebook .inline-svg:hover {
+  color: #1778f2 !important;
+}
+.sharing-button-hatena .inline-svg:hover {
+  color: #00a4de !important;
+}
+.sharing-button-pocket .inline-svg:hover {
+  color: #ee4056 !important;
+}
+.sharing-button-soundcloud .inline-svg:hover {
+  color: #ff7521 !important;
 }
 
 /* Shortcodes */
