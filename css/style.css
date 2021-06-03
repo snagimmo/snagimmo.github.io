@@ -533,3 +533,11 @@ input::-ms-input-placeholder {
   width: 450px;
   height: 200px;
 }
+
+.img-wrapper img {
+  transition-duration: 0.4s;
+}
+.img-wrapper img:hover {
+  transform: scale(1.05, 1.05);
+  transition-duration: 0.3s;
+}
