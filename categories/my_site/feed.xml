@@ -2,12 +2,12 @@
     xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>snagim( 'e' )mo</title>
-        <link>https://snagimmo.net/categories/</link>
-        <description>Recent content in Categories on snagim( &#39;e&#39; )mo</description>
+        <link>https://snagimmo.net/categories/my_site/</link>
+        <description>Recent content in my_site on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
         <lastBuildDate>Fri, 04 Jun 2021 19:40:11 +0900</lastBuildDate>
-        <atom:link href="https://snagimmo.net/categories/feed.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://snagimmo.net/categories/my_site/feed.xml" rel="self" type="application/rss+xml" />
         <item>
             <title>このサイトについて</title>
             <link>https://snagimmo.net/blog/2021/06/about-this-site/</link>
