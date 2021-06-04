@@ -16,6 +16,14 @@ main {
   display: block;
   font-size: 1.1em;
 }
+main p {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+main p#mail-caption, .contacts p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
 
 .content-wrapper {
   padding: 0px 12px 0px 12px;
@@ -63,6 +71,20 @@ main {
   margin-top: 1em;
   padding-bottom: 0.8em;
 }
+.footnote-ref {
+  margin: 0.1em;
+  font-weight: 600;
+  color: #D0AF4C;
+}
+.footnotes {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9em;
+}
+.footnotes p {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
 .contacts {
   /* width: 0.1em; */
   /* max-width: 20%; */
@@ -75,12 +97,10 @@ main {
 .arrow-left {
   float: left;
   margin-right: 0.5em;
-  margin-top: 0.1em;
 }
 .arrow-right {
   float: right;
   margin-left: 0.5em;
-  margin-top: 0.1em;
 }
 .prev-link {
   float: left;
@@ -490,9 +510,8 @@ input::-ms-input-placeholder {
   padding: 0.1em 1em 0.1em 1em;
   margin-left: 1vw;
   margin-right: 1vw;
-  background-color: #ddd;
   border-radius: 8px;
-  border-color: #fff;
+  background-color: #ddd;
 }
 .sharing-buttons .inline-svg:hover {
   background-color: #fff;
