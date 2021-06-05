@@ -58,6 +58,7 @@ main p#mail-caption, .contacts p {
 .terms {
   font-size: 0.8em;
   margin-left: 0.5rem;
+  margin-bottom: 0rem;
 }
 .postdate { font-size: 0.9em; }
 .notfound {
