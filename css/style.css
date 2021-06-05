@@ -24,9 +24,12 @@ main p#mail-caption, .contacts p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+main h1, main h2, main h3, main h4 {
+  margin-top: 3.5em;
+}
 
 .content-wrapper {
-  padding: 0px 12px 0px 12px;
+  padding: 0.1em 12px 1.5em 12px;
   font-size: 0.9em;
 }
 .content-wrapper a {
@@ -58,7 +61,7 @@ main p#mail-caption, .contacts p {
 .terms {
   font-size: 0.8em;
   margin-left: 0.5rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0.5rem;
 }
 .postdate { font-size: 0.9em; }
 .notfound {
@@ -91,8 +94,8 @@ main p#mail-caption, .contacts p {
   /* max-width: 20%; */
 }
 .page-links {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
   text-decoration: none !important;
 }
 .arrow-left {
