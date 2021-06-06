@@ -27,9 +27,15 @@ main p#mail-caption, .contacts p {
 main h1, main h2, main h3, main h4 {
   margin-top: 3.5em;
 }
+main .updates h1, main .updates h2, main h3, main h4 {
+  margin-top: 2em;
+}
+main .updates {
+  margin-bottom: 3em;
+}
 
 .content-wrapper {
-  padding: 0.1em 12px 1.5em 12px;
+  padding: 0.5em 12px 0.5em 12px;
   font-size: 0.9em;
 }
 .content-wrapper a {
@@ -81,8 +87,8 @@ main h1, main h2, main h3, main h4 {
   color: #D0AF4C;
 }
 .footnotes {
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
   font-size: 0.9em;
 }
 .footnotes p {
@@ -132,6 +138,11 @@ hr {
   height: 1.2px;
   margin-top: 2em;
   margin-bottom: 1.2em;
+}
+.footnotes > hr {
+  height: 5px;
+  width: 95%;
+  background-color: #D0AF4C;
 }
 
 .pull-home {
