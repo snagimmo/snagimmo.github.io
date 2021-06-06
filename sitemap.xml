@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://snagimmo.net/categories/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/dev/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/tags/hugo/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/dev/build-website-using-hugo0/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/tags/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/categories/website/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/categories/website/</loc>
+    <lastmod>2021-06-06T16:20:00+09:00</lastmod>
+  </url><url>
     <loc>https://snagimmo.net/blog/2021/</loc>
     <lastmod>2021-06-04T19:40:11+09:00</lastmod>
   </url><url>
@@ -11,21 +35,10 @@
     <loc>https://snagimmo.net/blog/</loc>
     <lastmod>2021-06-04T19:40:11+09:00</lastmod>
   </url><url>
-    <loc>https://snagimmo.net/categories/</loc>
-    <lastmod>2021-06-04T19:40:11+09:00</lastmod>
-  </url><url>
-    <loc>https://snagimmo.net/</loc>
-    <lastmod>2021-06-04T19:40:11+09:00</lastmod>
-  </url><url>
-    <loc>https://snagimmo.net/categories/website/</loc>
-    <lastmod>2021-06-04T19:40:11+09:00</lastmod>
-  </url><url>
     <loc>https://snagimmo.net/blog/2021/06/about-this-site/</loc>
     <lastmod>2021-06-04T19:40:11+09:00</lastmod>
   </url><url>
     <loc>https://snagimmo.net/contact/</loc>
-  </url><url>
-    <loc>https://snagimmo.net/tags/</loc>
   </url><url>
     <loc>https://snagimmo.net/updates/</loc>
   </url>
