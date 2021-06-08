@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128x128.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hugoで個人サイトを作るシリーズ2回目: Hugoのコンテンツ管理の全体像とHugoテンプレートについて把握する">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snagimmo.net/dev/build-website-using-hugo2/">
+    <meta property="og:image" content="https://snagimmo.net/images/profile.png">
+    <meta property="og:title" content="Hugoで個人サイト制作(2) Hugoのコンテンツ管理とテンプレート">
+    <meta property="og:site_name" content="snagim( &#39;e&#39; )mo">
+    <meta property="og:description" content="Hugoで個人サイトを作るシリーズ2回目: Hugoのコンテンツ管理の全体像とHugoテンプレートについて把握する">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@snagimmo">
+    <meta name="twitter:creator" content="@snagimmo">
+
+    <title>Hugoで個人サイト制作(2) Hugoのコンテンツ管理とテンプレート | snagim( &#39;e&#39; )mo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="https://snagimmo.net/css/theme-override.css">
+
+    
+    <link href="/css/prism.css" rel="stylesheet">
+
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" rel="stylesheet">
+
+    <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-home ">
+        <a href="https://snagimmo.net/">home</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M464,136H272l-64-64H48C21.5,72,0,93.5,0,120v288c0,26.5,21.5,48,48,48h416c26.5,0,48-21.5,48-48V184 C512,157.5,490.5,136,464,136z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags/"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M20,272.4V84.3C20,59.8,39.8,40,64.3,40h188.2c11.7,0,23,4.7,31.3,13L479,248.3c17.3,17.3,17.3,45.3,0,62.6L290.9,499 c-17.3,17.3-45.3,17.3-62.6,0L33,303.7C24.7,295.4,20,284.2,20,272.4z M123.3,99C98.8,99,79,118.8,79,143.3s19.8,44.3,44.2,44.3	s44.3-19.8,44.3-44.3S147.7,99,123.3,99z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/feed.xml" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" x="0px"	 y="0px" viewBox="0 0 448 512" style="enable-background:new 0 0 448 512;" xml:space="preserve"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M149.3,380.6c0,27.6-22.3,49.9-49.9,49.9s-49.9-22.3-49.9-49.9s22.3-49.9,49.9-49.9S149.3,353.1,149.3,380.6L149.3,380.6z M286.1,417.4c-6.5-120.4-103-217-223.5-223.5c-7.1-0.4-13.1,5.3-13.1,12.5v37.4c0,6.6,5.1,12.1,11.6,12.5	c87.1,5.7,157,75.3,162.6,162.6c0.4,6.5,5.9,11.6,12.5,11.6h37.4C280.8,430.5,286.5,424.5,286.1,417.4L286.1,417.4z M398.5,417.6 C392,235.5,245.4,88.1,62.4,81.5c-7-0.3-12.9,5.4-12.9,12.5v37.4c0,6.7,5.3,12.2,12,12.5C210.5,150,330,269.6,336.1,418.5 c0.3,6.7,5.7,12,12.5,12H386C393.1,430.5,398.7,424.7,398.5,417.6z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-link">
+          <a href="https://github.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://twitter.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://misskey.io/@snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.3 42.8"><path fill="currentColor" d="M24.1,30.2c-2.5,0-4.7-1.4-5.7-3.1c-0.5-0.7-1.6-1-1.6,0v4.5c0,1.8-0.7,3.4-2.1,4.7c-1.4,1.3-3.1,1.9-5,1.9 c-1.9,0-3.6-0.6-5-1.9c-1.4-1.3-2.1-2.9-2.1-4.7v-25C2.5,5.3,3,4,3.8,2.9c0.9-1.2,2-2,3.4-2.5C8,0.1,8.8,0,9.6,0 c2.2,0,4,0.8,5.5,2.4c0.8,0.8,1.2,1.2,1.3,1.3c0,0,5.8,6.6,5.9,6.7c0.2,0.1,0.6,1,1.8,1s1.7-0.9,1.8-1c0.2-0.1,5.9-6.7,5.9-6.7 c0,0,0.5-0.4,1.3-1.3C34.7,0.8,36.5,0,38.7,0c0.8,0,1.6,0.1,2.4,0.4c1.4,0.5,2.5,1.3,3.3,2.5c0.9,1.1,1.3,2.4,1.3,3.8v25 c0,1.8-0.7,3.4-2.1,4.7c-1.4,1.3-3.1,1.9-5,1.9c-1.9,0-3.6-0.6-5-1.9c-1.4-1.3-2.1-2.9-2.1-4.7v-4.5c-0.1-1.2-1.3-0.5-1.7,0 C28.7,29,26.6,30.2,24.1,30.2z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://soundcloud.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M111.4 256.3l5.8 65-5.8 68.3c-.3 2.5-2.2 4.4-4.4 4.4s-4.2-1.9-4.2-4.4l-5.6-68.3 5.6-65c0-2.2 1.9-4.2 4.2-4.2 2.2 0 4.1 2 4.4 4.2zm21.4-45.6c-2.8 0-4.7 2.2-5 5l-5 105.6 5 68.3c.3 2.8 2.2 5 5 5 2.5 0 4.7-2.2 4.7-5l5.8-68.3-5.8-105.6c0-2.8-2.2-5-4.7-5zm25.5-24.1c-3.1 0-5.3 2.2-5.6 5.3l-4.4 130 4.4 67.8c.3 3.1 2.5 5.3 5.6 5.3 2.8 0 5.3-2.2 5.3-5.3l5.3-67.8-5.3-130c0-3.1-2.5-5.3-5.3-5.3zM7.2 283.2c-1.4 0-2.2 1.1-2.5 2.5L0 321.3l4.7 35c.3 1.4 1.1 2.5 2.5 2.5s2.2-1.1 2.5-2.5l5.6-35-5.6-35.6c-.3-1.4-1.1-2.5-2.5-2.5zm23.6-21.9c-1.4 0-2.5 1.1-2.5 2.5l-6.4 57.5 6.4 56.1c0 1.7 1.1 2.8 2.5 2.8s2.5-1.1 2.8-2.5l7.2-56.4-7.2-57.5c-.3-1.4-1.4-2.5-2.8-2.5zm25.3-11.4c-1.7 0-3.1 1.4-3.3 3.3L47 321.3l5.8 65.8c.3 1.7 1.7 3.1 3.3 3.1 1.7 0 3.1-1.4 3.1-3.1l6.9-65.8-6.9-68.1c0-1.9-1.4-3.3-3.1-3.3zm25.3-2.2c-1.9 0-3.6 1.4-3.6 3.6l-5.8 70 5.8 67.8c0 2.2 1.7 3.6 3.6 3.6s3.6-1.4 3.9-3.6l6.4-67.8-6.4-70c-.3-2.2-2-3.6-3.9-3.6zm241.4-110.9c-1.1-.8-2.8-1.4-4.2-1.4-2.2 0-4.2.8-5.6 1.9-1.9 1.7-3.1 4.2-3.3 6.7v.8l-3.3 176.7 1.7 32.5 1.7 31.7c.3 4.7 4.2 8.6 8.9 8.6s8.6-3.9 8.6-8.6l3.9-64.2-3.9-177.5c-.4-3-2-5.8-4.5-7.2zm-26.7 15.3c-1.4-.8-2.8-1.4-4.4-1.4s-3.1.6-4.4 1.4c-2.2 1.4-3.6 3.9-3.6 6.7l-.3 1.7-2.8 160.8s0 .3 3.1 65.6v.3c0 1.7.6 3.3 1.7 4.7 1.7 1.9 3.9 3.1 6.4 3.1 2.2 0 4.2-1.1 5.6-2.5 1.7-1.4 2.5-3.3 2.5-5.6l.3-6.7 3.1-58.6-3.3-162.8c-.3-2.8-1.7-5.3-3.9-6.7zm-111.4 22.5c-3.1 0-5.8 2.8-5.8 6.1l-4.4 140.6 4.4 67.2c.3 3.3 2.8 5.8 5.8 5.8 3.3 0 5.8-2.5 6.1-5.8l5-67.2-5-140.6c-.2-3.3-2.7-6.1-6.1-6.1zm376.7 62.8c-10.8 0-21.1 2.2-30.6 6.1-6.4-70.8-65.8-126.4-138.3-126.4-17.8 0-35 3.3-50.3 9.4-6.1 2.2-7.8 4.4-7.8 9.2v249.7c0 5 3.9 8.6 8.6 9.2h218.3c43.3 0 78.6-35 78.6-78.3.1-43.6-35.2-78.9-78.5-78.9zm-296.7-60.3c-4.2 0-7.5 3.3-7.8 7.8l-3.3 136.7 3.3 65.6c.3 4.2 3.6 7.5 7.8 7.5 4.2 0 7.5-3.3 7.5-7.5l3.9-65.6-3.9-136.7c-.3-4.5-3.3-7.8-7.5-7.8zm-53.6-7.8c-3.3 0-6.4 3.1-6.4 6.7l-3.9 145.3 3.9 66.9c.3 3.6 3.1 6.4 6.4 6.4 3.6 0 6.4-2.8 6.7-6.4l4.4-66.9-4.4-145.3c-.3-3.6-3.1-6.7-6.7-6.7zm26.7 3.4c-3.9 0-6.9 3.1-6.9 6.9L227 321.3l3.9 66.4c.3 3.9 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9l4.2-66.4-4.2-141.7c0-3.9-3-6.9-6.9-6.9z"/></svg>
+</span>
+</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+
+  </head>
+  <body>
+    <br/>
+
+<div class="search-area">
+  <form class="search-form" action="https://snagimmo.net/dev/build-website-using-hugo2/" onkeyup="search()">
+    <input class="search-text" id="search-query" placeholder="Search this site" autocomplete="off"/>
+  </form>
+  <div class="search-button">
+    <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+
+  </div>
+  <ul class="search-results" id="results">
+</div>
+
+<br>
+
+<div class="article-meta">
+  <h2><span class="title">Hugoで個人サイト制作(2) Hugoのコンテンツ管理とテンプレート</span></h2>
+  <span class="date"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg>
+</span>
+2021/06/08</span>
+  <p class="terms">
+    
+      
+        <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"/></svg>
+</span>
+
+        
+        <a href='/categories/website'>website</a>&nbsp;&nbsp;
+      
+    
+      
+        <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>
+</span>
+
+        
+        <a href='/tags/hugo'>Hugo</a>&nbsp;&nbsp;
+      
+    
+  </p>
+</div>
+<hr>
+<div class="content-wrapper">
+  <main>
+    <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
+というツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。</p>
+<ul>
+<li>第0回: <a href="https://snagimmo.net/dev/build-website-using-hugo0/">Hugoで個人サイト制作(0) Hugo導入以前</a>
+</li>
+<li>第1回: <a href="https://snagimmo.net/dev/build-website-using-hugo1/">Hugoで個人サイト制作(1) Hugo導入</a>
+</li>
+<li>第2回(今回)</li>
+</ul>
+<p>今回はHugoテーマを改造するためHugoのコンテンツ管理・各種テンプレートについて調べた内容をまとめました。少々長いですが1つのページにまとめたかったのでどうかお許しを。</p>
+<h2 id="テーマをカスタマイズする前に">テーマをカスタマイズする前に</h2>
+<hr>
+<p>早速前回の記事で採用した <a href="https://themes.gohugo.io/hugo-classic/" target="_blank">Hugo Classic | Hugo Themes</a>
+をいじって行きたいのですが、Hugoには独特の <strong>Shortcode</strong> , <strong>Partial Template</strong> などの概念があります。</p>
+<p>Hugo公式ではこの仕組みを <strong>Template</strong> と呼んでいます。</p>
+<p>まずはこれらをきちんと理解しないとテーマのカスタマイズは難しそうだなと感じたので少し調べてみました。</p>
+<h2 id="hugoのコンテンツ管理について">Hugoのコンテンツ管理について</h2>
+<hr>
+<p>Hugoはテーマによって</p>
+<ul>
+<li>どのテンプレートを使用するか</li>
+<li>どのようなファイル/ディレクトリ構成にするのか</li>
+<li>テンプレートにどのようなファイル名を採用するか<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+</ul>
+<p>がかなり異なっている為、カスタマイズしたい場合は自分で選んだテーマに合わせて適宜調べる必要があります。</p>
+<p>Hugo公式Docsに関しては下記2つの中で必要になった部分を見ていくと良いです。</p>
+<ul>
+<li><a href="https://gohugo.io/content-management/" target="_blank">Content Management</a>
+</li>
+<li><a href="https://gohugo.io/templates/" target="_blank">Templates</a>
+</li>
+</ul>
+<p>また、少し上で「テンプレートにどのようなファイル名を採用するかがテーマによって異なる」と書きましたが、これが意外と重要です。</p>
+<p>Hugoは基本的に各テンプレートファイルを <strong>決められた順番・決められたファイルパスで探索</strong> します。その優先順位について書かれているのがこちらです。ここは軽く目を通しておいた方が後々助かると思います。</p>
+<ul>
+<li><a href="https://gohugo.io/templates/lookup-order/" target="_blank">Hugo‘s Lookup Order</a>
+</li>
+</ul>
+<p>日本語でしっかりとした解説をして下さっているgarretlabさんのサイトもおすすめです。</p>
+<ul>
+<li><a href="https://garretlab.web.fc2.com/hugo/template/shortcode/" target="_blank">ショートコード</a>
+</li>
+<li><a href="https://garretlab.web.fc2.com/hugo/contents/structure/" target="_blank">構成</a>
+</li>
+<li><a href="https://garretlab.web.fc2.com/hugo/template/order/" target="_blank">決定規則(検索順序)</a>
+</li>
+</ul>
+<p>こちらの記事も参考にさせて頂きました。</p>
+<ul>
+<li><a href="https://blog.chick-p.work/hugo-site-directory/" target="_blank">HUGO のディレクトリ構成</a>
+</li>
+</ul>
+<h2 id="hugo-templatingの記法について">Hugo Templatingの記法について</h2>
+<hr>
+<p>公式Docsより: <a href="https://gohugo.io/templates/introduction/" target="_blank">Introduction to Hugo Templating</a>
+</p>
+<blockquote>
+<p>Hugo uses Go’s <code>html/template</code> and <code>text/template</code> libraries as the basis for the templating.</p>
+<p>The following is only a primer on Go Templates. For an in-depth look into Go Templates, check the official <a href="https://golang.org/pkg/text/template/" target="_blank">Go docs</a>
+.</p>
+</blockquote>
+<p>上記にもあるように、Hugoでは基本的にGoの<code>html/template</code>と<code>text/template</code>ライブラリを踏襲した記法を採用していて、Hugo公式Docsの解説内容もGoテンプレートの入門に過ぎないので詳しくはGo言語自体のDocsをあたってくれ、だそうです。</p>
+<p>ただこれだけだとちょっと不親切なので、日本語でざっくり説明します。</p>
+<ul>
+<li>HTMLファイルやMarkdownファイルの中でHugoテンプレートを呼び出す為の記法</li>
+<li>基本的に<code>{{</code>と<code>}}</code>でテンプレートを囲み、呼び出す</li>
+<li>テンプレート名の直後に引数(Arguments)を与える事でそれぞれのテンプレートに見合った挙動をさせる仕組み</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- これは一つの例です --&gt;</span>
+{{ template &#34;ARGUMENTS&#34; . }}
+</code></pre></div><p>※ 例えば<code>{{</code>と<code>}}</code> に<code>&lt; &gt;</code>が挟まれている場合は、外側の<code>{{</code>と内側の<code>&lt;</code>の間に <strong>スペースを空けずに記述するのが正しい記法</strong> です。</p>
+<h2 id="hugoサイトの全体像と概念">Hugoサイトの全体像と概念</h2>
+<hr>
+<p>Hugoのサイト構成に関して自分なりに理解した内容をざっくりと書いておきます。</p>
+<ul>
+<li>Hugoの静的サイトは <strong>ページ(Page)</strong> と <strong>テンプレート(Template)</strong> から生成される</li>
+<li>ページ内で呼び出せるテンプレートが <strong>ショートコード(Shortcodes)</strong></li>
+<li>テンプレート内で呼び出せるテンプレートが <strong>インクルード(Includes)</strong></li>
+<li>変数と関数はこれらの内部で呼び出したり条件分岐させたりするのに使う</li>
+<li>各ページ・テンプレートから呼び出す画像・動画などの <strong>リソース(Resources)</strong></li>
+</ul>
+<p>その他の重要な概念がこちらです。</p>
+<ul>
+<li><code>index.md</code>あるいは<code>_index.md</code>という特殊な名前のファイルを含むディレクトリを認識して木のようなディレクトリ構造を実現する仕組みが <strong>ページバンドル(Page Bundle)</strong>
+<ul>
+<li>各記事にあたるディレクトリが <strong>リーフバンドル(Leaf Bundle)</strong></li>
+<li>各セクションにあたるディレクトリが <strong>ブランチバンドル(Branch Bundle)</strong></li>
+</ul>
+</li>
+<li>各タグ・カテゴリーなどの総称である <strong>タクソノミー(Taxonomy)</strong></li>
+</ul>
+<h2 id="ページとテンプレートについて">ページとテンプレートについて</h2>
+<hr>
+<ul>
+<li>
+<p>ページ(Page)について</p>
+<ul>
+<li><code>content</code>ディレクトリ以下に置かれる</li>
+<li>基本的にMarkdownとHTMLに対応
+<ul>
+<li>AsciiDoc、RST、Pandocも利用可能</li>
+<li>詳しくはこちら: <a href="https://gohugo.io/content-management/formats/" target="_blank">Content Formats</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>テンプレート(Templates)について</p>
+<ul>
+<li><code>layouts</code>ディレクトリ以下に置かれる</li>
+<li>基本的にHTMLで表現される
+<ul>
+<li>XMLやJSONを利用することもある</li>
+</ul>
+</li>
+<li>Markdown中に埋め込んでしまうと事実上 <strong>Hugo用のファイル</strong> となってしまうので汎用性を持たせたい場合は注意</li>
+</ul>
+</li>
+<li>
+<p>ページを構成する代表的なテンプレートファイルは3種類ある</p>
+<ol>
+<li>記事 (<code>layouts/_default/single.html</code>)</li>
+<li>セクション (<code>layouts/_default/list.html</code>)</li>
+<li>タクソノミー (<code>layouts/_default/terms.html</code>)</li>
+</ol>
+<ul>
+<li><strong>Hugoのテーマで中心になるのはこの3ファイル</strong> であることが多い</li>
+<li>なお、前述のように記事はLeaf BundleでセクションはBranch Bundleでもある</li>
+</ul>
+</li>
+</ul>
+<p>ページとテンプレートの関係をまとめるとこうなります。</p>
+<ul>
+<li>各種ページと基本3種テンプレートの対応関係
+<ul>
+<li>各タクソノミー(タグ・カテゴリー)用テンプレートが<code>terms.html</code>
+<ul>
+<li><a href="https://snagimmo.net/categories/" target="_blank">https://snagimmo.net/categories/</a>
+: カテゴリー一覧</li>
+<li><a href="https://snagimmo.net/tags/" target="_blank">https://snagimmo.net/tags/</a>
+: タグ一覧</li>
+</ul>
+</li>
+<li>各セクション・各タクソノミー要素の記事一覧用テンプレートが<code>list.html</code>
+<ul>
+<li><a href="https://snagimmo.net/dev/" target="_blank">https://snagimmo.net/dev/</a>
+: devセクションの記事一覧</li>
+<li><a href="https://snagimmo.net/categories/website/" target="_blank">https://snagimmo.net/categories/website/</a>
+: websiteカテゴリの記事一覧</li>
+<li><a href="https://snagimmo.net/tags/hugo" target="_blank">https://snagimmo.net/tags/hugo</a>
+: Hugoタグの記事一覧</li>
+</ul>
+</li>
+<li>各記事用テンプレートが<code>single.html</code>
+<ul>
+<li><a href="https://snagimmo.net/dev/build-website-using-hugo2/" target="_blank">https://snagimmo.net/dev/build-website-using-hugo2/</a>
+: 記事</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="その他のテンプレートについて">その他のテンプレートについて</h2>
+<hr>
+<ul>
+<li>
+<p>ショートコード(Shortcodes)について</p>
+<ul>
+<li><strong>ページ(大抵Markdown)の中で</strong> Hugo Templateを呼び出す為の機能</li>
+<li><code>{{&lt; shortcode &quot;ARGUMENTS&quot; &gt;}}</code>のような記法で文中に埋め込む
+<ul>
+<li>前述の通り<code>{{</code>と<code>&lt;</code>の間には半角スペースを入れずに書く</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>インクルード(Includes)について</p>
+<ul>
+<li><strong>テンプレート(大抵HTML)の中で</strong> 別のHugo Templateを呼び出す為の機能</li>
+<li>インクルードの種類には<code>partial</code>, <code>template</code>などがある
+<ul>
+<li><code>partial</code>は <strong>ユーザーが定義</strong>した <strong>Partial Template</strong> をインクルードする</li>
+<li><code>template</code>は <strong>Hugoが内部で用意</strong>している <strong>Internal Template</strong> などをインクルードする</li>
+</ul>
+</li>
+<li>例えば下記のような形
+<ul>
+<li><code>{{ partial &quot;header.html&quot; . }}</code></li>
+<li><code>{{ template &quot;_internal/opengraph.html&quot; . }}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>変数(Variables)と関数(Functions)について</p>
+<ul>
+<li>基本的に <a href="https://golang.org/pkg/text/template/#hdr-Functions" target="_blank">Goのtext/templateの文法</a>
+と変わらず</li>
+<li><strong>変数(Variables)</strong> とはHugoがページ生成時に保持している値のこと
+<ul>
+<li><code>.Site.XXX</code>や<code>.Page.XXX</code>などがある
+<ul>
+<li><code>config.toml</code>に記述した値(サイト全体で保持される)にアクセスするのが<code>.Site.XXX</code></li>
+<li>各ページ内で設定・保持された値にアクセスするのが<code>.Page.XXX</code>や<code>.Params.XXX</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>関数(Functions)</strong> は<code>if</code>, <code>slice</code>, <code>range</code>など他の言語でよく見るもの</li>
+<li>これらも前述のHugo(Go) Templatingの記法に則ってソース中で呼び出す
+<ul>
+<li><code>{{ if eq xxx &quot;yyy&quot; }}</code>のような形</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ブランチバンドルとリーフバンドルについて">ブランチバンドルとリーフバンドルについて</h2>
+<hr>
+<p>サイト全体の記事構造を一つの木に見立て、各記事を葉っぱ(Leaf)、それらを束ねる各セクションを枝(Branch)と見なしたもの</p>
+<ul>
+<li>
+<p>ブランチバンドル(Branch Bundles)について</p>
+<ul>
+<li><code>content</code>以下にあるディレクトリは<code>_index.md</code>という特殊ファイルがある場合 <strong>Branch Bundles</strong> として扱われる</li>
+<li>要するに <strong>セクション(Section)</strong> のこと</li>
+<li>セクションというのは<code>content</code>ディレクトリ以下に置かれた <strong>サブディレクトリ</strong> のことで、基本的にローカルディレクトリの構造にサイト側のパスも追従する</li>
+<li>セクションは多重化可能 (<code>content/section1/sub-section1</code> のような形)</li>
+</ul>
+</li>
+<li>
+<p>リーフバンドル(Leaf Bundles)について</p>
+<ul>
+<li><code>content</code>以下にあるディレクトリは<code>index.md</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>という特殊ファイルがある場合 <strong>Leaf Bundles</strong> として扱われる</li>
+<li>要するに <strong>記事</strong> のこと</li>
+<li>Branch Bundlesに比べて直感的でないが、こちらの <strong>Leaf Bundlesも主にディレクトリのことを指す</strong> 点に注意</li>
+<li>つまり、ページ(Page) は実は<code>page-desu.md</code>のような単一Markdownファイルとしてだけでなく、<code>index.md</code>という特殊ファイルを含んだディレクトリ<code>page-desu</code>としても配置することが出来る</li>
+<li>特殊ファイルとは言うものの、名前を変えるだけでOK</li>
+<li>中身は<code>page-desu.md</code>と<code>page-desu/index.md</code>とで変える必要はない</li>
+</ul>
+</li>
+</ul>
+<p>公式Docs: <a href="https://gohugo.io/content-management/page-bundles" target="_blank">Page Bundles</a>
+</p>
+<h2 id="ページリソースについて">ページリソースについて</h2>
+<hr>
+<p>これは上記のLeaf Bundlesについて理解できていれば簡単です。</p>
+<ul>
+<li>
+<p><strong>ページリソース(Page Resources)</strong> とは、各ページ内で使用する画像・動画などの <strong>リソース(Resources)</strong> 管理に関する仕組み</p>
+</li>
+<li>
+<p>ページリソース(Page Resources)機能があると何が嬉しいか</p>
+<ul>
+<li>Hugoのリソース管理は元々<code>static</code>ディレクトリで全て行われており、その事にユーザーから不満が出ていた</li>
+<li>各ページ内のリソースを<code>static/images/gazou.png</code>として<code>content</code>とは全く別のディレクトリで管理する必要があった</li>
+<li>このPage Resourcesという仕組みによって各Leaf Bundles(ディレクトリ)内でリソース管理を行うことが可能になった</li>
+</ul>
+</li>
+<li>
+<p>Leaf Bundlesとして認識されたディレクトリ内、つまり<code>index.md</code>と同じ階層以下にその記事から読み込むファイル群を配置できる</p>
+<ul>
+<li><code>page-desu</code>ディレクトリをLeaf Bundlesとすると、<code>page-desu/gazou.png</code>として配置することも<code>page-desu/img/gazou.png</code>として配置することも可能</li>
+<li><code>index.md</code>と同じ階層以下であればどの深さでもリソースを配置することが出来る</li>
+</ul>
+</li>
+</ul>
+<p>公式Docsはこちら: <a href="https://gohugo.io/content-management/page-resources/" target="_blank">Page Resources</a>
+</p>
+<h2 id="タクソノミーtaxonomyについて">タクソノミー(Taxonomy)について</h2>
+<hr>
+<p>実は上記2つのBundles以外に、もう一つHugoのページ(Page)の中核を成す概念があります。</p>
+<p>それが <strong>タクソノミー(Taxonomy)</strong> です。</p>
+<p>よくブログなどで各記事に設定された「タグ」や「カテゴリ」があると思いますが、あれらをまとめてHugoではタクソノミーという名前で呼び、管理しています。</p>
+<p>このタクソノミー内のタグやカテゴリなどの要素ごとにページが自動生成されます。その際に呼び出されるのが<code>layouts/_default/terms.html</code>という訳です。</p>
+<p>タクソノミーに関する公式Docsはこちらです。</p>
+<ul>
+<li><a href="https://gohugo.io/content-management/taxonomies" target="_blank">Taxonomies</a>
+</li>
+<li><a href="https://gohugo.io/templates/taxonomy-templates" target="_blank">Taxonomy Templates</a>
+</li>
+<li><a href="https://gohugo.io/variables/taxonomy" target="_blank">Taxonomy Variables</a>
+</li>
+</ul>
+<p>日本語解説に関してもgarretlabさんの記事がよくまとまっていて参考になります。</p>
+<ul>
+<li><a href="https://garretlab.web.fc2.com/hugo/template/taxonomy/" target="_blank">コンテンツ分類(Taxonomy)</a>
+</li>
+</ul>
+<h2 id="タクソノミーテンプレートの注意点">タクソノミーテンプレートの注意点</h2>
+<hr>
+<p>タクソノミーに関するテンプレートを <strong>タクソノミーテンプレート(Taxonomy Template)</strong> と言いますが、これを扱う際は注意が必要です。</p>
+<p>タクソノミー内の値には<code>.Data.Terms</code>や<code>.Data.Pages</code>といった形でアクセスします。</p>
+<p>つまり<code>.Data</code>の下にぶら下がる<code>.Data.XXX</code>といった形で記述するのですが、これは似たような<code>.Site.Data.XXX</code>といった形を持つ <strong>データテンプレート(Data Template)</strong> とは似て非なる <strong>全くの別物</strong> です。</p>
+<p>先に書いたように<code>.Site.XXX</code>というのは基本的に <strong><code>config.toml</code>ファイルに書かれたサイト全体で共有可能な設定値</strong> を読み込むのに使います。</p>
+<p>この<code>.Site.Data.XXX</code>も似たようなもので、<code>data/data-area/data-desu.toml</code>内に記述した値をデータテンプレートから取り出す為に使います。</p>
+<p>ですので繰り返しになりますが、タクソノミーがデフォルトで保持する<code>.Data.Terms</code>は<code>.Site.Data.XXX</code>とは全くの別物なわけです。</p>
+<p>公式ではタクソノミーテンプレート用の変数を<code>.Data.Terms</code>ではなく<code>.Site.Taxonomies.XXX</code>として扱う方法も紹介されています。</p>
+<ul>
+<li><a href="https://gohugo.io/templates/taxonomy-templates/#render-a-sites-taxonomies" target="_blank">Taxonomy Templates #render-a-sites-taxonomies</a>
+</li>
+</ul>
+<blockquote>
+<p>If you wish to display the list of all keys for your site’s taxonomy, you can retrieve them from the .Site variable available on every page.</p>
+</blockquote>
+<p>こちらも公式からの引用ですが、例えば下の<code>.Site.Taxonomies.tags</code>を利用した例ではサイト全体のタグ一覧を表示することが出来ます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
+    {{ range .Site.Taxonomies.tags }}
+            &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Page.Permalink }}&#34;</span>&gt;{{ .Page.Title }}&lt;/<span style="color:#f92672">a</span>&gt; {{ .Count }}&lt;/<span style="color:#f92672">li</span>&gt;
+    {{ end }}
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><h2 id="次回へ続く">次回へ続く</h2>
+<hr>
+<p>今回はHugoサイトの全体像とHugoテンプレートに関する話でした。</p>
+<p>次回はテーマ改良を予定しています。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>例えばタクソノミーに関しては<code>layouts/_default/terms.html</code>, <code>layouts/_default/terms.html.html</code>, <code>layouts/category/terms.html</code>などのバリエーションが存在する. 詳細: <a href="https://gohugo.io/templates/lookup-order/#examples-layout-lookup-for-taxonomy-pages" target="_blank">Taxonomy Templates</a>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>頭にアンダースコア<code>_</code>が付いていない点に注意&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+  </main>
+</div>
+<hr>
+<div class="page-links">
+    <span class="arrow-left"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zm28.9-143.6L209.4 288H392c13.3 0 24-10.7 24-24v-16c0-13.3-10.7-24-24-24H209.4l75.5-72.4c9.7-9.3 9.9-24.8.4-34.3l-11-10.9c-9.4-9.4-24.6-9.4-33.9 0L107.7 239c-9.4 9.4-9.4 24.6 0 33.9l132.7 132.7c9.4 9.4 24.6 9.4 33.9 0l11-10.9c9.5-9.5 9.3-25-.4-34.3z"/></svg>
+</span>
+</span>
+    <span class="prev-link"><a href="/dev/build-website-using-hugo1/">Hugoで個人サイト制作(1) Hugo導入</a></span></div>
+<br>
+
+<div class="sharing-buttons">
+  <p class="sharing-buttons-area">
+  <span class="sharing-button-twitter"><a rel="nofollow" href="https://twitter.com/intent/tweet/?text=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%282%29%20Hugo%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%86%e3%83%b3%e3%83%84%e7%ae%a1%e7%90%86%e3%81%a8%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%20%7c%20snagim%28%20%27e%27%20%29mo&url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo2%2f" target="_blank" title="Twitter"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span>
+</a></span>
+  <span class="sharing-button-hatena"><a rel="nofollow" href="https://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo2%2f&title=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%282%29%20Hugo%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%86%e3%83%b3%e3%83%84%e7%ae%a1%e7%90%86%e3%81%a8%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="はてなブックマーク"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><path fill="currentColor" class="st0" d="M224.7,278.7c-5.5-3.8-15.9-5.7-30.9-5.7h-22.6v49.5h21.7c14.6,0,25-1.8,31.1-5.5l-0.1,0.1 c6.2-3.7,9.2-8.8,9.2-18.4C233.1,289.1,230.2,282.5,224.7,278.7z"/><path fill="currentColor" class="st0" d="M214.9,227.3c5.6-3.4,8.5-8.9,8.5-17.4s-2.6-14.5-7.9-18c-5.3-3.5-15.6-5.2-31-5.2h-13.3v45.6h12.3 C198.8,232.3,209.3,230.7,214.9,227.3z"/><path fill="currentColor" class="st0" d="M398.1,0H101.9C45.6,0,0,45.6,0,101.9v296.2C0,454.4,45.6,500,101.9,500h296.2c56.3,0,101.9-45.6,101.9-101.9 V101.9C500,45.6,454.4,0,398.1,0z M332.6,136.4h50v151.5h-50V136.4z M284.1,330.7c-5,9.2-12.6,16.6-21.9,21.4 c-7.7,4.1-17.2,7.1-28.6,8.9c-11.4,1.7-30,2.6-55.8,2.6h-64.2V136.4h62.3c25.6,0,43.5,0.7,53.7,2.4c10.2,1.7,18.9,4.6,26.2,8.6 c8,4.3,14.7,10.7,19.2,18.6c4.5,8.3,6.8,17.6,6.6,27.1c0,12.9-3.2,23-9.8,30.7c-6.6,7.7-17,13.4-31.4,17.3 c16.1,1.2,28.7,6.9,37.8,17c9.1,10.1,13.6,23.6,13.6,40.5C291.8,310.8,289.2,321.5,284.1,330.7z M386.4,334.9 c0,15.9-12.9,28.8-28.8,28.8c-15.9,0-28.8-12.9-28.8-28.8c0-15.9,12.9-28.8,28.8-28.8C373.5,306.1,386.4,319,386.4,334.9 C386.4,334.9,386.4,334.9,386.4,334.9z"/></svg>
+
+</span>
+</a></span>
+  <span class="sharing-button-facebook"><a rel="nofollow" href="https://www.facebook.com/share.php?u=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo2%2f&t=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%282%29%20Hugo%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%86%e3%83%b3%e3%83%84%e7%ae%a1%e7%90%86%e3%81%a8%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="Facebook"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span>
+</a></span>
+  <span class="sharing-button-pocket"><a rel="nofollow" href="https://getpocket.com/edit?url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo2%2f&title=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%282%29%20Hugo%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%86%e3%83%b3%e3%83%84%e7%ae%a1%e7%90%86%e3%81%a8%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="Pocket"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 400"><path fill="currentColor" d="M407.6,0h-367C18.5,0,0,18.5,0,40.6v135.2C0,300.5,99.7,400,224.2,400c124,0,223.8-99.5,223.8-224.2V40.6 C448,18.2,430.3,0,407.6,0z M245.6,268.5c-12.4,11.8-31.4,11.1-42.4,0C89.5,159.6,88.3,163.4,88.3,145.3c0-16.9,13.8-30.7,30.7-30.7 c17,0,16.1,3.8,105.2,89.3c90.6-86.9,88.6-89.3,105.5-89.3c16.9,0,30.7,13.8,30.7,30.7C360.4,163.1,357.5,161,245.6,268.5 L245.6,268.5z"/></svg>
+
+</span>
+</a></span>
+  <span class="sharing-button-share"><a href=JavaScript:copyUrl() title="URLをコピー"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 497.8 497.8"><path fill="currentColor" d="M364.7,310.8c-21.9,0-42,7.6-57.8,20.2l-99.1-61.9c2.9-13.3,2.9-27,0-40.3l99.1-61.9c15.9,12.6,36,20.2,57.8,20.2 c51.3,0,92.8-41.6,92.8-92.8S415.9,1.4,364.7,1.4s-92.8,41.6-92.8,92.8c0,6.9,0.8,13.7,2.2,20.2L175,176.3 c-15.9-12.6-36-20.2-57.8-20.2c-51.3,0-92.8,41.6-92.8,92.8s41.6,92.8,92.8,92.8c21.9,0,42-7.6,57.8-20.2l99.1,61.9 c-1.5,6.6-2.2,13.4-2.2,20.2c0,51.3,41.6,92.8,92.8,92.8s92.8-41.6,92.8-92.8S415.9,310.8,364.7,310.8z"/></svg>
+
+</span>
+</a></span>
+  </p>
+</div>
+
+
+
+
+    <footer>
+  <nav>
+    <ul>
+      
+      
+      
+      
+      <li class="pull-home ">
+        <a href="/contact/">contact</a>
+      </li>
+      
+      
+      <li class="pull-home ">
+        <a href="/updates/">updates</a>
+      </li>
+      
+
+      
+    </ul>
+  </nav>
+  <br>
+  <div class="copyright">
+    
+    ©
+    2021
+    snagimmo
+  </div>
+</footer>
+
+
+    <div id="footer-scripts">
+      
+      
+      <script src="/js/codeblock-filename.js"></script>
+
+      
+      <script src="/js/copyurl.js"></script>
+
+      
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+      <script src="/js/lunr.js"></script>
+      <script src="/js/lunr.stemmer.support.js"></script>
+      <script src="/js/tinyseg.js"></script>
+      <script src="/js/lunr.ja.js"></script>
+      <script src="/js/lunr.multi.js"></script>
+      <script src="/js/search.js"></script>
+
+      
+      <script src="/js/prism.js"></script>
+
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" type="text/javascript"></script>
+
+      
+      
+
+
+    </div>
+  </body>
+</html>
+
