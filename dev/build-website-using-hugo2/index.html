@@ -372,19 +372,19 @@
 <hr>
 <p>サイト全体の記事構造を一つの木に見立て、各記事を葉っぱ(Leaf)、それらを束ねる各セクションを枝(Branch)と見なしたもの</p>
 <ul>
-<li>
-<p>ブランチバンドル(Branch Bundles)について</p>
+<li>ブランチバンドル(Branch Bundles)について
 <ul>
 <li><code>content</code>以下にあるディレクトリは<code>_index.md</code>という特殊ファイルがある場合 <strong>Branch Bundles</strong> として扱われる</li>
-<li>要するに <strong>セクション(Section)</strong> のこと</li>
+<li>要するに <strong>セクション(Section)</strong> のこと<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 <li>セクションというのは<code>content</code>ディレクトリ以下に置かれた <strong>サブディレクトリ</strong> のことで、基本的にローカルディレクトリの構造にサイト側のパスも追従する</li>
 <li>セクションは多重化可能 (<code>content/section1/sub-section1</code> のような形)</li>
 </ul>
 </li>
-<li>
-<p>リーフバンドル(Leaf Bundles)について</p>
+</ul>
 <ul>
-<li><code>content</code>以下にあるディレクトリは<code>index.md</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>という特殊ファイルがある場合 <strong>Leaf Bundles</strong> として扱われる</li>
+<li>リーフバンドル(Leaf Bundles)について
+<ul>
+<li><code>content</code>以下にあるディレクトリは<code>index.md</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>という特殊ファイルがある場合 <strong>Leaf Bundles</strong> として扱われる</li>
 <li>要するに <strong>記事</strong> のこと</li>
 <li>Branch Bundlesに比べて直感的でないが、こちらの <strong>Leaf Bundlesも主にディレクトリのことを指す</strong> 点に注意</li>
 <li>つまり、ページ(Page) は実は<code>page-desu.md</code>のような単一Markdownファイルとしてだけでなく、<code>index.md</code>という特殊ファイルを含んだディレクトリ<code>page-desu</code>としても配置することが出来る</li>
@@ -470,11 +470,15 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>例えばタクソノミーに関しては<code>layouts/_default/terms.html</code>, <code>layouts/_default/terms.html.html</code>, <code>layouts/category/terms.html</code>などのバリエーションが存在する. 詳細: <a href="https://gohugo.io/templates/lookup-order/#examples-layout-lookup-for-taxonomy-pages" target="_blank">Taxonomy Templates</a>
-&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>例えばタクソノミーに関しては<code>layouts/_default/terms.html</code>, <code>layouts/_default/terms.html.html</code>, <code>layouts/category/terms.html</code>などのバリエーションが存在する (詳細: <a href="https://gohugo.io/templates/lookup-order/#examples-layout-lookup-for-taxonomy-pages" target="_blank">Taxonomy Templates</a>
+)&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>頭にアンダースコア<code>_</code>が付いていない点に注意&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>厳密には違うものの、セクション以外のBranch Bundleはホームやタクソノミーしかないので事実上セクションを指しているようなものとした (詳細: <a href="https://gohugo.io/content-management/page-bundles/" target="_blank">Page Bundles</a>
+)&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>頭にアンダースコア<code>_</code>が付いていない点に注意&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
