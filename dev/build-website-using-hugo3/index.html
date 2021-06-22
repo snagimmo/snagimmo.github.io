@@ -148,6 +148,19 @@
 </div>
 <hr>
 <div class="content-wrapper">
+      <aside class="xToc">
+          <div class="xToc_title">目次</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#サイト管理用リポジトリについて">サイト管理用リポジトリについて</a></li>
+    <li><a href="#テーマ用ファイルのコピーと上書き">テーマ用ファイルのコピーと上書き</a></li>
+    <li><a href="#手を加えるべきファイル">手を加えるべきファイル</a></li>
+    <li><a href="#ヘッダや背景や文字の色を変更">ヘッダや背景や文字の色を変更</a></li>
+    <li><a href="#シンタックスハイライトを改良">シンタックスハイライトを改良</a></li>
+    <li><a href="#シンタックスハイライトを更に改良">シンタックスハイライトを更に改良</a></li>
+  </ul>
+</nav>
+      </aside>
   <main>
     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
 というツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。</p>
@@ -158,7 +171,7 @@
 </li>
 <li>第2回: <a href="https://snagimmo.net/dev/build-website-using-hugo2/">Hugoで個人サイト制作(2) コンテンツ管理とテンプレート</a>
 </li>
-<li>第3回(今回)</li>
+<li><strong>第3回(今回)</strong></li>
 </ul>
 <p>今回はHugoテーマをカスタマイズしていきます。前回までの記事がある程度汎用性のある記事だったのに対し、ここからは個人的・個別具体的な話になると思います。</p>
 <h2 id="サイト管理用リポジトリについて">サイト管理用リポジトリについて</h2>
@@ -177,7 +190,7 @@
 <p>テーマ用リポジトリはforkなので勿論publicリポジトリですが、このHugoサイト編集用のリポジトリは非公開(private)です。編集途中のファイルやHugoサイトのビルドに関係ないスクリプト(<code>.bat</code>, <code>.sh</code>など)も置いているので非公開にしてあります。</p>
 <p>編集用リポジトリの名前についてはhugo-classicをベースにしようと決めたので <strong>hugo-neoclassic</strong> にしました。</p>
 <p>また、非公開の編集用リポジトリから公開用リポジトリ(GitHub Pages)へCircleCIを使って自動pushされるようにしていますが、この話はまた別の記事に載せることとします。</p>
-<h2 id="上記リポジトリ群をベースにしたサイトの新規作成">上記リポジトリ群をベースにしたサイトの新規作成</h2>
+<h2 id="テーマ用ファイルのコピーと上書き">テーマ用ファイルのコピーと上書き</h2>
 <hr>
 <p>Hugoではテーマファイルを<code>ROOT/themes/&lt;THEME&gt;</code>から<code>ROOT/</code>直下にコピーしてから編集することで、テーマファイルよりも自分の編集したファイルが優先してビルドされるような仕組みになっています。</p>
 <p>従って、いきなりサイト用ディレクトリ直下(<code>ROOT/</code>)にテーマをcloneするよりも<code>ROOT/themes</code>以下にテーマリポジトリをcloneしてから<code>ROOT/</code>にコピーし、サイト用ファイルとして編集した方が後々楽になると思います。</p>
@@ -376,7 +389,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 </li>
 </ul>
 <p>一応Hugoデフォルトの <strong>Pygments</strong> によるハイライトも可能になるようブランチを切っておきました。……が、Prism.jsで十分なので多分使わないですね。</p>
-<h4 id="参考記事">参考記事</h4>
+<h3>参考記事</h3>
 <ul>
 <li><a href="https://susisu.hatenablog.com/entry/2017/08/06/235706" target="_blank">ソースコードの右上に言語名を表示するやつ - Object.create(null)</a>
 </li>
@@ -393,7 +406,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 <li><a href="https://wemo.tech/535" target="_blank">CSSでスクロールバーのデザインをカスタマイズする。 | WEMO</a>
 </li>
 </ul>
-<h2 id="次回へ続く">次回へ続く</h2>
+<h2>次回へ続く</h2>
 <hr>
 <p>今回はHugoテーマカスタマイズの1回目でした。</p>
 <p>次回はテーマカスタマイズの続きを予定しています。</p>

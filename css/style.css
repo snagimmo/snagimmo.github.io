@@ -370,6 +370,44 @@ blockquote {
 }
 
 /* Tables */
+.xToc {
+  background: #282C34;
+  border: 1px solid #D0AF4C;
+  border-radius: .3em;
+  padding: 1.2em 1.5em .8em 1.5em;
+  line-height: 1.7em;
+  width: 70%;
+  margin: auto;
+  font-size: 1.1em;
+}
+.xToc_title {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+.xToc ul {
+  list-style-type: none;
+  padding-left: 0.8em;
+}
+.xToc li {
+  padding-top: 0 !important;
+}
+.xToc li > ul {
+  padding-left: 1em;
+  width: 100%;
+}
+.xToc li {
+  border: 5px #D0AF4C !important;
+}
+.xToc a {
+  color: #c0c0c0 !important;
+  font-weight: normal;
+  display: block;
+  border-bottom: dashed 1px #999;
+}
+.xToc a:hover {
+  color: #FFD700 !important;
+}
+
 table {
   padding: 1px;
   margin: auto;

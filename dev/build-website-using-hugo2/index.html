@@ -148,6 +148,23 @@
 </div>
 <hr>
 <div class="content-wrapper">
+      <aside class="xToc">
+          <div class="xToc_title">目次</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#テーマをカスタマイズする前に">テーマをカスタマイズする前に</a></li>
+    <li><a href="#hugoのコンテンツ管理について">Hugoのコンテンツ管理について</a></li>
+    <li><a href="#hugo-templatingの記法について">Hugo Templatingの記法について</a></li>
+    <li><a href="#hugoサイトの全体像と概念">Hugoサイトの全体像と概念</a></li>
+    <li><a href="#ページとテンプレートについて">ページとテンプレートについて</a></li>
+    <li><a href="#その他のテンプレートについて">その他のテンプレートについて</a></li>
+    <li><a href="#ブランチバンドルとリーフバンドルについて">ブランチバンドルとリーフバンドルについて</a></li>
+    <li><a href="#ページリソースについて">ページリソースについて</a></li>
+    <li><a href="#タクソノミーtaxonomyについて">タクソノミー(Taxonomy)について</a></li>
+    <li><a href="#タクソノミーテンプレートの注意点">タクソノミーテンプレートの注意点</a></li>
+  </ul>
+</nav>
+      </aside>
   <main>
     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
 というツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。</p>
@@ -156,7 +173,7 @@
 </li>
 <li>第1回: <a href="https://snagimmo.net/dev/build-website-using-hugo1/">Hugoで個人サイト制作(1) Hugo導入</a>
 </li>
-<li>第2回(今回)</li>
+<li><strong>第2回(今回)</strong></li>
 <li>第3回: <a href="https://snagimmo.net/dev/build-website-using-hugo3/">Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</a>
 </li>
 </ul>
@@ -464,7 +481,7 @@
             &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Page.Permalink }}&#34;</span>&gt;{{ .Page.Title }}&lt;/<span style="color:#f92672">a</span>&gt; {{ .Count }}&lt;/<span style="color:#f92672">li</span>&gt;
     {{ end }}
 &lt;/<span style="color:#f92672">ul</span>&gt;
-</code></pre></div><h2 id="次回へ続く">次回へ続く</h2>
+</code></pre></div><h2>次回へ続く</h2>
 <hr>
 <p>今回はHugoサイトの全体像とHugoテンプレートに関する話でした。</p>
 <p>次回はテーマ改良を予定しています。</p>
