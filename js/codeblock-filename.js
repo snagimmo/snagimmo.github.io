@@ -1,7 +1,7 @@
 var list = document.body.getElementsByClassName("highlight");
 
 for(i=0; i <= list.length-1; i++){
-  var code = list[i].firstElementChild.firstElementChild
+  var code = list[i].firstElementChild.firstElementChild;
   if(code) {
     var codeType =  code.className.split(":")[1] ? code.className.split(":")[1] : code.className.split(":")[0].replace(/language-/, '');
   }

@@ -6,10 +6,17 @@
         <description>Recent content in dev on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <lastBuildDate>Tue, 08 Jun 2021 22:30:00 +0900</lastBuildDate>
+        <lastBuildDate>Tue, 22 Jun 2021 20:00:00 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/dev/feed.xml" rel="self" type="application/rss+xml" />
         <item>
-            <title>Hugoで個人サイト制作(2) Hugoのコンテンツ管理とテンプレート</title>
+            <title>Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</title>
+            <link>https://snagimmo.net/dev/build-website-using-hugo3/</link>
+            <pubDate>Tue, 22 Jun 2021 20:00:00 +0900</pubDate>
+            <guid>https://snagimmo.net/dev/build-website-using-hugo3/</guid>
+            <description>Hugoで個人サイトを作るシリーズ3回目: Hugoテーマの見た目をカスタマイズする</description>
+        </item>
+        <item>
+            <title>Hugoで個人サイト制作(2) コンテンツ管理とテンプレート</title>
             <link>https://snagimmo.net/dev/build-website-using-hugo2/</link>
             <pubDate>Tue, 08 Jun 2021 22:30:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo2/</guid>
