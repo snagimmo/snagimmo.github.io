@@ -6,8 +6,15 @@
         <description>Recent content in Tags on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <lastBuildDate>Tue, 22 Jun 2021 20:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Wed, 23 Jun 2021 23:57:20 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/tags/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2</title>
+            <link>https://snagimmo.net/dev/build-website-using-hugo4/</link>
+            <pubDate>Wed, 23 Jun 2021 23:57:20 +0900</pubDate>
+            <guid>https://snagimmo.net/dev/build-website-using-hugo4/</guid>
+            <description>Hugoで個人サイトを作るシリーズ4回目: Hugoテーマの見た目・機能面をカスタマイズする</description>
+        </item>
         <item>
             <title>Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</title>
             <link>https://snagimmo.net/dev/build-website-using-hugo3/</link>

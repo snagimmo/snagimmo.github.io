@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128x128.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hugoで個人サイトを作るシリーズ4回目: Hugoテーマの見た目・機能面をカスタマイズする">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snagimmo.net/dev/build-website-using-hugo4/">
+    <meta property="og:image" content="https://snagimmo.net/images/profile.png">
+    <meta property="og:title" content="Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2">
+    <meta property="og:site_name" content="snagim( &#39;e&#39; )mo">
+    <meta property="og:description" content="Hugoで個人サイトを作るシリーズ4回目: Hugoテーマの見た目・機能面をカスタマイズする">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@snagimmo">
+    <meta name="twitter:creator" content="@snagimmo">
+
+    <title>Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 | snagim( &#39;e&#39; )mo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="https://snagimmo.net/css/theme-override.css">
+
+    
+    <link href="/css/prism.css" rel="stylesheet">
+
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" rel="stylesheet">
+
+    <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-home ">
+        <a href="https://snagimmo.net/">home</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M464,136H272l-64-64H48C21.5,72,0,93.5,0,120v288c0,26.5,21.5,48,48,48h416c26.5,0,48-21.5,48-48V184 C512,157.5,490.5,136,464,136z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags/"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M20,272.4V84.3C20,59.8,39.8,40,64.3,40h188.2c11.7,0,23,4.7,31.3,13L479,248.3c17.3,17.3,17.3,45.3,0,62.6L290.9,499 c-17.3,17.3-45.3,17.3-62.6,0L33,303.7C24.7,295.4,20,284.2,20,272.4z M123.3,99C98.8,99,79,118.8,79,143.3s19.8,44.3,44.2,44.3	s44.3-19.8,44.3-44.3S147.7,99,123.3,99z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/feed.xml" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" x="0px"	 y="0px" viewBox="0 0 448 512" style="enable-background:new 0 0 448 512;" xml:space="preserve"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M149.3,380.6c0,27.6-22.3,49.9-49.9,49.9s-49.9-22.3-49.9-49.9s22.3-49.9,49.9-49.9S149.3,353.1,149.3,380.6L149.3,380.6z M286.1,417.4c-6.5-120.4-103-217-223.5-223.5c-7.1-0.4-13.1,5.3-13.1,12.5v37.4c0,6.6,5.1,12.1,11.6,12.5	c87.1,5.7,157,75.3,162.6,162.6c0.4,6.5,5.9,11.6,12.5,11.6h37.4C280.8,430.5,286.5,424.5,286.1,417.4L286.1,417.4z M398.5,417.6 C392,235.5,245.4,88.1,62.4,81.5c-7-0.3-12.9,5.4-12.9,12.5v37.4c0,6.7,5.3,12.2,12,12.5C210.5,150,330,269.6,336.1,418.5 c0.3,6.7,5.7,12,12.5,12H386C393.1,430.5,398.7,424.7,398.5,417.6z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-link">
+          <a href="https://github.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://twitter.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://misskey.io/@snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.3 42.8"><path fill="currentColor" d="M24.1,30.2c-2.5,0-4.7-1.4-5.7-3.1c-0.5-0.7-1.6-1-1.6,0v4.5c0,1.8-0.7,3.4-2.1,4.7c-1.4,1.3-3.1,1.9-5,1.9 c-1.9,0-3.6-0.6-5-1.9c-1.4-1.3-2.1-2.9-2.1-4.7v-25C2.5,5.3,3,4,3.8,2.9c0.9-1.2,2-2,3.4-2.5C8,0.1,8.8,0,9.6,0 c2.2,0,4,0.8,5.5,2.4c0.8,0.8,1.2,1.2,1.3,1.3c0,0,5.8,6.6,5.9,6.7c0.2,0.1,0.6,1,1.8,1s1.7-0.9,1.8-1c0.2-0.1,5.9-6.7,5.9-6.7 c0,0,0.5-0.4,1.3-1.3C34.7,0.8,36.5,0,38.7,0c0.8,0,1.6,0.1,2.4,0.4c1.4,0.5,2.5,1.3,3.3,2.5c0.9,1.1,1.3,2.4,1.3,3.8v25 c0,1.8-0.7,3.4-2.1,4.7c-1.4,1.3-3.1,1.9-5,1.9c-1.9,0-3.6-0.6-5-1.9c-1.4-1.3-2.1-2.9-2.1-4.7v-4.5c-0.1-1.2-1.3-0.5-1.7,0 C28.7,29,26.6,30.2,24.1,30.2z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://soundcloud.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M111.4 256.3l5.8 65-5.8 68.3c-.3 2.5-2.2 4.4-4.4 4.4s-4.2-1.9-4.2-4.4l-5.6-68.3 5.6-65c0-2.2 1.9-4.2 4.2-4.2 2.2 0 4.1 2 4.4 4.2zm21.4-45.6c-2.8 0-4.7 2.2-5 5l-5 105.6 5 68.3c.3 2.8 2.2 5 5 5 2.5 0 4.7-2.2 4.7-5l5.8-68.3-5.8-105.6c0-2.8-2.2-5-4.7-5zm25.5-24.1c-3.1 0-5.3 2.2-5.6 5.3l-4.4 130 4.4 67.8c.3 3.1 2.5 5.3 5.6 5.3 2.8 0 5.3-2.2 5.3-5.3l5.3-67.8-5.3-130c0-3.1-2.5-5.3-5.3-5.3zM7.2 283.2c-1.4 0-2.2 1.1-2.5 2.5L0 321.3l4.7 35c.3 1.4 1.1 2.5 2.5 2.5s2.2-1.1 2.5-2.5l5.6-35-5.6-35.6c-.3-1.4-1.1-2.5-2.5-2.5zm23.6-21.9c-1.4 0-2.5 1.1-2.5 2.5l-6.4 57.5 6.4 56.1c0 1.7 1.1 2.8 2.5 2.8s2.5-1.1 2.8-2.5l7.2-56.4-7.2-57.5c-.3-1.4-1.4-2.5-2.8-2.5zm25.3-11.4c-1.7 0-3.1 1.4-3.3 3.3L47 321.3l5.8 65.8c.3 1.7 1.7 3.1 3.3 3.1 1.7 0 3.1-1.4 3.1-3.1l6.9-65.8-6.9-68.1c0-1.9-1.4-3.3-3.1-3.3zm25.3-2.2c-1.9 0-3.6 1.4-3.6 3.6l-5.8 70 5.8 67.8c0 2.2 1.7 3.6 3.6 3.6s3.6-1.4 3.9-3.6l6.4-67.8-6.4-70c-.3-2.2-2-3.6-3.9-3.6zm241.4-110.9c-1.1-.8-2.8-1.4-4.2-1.4-2.2 0-4.2.8-5.6 1.9-1.9 1.7-3.1 4.2-3.3 6.7v.8l-3.3 176.7 1.7 32.5 1.7 31.7c.3 4.7 4.2 8.6 8.9 8.6s8.6-3.9 8.6-8.6l3.9-64.2-3.9-177.5c-.4-3-2-5.8-4.5-7.2zm-26.7 15.3c-1.4-.8-2.8-1.4-4.4-1.4s-3.1.6-4.4 1.4c-2.2 1.4-3.6 3.9-3.6 6.7l-.3 1.7-2.8 160.8s0 .3 3.1 65.6v.3c0 1.7.6 3.3 1.7 4.7 1.7 1.9 3.9 3.1 6.4 3.1 2.2 0 4.2-1.1 5.6-2.5 1.7-1.4 2.5-3.3 2.5-5.6l.3-6.7 3.1-58.6-3.3-162.8c-.3-2.8-1.7-5.3-3.9-6.7zm-111.4 22.5c-3.1 0-5.8 2.8-5.8 6.1l-4.4 140.6 4.4 67.2c.3 3.3 2.8 5.8 5.8 5.8 3.3 0 5.8-2.5 6.1-5.8l5-67.2-5-140.6c-.2-3.3-2.7-6.1-6.1-6.1zm376.7 62.8c-10.8 0-21.1 2.2-30.6 6.1-6.4-70.8-65.8-126.4-138.3-126.4-17.8 0-35 3.3-50.3 9.4-6.1 2.2-7.8 4.4-7.8 9.2v249.7c0 5 3.9 8.6 8.6 9.2h218.3c43.3 0 78.6-35 78.6-78.3.1-43.6-35.2-78.9-78.5-78.9zm-296.7-60.3c-4.2 0-7.5 3.3-7.8 7.8l-3.3 136.7 3.3 65.6c.3 4.2 3.6 7.5 7.8 7.5 4.2 0 7.5-3.3 7.5-7.5l3.9-65.6-3.9-136.7c-.3-4.5-3.3-7.8-7.5-7.8zm-53.6-7.8c-3.3 0-6.4 3.1-6.4 6.7l-3.9 145.3 3.9 66.9c.3 3.6 3.1 6.4 6.4 6.4 3.6 0 6.4-2.8 6.7-6.4l4.4-66.9-4.4-145.3c-.3-3.6-3.1-6.7-6.7-6.7zm26.7 3.4c-3.9 0-6.9 3.1-6.9 6.9L227 321.3l3.9 66.4c.3 3.9 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9l4.2-66.4-4.2-141.7c0-3.9-3-6.9-6.9-6.9z"/></svg>
+</span>
+</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+
+  </head>
+  <body>
+    <br/>
+
+<div class="search-area">
+  <form class="search-form" action="https://snagimmo.net/dev/build-website-using-hugo4/" onkeyup="search()">
+    <input class="search-text" id="search-query" placeholder="Search this site" autocomplete="off"/>
+  </form>
+  <div class="search-button">
+    <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+
+  </div>
+  <ul class="search-results" id="results">
+</div>
+
+<br>
+
+<div class="article-meta">
+  <h2><span class="title">Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2</span></h2>
+  <span class="date"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg>
+</span>
+2021/06/23</span>
+  <p class="terms">
+    
+      
+        <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"/></svg>
+</span>
+
+        
+        <a href='/categories/website'>website</a>&nbsp;&nbsp;
+      
+    
+      
+        <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>
+</span>
+
+        
+        <a href='/tags/hugo'>Hugo</a>&nbsp;&nbsp;
+      
+    
+  </p>
+</div>
+<hr>
+<div class="content-wrapper">
+      <aside class="xToc">
+          <div class="xToc_title">目次</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fontawesomeでsvg表示">FontAwesomeでSVG表示</a>
+      <ul>
+        <li><a href="#svgのrawデータdl用スクリプトの作成">SVGのRAWデータDL用スクリプトの作成</a></li>
+        <li><a href="#テンプレートの復習">テンプレートの復習</a></li>
+        <li><a href="#partial-templateの作成">Partial Templateの作成</a></li>
+        <li><a href="#テンプレート内からsvgを呼び出す">テンプレート内からSVGを呼び出す</a></li>
+        <li><a href="#hugo-classic--fontawesomeの注意点">Hugo Classic + FontAwesomeの注意点</a></li>
+      </ul>
+    </li>
+    <li><a href="#各種shortcodeの追加">各種Shortcodeの追加</a>
+      <ul>
+        <li><a href="#privatehtmlについて">private.htmlについて</a></li>
+        <li><a href="#coloredhtmlについて">colored.htmlについて</a></li>
+        <li><a href="#imagehtmlについて">image.htmlについて</a></li>
+        <li><a href="#steamhtmlについて">steam.htmlについて</a></li>
+      </ul>
+    </li>
+    <li><a href="#toc目次を追加">TOC(目次)を追加</a></li>
+    <li><a href="#faviconを設定">faviconを設定</a></li>
+  </ul>
+</nav>
+      </aside>
+  <main>
+    <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
+というツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。</p>
+<ul>
+<li>第0回: <a href="https://snagimmo.net/dev/build-website-using-hugo0/">Hugoで個人サイト制作(0) Hugo導入以前</a>
+</li>
+<li>第1回: <a href="https://snagimmo.net/dev/build-website-using-hugo1/">Hugoで個人サイト制作(1) Hugo導入</a>
+</li>
+<li>第2回: <a href="https://snagimmo.net/dev/build-website-using-hugo2/">Hugoで個人サイト制作(2) コンテンツ管理とテンプレート</a>
+</li>
+<li>第3回: <a href="https://snagimmo.net/dev/build-website-using-hugo3/">Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</a>
+</li>
+<li><strong>第4回(今回)</strong></li>
+</ul>
+<p>今回もHugoテーマをカスタマイズしていきます。前回記事ではシンタックスハイライトを直した程度で終わりましたが今回はもう少し細かいところの話です。</p>
+<h2 id="fontawesomeでsvg表示">FontAwesomeでSVG表示</h2>
+<p>ヘッダやフッタ周りのデザイン変更が一段落したので、次に画像ファイルとしてSVGを表示出来る <strong>FontAwesome</strong> を使いたいなと思いました。</p>
+<p>FontAwesomeのGitHub: <a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit</a>
+</p>
+<p>調べてみると、どうやらHugo用にFontAwesomeのPartial Template<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>を作成することで簡単にテンプレート内からSVGの埋め込みタグを挿入できる事が分かりました。</p>
+<ol>
+<li>ローカルにSVGファイルを用意</li>
+<li>それを呼び出す為のFontAwesome用Partial Templateを作成</li>
+<li><code>layouts/</code>以下のテンプレート内から2.のPartial Templateを呼び出し</li>
+</ol>
+<p>以上でSVGが簡単に表示出来るわけです。</p>
+<h3 id="svgのrawデータdl用スクリプトの作成">SVGのRAWデータDL用スクリプトの作成</h3>
+<p>最初にまずFontAwesomeのRAWデータをダウンロードするスクリプトを書きました。</p>
+<p>ダウンロードしたいSVGファイル名をそれぞれ<code>brands</code>, <code>regular</code>, <code>solid</code>の各種ページを参考に予め<code>icons_*</code>という変数群に文字列として格納しておく必要があります。</p>
+<p>SVGファイル一覧: <a href="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/" target="_blank">https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/</a>
+</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell:svg_dl.sh" data-lang="shell:svg_dl.sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>set -ex
+
+icons_b<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;facebook get-pocket github soundcloud twitter&#34;</span>
+icons_r<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;calendar clipboard&#34;</span>
+icons_s<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arrow-circle-left arrow-circle-right folder search tag clock rss share-alt&#34;</span>
+
+url_b<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/brands
+url_r<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/regular
+url_s<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid
+
+dest<span style="color:#f92672">=</span>../content/fontawesome
+mkdir -p <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#66d9ef">for</span> icon in $icons_b; <span style="color:#66d9ef">do</span>
+  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_b<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
+<span style="color:#66d9ef">done</span>
+<span style="color:#66d9ef">for</span> icon in $icons_r; <span style="color:#66d9ef">do</span>
+  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_r<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
+<span style="color:#66d9ef">done</span>
+<span style="color:#66d9ef">for</span> icon in $icons_s; <span style="color:#66d9ef">do</span>
+  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_s<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>スクリプトの置き場所が<code>ROOT/bin/</code>直下なので途中にある<code>dest</code>(ダウンロード先)のパスも<code>../content/fontawesome</code>になっています。もし利用される場合、ここは各自のディレクトリ構造に合わせて下さい。</p>
+<h3 id="テンプレートの復習">テンプレートの復習</h3>
+<p>第2回目でも紹介したように、自作したHugoテンプレートを呼び出したい場合は <strong>どこから呼び出すか</strong> によってテンプレートの種類を変える必要があります。</p>
+<p>公式Docs: <a href="https://gohugo.io/content-management/shortcodes/#use-shortcodes" target="_blank">Shortcodes | Hugo</a>
+</p>
+<p><strong>他のテンプレート</strong> (e.g. <code>layouts/_default/single.html</code>, <code>layouts/partials/header.html</code>) から呼び出したい時は <strong>Partial Template</strong> として作成し、下記の形で呼び出します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ partial &#34;TEMPLATE_NAME&#34; &#34;ARGS&#34; }}
+</code></pre></div><p><strong>記事</strong> (e.g. <code>content/hoge/fuga.md</code>, <code>content/blog/2021/test.md</code>) から呼び出したい時は <strong>Shortcode</strong> として作成し、下記の形で呼び出します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">{{&lt; <span style="color:#f92672">TEMPLATE_NAME</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">ARGS</span><span style="color:#960050;background-color:#1e0010">&#34;</span> &gt;}}ここの文字列はMarkdownとして解釈されない{{&lt; /<span style="color:#f92672">TEMPLATE_NAME</span> &gt;}}
+{{% TEMPLATE_NAME &#34;ARGS&#34; %}}ここの文字列はMarkdownとして解釈される{{% /TEMPLATE_NAME %}}
+</code></pre></div><p>この際、区切り文字(delimiter)に<code>&lt;</code>を使うか<code>%</code>を使うかで挙動が変わります。Shortcode内部でHTMLタグなど使いたい場合には<code>&lt;</code>を用いる事でMarkdown用のレンダラーが正しくHTMLタグを読み取れるようになるようです。</p>
+<h3 id="partial-templateの作成">Partial Templateの作成</h3>
+<p>実は参考記事のリンク先にもあるようにFontAwesome用のShortcodeを作成することも出来るのですが、今回はテンプレート内部でSVGを表示したいので、FontAwesome用のPartial Templateを作成します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:fontawesome.html" data-lang="html:fontawesome.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inline-svg&#34;</span>&gt;
+{{- $fname:=print &#34;fontawesome/&#34; . &#34;.svg&#34; -}}
+{{- $path:=&#34;&lt;<span style="color:#f92672">path</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
+<span style="color:#960050;background-color:#1e0010">{{</span><span style="color:#a6e22e">-</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fill:</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;path fill=\&#34;</span><span style="color:#a6e22e">currentColor</span><span style="color:#960050;background-color:#1e0010">\&#34;&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
+<span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#a6e22e">replace</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">readFile</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fname</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">path</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fill</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">safeHTML</span> <span style="color:#960050;background-color:#1e0010">}}</span>
+<span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">span</span>&gt;
+</code></pre></div><p>記法や文法などは省略しますが、これを<code>ROOT/layouts/partials/fontawesome.html</code>として配置すれば使えるようになります。</p>
+<p>上記にある<code>{{}}</code>内部のハイフン<code>-</code>はそれぞれ直前・直後の空白文字を削除する為のもので、HTMLのDOM構造を改行・空白なしで保つためのものです(削除しなくても大抵機能します)。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://exlair.net/hugo-what-does-the-dash-mean/" target="_blank">Hugo テンプレートをカスタマイズする前に知っておきたいハイフン“-”の意味 | exlair.net</a>
+</li>
+</ul>
+<h3 id="テンプレート内からsvgを呼び出す">テンプレート内からSVGを呼び出す</h3>
+<p>例えばローカルの<code>ROOT/content/fontawesome/clock.svg</code>を下記のように<code>ROOT/layouts/partials/header.html</code>から呼び出す事が出来ます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">{{ partial &#34;fontawesome.html&#34; &#34;clock&#34; }}
+</code></pre></div><p>改造したHugo Classic(テーマ)の実例を載せておきますが、ヘッダ部分では下記のように <strong>変数</strong> としてFontAwesome用のファイル名を渡しています。この<code>head_custom.html</code>を<code>header.html</code>から読み込んでいます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">&lt;<span style="color:#f92672">header</span>&gt;
+  &lt;<span style="color:#f92672">nav</span>&gt;
+    &lt;<span style="color:#f92672">ul</span>&gt;
+      {{ $title := lower .Title }}
+      {{ $section := lower .Section }}
+      <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+      {{ range .Site.Menus.main }}
+      {{ $name := lower .Name }}
+      &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}&#34;</span>&gt;
+        {{ if eq $name $title }}&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;current-header&#34;</span>&gt;{{ partial &#34;fontawesome.html&#34; $name }}&lt;/<span style="color:#f92672">span</span>&gt;{{ else }}&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL }}&#34;</span>&gt;{{ partial &#34;fontawesome.html&#34; $name }}&lt;/<span style="color:#f92672">a</span>&gt;{{ end }}
+      &lt;/<span style="color:#f92672">li</span>&gt;
+      {{end}}
+      <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+    &lt;/<span style="color:#f92672">ul</span>&gt;
+  &lt;/<span style="color:#f92672">nav</span>&gt;
+&lt;/<span style="color:#f92672">header</span>&gt;
+</code></pre></div><p>上記の例で言うと、変数名で渡しているのは</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ partial &#34;fontawesome.html&#34; $name }}
+</code></pre></div><p>の部分です。慣れればすぐに読めると思いますが、</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ range .Site.Menus.main }}
+</code></pre></div><p>の行からはじまる<code>range</code>ブロック内部で<code>.Name</code>を取得し、そのそれぞれを<code>lower</code>関数で小文字化することでタイトル・セクション・タクソノミーの相互一致判定を行っています。そして、その結果を<code>$name</code>変数に格納し、FontAwesomeに渡しているという流れです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ $name := lower .Name }}
+</code></pre></div><h3 id="hugo-classic--fontawesomeの注意点">Hugo Classic + FontAwesomeの注意点</h3>
+<p>なお、Hugo Classicでは下記のように<code>config.toml</code>で設定しているタクソノミーの各種ページ名とURLが <strong>複数形(plural)</strong> になっています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Categories&#34;</span>
+  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/categories/&#34;</span>
+  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
+[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Tags&#34;</span>
+  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/tags/&#34;</span>
+  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">2</span>
+</code></pre></div><p>これに合わせ、FontAwesomeのSVGファイル名も次のようにリネームして読み込んでいます。</p>
+<ul>
+<li><code>folder.svg</code>から<code>categories.svg</code>へリネーム</li>
+<li><code>tag.svg</code>から<code>tags.svg</code>へリネーム</li>
+</ul>
+<p>FontAwesomeデフォルトのファイル名をリネームしないと、テンプレートから渡される<code>$name</code>が<code>tags</code>のままなのに実ファイル名が<code>tag.svg</code>のままで読み込まれないという訳です。</p>
+<p>TOMLの方を書き変えるかSVGファイル名を変えるかは人それぞれでしょうが、一応書いておきます。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://www.client9.com/using-font-awesome-icons-in-hugo/" target="_blank">Using Font Awesome Icons in Hugo | Nick Galbreath</a>
+</li>
+<li><a href="https://solareenlo.com/docs/hugo/" target="_blank">Hugo | solareenlo</a>
+</li>
+</ul>
+<h2 id="各種shortcodeの追加">各種Shortcodeの追加</h2>
+<p>上で書いたFontAwesome以外にも幾つか役立ちそうなShortcodeなどを追加してみました。</p>
+<ul>
+<li><code>private.html</code>: Hugo側でプレビュー状態の時のみ表示するコメントブロックを挿入</li>
+<li><code>colored.html</code>: Markdownの文中で背景色と文字色を部分的に変更</li>
+<li><code>image.html</code>: Markdown内に画像を貼り付ける(Lightbox2を利用)</li>
+<li><code>steam.html</code>: Steamのストアページへのリンクを自動でいい感じにしてくれる</li>
+</ul>
+<h3 id="privatehtmlについて">private.htmlについて</h3>
+<p>下記のようなShortcodeを作成し, ローカル環境のサーバ上でのみ表示したいテキストを囲むと色々と捗ります。
+例えばまだ公開したくない記事の一部などをそのままprivateな状態でHugoにビルドしてもらう、といった事も可能です。</p>
+<p>ファイルは<code>ROOT/layouts/shortcodes/private.html</code>として作成しました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:private.html" data-lang="html:private.html">{{ if .Site.IsServer }}
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;private&#34;</span>&gt;{{ .Inner }}&lt;/<span style="color:#f92672">div</span>&gt;
+{{ end }}
+</code></pre></div><p>これに合わせてCSSも設定しておきました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">private</span> {
+  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#2e2222</span>;
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#f11</span>;
+  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#f11</span>;
+}
+.<span style="color:#a6e22e">private</span>::<span style="color:#a6e22e">before</span> {
+  <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;------Private------&#34;</span>;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
+}
+</code></pre></div><p>使い方は下記の通りです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">private</span> &gt;}}
+これは非公開なメモ
+{{&lt; /<span style="color:#f92672">private</span> &gt;}}
+
+これは公開されるメモ
+</code></pre></div><p>例えば上のように書くと、このような表示になります。</p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="private_memo.png" data-lightbox="images" data-title="">
+      <img src="resize/private_memo.png" width=""/>
+    </a>
+  </div>
+</figure>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://maku77.github.io/hugo/shortcode/private.html" target="_blank">ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する | まくまくHugo/Goノート</a>
+</li>
+</ul>
+<h3 id="coloredhtmlについて">colored.htmlについて</h3>
+<p>これは自作しました。文中で自由に背景色と文字色を変える為の簡単な1行Shortcodeです(シンタックスハイライトがちょっと崩れてて見にくいですが)。</p>
+<p>これも勿論<code>ROOT/layouts/shortcodes</code>に置いて使います。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:colored.html" data-lang="html:colored.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;colored&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background:{{ .Get &#34;</span><span style="color:#a6e22e">bg</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};</span><span style="color:#a6e22e">color:</span><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Get</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">color</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};&#34;</span>&gt;{{- .Inner -}}&lt;/<span style="color:#f92672">span</span>&gt;
+</code></pre></div><p>例えばMarkdown中ではこのように使います。こうして複数の引数を渡す事も出来るのでShortcodeは慣れてしまえば便利です。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#00f&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> &gt;}}青{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
+{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#000&#34;</span> &gt;}}白{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
+</code></pre></div><p><span class="colored" style="background:#00f;color:#fff;">青</span>
+
+<span class="colored" style="background:#fff;color:#000;">白</span>
+</p>
+<h3 id="imagehtmlについて">image.htmlについて</h3>
+<p>これも自作です。サムネイルを表示してクリック・タップされると元画像が拡大表示されるように <strong>Lightbox2</strong> を利用しています(有名なのでLightbox2の説明は省略)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:image.html" data-lang="html:image.html">&lt;<span style="color:#f92672">figure</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">class</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;img-wrapper&#34;</span>&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">link</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-lightbox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-lightbox</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-title</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
+      &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">width</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>/&gt;
+    &lt;/<span style="color:#f92672">a</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">figure</span>&gt;
+</code></pre></div><p>Markdown中ではこのように使います。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{% image src=&#34;resize/thumbnail.png&#34; link=&#34;gazou.png&#34; class=&#34;&#34; data-lightbox=&#34;images&#34; data-title=&#34;caption&#34; %}}
+</code></pre></div><p><code>src</code>でサムネイルの場所を指定、<code>link</code>で大きいサイズの画像を指定します。パスはそれぞれPage Resourcesの仕様に則っているので記事ファイル(<code>.md</code>)と同じ階層からの相対パスです。</p>
+<p><code>class</code>の有無を問わず機能するので、CSSなどで何か表示を変えたい時だけ<code>class=&quot;fuga&quot;</code>などと指定すればOKです。</p>
+<h3 id="steamhtmlについて">steam.htmlについて</h3>
+<p>Steamのストアページをインライン表示できるShortcodeです。</p>
+<p>TwitterやYouTubeなどはHugo側にデフォルトで用意されているのですがSteamは無かったので用意しました(参考記事のものをそのまま利用)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:steam.html" data-lang="html:steam.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed steam-link&#34;</span>&gt;
+  &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;steam-link&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://store.steampowered.com/widget/{{ index .Params 0 }}/&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>CSSも弄っておきました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">steam-link</span> {
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">450</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+}
+</code></pre></div><p>Markdownの中ではこう使います。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">steam</span> <span style="color:#a6e22e">814380</span> &gt;}}
+</code></pre></div><p>実際に使うとこんな感じになります。</p>
+<div class="embeded steam-link">
+    <iframe class="steam-link" src="https://store.steampowered.com/widget/814380/" frameborder="0"></iframe>
+</div>
+
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://foresuke.com/post/hugo_embed/" target="_blank">Hugoの記事にコンテンツを埋め込む – ふぉれすけ広場</a>
+</li>
+</ul>
+<h2 id="toc目次を追加">TOC(目次)を追加</h2>
+<p>サイトを作って記事を幾つか書いてみたところ、テキスト量の多い記事が増えてきたので目次を追加してみました。</p>
+<p>正直無くても良いかなと思っていたのですが特にそんな事はなかったですね。あった方が良いです。</p>
+<p>下記Hugo公式Docsにもあるように、元々 <strong>TOC(Table of Contents)</strong> はHugo側の機能としてデフォルトで存在しているため、ユーザーは <strong>機能を呼び出すだけで利用可能</strong> です。</p>
+<p>公式Docs: <a href="https://gohugo.io/content-management/toc/#readout" target="_blank">Table of Contents | Hugo</a>
+</p>
+<p>これを利用すれば、見出しとして<code>## 見出し2</code>や<code>### 見出し3</code>のようにMarkdown中に記述するだけで自動でHugoがTOCを出力してくれます。</p>
+<p>各記事の中に目次を追加したかったので、記事用テンプレートの<code>ROOT/layouts/_default/single.html</code>を下記のように編集しました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html"><span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content-wrapper&#34;</span>&gt;
+  {{- if .Params.toc }}
+      {{- with .TableOfContents }}
+      &lt;<span style="color:#f92672">aside</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xToc&#34;</span>&gt;
+          &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xToc_title&#34;</span>&gt;目次&lt;/<span style="color:#f92672">div</span>&gt;
+          {{ . }}
+      &lt;/<span style="color:#f92672">aside</span>&gt;
+      {{- end }}
+  {{- end }}
+  &lt;<span style="color:#f92672">main</span>&gt;
+    {{ with .Content }}{{ . }}{{ else }}This content is empty. {{ end }}
+  &lt;/<span style="color:#f92672">main</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+<span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</code></pre></div><p>実を言うと、</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ .TableOfContents }}
+</code></pre></div><p>この1行だけでもTOCは呼び出せます。しかし各記事のFrontMatter内で<code>toc: true</code>を設定した場合のみ目次が表示されるように</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{- if .Params.toc }}
+</code></pre></div><p>という行で条件分岐をしています。</p>
+<p>また、CSSに関しては次のように設定しました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">xToc</span> {
+  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#282C34</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#D0AF4C</span>;
+  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">.8</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.7</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">margin</span>: <span style="color:#66d9ef">auto</span>;
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>;
+}
+.<span style="color:#a6e22e">xToc_title</span> {
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
+}
+.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">ul</span> {
+  <span style="color:#66d9ef">list-style-type</span>: <span style="color:#66d9ef">none</span>;
+  <span style="color:#66d9ef">padding-left</span>: <span style="color:#ae81ff">0.8</span><span style="color:#66d9ef">em</span>;
+}
+.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span> {
+  <span style="color:#66d9ef">padding-top</span>: <span style="color:#ae81ff">0</span> <span style="color:#75715e">!important</span>;
+}
+.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">border-left</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">em</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#D0AF4C</span>;
+  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">-.3</span><span style="color:#66d9ef">em</span>;
+}
+.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">ul</span> {
+  <span style="color:#66d9ef">padding-left</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+}
+.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">a</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#c0c0c0</span> <span style="color:#75715e">!important</span>;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">normal</span>;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">border-bottom</span>: <span style="color:#66d9ef">dashed</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#999</span>;
+  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">.5</span><span style="color:#66d9ef">em</span>;
+}
+.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">a</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#FFD700</span> <span style="color:#75715e">!important</span>;
+}
+</code></pre></div><p>Hugo側が自動で出力してくれるTOCは<code>&lt;li&gt;&lt;/li&gt;</code>と<code>&lt;ul&gt;&lt;/ul&gt;</code>によって構成されていますので、それに合わせてCSSを編集する必要があります。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://maku77.github.io/hugo/template/table-of-contents.html" target="_blank">各ページに目次を表示する (.TableOfContents) | まくまくHugo/Goノート</a>
+</li>
+</ul>
+<h2 id="faviconを設定">faviconを設定</h2>
+<p>Hugo Classicにはデフォルトで<code>static/images/site.webmanifest</code>ファイルがあります(<code>exampleSite</code>というディレクトリの中にあります)。</p>
+<p>従って、やることと言えばfavicon用<code>.png</code>ファイルの作成と<code>header.html</code>への追記のみですね。faviconに関しては特に言う事は無いです。</p>
+<p><code>.png</code>ファイルは自前のアイコン(トップページに表示されるやつです)をリサイズしただけですね。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180x180&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/apple-touch-icon.png&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16x16&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-16x16.png&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;32x32&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-32x32.png&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;64x64&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-64x64.png&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;128x128&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-128x128.png&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;manifest&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/site.webmanifest&#34;</span>&gt;
+</code></pre></div><h4>参考リンク</h4>
+<ul>
+<li><a href="https://favicon-generator.mintsu-dev.com" target="_blank">Favicon ジェネレーター</a>
+</li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/Manifest" target="_blank">ウェブアプリマニフェスト | MDN</a>
+</li>
+</ul>
+<h2>次回へ続く</h2>
+<p>今回はHugoテーマカスタマイズの2回目でした。</p>
+<p>次回はテーマカスタマイズの続き(機能面寄り)を予定しています。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://snagimmo.net/dev/build-website-using-hugo2/">この記事</a>
+で説明&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+  </main>
+</div>
+<hr>
+<div class="page-links">
+    <span class="arrow-left"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zm28.9-143.6L209.4 288H392c13.3 0 24-10.7 24-24v-16c0-13.3-10.7-24-24-24H209.4l75.5-72.4c9.7-9.3 9.9-24.8.4-34.3l-11-10.9c-9.4-9.4-24.6-9.4-33.9 0L107.7 239c-9.4 9.4-9.4 24.6 0 33.9l132.7 132.7c9.4 9.4 24.6 9.4 33.9 0l11-10.9c9.5-9.5 9.3-25-.4-34.3z"/></svg>
+</span>
+</span>
+    <span class="prev-link"><a href="/dev/build-website-using-hugo3/">Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</a></span></div>
+<br>
+
+<div class="sharing-buttons">
+  <p class="sharing-buttons-area">
+  <span class="sharing-button-twitter"><a rel="nofollow" href="https://twitter.com/intent/tweet/?text=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%284%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba2%20%7c%20snagim%28%20%27e%27%20%29mo&url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo4%2f" target="_blank" title="Twitter"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span>
+</a></span>
+  <span class="sharing-button-hatena"><a rel="nofollow" href="https://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo4%2f&title=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%284%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba2%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="はてなブックマーク"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><path fill="currentColor" class="st0" d="M224.7,278.7c-5.5-3.8-15.9-5.7-30.9-5.7h-22.6v49.5h21.7c14.6,0,25-1.8,31.1-5.5l-0.1,0.1 c6.2-3.7,9.2-8.8,9.2-18.4C233.1,289.1,230.2,282.5,224.7,278.7z"/><path fill="currentColor" class="st0" d="M214.9,227.3c5.6-3.4,8.5-8.9,8.5-17.4s-2.6-14.5-7.9-18c-5.3-3.5-15.6-5.2-31-5.2h-13.3v45.6h12.3 C198.8,232.3,209.3,230.7,214.9,227.3z"/><path fill="currentColor" class="st0" d="M398.1,0H101.9C45.6,0,0,45.6,0,101.9v296.2C0,454.4,45.6,500,101.9,500h296.2c56.3,0,101.9-45.6,101.9-101.9 V101.9C500,45.6,454.4,0,398.1,0z M332.6,136.4h50v151.5h-50V136.4z M284.1,330.7c-5,9.2-12.6,16.6-21.9,21.4 c-7.7,4.1-17.2,7.1-28.6,8.9c-11.4,1.7-30,2.6-55.8,2.6h-64.2V136.4h62.3c25.6,0,43.5,0.7,53.7,2.4c10.2,1.7,18.9,4.6,26.2,8.6 c8,4.3,14.7,10.7,19.2,18.6c4.5,8.3,6.8,17.6,6.6,27.1c0,12.9-3.2,23-9.8,30.7c-6.6,7.7-17,13.4-31.4,17.3 c16.1,1.2,28.7,6.9,37.8,17c9.1,10.1,13.6,23.6,13.6,40.5C291.8,310.8,289.2,321.5,284.1,330.7z M386.4,334.9 c0,15.9-12.9,28.8-28.8,28.8c-15.9,0-28.8-12.9-28.8-28.8c0-15.9,12.9-28.8,28.8-28.8C373.5,306.1,386.4,319,386.4,334.9 C386.4,334.9,386.4,334.9,386.4,334.9z"/></svg>
+
+</span>
+</a></span>
+  <span class="sharing-button-facebook"><a rel="nofollow" href="https://www.facebook.com/share.php?u=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo4%2f&t=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%284%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba2%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="Facebook"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span>
+</a></span>
+  <span class="sharing-button-pocket"><a rel="nofollow" href="https://getpocket.com/edit?url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo4%2f&title=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%284%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba2%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="Pocket"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 400"><path fill="currentColor" d="M407.6,0h-367C18.5,0,0,18.5,0,40.6v135.2C0,300.5,99.7,400,224.2,400c124,0,223.8-99.5,223.8-224.2V40.6 C448,18.2,430.3,0,407.6,0z M245.6,268.5c-12.4,11.8-31.4,11.1-42.4,0C89.5,159.6,88.3,163.4,88.3,145.3c0-16.9,13.8-30.7,30.7-30.7 c17,0,16.1,3.8,105.2,89.3c90.6-86.9,88.6-89.3,105.5-89.3c16.9,0,30.7,13.8,30.7,30.7C360.4,163.1,357.5,161,245.6,268.5 L245.6,268.5z"/></svg>
+
+</span>
+</a></span>
+  <span class="sharing-button-share"><a href=JavaScript:copyUrl() title="URLをコピー"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 497.8 497.8"><path fill="currentColor" d="M364.7,310.8c-21.9,0-42,7.6-57.8,20.2l-99.1-61.9c2.9-13.3,2.9-27,0-40.3l99.1-61.9c15.9,12.6,36,20.2,57.8,20.2 c51.3,0,92.8-41.6,92.8-92.8S415.9,1.4,364.7,1.4s-92.8,41.6-92.8,92.8c0,6.9,0.8,13.7,2.2,20.2L175,176.3 c-15.9-12.6-36-20.2-57.8-20.2c-51.3,0-92.8,41.6-92.8,92.8s41.6,92.8,92.8,92.8c21.9,0,42-7.6,57.8-20.2l99.1,61.9 c-1.5,6.6-2.2,13.4-2.2,20.2c0,51.3,41.6,92.8,92.8,92.8s92.8-41.6,92.8-92.8S415.9,310.8,364.7,310.8z"/></svg>
+
+</span>
+</a></span>
+  </p>
+</div>
+
+
+
+
+    <footer>
+  <nav>
+    <ul>
+      
+      
+      
+      
+      <li class="pull-home ">
+        <a href="/contact/">contact</a>
+      </li>
+      
+      
+      <li class="pull-home ">
+        <a href="/updates/">updates</a>
+      </li>
+      
+
+      
+    </ul>
+  </nav>
+  <br>
+  <div class="copyright">
+    
+    ©
+    2021
+    snagimmo
+  </div>
+</footer>
+
+
+    <div id="footer-scripts">
+      
+      
+      <script src="/js/codeblock-filename.js"></script>
+
+      
+      <script src="/js/copyurl.js"></script>
+
+      
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+      <script src="/js/lunr.js"></script>
+      <script src="/js/lunr.stemmer.support.js"></script>
+      <script src="/js/tinyseg.js"></script>
+      <script src="/js/lunr.ja.js"></script>
+      <script src="/js/lunr.multi.js"></script>
+      <script src="/js/search.js"></script>
+
+      
+      <script src="/js/prism.js"></script>
+
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" type="text/javascript"></script>
+
+      
+      
+
+
+    </div>
+  </body>
+</html>
+
