@@ -175,7 +175,7 @@
 </ul>
 <p>今回は静的サイトジェネレータHugoの導入がメインです。</p>
 <h2 id="hugoを導入する">Hugoを導入する</h2>
-<hr>
+<p>ということで、早速本題に入っていきます。</p>
 <p>OSがWindows10 Homeなので、<a href="https://gohugo.io/getting-started/installing/" target="_blank">Hugo公式のインストールガイド</a>
 に沿って パッケージマネージャの<strong>Scoop</strong> でインストールしました。</p>
 <p>上記インストールガイド内にHomebrewやMacPortsやChocolateyを利用したインストール方法も載っているのでHugoのインストールで悩む方はそんなにいないと思います。</p>
@@ -184,13 +184,11 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">scoop install hugo
 </code></pre></div><p>上記インストール作業の後にPSやGit Bashなどから<code>hugo</code>コマンドが叩ければ無事インストール完了です。自分の場合はインストール後にOSごと一応再起動しておきました。</p>
 <h2 id="サイトファイルの新規作成">サイト/ファイルの新規作成</h2>
-<hr>
 <p>Hugoでは新規にサイトを作成する際<code>hugo new site</code>コマンドを実行することでディレクトリが自動生成されます。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site &lt;SITE_NAME&gt;
 </code></pre></div><p>また、<code>hugo new</code>コマンドによってファイルを新規作成することも可能で、その場合は下記を実行すると<code>new-dir</code>ディレクトリの直下に<code>new_contents.md</code>が生成されます。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new new_dir/new_contents.md
 </code></pre></div><h2 id="hugoディレクトリの構造">Hugoディレクトリの構造</h2>
-<hr>
 <p>例えば、<code>hugo new site hoge</code>として作成された<code>hoge</code>ディレクトリには下記のディレクトリ群がデフォルトで含まれています。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new site hoge
 <span style="color:#75715e">#(省略)</span>
@@ -205,7 +203,6 @@ archetypes  config.toml  content  data  layouts  static  themes
 </ul>
 <p>この<code>hoge/themes</code>以下にHugoテーマ用のリポジトリをcloneしたりsubmodule addしたりして置いておくとテーマが適用されてプレビュー可能になります。</p>
 <h2 id="テーマを選ぶ">テーマを選ぶ</h2>
-<hr>
 <p>Hugo用のテーマは <a href="https://themes.gohugo.io" target="_blank">Hugo themes</a>
 というサイトから選びました。</p>
 <p>最初に気に入ったテーマが8つありましたが、自分はその中でもこちらの <strong>Hugo Classic</strong> なるテーマのシンプルさに惹かれました。</p>
@@ -228,7 +225,6 @@ archetypes  config.toml  content  data  layouts  static  themes
 </li>
 </ul>
 <h2 id="サイトのプレビュー">サイトのプレビュー</h2>
-<hr>
 <p>Hugoにはサイト上のファイル群を編集する度に自動でプレビュー&amp;更新が行われる <strong>LiveReload</strong> 機能があります。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server
 </code></pre></div><p>というコマンドをターミナルから実行することで、<code>http://localhost:1313</code>をデフォルトURLとしてHugo用プレビューサーバが立ち上がります。</p>
@@ -254,7 +250,6 @@ archetypes  config.toml  content  data  layouts  static  themes
 <p>ちなみに自分はいつも下記コマンドを実行しています。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">hugo server -D --ignoreCache --noHTTPCache --disableFastRender --buildFuture
 </code></pre></div><h2 id="サイトのビルドと公開">サイトのビルドと公開</h2>
-<hr>
 <p>公開用ファイルのビルドは<code>server</code>等オプションなしの</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
 </code></pre></div><p>で実行できます。Hugo用ディレクトリに移動後<code>hugo</code>の4文字を入力してEnterを押すだけです。</p>
@@ -265,7 +260,6 @@ archetypes  config.toml  content  data  layouts  static  themes
 </li>
 </ul>
 <h2>次回へ続く</h2>
-<hr>
 <p>今回はHugoの導入と簡単な説明をしました。</p>
 <p>次回はテーマ改良に向けてHugoサイトの全体像を把握し、Hugo Templateを理解します。</p>
 <section class="footnotes" role="doc-endnotes">

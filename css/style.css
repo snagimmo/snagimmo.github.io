@@ -24,14 +24,41 @@ main p#mail-caption, .contacts p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+main h1 {
+  border-left: .35em solid #D0AF4C;
+  border-bottom: 1px dashed #D0AF4C;
+  padding-bottom: .6em;
+  padding-top: .3em;
+}
+main h2 {
+  border-left: .3em solid #D0AF4C;
+  border-bottom: 1px dashed #D0AF4C;
+  padding-bottom: .5em;
+  padding-top: .2em;
+}
+main h3 {
+  display: inline-block;
+  border-left: .2em solid #D0AF4C;
+  border-bottom: 1px dashed #D0AF4C;
+  padding-bottom: .3em;
+  padding-top: .1em;
+  margin-bottom: 0em;
+}
+main h4 {
+  border-left: .2em solid #D0AF4C;
+  padding-bottom: .2em;
+  padding-top: .1em;
+}
 main h1, main h2, main h3, main h4 {
   margin-top: 3.5em;
+  padding-left: .5em;
 }
 main .updates h1, main .updates h2, main h3, main h4 {
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 main .updates {
-  margin-bottom: 3em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .content-wrapper {
@@ -95,10 +122,10 @@ main .updates {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
 }
-.contacts {
-  /* width: 0.1em; */
-  /* max-width: 20%; */
-}
+/* .contacts { */
+/*   width: 0.1em; */
+/*   max-width: 20%; */
+/* } */
 .page-links {
   margin-top: 1.5rem;
   margin-bottom: 2.5rem;
@@ -278,7 +305,7 @@ pre {
   overflow-x: auto;
   white-space: pre;
   text-overflow: clip;
-  max-height: 700px;
+  /* max-height: 700px; */
   margin-bottom: 1em;
   padding: 1em 1em 1em 1.2em;
 }
@@ -391,18 +418,20 @@ blockquote {
 .xToc li {
   padding-top: 0 !important;
 }
+.xToc li:hover {
+  border-left: .3em solid #D0AF4C;
+  margin-left: -.3em;
+}
 .xToc li > ul {
   padding-left: 1em;
   width: 100%;
-}
-.xToc li {
-  border: 5px #D0AF4C !important;
 }
 .xToc a {
   color: #c0c0c0 !important;
   font-weight: normal;
   display: block;
   border-bottom: dashed 1px #999;
+  margin-left: .5em;
 }
 .xToc a:hover {
   color: #FFD700 !important;

@@ -175,7 +175,6 @@
 </ul>
 <p>今回はHugoテーマをカスタマイズしていきます。前回までの記事がある程度汎用性のある記事だったのに対し、ここからは個人的・個別具体的な話になると思います。</p>
 <h2 id="サイト管理用リポジトリについて">サイト管理用リポジトリについて</h2>
-<hr>
 <p><a href="https://snagimmo.net/dev/build-website-using-hugo1/">第1回の記事</a>
 でも紹介した通り、このサイトでは<a href="https://github.com/goodroot/hugo-classic" target="_blank">Hugo Classic (goodroot/hugo-classic)</a>
 というテーマをカスタマイズして使っています。</p>
@@ -191,7 +190,6 @@
 <p>編集用リポジトリの名前についてはhugo-classicをベースにしようと決めたので <strong>hugo-neoclassic</strong> にしました。</p>
 <p>また、非公開の編集用リポジトリから公開用リポジトリ(GitHub Pages)へCircleCIを使って自動pushされるようにしていますが、この話はまた別の記事に載せることとします。</p>
 <h2 id="テーマ用ファイルのコピーと上書き">テーマ用ファイルのコピーと上書き</h2>
-<hr>
 <p>Hugoではテーマファイルを<code>ROOT/themes/&lt;THEME&gt;</code>から<code>ROOT/</code>直下にコピーしてから編集することで、テーマファイルよりも自分の編集したファイルが優先してビルドされるような仕組みになっています。</p>
 <p>従って、いきなりサイト用ディレクトリ直下(<code>ROOT/</code>)にテーマをcloneするよりも<code>ROOT/themes</code>以下にテーマリポジトリをcloneしてから<code>ROOT/</code>にコピーし、サイト用ファイルとして編集した方が後々楽になると思います。</p>
 <p>サイトの新規作成時には下記コマンド群を実行することで</p>
@@ -213,7 +211,6 @@ git clone git@github.com:USER_NAME/THEME_NAME.git
 cd ..
 cp -v -R ./themes/THEME_NAME/* ./
 </code></pre></div><h2 id="手を加えるべきファイル">手を加えるべきファイル</h2>
-<hr>
 <p>実際にテーマを編集する前にHugo Classicテーマのどの部分を弄れば良いかあたりをつけました。</p>
 <p>結果、大体下記のファイルを編集すればHugo Classicテーマが改造出来るらしいことが分かりました。構造が分かってしまえば簡単<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>ですね。</p>
 <ul>
@@ -236,12 +233,12 @@ cp -v -R ./themes/THEME_NAME/* ./
 <li><code>layouts/_default/terms.html</code></li>
 </ul>
 </li>
-<li>ドキュメントルートに置くべき各種ファイル
+<li>ドキュメントルートの各種ファイル
 <ul>
 <li><code>layouts/404.html</code>: 404ページ設定</li>
 <li><code>layouts/robots.txt</code>: クローラ用設定
 <ul>
-<li>これらは<code>static/404.html</code>, <code>static/robots.txt</code>へ移動することに</li>
+<li>これ<code>static/robots.txt</code>へ移動することに</li>
 </ul>
 </li>
 <li><code>static/CNAME</code>: 独自ドメインを追加したいのでCNAMEファイルを追加</li>
@@ -249,7 +246,6 @@ cp -v -R ./themes/THEME_NAME/* ./
 </li>
 </ul>
 <h2 id="ヘッダや背景や文字の色を変更">ヘッダや背景や文字の色を変更</h2>
-<hr>
 <p>最初に一番分かりやすいヘッダの色と全体(<code>&lt;body&gt;</code>など)の背景色・文字色を変えて雰囲気を確認したいなと思い、<code>layouts/partials</code>以下のファイル群と<code>style.css</code>を編集しました。</p>
 <p>私はダークモードでWebサイトを見ることが多く、手元の各種ソフト・ツールもほぼ暗色系や紺色の背景で統一しています。そこでWebサイトも暗い色の背景にしたいなと思っていました。</p>
 <p>一方で暗色系の背景に対して文字やその他の色も暗色系にしてしまうと見辛くなってしまうと思った<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>ので、思い切って紺色に対してコントラストのある黄色を採用することにしました。</p>
@@ -266,7 +262,6 @@ cp -v -R ./themes/THEME_NAME/* ./
 </li>
 </ul>
 <h2 id="シンタックスハイライトを改良">シンタックスハイライトを改良</h2>
-<hr>
 <p>デフォルトのままだとフォントの大きさやらデザインやらが気になったので、ここも変えることに。</p>
 <p>初めに行番号の表示をしたり偶数行だけ背景色変更したりスクロールバー改造や左上にQiita風の言語&amp;ファイル名表示を施したりなど色々と弄りました。</p>
 <ul>
@@ -335,7 +330,6 @@ cp -v -R ./themes/THEME_NAME/* ./
 </code></pre></div><p><code>ROOT/static</code>直下に居ることが前提で尚且つ<code>/</code>から始めるのが正しい記法のようです。悪い例の方では全てスクリプト読み込みに失敗しました。</p>
 <p>少し古め(2018年頃)の記事では<code>src=&quot;js/hoge.js&quot;</code>としている記事も見かけるのですが、少なくとも私が使っているHugo ver0.80においてはエラーになるようでした。</p>
 <h2 id="シンタックスハイライトを更に改良">シンタックスハイライトを更に改良</h2>
-<hr>
 <p>また、良い機会なのでシンタックスハイライターも色々試してみました。</p>
 <ul>
 <li>Pygments (Hugoデフォルト)</li>
@@ -407,7 +401,6 @@ cp -v -R ./themes/THEME_NAME/* ./
 </li>
 </ul>
 <h2>次回へ続く</h2>
-<hr>
 <p>今回はHugoテーマカスタマイズの1回目でした。</p>
 <p>次回はテーマカスタマイズの続きを予定しています。</p>
 <section class="footnotes" role="doc-endnotes">

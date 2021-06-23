@@ -97,6 +97,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	color: hsl(88, 90%, 75%);
 }
 
+.token.keyword.keyword-in,
 .token.operator {
 	color: hsl(218, 40%, 75%);
 }
@@ -106,10 +107,11 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 .token.symbol,
 .token.builtin,
 .token.function {
-	color: hsl(205,70%, 55%);
+	color: hsl(205,70%, 65%);
 }
 
 .token.tag,
+.token.shebang,
 .token.punctuation.attr-equals,
 .token.property,
 .token.property .keyword {
@@ -124,7 +126,6 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 .token.attr-name,
 .token.entity,
-.token.variable,
 .token.inserted {
 	color: hsl(130, 60%, 55%);
 }
@@ -143,8 +144,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	color: hsl(218, 22%, 55%);
 }
 
-.token.regex,
-.token.important {
+.token.regex {
 	color: hsl(0, 0%, 0%);
 	background-color: hsl(160, 61%, 74%);
 }

@@ -179,13 +179,11 @@
 </ul>
 <p>今回はHugoテーマを改造するためHugoのコンテンツ管理・各種テンプレートについて調べた内容をまとめました。少々長いですが1つのページにまとめたかったのでどうかお許しを。</p>
 <h2 id="テーマをカスタマイズする前に">テーマをカスタマイズする前に</h2>
-<hr>
 <p>早速前回の記事で採用した <a href="https://themes.gohugo.io/hugo-classic/" target="_blank">Hugo Classic | Hugo Themes</a>
 をいじって行きたいのですが、Hugoには独特の <strong>Shortcode</strong> , <strong>Partial Template</strong> などの概念があります。</p>
 <p>Hugo公式ではこの仕組みを <strong>Template</strong> と呼んでいます。</p>
 <p>まずはこれらをきちんと理解しないとテーマのカスタマイズは難しそうだなと感じたので少し調べてみました。</p>
 <h2 id="hugoのコンテンツ管理について">Hugoのコンテンツ管理について</h2>
-<hr>
 <p>Hugoはテーマによって</p>
 <ul>
 <li>どのテンプレートを使用するか</li>
@@ -221,7 +219,6 @@
 </li>
 </ul>
 <h2 id="hugo-templatingの記法について">Hugo Templatingの記法について</h2>
-<hr>
 <p>公式Docsより: <a href="https://gohugo.io/templates/introduction/" target="_blank">Introduction to Hugo Templating</a>
 </p>
 <blockquote>
@@ -240,7 +237,6 @@
 {{ template &#34;ARGUMENTS&#34; . }}
 </code></pre></div><p>※ 例えば<code>{{</code>と<code>}}</code> に<code>&lt; &gt;</code>が挟まれている場合は、外側の<code>{{</code>と内側の<code>&lt;</code>の間に <strong>スペースを空けずに記述するのが正しい記法</strong> です。</p>
 <h2 id="hugoサイトの全体像と概念">Hugoサイトの全体像と概念</h2>
-<hr>
 <p>Hugoのサイト構成に関して自分なりに理解した内容をざっくりと書いておきます。</p>
 <ul>
 <li>Hugoの静的サイトは <strong>ページ(Page)</strong> と <strong>テンプレート(Template)</strong> から生成される</li>
@@ -260,7 +256,6 @@
 <li>各タグ・カテゴリーなどの総称である <strong>タクソノミー(Taxonomy)</strong></li>
 </ul>
 <h2 id="ページとテンプレートについて">ページとテンプレートについて</h2>
-<hr>
 <ul>
 <li>
 <p>ページ(Page)について</p>
@@ -332,7 +327,6 @@
 </li>
 </ul>
 <h2 id="その他のテンプレートについて">その他のテンプレートについて</h2>
-<hr>
 <ul>
 <li>
 <p>ショートコード(Shortcodes)について</p>
@@ -388,7 +382,6 @@
 </li>
 </ul>
 <h2 id="ブランチバンドルとリーフバンドルについて">ブランチバンドルとリーフバンドルについて</h2>
-<hr>
 <p>サイト全体の記事構造を一つの木に見立て、各記事を葉っぱ(Leaf)、それらを束ねる各セクションを枝(Branch)と見なしたもの</p>
 <ul>
 <li>ブランチバンドル(Branch Bundles)について
@@ -415,7 +408,6 @@
 <p>公式Docs: <a href="https://gohugo.io/content-management/page-bundles" target="_blank">Page Bundles</a>
 </p>
 <h2 id="ページリソースについて">ページリソースについて</h2>
-<hr>
 <p>これは上記のLeaf Bundlesについて理解できていれば簡単です。</p>
 <ul>
 <li>
@@ -440,7 +432,6 @@
 <p>公式Docsはこちら: <a href="https://gohugo.io/content-management/page-resources/" target="_blank">Page Resources</a>
 </p>
 <h2 id="タクソノミーtaxonomyについて">タクソノミー(Taxonomy)について</h2>
-<hr>
 <p>実は上記2つのBundles以外に、もう一つHugoのページ(Page)の中核を成す概念があります。</p>
 <p>それが <strong>タクソノミー(Taxonomy)</strong> です。</p>
 <p>よくブログなどで各記事に設定された「タグ」や「カテゴリ」があると思いますが、あれらをまとめてHugoではタクソノミーという名前で呼び、管理しています。</p>
@@ -460,7 +451,6 @@
 </li>
 </ul>
 <h2 id="タクソノミーテンプレートの注意点">タクソノミーテンプレートの注意点</h2>
-<hr>
 <p>タクソノミーに関するテンプレートを <strong>タクソノミーテンプレート(Taxonomy Template)</strong> と言いますが、これを扱う際は注意が必要です。</p>
 <p>タクソノミー内の値には<code>.Data.Terms</code>や<code>.Data.Pages</code>といった形でアクセスします。</p>
 <p>つまり<code>.Data</code>の下にぶら下がる<code>.Data.XXX</code>といった形で記述するのですが、これは似たような<code>.Site.Data.XXX</code>といった形を持つ <strong>データテンプレート(Data Template)</strong> とは似て非なる <strong>全くの別物</strong> です。</p>
@@ -482,7 +472,6 @@
     {{ end }}
 &lt;/<span style="color:#f92672">ul</span>&gt;
 </code></pre></div><h2>次回へ続く</h2>
-<hr>
 <p>今回はHugoサイトの全体像とHugoテンプレートに関する話でした。</p>
 <p>次回はテーマ改良を予定しています。</p>
 <section class="footnotes" role="doc-endnotes">
