@@ -330,7 +330,7 @@ pre {
   padding: 1em 1em 1em 1.2em;
 }
 
-pre > code {
+pre, code {
   font-size: 1.8vh !important;
   line-height: 1.45em;
 }
@@ -359,7 +359,7 @@ pre > code {
 .highlight > div > pre > .code-name {
   border-radius: .2em 0 .3em 0;
   padding: .02em .5em .04em .5em;
-  margin: -2.2em 0 0 -2em;
+  margin: -2.24em 0 0 -2.1em;
 }
 .code-name {
   display: inline-block;
@@ -369,7 +369,7 @@ pre > code {
   margin-right: 4em;
   position: absolute;
   font-weight: bold;
-  font-size: 1.8vh;
+  font-size: 1.8vh !important;
 }
 
 /* Custom scrollbar */
