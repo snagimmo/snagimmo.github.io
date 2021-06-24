@@ -157,8 +157,12 @@
     <li><a href="#手を加えるべきファイル">手を加えるべきファイル</a></li>
     <li><a href="#テーマを弄る前に">テーマを弄る前に</a></li>
     <li><a href="#ヘッダや背景や文字の色を変更">ヘッダや背景や文字の色を変更</a></li>
-    <li><a href="#シンタックスハイライトを改良">シンタックスハイライトを改良</a></li>
-    <li><a href="#シンタックスハイライトを更に改良">シンタックスハイライトを更に改良</a></li>
+    <li><a href="#シンタックスハイライトを改良">シンタックスハイライトを改良</a>
+      <ul>
+        <li><a href="#行番号やファイル名表示の追加">行番号やファイル名表示の追加</a></li>
+        <li><a href="#シンタックスハイライト用ツールの選定">シンタックスハイライト用ツールの選定</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
       </aside>
@@ -243,7 +247,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 <li><code>layouts/404.html</code>: 404ページ設定</li>
 <li><code>layouts/robots.txt</code>: クローラ用設定
 <ul>
-<li>これ<code>static/robots.txt</code>へ移動することに</li>
+<li>これは<code>static/robots.txt</code>へ移動することに</li>
 </ul>
 </li>
 <li><code>static/CNAME</code>: 独自ドメインを追加したいのでCNAMEファイルを追加</li>
@@ -273,6 +277,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 </li>
 </ul>
 <h2 id="シンタックスハイライトを改良">シンタックスハイライトを改良</h2>
+<h3 id="行番号やファイル名表示の追加">行番号やファイル名表示の追加</h3>
 <p>デフォルトのままだとフォントの大きさやらデザインやらが気になったので、ここも変えることに。</p>
 <p>初めに行番号の表示をしたり偶数行だけ背景色変更したりスクロールバー改造や左上にQiita風の言語&amp;ファイル名表示を施したりなど色々と弄りました。</p>
 <ul>
@@ -340,8 +345,8 @@ cp -v -R ./themes/THEME_NAME/* ./
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/../static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><p><code>ROOT/static</code>直下に居ることが前提で尚且つ<code>/</code>から始めるのが正しい記法のようです。悪い例の方では全てスクリプト読み込みに失敗しました。</p>
 <p>少し古め(2018年頃)の記事では<code>src=&quot;js/hoge.js&quot;</code>としている記事も見かけるのですが、少なくとも私が使っているHugo ver0.80においてはエラーになるようでした。</p>
-<h2 id="シンタックスハイライトを更に改良">シンタックスハイライトを更に改良</h2>
-<p>また、良い機会なのでシンタックスハイライターも色々試してみました。</p>
+<h3 id="シンタックスハイライト用ツールの選定">シンタックスハイライト用ツールの選定</h3>
+<p>また、良い機会なのでシンタックスハイライター<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>も色々試してみました。</p>
 <ul>
 <li>Pygments (Hugoデフォルト)</li>
 <li>highlight.js</li>
@@ -432,6 +437,9 @@ cp -v -R ./themes/THEME_NAME/* ./
 </li>
 <li id="fn:5" role="doc-endnote">
 <p>コードブロックの言語指定で<code>JavaScript</code>とだけ書けば<code>JavaScript</code>と表示され、<code>js:hoge.js</code>と書けば<code>hoge.js</code>と表示される&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>ハイライターという呼称はあまり好きではないですが&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

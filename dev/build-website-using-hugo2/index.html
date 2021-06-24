@@ -153,15 +153,25 @@
           <nav id="TableOfContents">
   <ul>
     <li><a href="#テーマをカスタマイズする前に">テーマをカスタマイズする前に</a></li>
-    <li><a href="#hugoのコンテンツ管理について">Hugoのコンテンツ管理について</a></li>
+    <li><a href="#hugoのコンテンツ管理について">Hugoのコンテンツ管理について</a>
+      <ul>
+        <li><a href="#lookup-order探索順序について">Lookup Order(探索順序)について</a></li>
+      </ul>
+    </li>
     <li><a href="#hugo-templatingの記法について">Hugo Templatingの記法について</a></li>
-    <li><a href="#hugoサイトの全体像と概念">Hugoサイトの全体像と概念</a></li>
-    <li><a href="#ページとテンプレートについて">ページとテンプレートについて</a></li>
-    <li><a href="#その他のテンプレートについて">その他のテンプレートについて</a></li>
-    <li><a href="#ブランチバンドルとリーフバンドルについて">ブランチバンドルとリーフバンドルについて</a></li>
-    <li><a href="#ページリソースについて">ページリソースについて</a></li>
-    <li><a href="#タクソノミーtaxonomyについて">タクソノミー(Taxonomy)について</a></li>
-    <li><a href="#タクソノミーテンプレートの注意点">タクソノミーテンプレートの注意点</a></li>
+    <li><a href="#hugoサイトの全体像と概念">Hugoサイトの全体像と概念</a>
+      <ul>
+        <li><a href="#ページとテンプレートについて">ページとテンプレートについて</a></li>
+        <li><a href="#その他のテンプレートについて">その他のテンプレートについて</a></li>
+        <li><a href="#ブランチバンドルとリーフバンドルについて">ブランチバンドルとリーフバンドルについて</a></li>
+        <li><a href="#ページリソースについて">ページリソースについて</a></li>
+      </ul>
+    </li>
+    <li><a href="#タクソノミーtaxonomyについて">タクソノミー(Taxonomy)について</a>
+      <ul>
+        <li><a href="#タクソノミーテンプレートの注意点">タクソノミーテンプレートの注意点</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
       </aside>
@@ -202,6 +212,7 @@
 <li><a href="https://gohugo.io/templates/" target="_blank">Templates</a>
 </li>
 </ul>
+<h3 id="lookup-order探索順序について">Lookup Order(探索順序)について</h3>
 <p>また、少し上で「テンプレートにどのようなファイル名を採用するかがテーマによって異なる」と書きましたが、これが意外と重要です。</p>
 <p>Hugoは基本的に各テンプレートファイルを <strong>決められた順番・決められたファイルパスで探索</strong> します。その優先順位について書かれているのがこちらです。ここは軽く目を通しておいた方が後々助かると思います。</p>
 <ul>
@@ -259,10 +270,8 @@
 </li>
 <li>各タグ・カテゴリーなどの総称である <strong>タクソノミー(Taxonomy)</strong></li>
 </ul>
-<h2 id="ページとテンプレートについて">ページとテンプレートについて</h2>
-<ul>
-<li>
-<p>ページ(Page)について</p>
+<h3 id="ページとテンプレートについて">ページとテンプレートについて</h3>
+<h4 id="ページpageについて">ページ(Page)について</h4>
 <ul>
 <li><code>content</code>ディレクトリ以下に置かれる</li>
 <li>基本的にMarkdownとHTMLに対応
@@ -273,18 +282,19 @@
 </ul>
 </li>
 </ul>
+<h4 id="テンプレートtemplatesについて">テンプレート(Templates)について</h4>
+<ul>
+<li>
+<p><code>layouts</code>ディレクトリ以下に置かれる</p>
 </li>
 <li>
-<p>テンプレート(Templates)について</p>
-<ul>
-<li><code>layouts</code>ディレクトリ以下に置かれる</li>
-<li>基本的にHTMLで表現される
+<p>基本的にHTMLで表現される</p>
 <ul>
 <li>XMLやJSONを利用することもある</li>
 </ul>
 </li>
-<li>Markdown中に埋め込んでしまうと事実上 <strong>Hugo用のファイル</strong> となってしまうので汎用性を持たせたい場合は注意</li>
-</ul>
+<li>
+<p>Markdown中に埋め込んでしまうと事実上 <strong>Hugo用のファイル</strong> となってしまうので汎用性を持たせたい場合は注意</p>
 </li>
 <li>
 <p>ページを構成する代表的なテンプレートファイルは3種類ある</p>
@@ -299,9 +309,8 @@
 </ul>
 </li>
 </ul>
-<p>ページとテンプレートの関係をまとめるとこうなります。</p>
-<ul>
-<li>各種ページと基本3種テンプレートの対応関係
+<h4 id="ページとテンプレートの関係">ページとテンプレートの関係</h4>
+<p>各種ページと基本3種テンプレートの対応関係は次の通りです。</p>
 <ul>
 <li>各タクソノミー(タグ・カテゴリー)用テンプレートが<code>terms.html</code>
 <ul>
@@ -328,12 +337,8 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="その他のテンプレートについて">その他のテンプレートについて</h2>
-<ul>
-<li>
-<p>ショートコード(Shortcodes)について</p>
+<h3 id="その他のテンプレートについて">その他のテンプレートについて</h3>
+<h4 id="ショートコードshortcodesについて">ショートコード(Shortcodes)について</h4>
 <ul>
 <li><strong>ページ(大抵Markdown)の中で</strong> Hugo Templateを呼び出す為の機能</li>
 <li><code>{{&lt; shortcode &quot;ARGUMENTS&quot; &gt;}}</code>のような記法で文中に埋め込む
@@ -342,9 +347,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li>
-<p>インクルード(Includes)について</p>
+<h4 id="インクルードincludesについて">インクルード(Includes)について</h4>
 <ul>
 <li><strong>テンプレート(大抵HTML)の中で</strong> 別のHugo Templateを呼び出す為の機能</li>
 <li>インクルードの種類には<code>partial</code>, <code>template</code>などがある
@@ -360,9 +363,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li>
-<p>変数(Variables)と関数(Functions)について</p>
+<h4 id="変数variablesと関数functionsについて">変数(Variables)と関数(Functions)について</h4>
 <ul>
 <li>基本的に <a href="https://golang.org/pkg/text/template/#hdr-Functions" target="_blank">Goのtext/templateの文法</a>
 と変わらず</li>
@@ -383,22 +384,16 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="ブランチバンドルとリーフバンドルについて">ブランチバンドルとリーフバンドルについて</h2>
+<h3 id="ブランチバンドルとリーフバンドルについて">ブランチバンドルとリーフバンドルについて</h3>
 <p>サイト全体の記事構造を一つの木に見立て、各記事を葉っぱ(Leaf)、それらを束ねる各セクションを枝(Branch)と見なしたもの</p>
-<ul>
-<li>ブランチバンドル(Branch Bundles)について
+<h4 id="ブランチバンドルbranch-bundlesについて">ブランチバンドル(Branch Bundles)について</h4>
 <ul>
 <li><code>content</code>以下にあるディレクトリは<code>_index.md</code>という特殊ファイルがある場合 <strong>Branch Bundles</strong> として扱われる</li>
 <li>要するに <strong>セクション(Section)</strong> のこと<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 <li>セクションというのは<code>content</code>ディレクトリ以下に置かれた <strong>サブディレクトリ</strong> のことで、基本的にローカルディレクトリの構造にサイト側のパスも追従する</li>
 <li>セクションは多重化可能 (<code>content/section1/sub-section1</code> のような形)</li>
 </ul>
-</li>
-</ul>
-<ul>
-<li>リーフバンドル(Leaf Bundles)について
+<h4 id="リーフバンドルleaf-bundlesについて">リーフバンドル(Leaf Bundles)について</h4>
 <ul>
 <li><code>content</code>以下にあるディレクトリは<code>index.md</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>という特殊ファイルがある場合 <strong>Leaf Bundles</strong> として扱われる</li>
 <li>要するに <strong>記事</strong> のこと</li>
@@ -407,23 +402,21 @@
 <li>特殊ファイルとは言うものの、名前を変えるだけでOK</li>
 <li>中身は<code>page-desu.md</code>と<code>page-desu/index.md</code>とで変える必要はない</li>
 </ul>
-</li>
-</ul>
 <p>公式Docs: <a href="https://gohugo.io/content-management/page-bundles" target="_blank">Page Bundles</a>
 </p>
-<h2 id="ページリソースについて">ページリソースについて</h2>
+<h3 id="ページリソースについて">ページリソースについて</h3>
 <p>これは上記のLeaf Bundlesについて理解できていれば簡単です。</p>
+<p><strong>ページリソース(Page Resources)</strong> とは、各ページ内で使用する画像・動画などの <strong>リソース(Resources)</strong> 管理に関する仕組みです。</p>
+<h4 id="ページリソースpage-resources機能があると何が嬉しいか">ページリソース(Page Resources)機能があると何が嬉しいか</h4>
 <ul>
 <li>
-<p><strong>ページリソース(Page Resources)</strong> とは、各ページ内で使用する画像・動画などの <strong>リソース(Resources)</strong> 管理に関する仕組み</p>
+<p>Hugoのリソース管理は元々<code>static</code>ディレクトリで全て行われており、その事にユーザーから不満が出ていた</p>
 </li>
 <li>
-<p>ページリソース(Page Resources)機能があると何が嬉しいか</p>
-<ul>
-<li>Hugoのリソース管理は元々<code>static</code>ディレクトリで全て行われており、その事にユーザーから不満が出ていた</li>
-<li>各ページ内のリソースを<code>static/images/gazou.png</code>として<code>content</code>とは全く別のディレクトリで管理する必要があった</li>
-<li>このPage Resourcesという仕組みによって各Leaf Bundles(ディレクトリ)内でリソース管理を行うことが可能になった</li>
-</ul>
+<p>各ページ内のリソースを<code>static/images/gazou.png</code>として<code>content</code>とは全く別のディレクトリで管理する必要があった</p>
+</li>
+<li>
+<p>このPage Resourcesという仕組みによって各Leaf Bundles(ディレクトリ)内でリソース管理を行うことが可能になった</p>
 </li>
 <li>
 <p>Leaf Bundlesとして認識されたディレクトリ内、つまり<code>index.md</code>と同じ階層以下にその記事から読み込むファイル群を配置できる</p>
@@ -454,7 +447,7 @@
 <li><a href="https://garretlab.web.fc2.com/hugo/template/taxonomy/" target="_blank">コンテンツ分類(Taxonomy)</a>
 </li>
 </ul>
-<h2 id="タクソノミーテンプレートの注意点">タクソノミーテンプレートの注意点</h2>
+<h3 id="タクソノミーテンプレートの注意点">タクソノミーテンプレートの注意点</h3>
 <p>タクソノミーに関するテンプレートを <strong>タクソノミーテンプレート(Taxonomy Template)</strong> と言いますが、これを扱う際は注意が必要です。</p>
 <p>タクソノミー内の値には<code>.Data.Terms</code>や<code>.Data.Pages</code>といった形でアクセスします。</p>
 <p>つまり<code>.Data</code>の下にぶら下がる<code>.Data.XXX</code>といった形で記述するのですが、これは似たような<code>.Site.Data.XXX</code>といった形を持つ <strong>データテンプレート(Data Template)</strong> とは似て非なる <strong>全くの別物</strong> です。</p>

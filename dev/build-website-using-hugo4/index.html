@@ -298,7 +298,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <li><code>folder.svg</code>から<code>categories.svg</code>へリネーム</li>
 <li><code>tag.svg</code>から<code>tags.svg</code>へリネーム</li>
 </ul>
-<p>FontAwesomeデフォルトのファイル名をリネームしないと、テンプレートから渡される<code>$name</code>が<code>tags</code>のままなのに実ファイル名が<code>tag.svg</code>のままで読み込まれないという訳です。</p>
+<p>FontAwesomeデフォルトのファイル名をリネームしないと、テンプレートから渡される<code>$name</code>が<code>tags</code>なのに実ファイル名が<code>tag.svg</code>のままでは読み込まれないという訳です。</p>
 <p>TOMLの方を書き変えるかSVGファイル名を変えるかは人それぞれでしょうが、一応書いておきます。</p>
 <h4>参考記事</h4>
 <ul>
@@ -378,7 +378,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 </code></pre></div><p><code>src</code>でサムネイルの場所を指定、<code>link</code>で大きいサイズの画像を指定します。パスはそれぞれPage Resourcesの仕様に則っているので記事ファイル(<code>.md</code>)と同じ階層からの相対パスです。</p>
 <p><code>class</code>の有無を問わず機能するので、CSSなどで何か表示を変えたい時だけ<code>class=&quot;fuga&quot;</code>などと指定すればOKです。</p>
 <h3 id="steamhtmlについて">steam.htmlについて</h3>
-<p>Steamのストアページをインライン表示できるShortcodeです。</p>
+<p>Steamのウィジェットを表示するShortcodeです。</p>
 <p>TwitterやYouTubeなどはHugo側にデフォルトで用意されているのですがSteamは無かったので用意しました(参考記事のものをそのまま利用)。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:steam.html" data-lang="html:steam.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed steam-link&#34;</span>&gt;
   &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;steam-link&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://store.steampowered.com/widget/{{ index .Params 0 }}/&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
