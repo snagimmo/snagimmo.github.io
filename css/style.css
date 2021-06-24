@@ -14,7 +14,7 @@ main {
   line-height: 1.7em;
   hyphens: auto;
   display: block;
-  font-size: 1.1em;
+  font-size: 2vh;
 }
 main p {
   margin-top: 2em;
@@ -331,8 +331,9 @@ pre {
   padding: 1em 1em 1em 1.2em;
 }
 
-pre, code {
-  line-height: 1.45em !important;
+pre > code {
+  font-size: 1.75vh !important;
+  line-height: 1.45em;
 }
 
 /* Show line number */
@@ -407,6 +408,7 @@ pre::-webkit-scrollbar-thumb {
 :not(pre) > code {
   background: #282C34;
   border-bottom: 1px solid #D0AF4C;
+  font-size: 1.7vh !important;
   font-weight: 500;
   padding: 0 0.4rem 0.1rem 0.4rem;
 }
@@ -430,7 +432,7 @@ blockquote {
   line-height: 1.7em;
   width: 70%;
   margin: auto;
-  font-size: 1.1em;
+  font-size: 1.8vh !important;
 }
 .xToc_title {
   font-size: 1.2em;
@@ -453,6 +455,7 @@ blockquote {
 }
 .xToc a {
   color: #c0c0c0 !important;
+  font-size: 0.9em;
   font-weight: normal;
   display: block;
   border-bottom: dashed 1px #999;
