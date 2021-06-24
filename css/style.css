@@ -331,7 +331,7 @@ pre {
   padding: 1em 1em 1em 1.2em;
 }
 
-pre > code {
+pre, code {
   font-size: 1.75vh !important;
   line-height: 1.45em;
 }
@@ -363,13 +363,14 @@ pre > code {
   margin: -2.2em 0 0 -2em;
 }
 .code-name {
-  display: block;
+  display: inline-block;
   background: #D0AF4C;
   color: #0F0F1F;
   margin-bottom: 1em;
+  margin-right: 4em;
   position: absolute;
   font-weight: bold;
-  font-size: 0.92rem;
+  font-size: 1.8vh;
 }
 
 /* Custom scrollbar */
