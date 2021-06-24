@@ -111,12 +111,9 @@
 
 .home-title {
   font-family: SegoeUI !important;
-  font-size: 1.8em;
-  line-height: 1.1em;
 }
 header, footer {
-  font-family:
-    'Inter' !important;
+  font-family: 'Inter' !important;
 }
 pre, code {
   font-family:
@@ -127,8 +124,6 @@ pre, code {
     "メイリオ",
     'Noto Sans JP',
     'Kosugi' !important;
-  font-size: 0.9rem;
-  line-height: 1.45em;
 }
 html, .home-description, .search-results, .copyright {
   font-family:
@@ -140,18 +135,4 @@ html, .home-description, .search-results, .copyright {
     'Apple Color Emoji',
     'Segoe UI Emoji',
     'Segoe UI Symbol';
-}
-html {
-  font-size: 1.2em;
-}
-.home-description {
-  font-size: 0.9em;
-  line-height: 1.3em;
-}
-.search-results {
-  font-size: 0.8em;
-  line-height: 1.15em;
-}
-.copyright {
-  font-size: 1em;
 }

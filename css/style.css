@@ -81,7 +81,15 @@ main .updates {
 }
 .article-meta a { font-size: 1.14em; }
 
-/* .home-title { text-align: center; } */
+.home-title {
+  text-align: center;
+  font-size: 1.8em;
+  line-height: 1.1em;
+}
+.home-description {
+  font-size: 0.9em;
+  line-height: 1.3em;
+}
 .menu { text-align: center; }
 .title {
   font-size: 1.5rem;
@@ -107,6 +115,7 @@ main .updates {
   text-align: center;
   margin-top: 1em;
   padding-bottom: 0.8em;
+  font-size: 1em;
 }
 .footnote-ref {
   margin: 0.1em;
@@ -320,6 +329,10 @@ pre {
   /* max-height: 700px; */
   margin-bottom: 1em;
   padding: 1em 1em 1em 1.2em;
+}
+
+pre, code {
+  line-height: 1.45em !important;
 }
 
 /* Show line number */
@@ -566,7 +579,8 @@ img, iframe, video {
   border-radius: 3px;
   background: #0F0F1F;
   color: #ddd;
-  font-size: 0.75em;
+  font-size: 0.8em;
+  line-height: 1.15em;
   outline: 0; /* don't display outline*/
   position: relative;
   z-index: 1;
