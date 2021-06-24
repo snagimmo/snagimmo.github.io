@@ -661,6 +661,7 @@ input::-ms-input-placeholder {
 .steam-link {
   width: 450px;
   height: 200px;
+  max-width: 100%;
 }
 
 .img-wrapper img {
