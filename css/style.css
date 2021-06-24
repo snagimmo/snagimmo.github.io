@@ -143,11 +143,23 @@ main .updates {
   float: left;
   display: absolute;
   font-size: 0.9em;
+  overflow: hidden;
+  max-width: 40%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis; /* Safari */
+  -o-text-overflow: ellipsis; /* Opera */
 }
 .next-link {
   float: right;
   display: absolute;
   font-size: 0.9em;
+  overflow: hidden;
+  max-width: 40%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis; /* Safari */
+  -o-text-overflow: ellipsis; /* Opera */
 }
 .prev-link a, .next-link a {
   text-decoration: none !important;
