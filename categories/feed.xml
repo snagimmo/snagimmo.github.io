@@ -6,8 +6,15 @@
         <description>Recent content in Categories on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <lastBuildDate>Wed, 23 Jun 2021 23:57:20 +0900</lastBuildDate>
+        <lastBuildDate>Thu, 24 Jun 2021 21:23:00 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/categories/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</title>
+            <link>https://snagimmo.net/dev/build-website-using-hugo5/</link>
+            <pubDate>Thu, 24 Jun 2021 21:23:00 +0900</pubDate>
+            <guid>https://snagimmo.net/dev/build-website-using-hugo5/</guid>
+            <description>Hugoで個人サイトを作るシリーズ5回目: Hugoテーマの機能面カスタマイズその1</description>
+        </item>
         <item>
             <title>Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2</title>
             <link>https://snagimmo.net/dev/build-website-using-hugo4/</link>
