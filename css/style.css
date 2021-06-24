@@ -14,7 +14,7 @@ main {
   line-height: 1.7em;
   hyphens: auto;
   display: block;
-  font-size: 2vh;
+  font-size: 2.05vh;
 }
 main p {
   margin-top: 2em;
@@ -326,13 +326,12 @@ pre {
   overflow-x: auto;
   white-space: pre;
   text-overflow: clip;
-  /* max-height: 700px; */
   margin-bottom: 1em;
   padding: 1em 1em 1em 1.2em;
 }
 
-pre, code {
-  font-size: 1.75vh !important;
+pre > code {
+  font-size: 1.8vh !important;
   line-height: 1.45em;
 }
 
@@ -409,7 +408,7 @@ pre::-webkit-scrollbar-thumb {
 :not(pre) > code {
   background: #282C34;
   border-bottom: 1px solid #D0AF4C;
-  font-size: 1.7vh !important;
+  font-size: 1.8vh !important;
   font-weight: 500;
   padding: 0 0.4rem 0.1rem 0.4rem;
 }
@@ -421,7 +420,7 @@ blockquote {
   border-radius: .3em;
   padding: 3px 2em 5px;
   line-height: 1.5em;
-  font-size: 0.85em;
+  font-size: 1.8vh !important;
 }
 
 /* Tables */
@@ -433,7 +432,7 @@ blockquote {
   line-height: 1.7em;
   width: 70%;
   margin: auto;
-  font-size: 1.8vh !important;
+  font-size: 2vh !important;
 }
 .xToc_title {
   font-size: 1.2em;
