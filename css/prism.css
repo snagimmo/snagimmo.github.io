@@ -112,6 +112,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 .token.tag,
 .token.shebang,
+.token.shebang.important,
 .token.punctuation.attr-equals,
 .token.property,
 .token.property .keyword {
@@ -139,6 +140,9 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	color: hsl(42, 85%, 60%);
 }
 
+.token.important {
+	color: hsl(28, 90%, 55%);
+}
 
 .token.atrule {
 	color: hsl(218, 22%, 55%);

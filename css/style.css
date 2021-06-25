@@ -131,10 +131,6 @@ main .updates {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
 }
-/* .contacts { */
-/*   width: 0.1em; */
-/*   max-width: 20%; */
-/* } */
 .page-links {
   margin-top: 1.5rem;
   margin-bottom: 2.5rem;
@@ -359,7 +355,7 @@ pre, code {
 .highlight > div > pre > .code-name {
   border-radius: .2em 0 .3em 0;
   padding: .02em .5em .04em .5em;
-  margin: -2.25em 0 0 -2.1em;
+  margin: -2.25em 0 0 -2.05em; /* This is quite important ! */
 }
 .code-name {
   display: inline-block;
@@ -525,6 +521,10 @@ img, iframe, video {
 #mail-caption {
   font-size: 0.9em;
   display: inline-block;
+}
+
+.MathJax {
+  max-width: 100%;
 }
 
 /* Search bar */
