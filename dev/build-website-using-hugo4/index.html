@@ -298,7 +298,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <li><code>folder.svg</code>から<code>categories.svg</code>へリネーム</li>
 <li><code>tag.svg</code>から<code>tags.svg</code>へリネーム</li>
 </ul>
-<p>FontAwesomeデフォルトのファイル名をリネームしないと、テンプレートから渡される<code>$name</code>が<code>tags</code>なのに実ファイル名が<code>tag.svg</code>のままでは読み込まれないという訳です。</p>
+<p>FontAwesomeデフォルトのファイル名をリネームしないと、テンプレートから渡される<code>$name</code>が<code>tags</code>なのに実ファイル名が<code>tag.svg</code>のままで読み込まれないという訳です。</p>
 <p>TOMLの方を書き変えるかSVGファイル名を変えるかは人それぞれでしょうが、一応書いておきます。</p>
 <h4>参考記事</h4>
 <ul>
@@ -365,7 +365,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <span class="colored" style="background:#fff;color:#000;">白</span>
 </p>
 <h3 id="imagehtmlについて">image.htmlについて</h3>
-<p>これも自作です。サムネイルを表示してクリック・タップされると元画像が拡大表示されるように <strong>Lightbox2</strong> を利用しています(有名なのでLightbox2の説明は省略)。</p>
+<p>これも自作です。サムネイルを表示し、サムネイルがクリックあるいはタップされると元画像が拡大表示されます。<strong>Lightbox2</strong> を利用していますが有名なのでLightbox2の説明は省略します。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:image.html" data-lang="html:image.html">&lt;<span style="color:#f92672">figure</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">class</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
   &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;img-wrapper&#34;</span>&gt;
     &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">link</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-lightbox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-lightbox</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-title</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
@@ -387,6 +387,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">steam-link</span> {
   <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">450</span><span style="color:#66d9ef">px</span>;
   <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 }
 </code></pre></div><p>Markdownの中ではこう使います。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">steam</span> <span style="color:#a6e22e">814380</span> &gt;}}
@@ -406,7 +407,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <p>下記Hugo公式Docsにもあるように、元々 <strong>TOC(Table of Contents)</strong> はHugo側の機能としてデフォルトで存在しているため、ユーザーは <strong>機能を呼び出すだけで利用可能</strong> です。</p>
 <p>公式Docs: <a href="https://gohugo.io/content-management/toc/#readout" target="_blank">Table of Contents | Hugo</a>
 </p>
-<p>これを利用すれば、見出しとして<code>## 見出し2</code>や<code>### 見出し3</code>のようにMarkdown中に記述するだけで自動でHugoがTOCを出力してくれます。</p>
+<p>これを利用すれば、見出し行を<code>## 見出し2</code>や<code>### 見出し3</code>のようにMarkdown中に記述するだけで自動でHugoがTOCを出力してくれます。</p>
 <p>各記事の中に目次を追加したかったので、記事用テンプレートの<code>ROOT/layouts/_default/single.html</code>を下記のように編集しました。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html"><span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content-wrapper&#34;</span>&gt;
