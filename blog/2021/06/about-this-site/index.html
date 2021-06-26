@@ -11,13 +11,28 @@
     
 
 
+<script type="text/javascript" src="/php/analytics.php?s=X"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-200529135-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-gtag('config', 'UA-200529135-1');
+gtag('config', 'UA-200529135-1', {
+  'custom_map': {
+    'dimension1': 'clientId',
+    'dimension2': 'ip_value',
+    'dimension3': 'access_time',
+    'dimension4': 'ua',
+    'dimension5': 'uri_js',
+    'dimension6': 'id_php'
+  },
+  'ip_value': setAnalytics.getIP(),
+  'access_time': setAnalytics.getAccessTime(),
+  'ua': navigator.userAgent,
+  'uri_js': location.pathname,
+  'id_php': setAnalytics.getCookie()
+});
 </script>
 
 

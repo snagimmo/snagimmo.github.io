@@ -11,13 +11,28 @@
     
 
 
+<script type="text/javascript" src="/php/analytics.php?s=X"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-200529135-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-gtag('config', 'UA-200529135-1');
+gtag('config', 'UA-200529135-1', {
+  'custom_map': {
+    'dimension1': 'clientId',
+    'dimension2': 'ip_value',
+    'dimension3': 'access_time',
+    'dimension4': 'ua',
+    'dimension5': 'uri_js',
+    'dimension6': 'id_php'
+  },
+  'ip_value': setAnalytics.getIP(),
+  'access_time': setAnalytics.getAccessTime(),
+  'ua': navigator.userAgent,
+  'uri_js': location.pathname,
+  'id_php': setAnalytics.getCookie()
+});
 </script>
 
 
@@ -389,7 +404,7 @@ gtag('config', 'UA-200529135-1');
 </li>
 </ul>
 <h3 id="rssフィードの情報量を制限">RSSフィードの情報量を制限</h3>
-<p>RSSには<code>description</code>という項目内に要約文が載っていますが、サイトによってほぼコンテンツ全文を載せるか、要約文のみ載せるか、一行コメントだけ載せるか、やり方は様々だと思います。</p>
+<p>RSSでは<code>description</code>という項目内に要約文が載っていますが、サイトによってほぼコンテンツ全文を載せるか、要約文のみ載せるか、一行コメントだけ載せるか、やり方は様々だと思います。</p>
 <p>私の場合は、何だか全文載せるのはゴチャゴチャしてしまうかも知れないと思ったのでHugoデフォルトの要約文を更に字数制限付きで短くすることにしました。</p>
 <p>実例がこちらです。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml:rss.xml" data-lang="xml:rss.xml"><span style="color:#f92672">&lt;description&gt;</span>{{ if .Description }}{{ .Description }}{{ else }}{{ substr .Summary 0 500 | safeHTML }}{{ if gt (len .Summary) 500 }}...{{ end }}{{ end }}<span style="color:#f92672">&lt;/description&gt;</span>
