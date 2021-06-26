@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/images/favicon-128x128.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+
+    
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-200529135-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+gtag('config', 'UA-200529135-1');
+</script>
+
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snagimmo.net/dev/build-website-using-hugo6/">
+    <meta property="og:image" content="https://snagimmo.net/images/profile.png">
+    <meta property="og:title" content="Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4">
+    <meta property="og:site_name" content="snagim( &#39;e&#39; )mo">
+    <meta property="og:description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@snagimmo">
+    <meta name="twitter:creator" content="@snagimmo">
+
+    <title>Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 | snagim( &#39;e&#39; )mo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="https://snagimmo.net/css/theme-override.css">
+
+    
+    <link href="/css/prism.css" rel="stylesheet">
+
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" rel="stylesheet">
+
+    <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-home ">
+        <a href="https://snagimmo.net/">home</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M464,136H272l-64-64H48C21.5,72,0,93.5,0,120v288c0,26.5,21.5,48,48,48h416c26.5,0,48-21.5,48-48V184 C512,157.5,490.5,136,464,136z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags/"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M20,272.4V84.3C20,59.8,39.8,40,64.3,40h188.2c11.7,0,23,4.7,31.3,13L479,248.3c17.3,17.3,17.3,45.3,0,62.6L290.9,499 c-17.3,17.3-45.3,17.3-62.6,0L33,303.7C24.7,295.4,20,284.2,20,272.4z M123.3,99C98.8,99,79,118.8,79,143.3s19.8,44.3,44.2,44.3	s44.3-19.8,44.3-44.3S147.7,99,123.3,99z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="/feed.xml" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" x="0px"	 y="0px" viewBox="0 0 448 512" style="enable-background:new 0 0 448 512;" xml:space="preserve"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M149.3,380.6c0,27.6-22.3,49.9-49.9,49.9s-49.9-22.3-49.9-49.9s22.3-49.9,49.9-49.9S149.3,353.1,149.3,380.6L149.3,380.6z M286.1,417.4c-6.5-120.4-103-217-223.5-223.5c-7.1-0.4-13.1,5.3-13.1,12.5v37.4c0,6.6,5.1,12.1,11.6,12.5	c87.1,5.7,157,75.3,162.6,162.6c0.4,6.5,5.9,11.6,12.5,11.6h37.4C280.8,430.5,286.5,424.5,286.1,417.4L286.1,417.4z M398.5,417.6 C392,235.5,245.4,88.1,62.4,81.5c-7-0.3-12.9,5.4-12.9,12.5v37.4c0,6.7,5.3,12.2,12,12.5C210.5,150,330,269.6,336.1,418.5 c0.3,6.7,5.7,12,12.5,12H386C393.1,430.5,398.7,424.7,398.5,417.6z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-link">
+          <a href="https://github.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://twitter.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://misskey.io/@snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.3 42.8"><path fill="currentColor" d="M24.1,30.2c-2.5,0-4.7-1.4-5.7-3.1c-0.5-0.7-1.6-1-1.6,0v4.5c0,1.8-0.7,3.4-2.1,4.7c-1.4,1.3-3.1,1.9-5,1.9 c-1.9,0-3.6-0.6-5-1.9c-1.4-1.3-2.1-2.9-2.1-4.7v-25C2.5,5.3,3,4,3.8,2.9c0.9-1.2,2-2,3.4-2.5C8,0.1,8.8,0,9.6,0 c2.2,0,4,0.8,5.5,2.4c0.8,0.8,1.2,1.2,1.3,1.3c0,0,5.8,6.6,5.9,6.7c0.2,0.1,0.6,1,1.8,1s1.7-0.9,1.8-1c0.2-0.1,5.9-6.7,5.9-6.7 c0,0,0.5-0.4,1.3-1.3C34.7,0.8,36.5,0,38.7,0c0.8,0,1.6,0.1,2.4,0.4c1.4,0.5,2.5,1.3,3.3,2.5c0.9,1.1,1.3,2.4,1.3,3.8v25 c0,1.8-0.7,3.4-2.1,4.7c-1.4,1.3-3.1,1.9-5,1.9c-1.9,0-3.6-0.6-5-1.9c-1.4-1.3-2.1-2.9-2.1-4.7v-4.5c-0.1-1.2-1.3-0.5-1.7,0 C28.7,29,26.6,30.2,24.1,30.2z"/></svg>
+
+</span>
+</a>
+      </li>
+      
+      
+      <li class="pull-link">
+          <a href="https://soundcloud.com/snagimmo" target="_blank"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M111.4 256.3l5.8 65-5.8 68.3c-.3 2.5-2.2 4.4-4.4 4.4s-4.2-1.9-4.2-4.4l-5.6-68.3 5.6-65c0-2.2 1.9-4.2 4.2-4.2 2.2 0 4.1 2 4.4 4.2zm21.4-45.6c-2.8 0-4.7 2.2-5 5l-5 105.6 5 68.3c.3 2.8 2.2 5 5 5 2.5 0 4.7-2.2 4.7-5l5.8-68.3-5.8-105.6c0-2.8-2.2-5-4.7-5zm25.5-24.1c-3.1 0-5.3 2.2-5.6 5.3l-4.4 130 4.4 67.8c.3 3.1 2.5 5.3 5.6 5.3 2.8 0 5.3-2.2 5.3-5.3l5.3-67.8-5.3-130c0-3.1-2.5-5.3-5.3-5.3zM7.2 283.2c-1.4 0-2.2 1.1-2.5 2.5L0 321.3l4.7 35c.3 1.4 1.1 2.5 2.5 2.5s2.2-1.1 2.5-2.5l5.6-35-5.6-35.6c-.3-1.4-1.1-2.5-2.5-2.5zm23.6-21.9c-1.4 0-2.5 1.1-2.5 2.5l-6.4 57.5 6.4 56.1c0 1.7 1.1 2.8 2.5 2.8s2.5-1.1 2.8-2.5l7.2-56.4-7.2-57.5c-.3-1.4-1.4-2.5-2.8-2.5zm25.3-11.4c-1.7 0-3.1 1.4-3.3 3.3L47 321.3l5.8 65.8c.3 1.7 1.7 3.1 3.3 3.1 1.7 0 3.1-1.4 3.1-3.1l6.9-65.8-6.9-68.1c0-1.9-1.4-3.3-3.1-3.3zm25.3-2.2c-1.9 0-3.6 1.4-3.6 3.6l-5.8 70 5.8 67.8c0 2.2 1.7 3.6 3.6 3.6s3.6-1.4 3.9-3.6l6.4-67.8-6.4-70c-.3-2.2-2-3.6-3.9-3.6zm241.4-110.9c-1.1-.8-2.8-1.4-4.2-1.4-2.2 0-4.2.8-5.6 1.9-1.9 1.7-3.1 4.2-3.3 6.7v.8l-3.3 176.7 1.7 32.5 1.7 31.7c.3 4.7 4.2 8.6 8.9 8.6s8.6-3.9 8.6-8.6l3.9-64.2-3.9-177.5c-.4-3-2-5.8-4.5-7.2zm-26.7 15.3c-1.4-.8-2.8-1.4-4.4-1.4s-3.1.6-4.4 1.4c-2.2 1.4-3.6 3.9-3.6 6.7l-.3 1.7-2.8 160.8s0 .3 3.1 65.6v.3c0 1.7.6 3.3 1.7 4.7 1.7 1.9 3.9 3.1 6.4 3.1 2.2 0 4.2-1.1 5.6-2.5 1.7-1.4 2.5-3.3 2.5-5.6l.3-6.7 3.1-58.6-3.3-162.8c-.3-2.8-1.7-5.3-3.9-6.7zm-111.4 22.5c-3.1 0-5.8 2.8-5.8 6.1l-4.4 140.6 4.4 67.2c.3 3.3 2.8 5.8 5.8 5.8 3.3 0 5.8-2.5 6.1-5.8l5-67.2-5-140.6c-.2-3.3-2.7-6.1-6.1-6.1zm376.7 62.8c-10.8 0-21.1 2.2-30.6 6.1-6.4-70.8-65.8-126.4-138.3-126.4-17.8 0-35 3.3-50.3 9.4-6.1 2.2-7.8 4.4-7.8 9.2v249.7c0 5 3.9 8.6 8.6 9.2h218.3c43.3 0 78.6-35 78.6-78.3.1-43.6-35.2-78.9-78.5-78.9zm-296.7-60.3c-4.2 0-7.5 3.3-7.8 7.8l-3.3 136.7 3.3 65.6c.3 4.2 3.6 7.5 7.8 7.5 4.2 0 7.5-3.3 7.5-7.5l3.9-65.6-3.9-136.7c-.3-4.5-3.3-7.8-7.5-7.8zm-53.6-7.8c-3.3 0-6.4 3.1-6.4 6.7l-3.9 145.3 3.9 66.9c.3 3.6 3.1 6.4 6.4 6.4 3.6 0 6.4-2.8 6.7-6.4l4.4-66.9-4.4-145.3c-.3-3.6-3.1-6.7-6.7-6.7zm26.7 3.4c-3.9 0-6.9 3.1-6.9 6.9L227 321.3l3.9 66.4c.3 3.9 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9l4.2-66.4-4.2-141.7c0-3.9-3-6.9-6.9-6.9z"/></svg>
+</span>
+</a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+
+  </head>
+  <body>
+    <br/>
+
+<div class="search-area">
+  <form class="search-form" action="https://snagimmo.net/dev/build-website-using-hugo6/" onkeyup="search()">
+    <input class="search-text" id="search-query" placeholder="Search this site" autocomplete="off"/>
+  </form>
+  <div class="search-button">
+    <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+
+  </div>
+  <ul class="search-results" id="results">
+</div>
+
+<br>
+
+<div class="article">
+<div class="article-meta">
+  <h2><span class="title">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</span></h2>
+  <span class="date"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"/></svg>
+</span>
+2021/06/26</span>
+  <p class="terms">
+    
+      
+        <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"/></svg>
+</span>
+
+        
+        <a href='/categories/website'>website</a>&nbsp;&nbsp;
+      
+    
+      
+        <span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>
+</span>
+
+        
+        <a href='/tags/hugo'>Hugo</a>&nbsp;&nbsp;
+      
+    
+  </p>
+</div>
+<hr>
+<div class="content-wrapper">
+      <aside class="xToc">
+          <div class="xToc_title">目次</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#サイト内全文検索としてlunrを導入">サイト内全文検索としてLunrを導入</a>
+      <ul>
+        <li><a href="#全文検索用のjsonファイルを生成">全文検索用のJSONファイルを生成</a></li>
+        <li><a href="#lunrのソース群を配置">Lunrのソース群を配置</a></li>
+        <li><a href="#検索用スクリプト作成">検索用スクリプト作成</a></li>
+        <li><a href="#検索窓設置用のpartial-template作成">検索窓設置用のPartial Template作成</a></li>
+      </ul>
+    </li>
+    <li><a href="#ogpに対応させる">OGPに対応させる</a></li>
+    <li><a href="#rssフィードの改良">RSSフィードの改良</a>
+      <ul>
+        <li><a href="#rss用のテンプレート">RSS用のテンプレート</a></li>
+        <li><a href="#rssファイルのリネーム">RSSファイルのリネーム</a></li>
+        <li><a href="#rssフィードの情報量を制限">RSSフィードの情報量を制限</a></li>
+      </ul>
+    </li>
+    <li><a href="#フォントの見直し">フォントの見直し</a>
+      <ul>
+        <li><a href="#ヘッダとフッタのフォント">ヘッダとフッタのフォント</a></li>
+        <li><a href="#コードブロックのフォント">コードブロックのフォント</a></li>
+        <li><a href="#メインフォントをwebフォント化">メインフォントをWebフォント化</a></li>
+      </ul>
+    </li>
+    <li><a href="#共有ボタン設置">共有ボタン設置</a></li>
+  </ul>
+</nav>
+      </aside>
+  <main>
+    <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
+というツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。</p>
+<ul>
+<li>第0回: <a href="https://snagimmo.net/dev/build-website-using-hugo0/">Hugoで個人サイト制作(0) Hugo導入以前</a>
+</li>
+<li>第1回: <a href="https://snagimmo.net/dev/build-website-using-hugo1/">Hugoで個人サイト制作(1) Hugo導入</a>
+</li>
+<li>第2回: <a href="https://snagimmo.net/dev/build-website-using-hugo2/">Hugoで個人サイト制作(2) コンテンツ管理とテンプレート</a>
+</li>
+<li>第3回: <a href="https://snagimmo.net/dev/build-website-using-hugo3/">Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</a>
+</li>
+<li>第4回: <a href="https://snagimmo.net/dev/build-website-using-hugo4/">Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2</a>
+</li>
+<li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
+</li>
+<li><strong>第6回(今回)</strong></li>
+</ul>
+<p>今回でHugoテーマのカスタマイズは終了です。今回も機能面の追加などをしていきます。</p>
+<h2 id="サイト内全文検索としてlunrを導入">サイト内全文検索としてLunrを導入</h2>
+<h3 id="全文検索用のjsonファイルを生成">全文検索用のJSONファイルを生成</h3>
+<p>サイト内全文検索を行うには、まずその対象となるテキスト群を含んだJSONなどのファイルを生成しておく必要があります。</p>
+<p>Hugoの場合は予め <strong>全文検索用JSONファイル出力機能</strong> が存在しています。詳しくは下記公式Docsに書いてあります。</p>
+<p>公式Docs: <a href="https://gohugo.io/templates/output-formats/#output-format-definitions" target="_blank">Custom Output Formats | Hugo</a>
+</p>
+<blockquote>
+<p>Hugo can output content in multiple formats, including calendar events, e-book formats, Google AMP, and JSON search indexes, or any custom text format.</p>
+</blockquote>
+<p>「 <strong>JSON search indexes</strong> 」とありますね。これの事です。<code>ROOT/config.toml</code>内に下記項目を追加することで自動生成することが出来ます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputs</span>]
+  <span style="color:#a6e22e">home</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
+</code></pre></div><p>この設定により、自動で<code>index.html</code>ファイル<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>と<code>index.xml</code>ファイル<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>と<code>index.json</code>ファイルがドキュメントルートに生成されます。</p>
+<p>実ファイルがローカルに生成されるのではなくURL上で<code>http(s)://DOMAIN/XXX.html</code>などの形でアクセス出来るようになる、という点に注意です。</p>
+<p>この際、<code>ROOT/layouts/_default</code>直下に同名の<code>index.json</code>というテンプレートファイルを作成することで、Hugoによって自動生成された<code>index.json</code>ファイルの内容を制御・変更することが可能になります。</p>
+<p>私が作成した<code>index.json</code>のテンプレートは下記の通りです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:index.json" data-lang="json:index.json">{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">slice</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$section</span> <span style="color:#960050;background-color:#1e0010">:=</span> <span style="color:#960050;background-color:#1e0010">$.Site.GetPage</span> <span style="color:#f92672">&#34;section&#34;</span> <span style="color:#960050;background-color:#1e0010">.Section</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">range</span> <span style="color:#960050;background-color:#1e0010">.Site.RegularPages</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+    {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">if</span> <span style="color:#960050;background-color:#1e0010">and</span> <span style="color:#960050;background-color:#1e0010">(.IsDescendant</span> <span style="color:#960050;background-color:#1e0010">$section)</span> <span style="color:#960050;background-color:#1e0010">(not</span> <span style="color:#960050;background-color:#1e0010">.Params.private)</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+        {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">(dict</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#960050;background-color:#1e0010">.Title</span> <span style="color:#e6db74">&#34;tags&#34;</span> <span style="color:#960050;background-color:#1e0010">.Params.tags</span> <span style="color:#e6db74">&#34;categories&#34;</span> <span style="color:#960050;background-color:#1e0010">.Params.categories</span> <span style="color:#e6db74">&#34;contents&#34;</span> <span style="color:#960050;background-color:#1e0010">.Plain</span> <span style="color:#e6db74">&#34;href&#34;</span> <span style="color:#960050;background-color:#1e0010">.URL</span> <span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+    {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">end</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">end</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Get</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#960050;background-color:#1e0010">jsonify</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p><code>private: true</code>でない時は全て全文検索用のJSONに含めるという設定です。下記の参考記事群に大分助けられました。感謝です。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://blog.8-p.info/ja/2018/05/26/hugo-json/" target="_blank">Hugo で全記事いりの JSON ファイルをつくる - blog.8-p.info</a>
+</li>
+<li><a href="https://blog.uni-3.app/2019/01/02/hugo-algolia-search" target="_blank">hugoで作ったblogにalgoliaで全文検索機能を追加する | uni-3 log</a>
+</li>
+</ul>
+<h3 id="lunrのソース群を配置">Lunrのソース群を配置</h3>
+<p>色々と調べたところ、Hugoで全文検索を導入するにはTinysearchやLunrが良いらしいとの情報を得ました。結果的に <strong>Lunr</strong> に決めました。</p>
+<p>さて、参考にさせて頂いた記事のリンク先(後述)には</p>
+<blockquote>
+<p>lunr.jsは<a href="https://github.com/olivernn/lunr.js/" target="_blank"> olivernn/lunr.js </a>
+に、lunr.jp.js, lunr.multi.js, lunr.stemmer.support.js, tinyseg.jsは<a href="https://github.com/MihaiValentin/lunr-languages" target="_blank"> MihaiValentin/lunr-languages </a>
+にある。</p>
+</blockquote>
+<p>とあるのですが、Lunr側のスクリプトを読むと事情が少し異なっています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:lunr.jp.js" data-lang="js:lunr.jp.js"><span style="color:#75715e">// jp is the country code, while ja is the language code
+</span><span style="color:#75715e">// a new lunr.ja.js has been created, but in order to
+</span><span style="color:#75715e">// keep the backward compatibility, we&#39;ll leave the lunr.jp.js
+</span><span style="color:#75715e">// here for a while, and just make it use the new lunr.ja.js
+</span></code></pre></div><p>「後方互換性の為に<code>lunr.jp.js</code>を残しておくが、本来<code>jp</code>はカントリーコードであり言語コードは<code>ja</code>なので正式には<code>ja</code>の方が最適な表現だ」ということらしいです。</p>
+<p>要するに、後から作成された<code>lunr.ja.js</code>の方を使ってくれ、という事でしょう。</p>
+<p>ということで、必要なスクリプト群は下記 <strong>5つ</strong> と判明しました(動作検証済み)。</p>
+<ul>
+<li><a href="https://github.com/olivernn/lunr.js/blob/master/lunr.js" target="_blank">lunr.js</a>
+</li>
+<li><strong><a href="https://github.com/MihaiValentin/lunr-languages/blob/master/lunr.ja.js" target="_blank">lunr.ja.js</a>
+</strong> ←これ1つで動作するので<code>lunr.jp.js</code>は不要です</li>
+<li><a href="https://github.com/MihaiValentin/lunr-languages/blob/master/lunr.multi.js" target="_blank">lunr.multi.js</a>
+</li>
+<li><a href="https://github.com/MihaiValentin/lunr-languages/blob/master/lunr.stemmer.support.js" target="_blank">lunr.stemmer.support.js</a>
+</li>
+<li><a href="https://github.com/MihaiValentin/lunr-languages/blob/master/tinyseg.js" target="_blank">tinyseg.js</a>
+</li>
+</ul>
+<p>全てDLしてきたら、例によって<code>ROOT/static/js</code>直下に置いておきます。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://blog.unigiri.net/article/hugo-lunr%E3%81%AB%E3%82%88%E3%82%8B%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A8%E6%96%87%E6%A4%9C%E7%B4%A2/" target="_blank">Hugo &#43; Lunrによる日本語全文検索 | Unigiri</a>
+</li>
+</ul>
+<h3 id="検索用スクリプト作成">検索用スクリプト作成</h3>
+<p>引き続き、下記の記事を参考に<code>ROOT/static/js/search.js</code>を作成します。</p>
+<p>こちら: <a href="https://blog.unigiri.net/article/hugo-lunr%E3%81%AB%E3%82%88%E3%82%8B%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A8%E6%96%87%E6%A4%9C%E7%B4%A2/" target="_blank">Hugo &#43; Lunrによる日本語全文検索 | Unigiri</a>
+</p>
+<p>素晴らしいスクリプトを公開して下さって大変有難いのですが、ここで一点だけ詰まったので注意点を書いておきます。</p>
+<p>下記のように<code>getJSON()</code>の引数に<code>index.json</code>が指定されている部分が4行目にあるのですが、ここで頭に<code>/</code>を付けないとスクリプトが読み込まれずエラーになります。ここさえ変更すれば動作すると思います。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:search.js" data-lang="js:search.js"><span style="color:#75715e">// 変更前
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
+
+<span style="color:#75715e">// 変更後
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;/index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
+</code></pre></div><p>後はこれを<code>layouts/partials/footer.html</code>から呼び出せばスクリプトの読み込み自体はOKです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:footer.html" data-lang="html:footer.html"><span style="color:#75715e">&lt;!-- search scripts with Lunr &amp; jQuery --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://code.jquery.com/jquery-3.3.1.min.js&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.stemmer.support.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/tinyseg.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.ja.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.multi.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/search.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h3 id="検索窓設置用のpartial-template作成">検索窓設置用のPartial Template作成</h3>
+<p>さて、スクリプトを機能させる為の <strong>検索窓</strong> を付けます。</p>
+<p>私は<code>ROOT/layouts/partials/search.html</code>というPartial Templateとして作成しました。このテンプレートは自作です。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:search.html" data-lang="html:search.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-area&#34;</span>&gt;
+  &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink | safeURL }}&#34;</span> <span style="color:#a6e22e">onkeyup</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search()&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-query&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search this site&#34;</span> <span style="color:#a6e22e">autocomplete</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;off&#34;</span>/&gt;
+  &lt;/<span style="color:#f92672">form</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-button&#34;</span>&gt;
+    {{ partial &#34;fontawesome.html&#34; &#34;search&#34; }}
+  &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-results&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;results&#34;</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>途中まで試行錯誤していた残骸として使っていない<code>onkeyup</code>なども残っていますが、このPartial Templateを下記の通り<code>ROOT/layouts/_default/single.html</code>(各記事用テンプレートファイル)の冒頭で呼び出しています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ partial &#34;header.html&#34; . }}
+{{ partial &#34;search.html&#34; . }}
+&lt;<span style="color:#f92672">br</span>&gt;
+
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article&#34;</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-meta&#34;</span>&gt;
+<span style="color:#75715e">&lt;!-- 以下省略 --&gt;</span>
+</code></pre></div><p>以上でHugoとLunr.jsを組み合わせた全文検索用の簡易検索窓がサイト上部に設置できます。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://webparts.cman.jp/input/search/" target="_blank">検索窓をデザインする</a>
+</li>
+</ul>
+<h2 id="ogpに対応させる">OGPに対応させる</h2>
+<p>サイトを <strong>Open Graph Protocol(OGP)</strong> に対応させていきます。</p>
+<p>URLがSlackやTwitterなどに貼られると自動でサイトカードなどとして変換されるあの仕組みの事ですね。</p>
+<p>HugoではデフォルトでOGP用のテンプレートが用意されており、以下の2行を<code>&lt;head&gt;&lt;/head&gt;</code>内部に追記するだけで使えるようになっています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+  {{ template &#34;_internal/opengraph.html&#34; . }}
+  {{ template &#34;_internal/twitter_cards.html&#34; . }}
+  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div><p>ただ、このテンプレートでは背後でどのような動作をしているか今一つ分からないので、自分で追加する事にしました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">head</span>&gt;
+  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}blog{{ else }}article{{ end }}&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:url&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.BaseURL }}images/profile.png&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:title&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:site_name&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $.Site.Title }}&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:description&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Description }}{{ end }}&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:card&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summary&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:site&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{{ .Site.Params.author }}&#34;</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:creator&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{{ .Site.Params.author }}&#34;</span>&gt;
+  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div><p>また、<code>ROOT/config.toml</code>には下記のように<code>.Site.Params.XXX</code>の設定をしてあります。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">params</span>]
+  <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;snagimmo(すなぎも)の個人サイト&#34;</span>
+  <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;snagimmo&#34;</span>
+  <span style="color:#75715e"># 以下省略</span>
+</code></pre></div><p><code>IsHome</code>で場合分けをして無駄に<code>og:type</code>を<code>blog</code>か<code>article</code>かで分けたりもしていますが、とにかく無事にOGPが適用されてカードが表示されているのは確認したのでそれで良しとしました。</p>
+<p>OGPの厄介だなと思うところはローカルでの確認が難しいところです。デプロイしてから下記の定番ツールで色々検証させて貰いました。</p>
+<h4>参考リンク</h4>>
+<ul>
+<li><a href="https://rakko.tools/tools/9/" target="_blank">OGP確認：facebook、twitter、LINE、はてなのシェア時の画像・文章を表示 | ラッコツールズ🔧</a>
+</li>
+<li><a href="https://cards-dev.twitter.com/validator" target="_blank">Card Validator | Twitter Developers</a>
+</li>
+</ul>
+<h2 id="rssフィードの改良">RSSフィードの改良</h2>
+<h3 id="rss用のテンプレート">RSS用のテンプレート</h3>
+<p>デフォルトではRSSフィード用の出力ファイル名は<code>index.xml</code>となっています。</p>
+<p>公式Docs: <a href="https://gohugo.io/templates/rss/#section-rss" target="_blank">RSS Templates #Lookup Order for RSS Templates | Hugo</a>
+</p>
+<p>上記公式Docsにもある通り、Hugoは「探索順序」通りにファイルパスを探索します。このHugoが探索するファイルパスのいずれかにRSS用のテンプレートファイルを設置することでRSSフィードの内容を変える事が出来ます。</p>
+<p>私の場合は<code>ROOT/layouts/_default/rss.xml</code>として下記の通りテンプレートを作成しています(長いのでGitHubへのリンクにしました)。</p>
+<ul>
+<li><a href="https://github.com/snagimmo/hugo-classic/blob/modified/layouts/_default/rss.xml" target="_blank">hugo-classic/rss.xml at modified · snagimmo/hugo-classic</a>
+</li>
+</ul>
+<h3 id="rssファイルのリネーム">RSSファイルのリネーム</h3>
+<p>次のように<code>ROOT/config.toml</code>でRSSフィード用の出力ファイル名を<code>feed</code>に指定することでURL上は<code>rss.xml</code>ではなく<code>feed.xml</code>がRSS用URLとなるようにしています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputFormats</span>]
+  [<span style="color:#a6e22e">outputFormats</span>.<span style="color:#a6e22e">RSS</span>]
+    <span style="color:#a6e22e">mediaType</span> = <span style="color:#e6db74">&#34;application/rss+xml&#34;</span>
+    <span style="color:#a6e22e">baseName</span> = <span style="color:#e6db74">&#34;feed&#34;</span>
+    <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;https://&#34;</span>
+</code></pre></div><p>注意すべき点は、繰り返しになりますが <strong>Hugoの探索順序(Lookup Order)</strong> です。</p>
+<p>ローカルのファイル名をいきなり<code>feed.xml</code>としても、その <strong><code>feed.xml</code>を含む探索パスをHugoは持たない</strong> 為に、URLにも反映されずRSSフィードの名前は<code>rss.xml</code>から変わりません。</p>
+<p>よって、一度テンプレート用ファイル名を上記のLookup Order内のいずれかから選択しておき、同時に<code>config.toml</code>内で出力名を指定することでしかRSSフィード名を任意の名前にすることは出来ないわけです。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://codingnconcepts.com/hugo/custom-rss-feed-hugo/" target="_blank">Customize RSS in Hugo Website - Coding N Concepts</a>
+</li>
+</ul>
+<h3 id="rssフィードの情報量を制限">RSSフィードの情報量を制限</h3>
+<p>RSSには<code>description</code>という項目内に要約文が載っていますが、サイトによってほぼコンテンツ全文を載せるか、要約文のみ載せるか、一行コメントだけ載せるか、やり方は様々だと思います。</p>
+<p>私の場合は、何だか全文載せるのはゴチャゴチャしてしまうかも知れないと思ったのでHugoデフォルトの要約文を更に字数制限付きで短くすることにしました。</p>
+<p>実例がこちらです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml:rss.xml" data-lang="xml:rss.xml"><span style="color:#f92672">&lt;description&gt;</span>{{ if .Description }}{{ .Description }}{{ else }}{{ substr .Summary 0 500 | safeHTML }}{{ if gt (len .Summary) 500 }}...{{ end }}{{ end }}<span style="color:#f92672">&lt;/description&gt;</span>
+</code></pre></div><p>Hugoがデフォルトで用意している<code>.Summary</code>という要約文用の変数があるのですが、こちらを更に<code>substr</code>という関数で500文字以下に短くしています。</p>
+<p>仮に500文字をSummaryが超過していた場合のみ、行末に省略記号<code>...</code>を付ける事にしています。</p>
+<p>もし記事のFrontMatterに個別の<code>description</code>が設定されていた場合はそちらを<code>.Summary</code>よりも優先してRSSフィードに載せるようにしました。</p>
+<h2 id="フォントの見直し">フォントの見直し</h2>
+<p>Hugo Classicには元々<code>ROOT/static/css/fonts.css</code>というフォント用CSSファイルがあるのでそれを編集しました。</p>
+<p>最終的には下記のようになりました。</p>
+<p>GitHub: <a href="https://github.com/snagimmo/hugo-classic/blob/modified/static/css/fonts.css" target="_blank">hugo-classic/fonts.css at modified · snagimmo/hugo-classic</a>
+</p>
+<p>それぞれの部分についてはこれから触れていきます。</p>
+<h3 id="ヘッダとフッタのフォント">ヘッダとフッタのフォント</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">header</span><span style="color:#f92672">,</span> <span style="color:#f92672">footer</span> {
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#39;Inter&#39;</span> <span style="color:#75715e">!important</span>;
+}
+</code></pre></div><p>Hugo Classicで元々利用されていた <strong>Inter</strong> というフォントが気に入ったのでこれはこのまま使うことにしました。このサイトではヘッダとフッタの英字部分(home, contactなど)にこのフォントを利用しています。</p>
+<h4>リンク</h4>
+<ul>
+<li><a href="https://rsms.me/inter/" target="_blank">Inter font family</a>
+</li>
+</ul>
+<h3 id="コードブロックのフォント">コードブロックのフォント</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">pre</span><span style="color:#f92672">,</span> <span style="color:#f92672">code</span> {
+  <span style="color:#66d9ef">font-family</span>:
+    <span style="color:#e6db74">&#39;Consolas&#39;</span>,
+    <span style="color:#e6db74">&#39;Ricty Diminished&#39;</span>,
+    <span style="color:#e6db74">&#39;Inconsolata&#39;</span>,
+    Meiryo,
+    <span style="color:#e6db74">&#34;メイリオ&#34;</span>,
+    <span style="color:#e6db74">&#39;Noto Sans JP&#39;</span>,
+    <span style="color:#e6db74">&#39;Kosugi&#39;</span> <span style="color:#75715e">!important</span>;
+}
+</code></pre></div><p>コードブロック系は <strong>Consolas</strong>, Consolasが無い環境では <strong>Inconsolata</strong> を使うようにしました。 <strong>Ricty Diminished</strong>も好きなフォントなので気が変わった時の為に一応加えておきました。</p>
+<p>ブロック内の和文フォントに関しては基本的にメイリオで、メイリオが無ければ <strong>Noto Sans JP</strong> を使うようにしています。<strong>Kosugi</strong> は上のRicty Diminishedと同じ位置づけです。</p>
+<h4>リンク</h4>
+<ul>
+<li><a href="https://google-webfonts-helper.herokuapp.com/fonts/inconsolata?subsets=latin" target="_blank">Inconsolata | google webfonts helper</a>
+</li>
+<li><a href="https://github.com/edihbrandon/RictyDiminished" target="_blank">edihbrandon/RictyDiminished: Ricty Diminished &amp;mdash; fonts for programming</a>
+</li>
+<li><a href="https://fonts.google.com/specimen/Noto&#43;Sans&#43;JP?subset=japanese#ChoosePlace:select" target="_blank">Noto Sans JP - Google Fonts</a>
+</li>
+<li><a href="https://fonts.google.com/specimen/Sawarabi&#43;Gothic?subset=japanese#ChoosePlace:select" target="_blank">Kosugi - Google Fonts</a>
+</li>
+<li><a href="https://google-webfonts-helper.herokuapp.com/fonts" target="_blank">google webfonts helper</a>
+</li>
+<li><a href="https://fonts.google.com/attribution" target="_blank">Google Fonts - Attribution</a>
+</li>
+</ul>
+<h3 id="メインフォントをwebフォント化">メインフォントをWebフォント化</h3>
+<p>一番気に入ってメインにしたいと思ったのが <strong>Segoe UI</strong> というフォントだったのですが、Windows以外のiOSなどの環境だと読み込まれなかったのでWebフォントとしてどの環境でも表示されるようにしました。</p>
+<p>こちらの <a href="https://gist.github.com/AndrewCraswell/106143d1bb5d4162689b9e1d89a2d0fb" target="_blank">Andrew CraswellさんのGist</a>
+に情報があり、下記の通り何とかSegoe UIをWebフォント化することが出来ました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#75715e">/* Segoe UI */</span>
+@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">SegoeUI</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">local</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Segoe UI&#34;</span><span style="color:#f92672">),</span>
+      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">woff2</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff2&#34;</span><span style="color:#f92672">),</span>
+      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">woff</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff&#34;</span><span style="color:#f92672">),</span>
+      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">ttf</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;truetype&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">font-weight</span><span style="color:#f92672">:</span> <span style="color:#f92672">400</span><span style="color:#f92672">;</span>
+}
+</code></pre></div><h2 id="共有ボタン設置">共有ボタン設置</h2>
+<p>SNS用の共有ボタンも一応付けておこうということで下記の通り用意してみました。</p>
+<p>GitHub: <a href="https://github.com/snagimmo/hugo-classic/blob/modified/layouts/partials/share.html" target="_blank">hugo-classic/share.html at modified · snagimmo/hugo-classic</a>
+</p>
+<p>CSSはこの通りです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css"><span style="color:#75715e">/* Sharing buttons */</span>
+.<span style="color:#a6e22e">sharing-buttons</span> {
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">-1.5</span><span style="color:#66d9ef">em</span>;
+}
+.<span style="color:#a6e22e">sharing-buttons-area</span> {
+  <span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
+  <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
+}
+.<span style="color:#a6e22e">sharing-buttons</span> .<span style="color:#a6e22e">inline-svg</span> {
+  <span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
+  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">0.9</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">0.9</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#ddd</span>;
+  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border-color</span>: <span style="color:#ae81ff">#fff</span>;
+}
+.<span style="color:#a6e22e">sharing-buttons</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+}
+.<span style="color:#a6e22e">sharing-button-twitter</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#1d9bf0</span> <span style="color:#75715e">!important</span>;
+}
+.<span style="color:#a6e22e">sharing-button-facebook</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#1778f2</span> <span style="color:#75715e">!important</span>;
+}
+.<span style="color:#a6e22e">sharing-button-hatena</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#00a4de</span> <span style="color:#75715e">!important</span>;
+}
+.<span style="color:#a6e22e">sharing-button-pocket</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#ee4056</span> <span style="color:#75715e">!important</span>;
+}
+</code></pre></div><p>出来栄えはこんな感じです。</p>
+<p>※画像をクリックorタップするとgifアニメが表示されます</p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="sharing-button.gif" data-lightbox="images" data-title="">
+      <img src="resize/sharing-button.jpg" width=""/>
+    </a>
+  </div>
+</figure>
+<p>SVGとして各社のロゴを使わせてもらう過程でちょっと調べ物をしたのですが、Twitterのブランドカラーが数年毎に微妙に変化していたりFacebookのブランドロゴが刷新されていたりと個人的に色々と驚きがありました。ボーっとしているとサイトで使っているロゴやカラーがいつの間にか過去のものになっている、という事になりそうです。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://kasu-kasu.ga/post/add-share-button-to-hugo/" target="_blank">Hugoにシェアボタンを追加する-色々な設定の記録たち</a>
+</li>
+</ul>
+<h2>次回へ続く</h2>
+<p>今回はHugoテーマカスタマイズの最終回でした。</p>
+<p>次回はCircleCI + GitHub Pagesによる自動デプロイを予定しています。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>通常は自動生成された<code>http(s)://DOMAIN/index.html</code> にアクセスすると<code>http(s)://DOMAIN/</code>へ飛ばされます。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>これに関してはRSSフィードの項目でまた触れますが、実は別の設定によりRSSフィード用XMLファイル名も自由に変更出来ます。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+  </main>
+</div>
+</div>
+<hr>
+<div class="page-links"><span class="arrow-left"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zm28.9-143.6L209.4 288H392c13.3 0 24-10.7 24-24v-16c0-13.3-10.7-24-24-24H209.4l75.5-72.4c9.7-9.3 9.9-24.8.4-34.3l-11-10.9c-9.4-9.4-24.6-9.4-33.9 0L107.7 239c-9.4 9.4-9.4 24.6 0 33.9l132.7 132.7c9.4 9.4 24.6 9.4 33.9 0l11-10.9c9.5-9.5 9.3-25-.4-34.3z"/></svg>
+</span>
+</span>
+      <span class="prev-link"><a href="/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a></span></div>
+<br>
+
+<div class="sharing-buttons">
+  <p class="sharing-buttons-area">
+  <span class="sharing-button-twitter"><a rel="nofollow" href="https://twitter.com/intent/tweet/?text=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%286%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba4%20%7c%20snagim%28%20%27e%27%20%29mo&url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo6%2f" target="_blank" title="Twitter"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+</span>
+</a></span>
+  <span class="sharing-button-hatena"><a rel="nofollow" href="https://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo6%2f&title=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%286%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba4%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="はてなブックマーク"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><path fill="currentColor" class="st0" d="M224.7,278.7c-5.5-3.8-15.9-5.7-30.9-5.7h-22.6v49.5h21.7c14.6,0,25-1.8,31.1-5.5l-0.1,0.1 c6.2-3.7,9.2-8.8,9.2-18.4C233.1,289.1,230.2,282.5,224.7,278.7z"/><path fill="currentColor" class="st0" d="M214.9,227.3c5.6-3.4,8.5-8.9,8.5-17.4s-2.6-14.5-7.9-18c-5.3-3.5-15.6-5.2-31-5.2h-13.3v45.6h12.3 C198.8,232.3,209.3,230.7,214.9,227.3z"/><path fill="currentColor" class="st0" d="M398.1,0H101.9C45.6,0,0,45.6,0,101.9v296.2C0,454.4,45.6,500,101.9,500h296.2c56.3,0,101.9-45.6,101.9-101.9 V101.9C500,45.6,454.4,0,398.1,0z M332.6,136.4h50v151.5h-50V136.4z M284.1,330.7c-5,9.2-12.6,16.6-21.9,21.4 c-7.7,4.1-17.2,7.1-28.6,8.9c-11.4,1.7-30,2.6-55.8,2.6h-64.2V136.4h62.3c25.6,0,43.5,0.7,53.7,2.4c10.2,1.7,18.9,4.6,26.2,8.6 c8,4.3,14.7,10.7,19.2,18.6c4.5,8.3,6.8,17.6,6.6,27.1c0,12.9-3.2,23-9.8,30.7c-6.6,7.7-17,13.4-31.4,17.3 c16.1,1.2,28.7,6.9,37.8,17c9.1,10.1,13.6,23.6,13.6,40.5C291.8,310.8,289.2,321.5,284.1,330.7z M386.4,334.9 c0,15.9-12.9,28.8-28.8,28.8c-15.9,0-28.8-12.9-28.8-28.8c0-15.9,12.9-28.8,28.8-28.8C373.5,306.1,386.4,319,386.4,334.9 C386.4,334.9,386.4,334.9,386.4,334.9z"/></svg>
+
+</span>
+</a></span>
+  <span class="sharing-button-facebook"><a rel="nofollow" href="https://www.facebook.com/share.php?u=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo6%2f&t=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%286%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba4%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="Facebook"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span>
+</a></span>
+  <span class="sharing-button-pocket"><a rel="nofollow" href="https://getpocket.com/edit?url=https%3a%2f%2fsnagimmo.net%2fdev%2fbuild-website-using-hugo6%2f&title=Hugo%e3%81%a7%e5%80%8b%e4%ba%ba%e3%82%b5%e3%82%a4%e3%83%88%e5%88%b6%e4%bd%9c%286%29%20Hugo%e3%83%86%e3%83%bc%e3%83%9e%e3%81%ae%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba4%20%7c%20snagim%28%20%27e%27%20%29mo" target="_blank" title="Pocket"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 400"><path fill="currentColor" d="M407.6,0h-367C18.5,0,0,18.5,0,40.6v135.2C0,300.5,99.7,400,224.2,400c124,0,223.8-99.5,223.8-224.2V40.6 C448,18.2,430.3,0,407.6,0z M245.6,268.5c-12.4,11.8-31.4,11.1-42.4,0C89.5,159.6,88.3,163.4,88.3,145.3c0-16.9,13.8-30.7,30.7-30.7 c17,0,16.1,3.8,105.2,89.3c90.6-86.9,88.6-89.3,105.5-89.3c16.9,0,30.7,13.8,30.7,30.7C360.4,163.1,357.5,161,245.6,268.5 L245.6,268.5z"/></svg>
+
+</span>
+</a></span>
+  <span class="sharing-button-share"><a href=JavaScript:copyUrl() title="URLをコピー"><span class="inline-svg" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 497.8 497.8"><path fill="currentColor" d="M364.7,310.8c-21.9,0-42,7.6-57.8,20.2l-99.1-61.9c2.9-13.3,2.9-27,0-40.3l99.1-61.9c15.9,12.6,36,20.2,57.8,20.2 c51.3,0,92.8-41.6,92.8-92.8S415.9,1.4,364.7,1.4s-92.8,41.6-92.8,92.8c0,6.9,0.8,13.7,2.2,20.2L175,176.3 c-15.9-12.6-36-20.2-57.8-20.2c-51.3,0-92.8,41.6-92.8,92.8s41.6,92.8,92.8,92.8c21.9,0,42-7.6,57.8-20.2l99.1,61.9 c-1.5,6.6-2.2,13.4-2.2,20.2c0,51.3,41.6,92.8,92.8,92.8s92.8-41.6,92.8-92.8S415.9,310.8,364.7,310.8z"/></svg>
+
+</span>
+</a></span>
+  </p>
+</div>
+
+
+
+
+    <footer>
+  <nav>
+    <ul>
+      
+      
+      
+      
+      <li class="pull-home ">
+        <a href="/contact/">contact</a>
+      </li>
+      
+      
+      <li class="pull-home ">
+        <a href="/updates/">updates</a>
+      </li>
+      
+      
+      <li class="pull-home ">
+        <a href="/privacy/">privacy policy</a>
+      </li>
+      
+
+      
+    </ul>
+  </nav>
+  <br>
+  <div class="copyright">
+    
+    ©
+    2021
+    snagimmo
+  </div>
+</footer>
+
+
+    <div id="footer-scripts">
+      
+      
+      <script src="/js/codeblock-filename.js"></script>
+
+      
+      <script src="/js/copyurl.js"></script>
+
+      
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+      <script src="/js/lunr.js"></script>
+      <script src="/js/lunr.stemmer.support.js"></script>
+      <script src="/js/tinyseg.js"></script>
+      <script src="/js/lunr.ja.js"></script>
+      <script src="/js/lunr.multi.js"></script>
+      <script src="/js/search.js"></script>
+
+      
+      <script src="/js/prism.js"></script>
+
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" type="text/javascript"></script>
+
+      
+      
+
+
+    </div>
+  </body>
+</html>
+

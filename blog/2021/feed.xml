@@ -9,14 +9,25 @@
         <lastBuildDate>Fri, 04 Jun 2021 19:40:11 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/blog/2021/feed.xml" rel="self" type="application/rss+xml" />
         <item>
+            <title>Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</title>
+            <link>https://snagimmo.net/dev/build-website-using-hugo6/</link>
+            <pubDate>Sat, 26 Jun 2021 16:10:00 +0900</pubDate>
+            <guid>https://snagimmo.net/dev/build-website-using-hugo6/</guid>
+            <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回(今回)  今回でHugoテーマのカスタマイズは終了です。今回も機能面の追加などをしていきます。
+サイト内全文検索としてLunrを導入 全文検索用のJSONファイルを生成 サイト内全文検索を行うには、まずその対象となるテキスト群を含んだJSONなどのファイルを生成しておく必要があります。
+Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在しています。詳しくは下記公式Docsに書いてあります。
+公式Docs: Custom Outp...</description>
+        </item>
+        <item>
             <title>Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</title>
             <link>https://snagimmo.net/dev/build-website-using-hugo5/</link>
             <pubDate>Thu, 24 Jun 2021 21:23:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo5/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回(今回)  今回もHugoテーマをカスタマイズしていきます。前回記事まではシンタックスハイライトやSVGファイルなどの見た目を直して来ましたが、今回は機能面の追加をしていきます。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回(今回) 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回もHugoテーマをカスタマイズしていきます。前回記事まではシンタックスハイライトやSVGファイルなどの見た目を直して来ましたが、今回は機能面の追加をしていきます。
 ディレクトリ構成とパーマリンクの設定 これはHugoのようなツールを長期的に使っていく場合に極めて重要になる話です。ファイルとディレクトリの構造は最初に決めておくと後がラクなので、最初にしっかりと考えておく必要があると思います。
-ローカルディレクトリとURLの関係 さて、まずはURLに関してですが、Hugoでも通常の(SSG1を使わない)サイ...</description>
+ローカルディレクトリとURLの関係 さ...</description>
         </item>
         <item>
             <title>Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2</title>
@@ -24,9 +35,9 @@
             <pubDate>Wed, 23 Jun 2021 23:57:20 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo4/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回(今回) 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3  今回もHugoテーマをカスタマイズしていきます。前回記事ではシンタックスハイライトを直した程度で終わりましたが今回はもう少し細かいところの話です。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回(今回) 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回もHugoテーマをカスタマイズしていきます。前回記事ではシンタックスハイライトを直した程度で終わりましたが今回はもう少し細かいところの話です。
 FontAwesomeでSVG表示 ヘッダやフッタ周りのデザイン変更が一段落したので、次に画像ファイルとしてSVGを表示出来る FontAwesome を使いたいなと思いました。
-FontAwesomeのGitHub: FortAwesome/Font-Awesome: The iconic SVG, font, and CSS toolkit調べてみると、ど...</description>
+FontAwesomeのGitHub: FortAwesome/Font-Awesome: The icon...</description>
         </item>
         <item>
             <title>Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</title>
@@ -34,9 +45,9 @@ FontAwesomeのGitHub: FortAwesome/Font-Awesome: The iconic SVG, font, and CSS to
             <pubDate>Tue, 22 Jun 2021 20:00:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo3/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回(今回) 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3  今回はHugoテーマをカスタマイズしていきます。前回までの記事がある程度汎用性のある記事だったのに対し、ここからは個人的・個別具体的な話になると思います。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回(今回) 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回はHugoテーマをカスタマイズしていきます。前回までの記事がある程度汎用性のある記事だったのに対し、ここからは個人的・個別具体的な話になると思います。
 サイト管理用リポジトリについて 第1回の記事でも紹介した通り、このサイトではHugo Classic (goodroot/hugo-classic)というテーマをカスタマイズして使っています。
-全体としては、下記のように3つのリポジトリを用意してサイト関連のファイル群を管理しています。(恐らくもっと良い管理法はあると思うのですが暫定的にこうしています...</description>
+全体としては、下記のように3つのリポジトリを用意してサイト関連のファイル群を管理し...</description>
         </item>
         <item>
             <title>Hugoで個人サイト制作(2) コンテンツ管理とテンプレート</title>
@@ -44,10 +55,9 @@ FontAwesomeのGitHub: FortAwesome/Font-Awesome: The iconic SVG, font, and CSS to
             <pubDate>Tue, 08 Jun 2021 22:30:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo2/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回(今回) 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3  今回はHugoテーマを改造するためHugoのコンテンツ管理・各種テンプレートについて調べた内容をまとめました。少々長いですが1つのページにまとめたかったのでどうかお許しを。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回(今回) 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回はHugoテーマを改造するためHugoのコンテンツ管理・各種テンプレートについて調べた内容をまとめました。少々長いですが1つのページにまとめたかったのでどうかお許しを。
 テーマをカスタマイズする前に 早速前回の記事で採用した Hugo Classic | Hugo Themesをいじって行きたいのですが、Hugoには独特の Shortcode , Partial Template などの概念があります。
-Hugo公式ではこの仕組みを Template と呼んでいます。
-まずはこれらをきちんと理解しな...</description>
+Hugo公式ではこの...</description>
         </item>
         <item>
             <title>Hugoで個人サイト制作(1) Hugo導入</title>
@@ -55,11 +65,10 @@ Hugo公式ではこの仕組みを Template と呼んでいます。
             <pubDate>Mon, 07 Jun 2021 23:30:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo1/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回(今回) 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3  今回は静的サイトジェネレータHugoの導入がメインです。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回(今回) 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回は静的サイトジェネレータHugoの導入がメインです。
 Hugoを導入する ということで、早速本題に入っていきます。
 OSがWindows10 Homeなので、Hugo公式のインストールガイドに沿って パッケージマネージャのScoop でインストールしました。
-上記インストールガイド内にHomebrewやMacPortsやChocolateyを利用したインストール方法も載っているのでHugoのインストールで悩む方はそんなにいないと思います。
-Scoop自体のインストール方法は Scoo...</description>
+上記インストールガイド内にHomebrewやMacPortsやChocolateyを利用したインストール方法も載っているのでHugoのインストールで悩む...</description>
         </item>
         <item>
             <title>Hugoで個人サイト制作(0) Hugo導入以前</title>
@@ -67,11 +76,10 @@ Scoop自体のインストール方法は Scoo...</description>
             <pubDate>Sun, 06 Jun 2021 16:20:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo0/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回(今回) 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3  なお、今回はHugo導入以前のMarkdown管理体制への移行に際して考えた事などがメインです。
+ 第0回(今回) 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  なお、今回はHugo導入以前のMarkdown管理体制への移行に際して考えた事などがメインです。
 Hugoを導入したきっかけ 実はHugoを導入した背景には、テキストファイル管理体制の変更がありました。
 昔からPC上にメモを残すようにはしていたのですが、長い間管理する手間に悩んでいました。
-最初はtxtファイルに殴り書きしていたのですがそれは流石に非効率が過ぎるということで、iOSからクラウドで同期できる Simplenoteというアプリをtxtと並行して3年ほど使っていました。
-Simpl...</description>
+最初はtxtファイルに殴り書きしていたのですがそれは流石に非効率が過ぎるということで、iOSからクラウドで同期できる Simple...</description>
         </item>
         <item>
             <title>このサイトについて</title>

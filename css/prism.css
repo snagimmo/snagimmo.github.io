@@ -102,7 +102,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	color: hsl(218, 40%, 75%);
 }
 .token.keyword,
-.token.selector,
+/* .token.selector, */
 .token.constant,
 .token.symbol,
 .token.builtin,
@@ -140,12 +140,9 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	color: hsl(42, 85%, 60%);
 }
 
+.token.atrule,
 .token.important {
 	color: hsl(28, 90%, 55%);
-}
-
-.token.atrule {
-	color: hsl(218, 22%, 55%);
 }
 
 .token.regex {
