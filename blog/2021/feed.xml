@@ -217,12 +217,17 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 </ul>
 <h3 id="rssフィードの情報量を制限">RSSフィードの情報量を制限</h3>
 <p>RSSでは<code>description</code>という項目内に要約文が載っていますが、サイトによってほぼコンテンツ全文を載せるか、要約文のみ載せるか、一行コメントだけ載せるか、やり方は様々だと思います。</p>
-<p>私の場合は、何だか全文載せるのはゴチャゴチャしてしまうかも知れないと思ったのでHugoデフォルトの要約文を更に字数制限付きで短くすることにしました。</p>
-<p>実例がこちらです。</p>
+<p>私の場合は、下記のように<code>&lt;content:encoded&gt;</code>へコンテンツ内容を載せてみました。</p>
+<p>実例がこちらです。<code>description</code>は500字程度にまとめつつ、Feedlyなどで見た時には記事内容が表示されるようにしました。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml:rss.xml" data-lang="xml:rss.xml"><span style="color:#f92672">&lt;description&gt;</span>{{ if .Description }}{{ .Description }}{{ else }}{{ substr .Summary 0 500 | safeHTML }}{{ if gt (len .Summary) 500 }}...{{ end }}{{ end }}<span style="color:#f92672">&lt;/description&gt;</span>
+<span style="color:#f92672">&lt;content:encoded&gt;</span>
+        {{ `<span style="color:#75715e">&lt;![CDATA[` | safeHTML }}
+</span><span style="color:#75715e">        {{ .Content }}
+</span><span style="color:#75715e">        {{ `]]&gt;</span>` | safeHTML }}
+<span style="color:#f92672">&lt;/content:encoded&gt;</span>
 </code></pre></div><p>Hugoがデフォルトで用意している<code>.Summary</code>という要約文用の変数があるのですが、こちらを更に<code>substr</code>という関数で500文字以下に短くしています。</p>
 <p>仮に500文字をSummaryが超過していた場合のみ、行末に省略記号<code>...</code>を付ける事にしています。</p>
-<p>もし記事のFrontMatterに個別の<code>description</code>が設定されていた場合はそちらを<code>.Summary</code>よりも優先してRSSフィードに載せるようにしました。</p>
+<p>もし記事のFrontMatterに個別の<code>description</code>が設定されていた場合はそちらを<code>.Summary</code>よりも優先して載せるようにしました。</p>
 <h2 id="フォントの見直し">フォントの見直し</h2>
 <p>Hugo Classicには元々<code>ROOT/static/css/fonts.css</code>というフォント用CSSファイルがあるのでそれを編集しました。</p>
 <p>最終的には下記のようになりました。</p>
