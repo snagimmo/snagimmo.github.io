@@ -7,18 +7,409 @@
         <description>Recent content in Hugo on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <lastBuildDate>Sat, 26 Jun 2021 16:10:00 +0900</lastBuildDate>
+        <lastBuildDate>Tue, 29 Jun 2021 18:08:02 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/tags/hugo/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Hugoで個人サイト制作(7) Hugoサイトの公開</title>
+            <link>https://snagimmo.net/dev/build-website-using-hugo7/</link>
+            <pubDate>Tue, 29 Jun 2021 18:08:02 +0900</pubDate>
+            <guid>https://snagimmo.net/dev/build-website-using-hugo7/</guid>
+            <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回(今回)  今回でこのシリーズは 終わり です。最後にCircleCIとGitHub Pagesで自動ビルド・自動デプロイを行い、Hugoサイトを公開します。
+CircleCI + GitHub Pagesによるサイト公開の流れ CircleCIとGitHub Pagesを使ったサイト公開までの大まかな流れは下記の通りです。
+ CircleCIのアカウント作成、GitH...</description>
+            <content:encoded>
+                    <![CDATA[
+                    <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
+というツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。</p>
+<ul>
+<li>第0回: <a href="https://snagimmo.net/dev/build-website-using-hugo0/">Hugoで個人サイト制作(0) Hugo導入以前</a>
+</li>
+<li>第1回: <a href="https://snagimmo.net/dev/build-website-using-hugo1/">Hugoで個人サイト制作(1) Hugo導入</a>
+</li>
+<li>第2回: <a href="https://snagimmo.net/dev/build-website-using-hugo2/">Hugoで個人サイト制作(2) コンテンツ管理とテンプレート</a>
+</li>
+<li>第3回: <a href="https://snagimmo.net/dev/build-website-using-hugo3/">Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1</a>
+</li>
+<li>第4回: <a href="https://snagimmo.net/dev/build-website-using-hugo4/">Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2</a>
+</li>
+<li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
+</li>
+<li>第6回: <a href="https://snagimmo.net/dev/build-website-using-hugo6/">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</a>
+</li>
+<li><strong>第7回(今回)</strong></li>
+</ul>
+<p>今回でこのシリーズは <strong>終わり</strong> です。最後にCircleCIとGitHub Pagesで自動ビルド・自動デプロイを行い、Hugoサイトを公開します。</p>
+<h2 id="circleci--github-pagesによるサイト公開の流れ">CircleCI + GitHub Pagesによるサイト公開の流れ</h2>
+<p>CircleCIとGitHub Pagesを使ったサイト公開までの大まかな流れは下記の通りです。</p>
+<ol>
+<li>CircleCIのアカウント作成、GitHubのHugo編集用リポジトリを紐づけておく</li>
+<li>GitHub Pages用リポジトリも作成しておく</li>
+<li>SSHキーを生成してCircleCIに秘密鍵、 GitHubに公開鍵をそれぞれ登録</li>
+<li>Hugo編集用リポジトリに下記タスクを実行する<code>ROOT/.circleci/config.yml</code>作成
+<ul>
+<li>Hugo編集用リポジトリへのpushをトリガーとしてCircleCIがビルドを実行</li>
+<li>自動ビルドしたファイル群をCircleCIがGitHub Pages用リポジトリへ自動push(デプロイ)</li>
+</ul>
+</li>
+<li>Hugo編集用リポジトリにcommit&amp;pushするとCircleCIのジョブが開始</li>
+</ol>
+<p>※CircleCIとGitHub Pagesのアカウント作成・リポジトリ設定はここでは省略します。</p>
+<h2 id="hugoのビルドについて">Hugoのビルドについて</h2>
+<h3 id="publicディレクトリについて">publicディレクトリについて</h3>
+<p>Hugoは静的サイトをビルドする際、サイト用ディレクトリのルート直下(<code>ROOT/</code>)に</p>
+<pre><code>public
+</code></pre><p>というディレクトリを作成し、その直下に <strong>ビルド済みファイル群を配置</strong> します。</p>
+<h3 id="publicディレクトリの中身">publicディレクトリの中身</h3>
+<p>例えば、2021年6月現在の当サイトのpublicディレクトリは大体こんな感じの構造です。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">D:\proj\hugo\neoclassic\public<span style="color:#75715e">&gt;tree</span>
+D:.
+├─blog
+│  └─2021
+│      └─06
+│          └─about-this-site
+├─categories
+│  └─website
+├─contact
+├─css
+├─dev
+│  ├─build-website-using-hugo0
+│  ├─(中略)
+│  ├─build-website-using-hugo6
+│  │  └─resize
+│  └─website
+├─fontawesome
+├─fonts
+├─images
+├─js
+├─privacy
+├─tags
+│  └─hugo
+└─updates
+</code></pre></div><p><code>ROOT/static</code>直下のファイル群も<code>ROOT/public</code>直下に配置される点が重要です。</p>
+<p><code>ROOT/static/css/hoge.css</code>はそのまま<code>ROOT/public/css/hoge.css</code>として配置されます。</p>
+<h3 id="公開範囲とpublicリポジトリについて">公開範囲とpublicリポジトリについて</h3>
+<p>多くのHugoユーザーはこの<code>ROOT/public</code>ディレクトリをそのまま(サイト編集用とは)別のリポジトリとして管理し、各種ホスティングサービス・サーバ上で公開しています。</p>
+<p>リポジトリ・ブランチをどのように設定・公開するかは人それぞれであり様々な方法があるので詳しくはここでは触れませんが、<code>master(main)</code>ブランチをそのまま公開する方法や<code>gh-pages</code>ブランチのみを公開する方法など、多岐にわたっています。</p>
+<p>私はサイト編集用リポジトリの<code>main</code>ブランチをそのままCircleCI上でビルドしてもらい、更に生成された<code>ROOT/public</code>ディレクトリを丸ごとGitHub Pages用リポジトリにpushしてもらうことにしました。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://kenchan0130.github.io/post/2018-06-18-1" target="_blank">Circle CIを使用したWebページのGitHub Pagesへのデプロイ</a>
+</li>
+</ul>
+<h2 id="sshキーを生成してcircleciに登録">SSHキーを生成してCircleCIに登録</h2>
+<p>SSHの詳しい解説は他のサイトでもあるので省略します。</p>
+<p>下記コマンド実行でOKです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -m pem -C <span style="color:#e6db74">&#34;CircleCI&#34;</span> -f id_rsa_circleci -N <span style="color:#e6db74">&#34;&#34;</span>
+</code></pre></div><p>これで<code>id_rsa_circleci</code>と<code>id_rsa_circleci.pub</code>のペアが作成されます。</p>
+<p>詳しくは下記公式Docsに載っています。「Cloud 版 CircleCI の場合」という項目が今回該当する説明だと思います。</p>
+<ul>
+<li><a href="https://circleci.com/docs/ja/2.0/add-ssh-key/" target="_blank">CircleCI に SSH 鍵を登録する - CircleCI</a>
+</li>
+</ul>
+<h2 id="configymlの実例">config.ymlの実例</h2>
+<p>次にビルド&amp;デプロイタスクを設定するためのコンフィグファイルを作成します。</p>
+<h3 id="cimggoの例-駄目な例">cimg/goの例 (駄目な例)</h3>
+<p>色々試しましたが、<code>cimg/go</code>というDockerイメージを使ってあれこれやっている内に自動ビルドとデプロイに成功しました。その<code>config.yml</code>がこちら(無意味なキャッシュ操作も含まれていますが)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:config.yml" data-lang="yml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">build</span>:
+    <span style="color:#f92672">working_directory</span>: <span style="color:#ae81ff">~/repo</span>
+    <span style="color:#f92672">docker</span>:
+      - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cimg/go:1.16</span>
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">add_ssh_keys</span>:
+          <span style="color:#f92672">fingerprints</span>:
+            - <span style="color:#e6db74">&#34;YO:UR:FI:NG:ER:PR:IN:TS&#34;</span>
+      - <span style="color:#f92672">run</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Clone hugo</span>
+          <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">              mkdir ~/src; cd $_
+</span><span style="color:#e6db74">              git clone https://github.com/gohugoio/hugo.git</span>              
+      - <span style="color:#f92672">restore_cache</span>:
+          <span style="color:#f92672">keys</span>:
+            - <span style="color:#ae81ff">go-mod-v4-{{ checksum &#34;~/src/hugo/go.sum&#34; }}</span>
+      - <span style="color:#f92672">run</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install hugo</span>
+          <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">              cd ~/src/hugo
+</span><span style="color:#e6db74">              go install</span>              
+      - <span style="color:#f92672">save_cache</span>:
+          <span style="color:#f92672">key</span>: <span style="color:#ae81ff">go-mod-v4-{{ checksum &#34;~/src/hugo/go.sum&#34; }}</span>
+          <span style="color:#f92672">paths</span>:
+            - <span style="color:#e6db74">&#34;/go/pkg/mod&#34;</span>
+      - <span style="color:#ae81ff">checkout</span>
+      - <span style="color:#f92672">run</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Hugo build</span>
+          <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">              rm -rf public
+</span><span style="color:#e6db74">              git clone git@github.com:snagimmo/snagimmo.github.io public
+</span><span style="color:#e6db74">              hugo</span>              
+      - <span style="color:#f92672">run</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Push repo to github.io</span>
+          <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">              cd public
+</span><span style="color:#e6db74">              git config --global user.name &#34;CircleCI&#34;
+</span><span style="color:#e6db74">              git config --global user.email &#34;circleci@example.com&#34;
+</span><span style="color:#e6db74">              git add .
+</span><span style="color:#e6db74">              msg=&#34;rebuild... `TZ=&#39;Asia/Tokyo&#39; date -Iseconds | sed -e &#39;s/+09:00//g&#39; | sed -e &#39;s/T/ /g&#39;`&#34;
+</span><span style="color:#e6db74">              git commit -m &#34;$msg&#34;
+</span><span style="color:#e6db74">              git push origin main</span>              
+<span style="color:#f92672">workflows</span>:
+  <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+  <span style="color:#f92672">main</span>:
+    <span style="color:#f92672">jobs</span>:
+      - <span style="color:#f92672">build</span>:
+          <span style="color:#f92672">filters</span>:
+            <span style="color:#f92672">branches</span>:
+              <span style="color:#f92672">only</span>: <span style="color:#ae81ff">main</span>
+</code></pre></div><p>参考: <a href="https://www.ted027.com/post/circleci/" target="_blank">CircleCIでHugoのビルドを自動化した話 - 行けたら行く</a>
+</p>
+<p>……が、この設定では駄目でした。</p>
+<p>やり方がまずいのかも知れませんが、とにかくこの設定では <strong>毎回Hugoをインストールするのに1分20～1分30秒</strong> ほどかかっていました。何とかHugoインストールの工程をキャッシュに保存して読み出せないかなと考えたのですが、CircleCIやこの周辺の設定に疎く、数日の間はこれで騙し騙しやっていました。</p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="001.png" data-lightbox="images" data-title="">
+      <img src="resize/001.png" width=""/>
+    </a>
+  </div>
+</figure>
+<p>それでも、上記画像のように余りにも遅すぎるので、違う方法を採用することにしました。</p>
+<h3 id="orbcirclecihugoの例-完成例">Orb(circleci/hugo)の例 (完成例)</h3>
+<p>調べた結果、CircleCIの <strong>Orb</strong> というビルド用テンプレートのようなものが実行速度などに優れているらしい事を知り、早速CircleCIのドキュメントなどを読みつつ<code>config.yml</code>を下記の通り書き換えました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+<span style="color:#f92672">orbs</span>:
+  <span style="color:#f92672">hugo</span>: <span style="color:#ae81ff">circleci/hugo@1.2.2</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">deploy</span>:
+    <span style="color:#f92672">docker</span>:
+        - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cimg/base:stable</span>
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">add_ssh_keys</span>:
+          <span style="color:#f92672">fingerprints</span>:
+            - <span style="color:#e6db74">&#34;YO:UR:FI:NG:ER:PR:IN:TS&#34;</span>
+      - <span style="color:#f92672">attach_workspace</span>:
+          <span style="color:#f92672">at</span>: <span style="color:#ae81ff">.</span>
+      - <span style="color:#f92672">run</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Copy built public to cloned public</span>
+          <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">              echo &#34;Hostname github.com&#34; &gt;&gt; ~/.ssh/config
+</span><span style="color:#e6db74">              echo &#34;StrictHostKeyChecking no&#34; &gt;&gt; ~/.ssh/config
+</span><span style="color:#e6db74">              git config --global user.name &#34;CircleCI&#34;
+</span><span style="color:#e6db74">              git config --global user.email &#34;circleci@example.com&#34;
+</span><span style="color:#e6db74">              git clone git@github.com:snagimmo/snagimmo.github.io deploy
+</span><span style="color:#e6db74">              cd deploy
+</span><span style="color:#e6db74">              rm -vrf ./*
+</span><span style="color:#e6db74">              cp -v -R ../public/* ./</span>              
+      - <span style="color:#f92672">run</span>:
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Push repo to github.io</span>
+          <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">              cd deploy
+</span><span style="color:#e6db74">              git add . -f
+</span><span style="color:#e6db74">              msg=&#34;rebuild... `TZ=&#39;Asia/Tokyo&#39; date -Iseconds | sed -e &#39;s/+09:00//g&#39; | sed -e &#39;s/T/ /g&#39;`&#34;
+</span><span style="color:#e6db74">              git commit -m &#34;$msg&#34;
+</span><span style="color:#e6db74">              git push origin main -f</span>              
+<span style="color:#f92672">workflows</span>:
+  <span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+  <span style="color:#f92672">main</span>:
+    <span style="color:#f92672">jobs</span>:
+      - <span style="color:#f92672">hugo/build</span>:
+          <span style="color:#f92672">html-proofer</span>: <span style="color:#66d9ef">false</span>
+          <span style="color:#f92672">filters</span>:
+            <span style="color:#f92672">branches</span>:
+              <span style="color:#f92672">only</span>: <span style="color:#ae81ff">main</span>
+      - <span style="color:#f92672">deploy</span>:
+          <span style="color:#f92672">requires</span>:
+            - <span style="color:#ae81ff">hugo/build</span>
+          <span style="color:#f92672">filters</span>:
+            <span style="color:#f92672">branches</span>:
+              <span style="color:#f92672">only</span>: <span style="color:#ae81ff">main</span>
+</code></pre></div><p>参考: <a href="https://blog.abekoh.dev/posts/how-to-build-this-blog" target="_blank">Hugo, Github Pages, CircleCIつかってブログ構築 - abekoh’s tech note</a>
+</p>
+<p>結果、全てのタスクが <strong>10～30秒</strong> 程度で終わるようになりました。Orb様様です。</p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="002-1.png" data-lightbox="images" data-title="">
+      <img src="resize/002-1.png" width=""/>
+    </a>
+  </div>
+</figure>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="002-2.png" data-lightbox="images" data-title="">
+      <img src="resize/002-2.png" width=""/>
+    </a>
+  </div>
+</figure>
+<p>そして同時に、この<code>config.yml</code>の完成を以て、Hugoサイト更新用の準備は整ったという訳です。あとは記事を書いてHugo編集用リポジトリの変更をcommit&amp;pushするだけで、自動でCircleCIがビルドとデプロイを行ってくれます。</p>
+<h2 id="configymlの注意点">config.ymlの注意点</h2>
+<p>上記のYAMLを作成する上で詰まったポイントなどをメモしておきます。</p>
+<h3 id="deploy-keyとadditional-ssh-keysについて">Deploy KeyとAdditional SSH Keysについて</h3>
+<p>色々と調べものをしている際、</p>
+<blockquote>
+<p>デフォルトのCircleCI側で用意されたSSHキーはRead Onlyなので削除するべきだ</p>
+</blockquote>
+<p>と書いている記事を多く見かけましたが、結論を書くと2021年6月時点では <strong>デフォルトのSSHキー(Deploy Key)を削除しなくても大丈夫</strong> でした(むしろ削除したら紐づけたリポジトリからのcloneが動作しなかった)。</p>
+<p>デフォルトのSSHキーは残したままで別途自分で作成したSSHキー(Additional SSH Keys)を登録しただけですが、CircleCI上のビルド・デプロイタスクは正常に動作しています。</p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="003-1.png" data-lightbox="images" data-title="">
+      <img src="resize/003-1.png" width=""/>
+    </a>
+  </div>
+</figure>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="003-2.png" data-lightbox="images" data-title="">
+      <img src="resize/003-2.png" width=""/>
+    </a>
+  </div>
+</figure>
+<p>その代わりと言いますか、SSHキーは削除しなくても良かったのですが、上記の実例にもあるように <code>StrictHostKeyChecking=no</code>というオプションを<code>~/.ssh/config</code>に追記する必要がありました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#ae81ff">echo &#34;Hostname github.com&#34; &gt;&gt; ~/.ssh/config</span>
+<span style="color:#ae81ff">echo &#34;StrictHostKeyChecking no&#34; &gt;&gt; ~/.ssh/config</span>
+</code></pre></div><p>この行が <strong>重要</strong> です。これを追加するまではリポジトリからのcloneに失敗します。</p>
+<h4>参考記事</h4>
+<ul>
+<li><a href="https://blog.abekoh.dev/posts/how-to-build-this-blog" target="_blank">Hugo, Github Pages, CircleCIつかってブログ構築 - abekoh’s tech note</a>
+
+<ul>
+<li>こちらに<code>StrictHostKeyChecking=no</code>の話が載っています</li>
+</ul>
+</li>
+<li><a href="https://www.ted027.com/post/circleci/" target="_blank">CircleCIでHugoのビルドを自動化した話 - 行けたら行く</a>
+</li>
+</ul>
+<h3 id="circleciのexecutorについて">CircleCIのExecutorについて</h3>
+<p>実は、<code>cimg/go</code>よりも更に前は下記のようなGo言語用イメージなどを使っていました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">circleci/golang:1.15.8</span>
+</code></pre></div><p>ドキュメントを読み、これが <strong>古いCircleCI用のイメージ</strong> だと知り、<code>cimg/go</code>を使うようになりました(最終的にOrbに移行するのでこれも使わなくなりますが)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cimg/go:1.16</span>
+</code></pre></div><p>下記の通り<code>circleci/golang</code>に関しては完全に公式でも旧式のものとして扱われています。</p>
+<p><a href="https://circleci.com/developer/images/image/cimg/go#browsers" target="_blank">cimg/go - CircleCI</a>
+ より引用</p>
+<blockquote>
+<p>This image is designed to supercede the legacy CircleCI Go image, circleci/golang.</p>
+</blockquote>
+<p>CircleCI側が用意する新しいGo言語用のDockerイメージは<code>cimg/go</code>になっているので、Orbでないとしても<code>cimg</code>の使用をおすすめします。</p>
+<h3 id="orbについて">Orbについて</h3>
+<p>前述の通り最終的には<code>circleci/golang</code>も<code>cimg/go</code>もやめて、CircleCIの <strong>Orb</strong> を使うことにした訳ですが、理由はビルドにかかる <strong>時間が圧倒的に短縮出来る</strong> からです。</p>
+<p>ざっくりとした理解ですが、Orbを使うとどうやらHugoのインストール処理も<code>checkout</code>ジョブも<code>hugo</code>コマンドによるビルドも無しで、自動的にバックグラウンド処理としてCircleCIに紐づけたプロジェクト(Hugo編集用リポジトリ)をcloneし、それに対してHugoがビルドを行ってくれるらしいです。</p>
+<p>しかもその工程が <strong>数秒から十数秒程度</strong> で終わります。</p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="005-1.png" data-lightbox="images" data-title="">
+      <img src="resize/005-1.png" width=""/>
+    </a>
+  </div>
+</figure>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="005-2.png" data-lightbox="images" data-title="">
+      <img src="resize/005-2.png" width=""/>
+    </a>
+  </div>
+</figure>
+<p>至れり尽くせりです。</p>
+<p>また、2020年の記事にも下記のような記述があります。</p>
+<p><a href="https://qiita.com/peaceiris/items/14d1a0f17dd25911e33b" target="_blank">Hugo が動く最小構成の Docker イメージを作る - Qiita</a>
+ より引用</p>
+<blockquote>
+<p>現在 Hugo 公式 (gohugoio) が提供する Docker image はありません。</p>
+<p>Docker Hub に gohugoio のアカウントがありますが、あれは GoHugoIO が管理しているものではありません。</p>
+<p>最近の Hugo は連携できる外部ツールも増えて、すべての機能を利用する場合にはイメージサイズを小さくすることが難しくなりました。</p>
+<p>v0.56 から導入された Hugo Modules は Go Modules と Git に依存しています。従って Hugo Modules が利用できる Docker image にはGo言語の環境を含めなければなりません。この時点でイメージサイズは alpine 系でも 417MB 近くになります。</p>
+</blockquote>
+<p>ですので、これからCircleCIでHugoを利用される場合、Executorをどうするか悩むよりも初めからOrbを使うのが速くて&amp;早くて良いのではないかと思います。</p>
+<h3 id="2回もcd-deployしている理由">2回もcd deployしている理由</h3>
+<p>気付いた方がおられると思いますが、上記実例では2回<code>cd deploy</code>しています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">run</span>:
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Copy built public to cloned public</span>
+    <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        # 省略
+</span><span style="color:#e6db74">        cd deploy
+</span><span style="color:#e6db74">        # 省略</span>        
+- <span style="color:#f92672">run</span>:
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Push repo to github.io</span>
+    <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        cd deploy
+</span><span style="color:#e6db74">        # 省略
+</span><span style="color:#e6db74">        git commit -m &#34;$msg&#34;
+</span><span style="color:#e6db74">        git push origin main -f</span>        
+</code></pre></div><p>これは何故かと言うと、Orb使用時に<code>run</code>ジョブを跨ぐとどうやら下記の<code>attach_workspace</code>ジョブで移動(指定)したディレクトリにもう一度移動するらしく、2度目の<code>cd</code>コマンドで移動しないと最後の<code>git</code>コマンドがエラーになるからです。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">attach_workspace</span>:
+    <span style="color:#f92672">at</span>: <span style="color:#ae81ff">.</span>
+</code></pre></div><p>個人的にはpush用の<code>run</code>ジョブは名前を付けて分けておきたかったので、こういった形で2回<code>cd</code>する事になりました。</p>
+<h3 id="configymlの構文チェッカーを使う">config.ymlの構文チェッカーを使う</h3>
+<p>公式が用意したValidatorのようなものがあるのでそれを使うのも良いと思います。</p>
+<p>こちらからDLしてパスを通せば使えます。</p>
+<p>リンク: <a href="https://github.com/CircleCI-Public/circleci-cli/releases" target="_blank">Releases · CircleCI-Public/circleci-cli</a>
+</p>
+<p>インストール後、<code>ROOT/.circleci</code>ディレクトリに移動して下記コマンドを実行すると<code>.circleci/config.yml</code>が文法的に正しいかどうかチェックすることが出来ます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd .circleci
+circleci config validate config.yml
+</code></pre></div><h2 id="独自ドメインを利用する">独自ドメインを利用する</h2>
+<p>私の場合はサイト公開後にGoogle Domainsで取得した独自ドメインを設定しました。</p>
+<p>GitHub PagesデフォルトのURL<code>snagimmo.github.io</code>でも良いのですが、取ってしまったドメインを活用しようかなと。</p>
+<p>まずGitHub Pages公式の説明にもあるように、Windows環境<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>だと<code>dig</code>コマンドがデフォルトで使えない為、<strong>BIND</strong> をインストールしておきました。</p>
+<p>リンク: <a href="https://www.isc.org/download/" target="_blank">Downloads - ISC</a>
+</p>
+<p>ちょっと分かりにくいですが、<strong>Current-Stable</strong> と書いてあるリンクからDL出来ます。</p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="006-1.png" data-lightbox="images" data-title="">
+      <img src="resize/006-1.png" width=""/>
+    </a>
+  </div>
+</figure>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="006-2.png" data-lightbox="images" data-title="">
+      <img src="resize/006-2.png" width=""/>
+    </a>
+  </div>
+</figure>
+<p>BINDの設定に関してはここを参考にしました。</p>
+<p>リンク: <a href="https://takenotes.jp/2019/11/02/windows%E3%81%A7dig%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E4%BD%BF%E3%81%88%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B/" target="_blank">Windowsでdigコマンドを使えるようにする – TakeNotes.JP</a>
+</p>
+<p>あとは下記の記事群を読みつつGitHub Pagesに独自ドメインを設定しました。</p>
+<ul>
+<li><a href="https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site" target="_blank">GitHub Pages サイトのカスタムドメインを管理する - GitHub Docs</a>
+</li>
+<li><a href="https://docs.github.com/ja/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https" target="_blank">HTTPS で GitHub Pages サイトを保護する - GitHub Docs</a>
+</li>
+<li><a href="https://dev-moyashi.hatenablog.com/entry/2021/01/10/222249" target="_blank">GitHub Pages に Google Domains で購入した独自ドメインを設定する - もやし丸の備忘録</a>
+</li>
+</ul>
+<h2 id="最後に">最後に</h2>
+<p>さて、これまでの記事でHugoの導入からHugoサイトの構築・公開までを一通り扱いました。</p>
+<p>このシリーズはこれにて終了です。</p>
+<p>ここまでお読みいただき、誠にありがとうございました。また同時に、元がメモという事もあり冗長かつ雑然とした記事になってしまい申し訳なく思います。</p>
+<p>検索エンジンなどから辿り着く方を想定して書いているのですが、何らかの疑問やトラブル解決の一助になれば幸いです。</p>
+<p>それでは。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>導入時の環境はWindows10 Home (バージョン20H2  )&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+                    ]]>
+            </content:encoded>
+        </item>
         <item>
             <title>Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</title>
             <link>https://snagimmo.net/dev/build-website-using-hugo6/</link>
             <pubDate>Sat, 26 Jun 2021 16:10:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo6/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回(今回)  今回でHugoテーマのカスタマイズは終了です。今回も機能面の追加などをしていきます。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回(今回) 第7回: Hugoで個人サイト制作(7) Hugoサイトの公開  今回でHugoテーマのカスタマイズは終了です。今回も機能面の追加などをしていきます。
 サイト内全文検索としてLunrを導入 全文検索用のJSONファイルを生成 サイト内全文検索を行うには、まずその対象となるテキスト群を含んだJSONなどのファイルを生成しておく必要があります。
-Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在しています。詳しくは下記公式Docsに書いてあります。
-公式Docs: Custom Outp...</description>
+Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在しています。詳しくは下記公式...</description>
             <content:encoded>
                     <![CDATA[
                     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
@@ -37,6 +428,8 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
 </li>
 <li><strong>第6回(今回)</strong></li>
+<li>第7回: <a href="https://snagimmo.net/dev/build-website-using-hugo7/">Hugoで個人サイト制作(7) Hugoサイトの公開</a>
+</li>
 </ul>
 <p>今回でHugoテーマのカスタマイズは終了です。今回も機能面の追加などをしていきます。</p>
 <h2 id="サイト内全文検索としてlunrを導入">サイト内全文検索としてLunrを導入</h2>
@@ -364,9 +757,8 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
             <pubDate>Thu, 24 Jun 2021 21:23:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo5/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回(今回) 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回もHugoテーマをカスタマイズしていきます。前回記事まではシンタックスハイライトやSVGファイルなどの見た目を直して来ましたが、今回は機能面の追加をしていきます。
-ディレクトリ構成とパーマリンクの設定 これはHugoのようなツールを長期的に使っていく場合に極めて重要になる話です。ファイルとディレクトリの構造は最初に決めておくと後がラクなので、最初にしっかりと考えておく必要があると思います。
-ローカルディレクトリとURLの関係 さ...</description>
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回(今回) 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回: Hugoで個人サイト制作(7) Hugoサイトの公開  今回もHugoテーマをカスタマイズしていきます。前回記事まではシンタックスハイライトやSVGファイルなどの見た目を直して来ましたが、今回は機能面の追加をしていきます。
+ディレクトリ構成とパーマリンクの設定 これはHugoのようなツールを長期的に使っていく場合に極めて重要になる話です。ファイルとディレクトリの構造は最初に決めておくと後がラクなので、最初にしっかりと考えて...</description>
             <content:encoded>
                     <![CDATA[
                     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
@@ -384,6 +776,8 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 </li>
 <li><strong>第5回(今回)</strong></li>
 <li>第6回: <a href="https://snagimmo.net/dev/build-website-using-hugo6/">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</a>
+</li>
+<li>第7回: <a href="https://snagimmo.net/dev/build-website-using-hugo7/">Hugoで個人サイト制作(7) Hugoサイトの公開</a>
 </li>
 </ul>
 <p>今回もHugoテーマをカスタマイズしていきます。前回記事まではシンタックスハイライトやSVGファイルなどの見た目を直して来ましたが、今回は機能面の追加をしていきます。</p>
@@ -552,9 +946,9 @@ $$</p>
             <pubDate>Wed, 23 Jun 2021 23:57:20 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo4/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回(今回) 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回もHugoテーマをカスタマイズしていきます。前回記事ではシンタックスハイライトを直した程度で終わりましたが今回はもう少し細かいところの話です。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回(今回) 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回: Hugoで個人サイト制作(7) Hugoサイトの公開  今回もHugoテーマをカスタマイズしていきます。前回記事ではシンタックスハイライトを直した程度で終わりましたが今回はもう少し細かいところの話です。
 FontAwesomeでSVG表示 ヘッダやフッタ周りのデザイン変更が一段落したので、次に画像ファイルとしてSVGを表示出来る FontAwesome を使いたいなと思いました。
-FontAwesomeのGitHub: FortAwesome/Font-Awesome: The icon...</description>
+FontAwesomeのGitHub: F...</description>
             <content:encoded>
                     <![CDATA[
                     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
@@ -572,6 +966,8 @@ FontAwesomeのGitHub: FortAwesome/Font-Awesome: The icon...</description>
 <li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
 </li>
 <li>第6回: <a href="https://snagimmo.net/dev/build-website-using-hugo6/">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</a>
+</li>
+<li>第7回: <a href="https://snagimmo.net/dev/build-website-using-hugo7/">Hugoで個人サイト制作(7) Hugoサイトの公開</a>
 </li>
 </ul>
 <p>今回もHugoテーマをカスタマイズしていきます。前回記事ではシンタックスハイライトを直した程度で終わりましたが今回はもう少し細かいところの話です。</p>
@@ -898,9 +1294,9 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
             <pubDate>Tue, 22 Jun 2021 20:00:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo3/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回(今回) 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回はHugoテーマをカスタマイズしていきます。前回までの記事がある程度汎用性のある記事だったのに対し、ここからは個人的・個別具体的な話になると思います。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回(今回) 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回: Hugoで個人サイト制作(7) Hugoサイトの公開  今回はHugoテーマをカスタマイズしていきます。前回までの記事がある程度汎用性のある記事だったのに対し、ここからは個人的・個別具体的な話になると思います。
 サイト管理用リポジトリについて 第1回の記事でも紹介した通り、このサイトではHugo Classic (goodroot/hugo-classic)というテーマをカスタマイズして使っています。
-全体としては、下記のように3つのリポジトリを用意してサイト関連のファイル群を管理し...</description>
+全体としては、下...</description>
             <content:encoded>
                     <![CDATA[
                     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
@@ -918,6 +1314,8 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
 </li>
 <li>第6回: <a href="https://snagimmo.net/dev/build-website-using-hugo6/">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</a>
+</li>
+<li>第7回: <a href="https://snagimmo.net/dev/build-website-using-hugo7/">Hugoで個人サイト制作(7) Hugoサイトの公開</a>
 </li>
 </ul>
 <p>今回はHugoテーマをカスタマイズしていきます。前回までの記事がある程度汎用性のある記事だったのに対し、ここからは個人的・個別具体的な話になると思います。</p>
@@ -1191,9 +1589,8 @@ cp -v -R ./themes/THEME_NAME/* ./
             <pubDate>Tue, 08 Jun 2021 22:30:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo2/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回(今回) 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回はHugoテーマを改造するためHugoのコンテンツ管理・各種テンプレートについて調べた内容をまとめました。少々長いですが1つのページにまとめたかったのでどうかお許しを。
-テーマをカスタマイズする前に 早速前回の記事で採用した Hugo Classic | Hugo Themesをいじって行きたいのですが、Hugoには独特の Shortcode , Partial Template などの概念があります。
-Hugo公式ではこの...</description>
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回(今回) 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回: Hugoで個人サイト制作(7) Hugoサイトの公開  今回はHugoテーマを改造するためHugoのコンテンツ管理・各種テンプレートについて調べた内容をまとめました。少々長いですが1つのページにまとめたかったのでどうかお許しを。
+テーマをカスタマイズする前に 早速前回の記事で採用した Hugo Classic | Hugo Themesをいじって行きたいのですが、Hugoには独特の Shortcode , Partia...</description>
             <content:encoded>
                     <![CDATA[
                     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
@@ -1211,6 +1608,8 @@ Hugo公式ではこの...</description>
 <li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
 </li>
 <li>第6回: <a href="https://snagimmo.net/dev/build-website-using-hugo6/">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</a>
+</li>
+<li>第7回: <a href="https://snagimmo.net/dev/build-website-using-hugo7/">Hugoで個人サイト制作(7) Hugoサイトの公開</a>
 </li>
 </ul>
 <p>今回はHugoテーマを改造するためHugoのコンテンツ管理・各種テンプレートについて調べた内容をまとめました。少々長いですが1つのページにまとめたかったのでどうかお許しを。</p>
@@ -1519,10 +1918,10 @@ Hugo公式ではこの...</description>
             <pubDate>Mon, 07 Jun 2021 23:30:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo1/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回(今回) 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  今回は静的サイトジェネレータHugoの導入がメインです。
+ 第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回(今回) 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回: Hugoで個人サイト制作(7) Hugoサイトの公開  今回は静的サイトジェネレータHugoの導入がメインです。
 Hugoを導入する ということで、早速本題に入っていきます。
 OSがWindows10 Homeなので、Hugo公式のインストールガイドに沿って パッケージマネージャのScoop でインストールしました。
-上記インストールガイド内にHomebrewやMacPortsやChocolateyを利用したインストール方法も載っているのでHugoのインストールで悩む...</description>
+上記インストールガイド内にHomebrewやMacPortsやChocolateyを利...</description>
             <content:encoded>
                     <![CDATA[
                     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
@@ -1540,6 +1939,8 @@ OSがWindows10 Homeなので、Hugo公式のインストールガイドに沿�
 <li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
 </li>
 <li>第6回: <a href="https://snagimmo.net/dev/build-website-using-hugo6/">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</a>
+</li>
+<li>第7回: <a href="https://snagimmo.net/dev/build-website-using-hugo7/">Hugoで個人サイト制作(7) Hugoサイトの公開</a>
 </li>
 </ul>
 <p>今回は静的サイトジェネレータHugoの導入がメインです。</p>
@@ -1652,10 +2053,10 @@ archetypes  config.toml  content  data  layouts  static  themes
             <pubDate>Sun, 06 Jun 2021 16:20:00 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo0/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
- 第0回(今回) 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4  なお、今回はHugo導入以前のMarkdown管理体制への移行に際して考えた事などがメインです。
+ 第0回(今回) 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回: Hugoで個人サイト制作(7) Hugoサイトの公開  なお、今回はHugo導入以前のMarkdown管理体制への移行に際して考えた事などがメインです。
 Hugoを導入したきっかけ 実はHugoを導入した背景には、テキストファイル管理体制の変更がありました。
 昔からPC上にメモを残すようにはしていたのですが、長い間管理する手間に悩んでいました。
-最初はtxtファイルに殴り書きしていたのですがそれは流石に非効率が過ぎるということで、iOSからクラウドで同期できる Simple...</description>
+最初はtxtファイルに殴り書きしていたのですがそれは流石に非効率...</description>
             <content:encoded>
                     <![CDATA[
                     <p>このサイトは <a href="https://gohugo.io" target="_blank">Hugo</a>
@@ -1673,6 +2074,8 @@ Hugoを導入したきっかけ 実はHugoを導入した背景には、テキ�
 <li>第5回: <a href="https://snagimmo.net/dev/build-website-using-hugo5/">Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3</a>
 </li>
 <li>第6回: <a href="https://snagimmo.net/dev/build-website-using-hugo6/">Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4</a>
+</li>
+<li>第7回: <a href="https://snagimmo.net/dev/build-website-using-hugo7/">Hugoで個人サイト制作(7) Hugoサイトの公開</a>
 </li>
 </ul>
 <p>なお、今回はHugo導入以前のMarkdown管理体制への移行に際して考えた事などがメインです。</p>

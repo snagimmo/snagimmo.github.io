@@ -109,6 +109,21 @@ main .updates {
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
 }
+.terms span:not(.inline-svg) {
+  margin-right: 1.3em;
+}
+.terms a {
+  padding: .05em .65em .05em .65em;
+  margin-left: .3rem;
+  border-radius: 8px;
+  font-size: 1.1em;
+  color: #000;
+  background-color: #ccc;
+}
+.terms a:hover {
+  color: #222;
+  background-color: #eee;
+}
 .terms-list {
   line-height: 1.5em;
 }
