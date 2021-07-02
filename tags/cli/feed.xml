@@ -3,12 +3,12 @@
     xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>snagim( 'e' )mo</title>
-        <link>https://snagimmo.net/categories/</link>
-        <description>Recent content in Categories on snagim( &#39;e&#39; )mo</description>
+        <link>https://snagimmo.net/tags/cli/</link>
+        <description>Recent content in CLI on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
         <lastBuildDate>Fri, 02 Jul 2021 17:55:11 +0900</lastBuildDate>
-        <atom:link href="https://snagimmo.net/categories/feed.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://snagimmo.net/tags/cli/feed.xml" rel="self" type="application/rss+xml" />
         <item>
             <title>タスクスケジューラでMyDNS.jpとSlackに自動通知</title>
             <link>https://snagimmo.net/blog/2021/07/notify-mydns/</link>

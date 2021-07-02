@@ -7,8 +7,89 @@
         <description>Recent content in Home on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <lastBuildDate>Fri, 02 Jul 2021 12:48:02 +0900</lastBuildDate>
+        <lastBuildDate>Fri, 02 Jul 2021 17:55:11 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>タスクスケジューラでMyDNS.jpとSlackに自動通知</title>
+            <link>https://snagimmo.net/blog/2021/07/notify-mydns/</link>
+            <pubDate>Fri, 02 Jul 2021 17:55:11 +0900</pubDate>
+            <guid>https://snagimmo.net/blog/2021/07/notify-mydns/</guid>
+            <description>最近とある用事でDDNSを使い始めた。
+が、面倒で自動通知まわりの設定をせずに使ってしまっていたのでちゃんとやることにした。ついでにSlackにも自動で通知を送るようにしてみた。
+この手の雑務はLinuxでcronを使うのが一般的だとは思うものの、 敢えてWindowsのタスクスケジューラでやってみた。
+シェルスクリプトの自動実行 Windows環境で Git for Windows を入れている場合、 下記コマンドを タスクスケジューラ に登録すればシェルスクリプトが自動実行できる
+C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\temp\test.sh&quot; bash.exeを呼び出してターミナル上でshコマンドを使うのではなくsh.exeを最初から呼び出すのがコツらしい
+参考  shell - Windows shortcut to run a Git Bash script - Stack Overflow  MyDNS.j...</description>
+            <content:encoded>
+                    <![CDATA[
+                    <p>最近とある用事でDDNSを使い始めた。</p>
+<p>が、面倒で自動通知まわりの設定をせずに使ってしまっていたのでちゃんとやることにした。ついでにSlackにも自動で通知を送るようにしてみた。</p>
+<p>この手の雑務はLinuxでcronを使うのが一般的だとは思うものの、 敢えてWindowsのタスクスケジューラでやってみた。</p>
+<h2 id="シェルスクリプトの自動実行">シェルスクリプトの自動実行</h2>
+<p>Windows環境で <strong>Git for Windows</strong> を入れている場合、 下記コマンドを <strong>タスクスケジューラ</strong> に登録すればシェルスクリプトが自動実行できる</p>
+<pre><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\temp\test.sh&quot;
+</code></pre><p><code>bash.exe</code>を呼び出してターミナル上で<code>sh</code>コマンドを使うのではなく<code>sh.exe</code>を最初から呼び出すのがコツらしい</p>
+<h4>参考</h4>
+<ul>
+<li><a href="https://stackoverflow.com/questions/21564275/windows-shortcut-to-run-a-git-bash-script" target="_blank">shell - Windows shortcut to run a Git Bash script - Stack Overflow</a>
+</li>
+</ul>
+<h2 id="mydnsjpへの自動ip通知">MyDNS.jpへの自動IP通知</h2>
+<p><a href="http://www.mydns.jp/#howtouse" target="_blank">公式</a>
+にもあるようにMyDNS.jpは<code>curl</code>コマンドを使って特定URLにアクセス(POST)する事でIP通知を行う事が出来る。</p>
+<p>IPv4もIPv6も両方行うようにした。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>set -ex
+
+<span style="color:#75715e">## Load old IP addresses</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e ./old_ipv4 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  touch ./old_ipv4
+<span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e ./old_ipv6 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  touch ./old_ipv6
+<span style="color:#66d9ef">fi</span>
+old_ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat ./old_ipv4<span style="color:#66d9ef">)</span>
+old_ipv6<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat ./old_ipv6<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e">## Notify MyDNS.jp</span>
+ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -4s ifconfig.io<span style="color:#66d9ef">)</span>
+ipv6<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -6s ifconfig.io<span style="color:#66d9ef">)</span>
+curl <span style="color:#e6db74">&#34;https://www.mydns.jp/directip.html?MID=</span><span style="color:#e6db74">${</span>MYDNS_MID<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;PWD=</span><span style="color:#e6db74">${</span>MYDNS_PASSWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;IPV4ADDR=</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;IPV6ADDR=</span><span style="color:#e6db74">${</span>ipv6<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e">## Post JSON to a Slack webhook url</span>
+msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;blocks&#34;: [{&#34;type&#34;: &#34;section&#34;,&#34;text&#34;: {&#34;type&#34;: &#34;mrkdwn&#34;,&#34;text&#34;: &#34;📡DDNS Info📡\n\n&lt;https://www.mydns.jp/|MyDNS.jp&gt; was notified of your IP addresses successfully!\n\nOld IPv4: &#39;</span><span style="color:#e6db74">${</span>old_ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;\n*New* IPv4: *&#39;</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;*\n\nOld IPv6: &#39;</span><span style="color:#e6db74">${</span>old_ipv6<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;\n*New* IPv6: *&#39;</span><span style="color:#e6db74">${</span>ipv6<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;*&#34;}}]}&#39;</span>
+echo <span style="color:#e6db74">${</span>msg<span style="color:#e6db74">}</span> &gt; msg.json
+curl -X POST -H <span style="color:#e6db74">&#39;Content-type: application/json&#39;</span> -d @msg.json <span style="color:#e6db74">${</span>SLACK_WEBHOOK_NOTICE<span style="color:#e6db74">}</span>
+rm ./msg.json
+
+<span style="color:#75715e">## Update old IP addresses</span>
+echo $ipv4 &gt; ./old_ipv4
+echo $ipv6 &gt; ./old_ipv6
+</code></pre></div><p><code>$MYDNS_MID</code>、 <code>$MYDNS_PASSWD</code>, <code>$SLACK_WEBHOOK_NOTICE</code>に関してはWindows側のユーザ環境変数を利用している。</p>
+<p>MyDNS.jp利用者であればMIDとパスワードの詳細は説明不要だと思うので省略。</p>
+<h3 id="slackへの自動通知について">Slackへの自動通知について</h3>
+<p>メッセージをJSONとして中間ファイルにし、それを<code>curl</code>でSlack AppのIncoming Webhook URLにPOSTしている。</p>
+<p>JSON内にある<code>&quot;blocks&quot;</code>だが、これはSlackの <strong>Block Kit</strong> の仕組みを利用している。確か2019年頃から公式で扱われ始めた機能だったと思う<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>が、2018年以前に主流だった<code>&quot;attachments&quot;</code>の方が個人的には好きな見た目をしている<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<h2 id="タスクスケジューラに登録">タスクスケジューラに登録</h2>
+<p>あとは下記コマンドを各自のパスに合わせつつタスクスケジューラに登録すれば完了。</p>
+<p>通知タイミングは2日に1回・早朝にした。朝4時ごろにWindowsをスリープから叩き起こして活を入れている。</p>
+<pre><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\hoge\notify_mydns.sh&quot;
+</code></pre><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>ここ参照: <a href="https://note.com/daharas/n/ne61b30ac1502" target="_blank">Slack Block Kitはめっちゃ使いやすいけど使いまくると怒られる｜daharas｜note</a>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>でも非推奨っぽいので使えない&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+                    ]]>
+            </content:encoded>
+        </item>
         <item>
             <title>Hugoで個人サイト制作(7) Hugoサイトの公開</title>
             <link>https://snagimmo.net/dev/build-website-using-hugo7/</link>
