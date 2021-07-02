@@ -7,12 +7,12 @@
         <description>Recent content in website on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <lastBuildDate>Tue, 29 Jun 2021 18:08:02 +0900</lastBuildDate>
+        <lastBuildDate>Fri, 02 Jul 2021 12:48:02 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/categories/website/feed.xml" rel="self" type="application/rss+xml" />
         <item>
             <title>Hugoで個人サイト制作(7) Hugoサイトの公開</title>
             <link>https://snagimmo.net/dev/build-website-using-hugo7/</link>
-            <pubDate>Tue, 29 Jun 2021 18:08:02 +0900</pubDate>
+            <pubDate>Fri, 02 Jul 2021 12:48:02 +0900</pubDate>
             <guid>https://snagimmo.net/dev/build-website-using-hugo7/</guid>
             <description>このサイトは Hugoというツールを使って作っています。その過程であれこれ取った作業メモを載せていくシリーズ記事です。
  第0回: Hugoで個人サイト制作(0) Hugo導入以前 第1回: Hugoで個人サイト制作(1) Hugo導入 第2回: Hugoで個人サイト制作(2) コンテンツ管理とテンプレート 第3回: Hugoで個人サイト制作(3) Hugoテーマのカスタマイズ1 第4回: Hugoで個人サイト制作(4) Hugoテーマのカスタマイズ2 第5回: Hugoで個人サイト制作(5) Hugoテーマのカスタマイズ3 第6回: Hugoで個人サイト制作(6) Hugoテーマのカスタマイズ4 第7回(今回)  今回でこのシリーズは 終わり です。最後にCircleCIとGitHub Pagesで自動ビルド・自動デプロイを行い、Hugoサイトを公開します。
@@ -381,6 +381,12 @@ circleci config validate config.yml
 <li><a href="https://docs.github.com/ja/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https" target="_blank">HTTPS で GitHub Pages サイトを保護する - GitHub Docs</a>
 </li>
 <li><a href="https://dev-moyashi.hatenablog.com/entry/2021/01/10/222249" target="_blank">GitHub Pages に Google Domains で購入した独自ドメインを設定する - もやし丸の備忘録</a>
+</li>
+</ul>
+<h3 id="210702追記">21/07/02追記</h3>
+<p>GitHub Pages上でのHTTPS化設定が煩雑だったのでCloudflareを利用してHTTPS化しました。</p>
+<ul>
+<li><a href="https://qiita.com/noraworld/items/89dd85a434a7b759e00c" target="_blank">GitHub Pages &#43; CloudFlare で独自ドメインをSSL化する - Qiita</a>
 </li>
 </ul>
 <h2 id="最後に">最後に</h2>
