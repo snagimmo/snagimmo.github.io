@@ -3,12 +3,12 @@
     xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>snagim( 'e' )mo</title>
-        <link>https://snagimmo.net/tags/hugo/</link>
-        <description>Recent content in Hugo on snagim( &#39;e&#39; )mo</description>
+        <link>https://snagimmo.net/tags/neovim/</link>
+        <description>Recent content in Neovim on snagim( &#39;e&#39; )mo</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja-JP</language>
-        <lastBuildDate>Fri, 02 Jul 2021 12:48:02 +0900</lastBuildDate>
-        <atom:link href="https://snagimmo.net/tags/hugo/feed.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Thu, 22 Jul 2021 20:26:59 +0900</lastBuildDate>
+        <atom:link href="https://snagimmo.net/tags/neovim/feed.xml" rel="self" type="application/rss+xml" />
         <item>
             <title>dotfilesを更新してNeovimをWSL2でも使えるようにした</title>
             <link>https://snagimmo.net/blog/2021/07/updated-nvim-dotfiles/</link>

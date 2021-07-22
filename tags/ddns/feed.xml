@@ -10,6 +10,62 @@
         <lastBuildDate>Fri, 02 Jul 2021 17:55:11 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/tags/ddns/feed.xml" rel="self" type="application/rss+xml" />
         <item>
+            <title>dotfilesを更新してNeovimをWSL2でも使えるようにした</title>
+            <link>https://snagimmo.net/blog/2021/07/updated-nvim-dotfiles/</link>
+            <pubDate>Thu, 22 Jul 2021 20:26:59 +0900</pubDate>
+            <guid>https://snagimmo.net/blog/2021/07/updated-nvim-dotfiles/</guid>
+            <description>最近WSL2を弄って遊んでいる。
+どうせならGitHubに置いてあるdotfilesリポジトリも洗練させたいなと思っていたので、WSL2のUbuntu環境にNeovimを導入するついでにdotfilesを弄ってみた。
+改行コードをLFに統一 まず以前から放置していたdotfilesリポジトリ全体のCR/LF改行を全て LFに統一 した(README.md以外)。
+ b413e41  NeovimをWSL2環境に移す為あれこれ変更 自分はNeovimのプラグイン管理をdein.vimで行っている。
+dein側で読み込むinit.vim等の設定ファイルに必要な環境変数を.bashrcにセットした。
+ e587688  次に、ローカルのWSL2でNeovim用の環境構築をあれこれ済ませた。
+あまりにあれこれ過ぎるので詳細は書かないが、とりあえずメモ代わりにinstall-nvim.shなどの適当な名前を付け、Neovimインストールと周辺Vimプラグインの利用に必要なパッケージ・ライブラリ・ツール群の導入作業をまとめておいた。
+ 88b7c8f(install-nvim.shのコミ...</description>
+            <content:encoded>
+                    <![CDATA[
+                    <p>最近WSL2を弄って遊んでいる。</p>
+<p>どうせならGitHubに置いてある<a href="https://github.com/snagimmo/dotfiles" target="_blank">dotfilesリポジトリ</a>
+も洗練させたいなと思っていたので、WSL2のUbuntu環境にNeovimを導入するついでにdotfilesを弄ってみた。</p>
+<h3 id="改行コードをlfに統一">改行コードをLFに統一</h3>
+<p>まず以前から放置していたdotfilesリポジトリ全体のCR/LF改行を全て <strong>LFに統一</strong> した(README.md以外)。</p>
+<ul>
+<li><a href="https://github.com/snagimmo/dotfiles/commit/b413e418d0c9cb83484873e20d26e439c65f2a99" target="_blank">b413e41</a>
+</li>
+</ul>
+<h3 id="neovimをwsl2環境に移す為あれこれ変更">NeovimをWSL2環境に移す為あれこれ変更</h3>
+<p>自分はNeovimのプラグイン管理を<a href="https://github.com/Shougo/dein.vim" target="_blank">dein.vim</a>
+で行っている。</p>
+<p>dein側で読み込む<code>init.vim</code>等の設定ファイルに必要な環境変数を<code>.bashrc</code>にセットした。</p>
+<ul>
+<li><a href="https://github.com/snagimmo/dotfiles/commit/e5876883162d3b658810c38a76e6aaca68e59a9e" target="_blank">e587688</a>
+</li>
+</ul>
+<p>次に、ローカルのWSL2でNeovim用の環境構築をあれこれ済ませた。</p>
+<p>あまりにあれこれ過ぎるので詳細は書かないが、とりあえずメモ代わりに<code>install-nvim.sh</code>などの適当な名前を付け、Neovimインストールと周辺Vimプラグインの利用に必要なパッケージ・ライブラリ・ツール群の導入作業をまとめておいた。</p>
+<ul>
+<li><a href="https://github.com/snagimmo/dotfiles/commit/88b7c8fca53cd0d0c835e9354c578ca4b76c1f54" target="_blank">88b7c8f</a>
+(<code>install-nvim.sh</code>のコミット)</li>
+</ul>
+<p>上記コミットからも分かるように、Neovimの方は本家Vimと違って多くの外部ツールに依存していて結構厄介だ。</p>
+<p>nvim-treesitterを使っているので<code>tree-sitter</code>と<code>node</code>(Node.js)と<code>git</code>と<code>gcc</code>がまず必要だし、</p>
+<p>coc-fzfを使っているので<code>fzf</code>が必要だし、</p>
+<p>denite.nvimを使っているのでPython3と<code>msgpack</code>(バージョン1.0.0以上)が必要だ。</p>
+<p>大体上記の<code>install-nvim.sh</code>に必要なものはまとめたし、<code>git</code>や<code>gcc</code>など他のツールでも使う定番ものが多いとはいえ、改めて見ると結構繁雑だ。</p>
+<h3 id="readmemdも更新">README.mdも更新</h3>
+<p>README.mdだけ改行がLFになっていないのも気になっていたのでNeovimの導入に必要なツール群を追加するついでにこちらの改行も変更した。</p>
+<ul>
+<li><a href="https://github.com/snagimmo/dotfiles/commit/601814d130be94957361e5b97b53fc2059bb75f1" target="_blank">601814d</a>
+</li>
+</ul>
+<h3 id="おわり">おわり</h3>
+<p>我ながら、環境構築やdotfiles弄りは <strong>デジタル盆栽</strong> みたいなものだなと個人的に思う。</p>
+<p>生えて来る枝葉を剪定しているだけで時間が溶けてしまうので手際よく済ませたいところだ。</p>
+
+                    ]]>
+            </content:encoded>
+        </item>
+        <item>
             <title>タスクスケジューラでMyDNS.jpとSlackに自動通知</title>
             <link>https://snagimmo.net/blog/2021/07/notify-mydns/</link>
             <pubDate>Fri, 02 Jul 2021 17:55:11 +0900</pubDate>

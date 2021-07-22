@@ -3,27 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://snagimmo.net/blog/2021/</loc>
-    <lastmod>2021-07-02T17:55:11+09:00</lastmod>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
   </url><url>
     <loc>https://snagimmo.net/blog/2021/07/</loc>
-    <lastmod>2021-07-02T17:55:11+09:00</lastmod>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
   </url><url>
     <loc>https://snagimmo.net/blog/</loc>
-    <lastmod>2021-07-02T17:55:11+09:00</lastmod>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/tags/cli/</loc>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/blog/2021/07/updated-nvim-dotfiles/</loc>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/</loc>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/tags/neovim/</loc>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/tags/</loc>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/tags/vim/</loc>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
+  </url><url>
+    <loc>https://snagimmo.net/tags/wsl2/</loc>
+    <lastmod>2021-07-22T20:26:59+09:00</lastmod>
   </url><url>
     <loc>https://snagimmo.net/categories/</loc>
     <lastmod>2021-07-02T17:55:11+09:00</lastmod>
   </url><url>
-    <loc>https://snagimmo.net/tags/cli/</loc>
-    <lastmod>2021-07-02T17:55:11+09:00</lastmod>
-  </url><url>
     <loc>https://snagimmo.net/tags/ddns/</loc>
-    <lastmod>2021-07-02T17:55:11+09:00</lastmod>
-  </url><url>
-    <loc>https://snagimmo.net/</loc>
-    <lastmod>2021-07-02T17:55:11+09:00</lastmod>
-  </url><url>
-    <loc>https://snagimmo.net/tags/</loc>
     <lastmod>2021-07-02T17:55:11+09:00</lastmod>
   </url><url>
     <loc>https://snagimmo.net/categories/tips/</loc>
