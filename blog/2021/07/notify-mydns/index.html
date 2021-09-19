@@ -145,7 +145,7 @@
 <p>この手の雑務はLinuxでcronを使うのが一般的だとは思うものの、 敢えてWindowsのタスクスケジューラでやってみた。</p>
 <h2 id="シェルスクリプトの自動実行">シェルスクリプトの自動実行</h2>
 <p>Windows環境で <strong>Git for Windows</strong> を入れている場合、 下記コマンドを <strong>タスクスケジューラ</strong> に登録すればシェルスクリプトが自動実行できる</p>
-<pre><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\temp\test.sh&quot;
+<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\temp\test.sh&quot;
 </code></pre><p><code>bash.exe</code>を呼び出してターミナル上で<code>sh</code>コマンドを使うのではなく<code>sh.exe</code>を最初から呼び出すのがコツらしい</p>
 <h4>参考</h4>
 <ul>
@@ -156,7 +156,7 @@
 <p><a href="http://www.mydns.jp/#howtouse" target="_blank">公式</a>
 にもあるようにMyDNS.jpは<code>curl</code>コマンドを使って特定URLにアクセス(POST)する事でIP通知を行う事が出来る。</p>
 <p>IPv4もIPv6も両方行うようにした。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="color:#75715e">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>set -ex
 
 <span style="color:#75715e">## Load old IP addresses</span>
@@ -191,7 +191,7 @@ echo $ipv6 &gt; ./old_ipv6
 <h2 id="タスクスケジューラに登録">タスクスケジューラに登録</h2>
 <p>あとは下記コマンドを各自のパスに合わせつつタスクスケジューラに登録すれば完了。</p>
 <p>通知タイミングは2日に1回・早朝にした。朝4時ごろにWindowsをスリープから叩き起こして活を入れている。</p>
-<pre><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\hoge\notify_mydns.sh&quot;
+<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\hoge\notify_mydns.sh&quot;
 </code></pre><section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>

@@ -10,6 +10,49 @@
         <lastBuildDate>Fri, 02 Jul 2021 17:55:11 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/categories/tips/feed.xml" rel="self" type="application/rss+xml" />
         <item>
+            <title>自作キーボードで動くゲームを作った</title>
+            <link>https://snagimmo.net/blog/2021/09/gaming-on-qmk/</link>
+            <pubDate>Sun, 19 Sep 2021 23:30:24 +0900</pubDate>
+            <guid>https://snagimmo.net/blog/2021/09/gaming-on-qmk/</guid>
+            <description>表題の通り、自作キーボード 1 上で動作する某ゲーム風のプログラムを作った。
+せっかく作ったので、下記の通りTwitterでプチ宣伝してみたところ……
+自作キーボード(Claw44など)で動く某インベーダー風のゲームを作った。微妙にアニメーションにも拘ってみた pic.twitter.com/qw6wlxtUus
+&mdash; すなぎも (@snagimmo) September 17, 2021  こんな感じでそれなりにリアクションを頂きました。何だか結構な数の方々に見て頂いて恐縮です。
+自分は金曜夜にツイートを放り投げただけで完全放置状態だったのですが、自作キーボード界隈の先輩諸氏が自ら見つけて下さった2おかげで多くの方々に見て頂けました。ありがとうございました。
+Cで書いたソースも一応GitHubの方で公開しているので、もし良かったら遊んでみて下さい。
+ GitHub: snagimmo/qmk_shooter  ちなみに自分が Claw44 というキーボードを使っている関係で、同じClaw44をお使いの方は上記リポジトリに含まれるパッチファイル (diff.patch) を...</description>
+            <content:encoded>
+                    <![CDATA[
+                    <p>表題の通り、<strong>自作キーボード</strong> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 上で動作する某ゲーム風のプログラムを作った。</p>
+<p>せっかく作ったので、下記の通りTwitterでプチ宣伝してみたところ……</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">自作キーボード(Claw44など)で動く某インベーダー風のゲームを作った。微妙にアニメーションにも拘ってみた <a href="https://t.co/qw6wlxtUus">pic.twitter.com/qw6wlxtUus</a></p>&mdash; すなぎも (@snagimmo) <a href="https://twitter.com/snagimmo/status/1438846231715803142?ref_src=twsrc%5Etfw">September 17, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>こんな感じでそれなりにリアクションを頂きました。何だか結構な数の方々に見て頂いて恐縮です。</p>
+<p>自分は金曜夜にツイートを放り投げただけで完全放置状態だったのですが、自作キーボード界隈の先輩諸氏が自ら見つけて下さった<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>おかげで多くの方々に見て頂けました。ありがとうございました。</p>
+<p>Cで書いたソースも一応GitHubの方で公開しているので、もし良かったら遊んでみて下さい。</p>
+<ul>
+<li>GitHub: <a href="https://github.com/snagimmo/qmk_shooter" target="_blank">snagimmo/qmk_shooter</a>
+</li>
+</ul>
+<p>ちなみに自分が <strong>Claw44</strong> というキーボードを使っている関係で、同じClaw44をお使いの方は上記リポジトリに含まれるパッチファイル (<code>diff.patch</code>) を当てるだけで簡単に遊べるようになっています。</p>
+<p>という話でした。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>自作PCしかり、コンピューターやデバイスで「自作」と自分で言い切るのは兎角憚られる気がするものの、実際半田付けとファーム改良程度は自分でやっているのでここでは「自作」と言わせていただく所存&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>余談ですが、自作キーボード界隈のアンテナ感度の高さはかなりのものだと思います&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+                    ]]>
+            </content:encoded>
+        </item>
+        <item>
             <title>dotfilesを更新してNeovimをWSL2でも使えるようにした</title>
             <link>https://snagimmo.net/blog/2021/07/updated-nvim-dotfiles/</link>
             <pubDate>Thu, 22 Jul 2021 20:26:59 +0900</pubDate>
@@ -85,7 +128,7 @@ C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot;
 <p>この手の雑務はLinuxでcronを使うのが一般的だとは思うものの、 敢えてWindowsのタスクスケジューラでやってみた。</p>
 <h2 id="シェルスクリプトの自動実行">シェルスクリプトの自動実行</h2>
 <p>Windows環境で <strong>Git for Windows</strong> を入れている場合、 下記コマンドを <strong>タスクスケジューラ</strong> に登録すればシェルスクリプトが自動実行できる</p>
-<pre><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\temp\test.sh&quot;
+<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\temp\test.sh&quot;
 </code></pre><p><code>bash.exe</code>を呼び出してターミナル上で<code>sh</code>コマンドを使うのではなく<code>sh.exe</code>を最初から呼び出すのがコツらしい</p>
 <h4>参考</h4>
 <ul>
@@ -96,7 +139,7 @@ C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot;
 <p><a href="http://www.mydns.jp/#howtouse" target="_blank">公式</a>
 にもあるようにMyDNS.jpは<code>curl</code>コマンドを使って特定URLにアクセス(POST)する事でIP通知を行う事が出来る。</p>
 <p>IPv4もIPv6も両方行うようにした。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="color:#75715e">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>set -ex
 
 <span style="color:#75715e">## Load old IP addresses</span>
@@ -131,7 +174,7 @@ echo $ipv6 &gt; ./old_ipv6
 <h2 id="タスクスケジューラに登録">タスクスケジューラに登録</h2>
 <p>あとは下記コマンドを各自のパスに合わせつつタスクスケジューラに登録すれば完了。</p>
 <p>通知タイミングは2日に1回・早朝にした。朝4時ごろにWindowsをスリープから叩き起こして活を入れている。</p>
-<pre><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\hoge\notify_mydns.sh&quot;
+<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\hoge\notify_mydns.sh&quot;
 </code></pre><section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -197,11 +240,11 @@ CircleCI + GitHub Pagesによるサイト公開の流れ CircleCIとGitHub Pages
 <h2 id="hugoのビルドについて">Hugoのビルドについて</h2>
 <h3 id="publicディレクトリについて">publicディレクトリについて</h3>
 <p>Hugoは静的サイトをビルドする際、サイト用ディレクトリのルート直下(<code>ROOT/</code>)に</p>
-<pre><code>public
+<pre tabindex="0"><code>public
 </code></pre><p>というディレクトリを作成し、その直下に <strong>ビルド済みファイル群を配置</strong> します。</p>
 <h3 id="publicディレクトリの中身">publicディレクトリの中身</h3>
 <p>例えば、2021年6月現在の当サイトのpublicディレクトリは大体こんな感じの構造です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">D:\proj\hugo\neoclassic\public<span style="color:#75715e">&gt;tree</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">D:\proj\hugo\neoclassic\public<span style="color:#75715e">&gt;tree</span>
 D:.
 ├─blog
 │  └─2021
@@ -239,7 +282,7 @@ D:.
 <h2 id="sshキーを生成してcircleciに登録">SSHキーを生成してCircleCIに登録</h2>
 <p>SSHの詳しい解説は他のサイトでもあるので省略します。</p>
 <p>下記コマンド実行でOKです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -m pem -C <span style="color:#e6db74">&#34;CircleCI&#34;</span> -f id_rsa_circleci -N <span style="color:#e6db74">&#34;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -m pem -C <span style="color:#e6db74">&#34;CircleCI&#34;</span> -f id_rsa_circleci -N <span style="color:#e6db74">&#34;&#34;</span>
 </code></pre></div><p>これで<code>id_rsa_circleci</code>と<code>id_rsa_circleci.pub</code>のペアが作成されます。</p>
 <p>詳しくは下記公式Docsに載っています。「Cloud 版 CircleCI の場合」という項目が今回該当する説明だと思います。</p>
 <ul>
@@ -250,7 +293,7 @@ D:.
 <p>次にビルド&amp;デプロイタスクを設定するためのコンフィグファイルを作成します。</p>
 <h3 id="cimggoの例-駄目な例">cimg/goの例 (駄目な例)</h3>
 <p>色々試しましたが、<code>cimg/go</code>というDockerイメージを使ってあれこれやっている内に自動ビルドとデプロイに成功しました。その<code>config.yml</code>がこちら(無意味なキャッシュ操作も含まれていますが)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:config.yml" data-lang="yml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:config.yml" data-lang="yml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
 <span style="color:#f92672">jobs</span>:
   <span style="color:#f92672">build</span>:
     <span style="color:#f92672">working_directory</span>: <span style="color:#ae81ff">~/repo</span>
@@ -316,7 +359,7 @@ D:.
 <p>それでも、上記画像のように余りにも遅すぎるので、違う方法を採用することにしました。</p>
 <h3 id="orbcirclecihugoの例-完成例">Orb(circleci/hugo)の例 (完成例)</h3>
 <p>調べた結果、CircleCIの <strong>Orb</strong> というビルド用テンプレートのようなものが実行速度などに優れているらしい事を知り、早速CircleCIのドキュメントなどを読みつつ<code>config.yml</code>を下記の通り書き換えました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
 <span style="color:#f92672">orbs</span>:
   <span style="color:#f92672">hugo</span>: <span style="color:#ae81ff">circleci/hugo@1.2.2</span>
 <span style="color:#f92672">jobs</span>:
@@ -405,7 +448,7 @@ D:.
   </div>
 </figure>
 <p>その代わりと言いますか、SSHキーは削除しなくても良かったのですが、上記の実例にもあるように <code>StrictHostKeyChecking=no</code>というオプションを<code>~/.ssh/config</code>に追記する必要がありました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#ae81ff">echo &#34;Hostname github.com&#34; &gt;&gt; ~/.ssh/config</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#ae81ff">echo &#34;Hostname github.com&#34; &gt;&gt; ~/.ssh/config</span>
 <span style="color:#ae81ff">echo &#34;StrictHostKeyChecking no&#34; &gt;&gt; ~/.ssh/config</span>
 </code></pre></div><p>この行が <strong>重要</strong> です。これを追加するまではリポジトリからのcloneに失敗します。</p>
 <h4>参考記事</h4>
@@ -421,10 +464,10 @@ D:.
 </ul>
 <h3 id="circleciのexecutorについて">CircleCIのExecutorについて</h3>
 <p>実は、<code>cimg/go</code>よりも更に前は下記のようなGo言語用イメージなどを使っていました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
   - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">circleci/golang:1.15.8</span>
 </code></pre></div><p>ドキュメントを読み、これが <strong>古いCircleCI用のイメージ</strong> だと知り、<code>cimg/go</code>を使うようになりました(最終的にOrbに移行するのでこれも使わなくなりますが)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
   - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cimg/go:1.16</span>
 </code></pre></div><p>下記の通り<code>circleci/golang</code>に関しては完全に公式でも旧式のものとして扱われています。</p>
 <p><a href="https://circleci.com/developer/images/image/cimg/go#browsers" target="_blank">cimg/go - CircleCI</a>
@@ -464,7 +507,7 @@ D:.
 <p>ですので、これからCircleCIでHugoを利用される場合、Executorをどうするか悩むよりも初めからOrbを使うのが速くて&amp;早くて良いのではないかと思います。</p>
 <h3 id="2回もcd-deployしている理由">2回もcd deployしている理由</h3>
 <p>気付いた方がおられると思いますが、上記実例では2回<code>cd deploy</code>しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">run</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">run</span>:
     <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Copy built public to cloned public</span>
     <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">        # 省略
@@ -478,7 +521,7 @@ D:.
 </span><span style="color:#e6db74">        git commit -m &#34;$msg&#34;
 </span><span style="color:#e6db74">        git push origin main -f</span>        
 </code></pre></div><p>これは何故かと言うと、Orb使用時に<code>run</code>ジョブを跨ぐとどうやら下記の<code>attach_workspace</code>ジョブで移動(指定)したディレクトリにもう一度移動するらしく、2度目の<code>cd</code>コマンドで移動しないと最後の<code>git</code>コマンドがエラーになるからです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">attach_workspace</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">attach_workspace</span>:
     <span style="color:#f92672">at</span>: <span style="color:#ae81ff">.</span>
 </code></pre></div><p>個人的にはpush用の<code>run</code>ジョブは名前を付けて分けておきたかったので、こういった形で2回<code>cd</code>する事になりました。</p>
 <h3 id="configymlの構文チェッカーを使う">config.ymlの構文チェッカーを使う</h3>
@@ -487,7 +530,7 @@ D:.
 <p>リンク: <a href="https://github.com/CircleCI-Public/circleci-cli/releases" target="_blank">Releases · CircleCI-Public/circleci-cli</a>
 </p>
 <p>インストール後、<code>ROOT/.circleci</code>ディレクトリに移動して下記コマンドを実行すると<code>.circleci/config.yml</code>が文法的に正しいかどうかチェックすることが出来ます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd .circleci
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd .circleci
 circleci config validate config.yml
 </code></pre></div><h2 id="独自ドメインを利用する">独自ドメインを利用する</h2>
 <p>私の場合はサイト公開後にGoogle Domainsで取得した独自ドメインを設定しました。</p>
@@ -587,13 +630,13 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <p>Hugo can output content in multiple formats, including calendar events, e-book formats, Google AMP, and JSON search indexes, or any custom text format.</p>
 </blockquote>
 <p>「 <strong>JSON search indexes</strong> 」とありますね。これの事です。<code>ROOT/config.toml</code>内に下記項目を追加することで自動生成することが出来ます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputs</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputs</span>]
   <span style="color:#a6e22e">home</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
 </code></pre></div><p>この設定により、自動で<code>index.html</code>ファイル<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>と<code>index.xml</code>ファイル<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>と<code>index.json</code>ファイルがドキュメントルートに生成されます。</p>
 <p>実ファイルがローカルに生成されるのではなくURL上で<code>http(s)://DOMAIN/XXX.html</code>などの形でアクセス出来るようになる、という点に注意です。</p>
 <p>この際、<code>ROOT/layouts/_default</code>直下に同名の<code>index.json</code>というテンプレートファイルを作成することで、Hugoによって自動生成された<code>index.json</code>ファイルの内容を制御・変更することが可能になります。</p>
 <p>私が作成した<code>index.json</code>のテンプレートは下記の通りです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:index.json" data-lang="json:index.json">{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">slice</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:index.json" data-lang="json:index.json">{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">slice</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
 {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$section</span> <span style="color:#960050;background-color:#1e0010">:=</span> <span style="color:#960050;background-color:#1e0010">$.Site.GetPage</span> <span style="color:#f92672">&#34;section&#34;</span> <span style="color:#960050;background-color:#1e0010">.Section</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
 {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">range</span> <span style="color:#960050;background-color:#1e0010">.Site.RegularPages</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
     {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">if</span> <span style="color:#960050;background-color:#1e0010">and</span> <span style="color:#960050;background-color:#1e0010">(.IsDescendant</span> <span style="color:#960050;background-color:#1e0010">$section)</span> <span style="color:#960050;background-color:#1e0010">(not</span> <span style="color:#960050;background-color:#1e0010">.Params.private)</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
@@ -618,7 +661,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 にある。</p>
 </blockquote>
 <p>とあるのですが、Lunr側のスクリプトを読むと事情が少し異なっています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:lunr.jp.js" data-lang="js:lunr.jp.js"><span style="color:#75715e">// jp is the country code, while ja is the language code
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:lunr.jp.js" data-lang="js:lunr.jp.js"><span style="color:#75715e">// jp is the country code, while ja is the language code
 </span><span style="color:#75715e">// a new lunr.ja.js has been created, but in order to
 </span><span style="color:#75715e">// keep the backward compatibility, we&#39;ll leave the lunr.jp.js
 </span><span style="color:#75715e">// here for a while, and just make it use the new lunr.ja.js
@@ -649,13 +692,13 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 </p>
 <p>素晴らしいスクリプトを公開して下さって大変有難いのですが、ここで一点だけ詰まったので注意点を書いておきます。</p>
 <p>下記のように<code>getJSON()</code>の引数に<code>index.json</code>が指定されている部分が4行目にあるのですが、ここで頭に<code>/</code>を付けないとスクリプトが読み込まれずエラーになります。ここさえ変更すれば動作すると思います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:search.js" data-lang="js:search.js"><span style="color:#75715e">// 変更前
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:search.js" data-lang="js:search.js"><span style="color:#75715e">// 変更前
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
 
 <span style="color:#75715e">// 変更後
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;/index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
 </code></pre></div><p>後はこれを<code>layouts/partials/footer.html</code>から呼び出せばスクリプトの読み込み自体はOKです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:footer.html" data-lang="html:footer.html"><span style="color:#75715e">&lt;!-- search scripts with Lunr &amp; jQuery --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:footer.html" data-lang="html:footer.html"><span style="color:#75715e">&lt;!-- search scripts with Lunr &amp; jQuery --&gt;</span>
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://code.jquery.com/jquery-3.3.1.min.js&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.stemmer.support.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
@@ -666,7 +709,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 </code></pre></div><h3 id="検索窓設置用のpartial-template作成">検索窓設置用のPartial Template作成</h3>
 <p>さて、スクリプトを機能させる為の <strong>検索窓</strong> を付けます。</p>
 <p>私は<code>ROOT/layouts/partials/search.html</code>というPartial Templateとして作成しました。このテンプレートは自作です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:search.html" data-lang="html:search.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-area&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:search.html" data-lang="html:search.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-area&#34;</span>&gt;
   &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink | safeURL }}&#34;</span> <span style="color:#a6e22e">onkeyup</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search()&#34;</span>&gt;
     &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-query&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search this site&#34;</span> <span style="color:#a6e22e">autocomplete</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;off&#34;</span>/&gt;
   &lt;/<span style="color:#f92672">form</span>&gt;
@@ -676,7 +719,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
   &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-results&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;results&#34;</span>&gt;
 &lt;/<span style="color:#f92672">div</span>&gt;
 </code></pre></div><p>途中まで試行錯誤していた残骸として使っていない<code>onkeyup</code>なども残っていますが、このPartial Templateを下記の通り<code>ROOT/layouts/_default/single.html</code>(各記事用テンプレートファイル)の冒頭で呼び出しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ partial &#34;header.html&#34; . }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ partial &#34;header.html&#34; . }}
 {{ partial &#34;search.html&#34; . }}
 &lt;<span style="color:#f92672">br</span>&gt;
 
@@ -693,14 +736,14 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <p>サイトを <strong>Open Graph Protocol(OGP)</strong> に対応させていきます。</p>
 <p>URLがSlackやTwitterなどに貼られると自動でサイトカードなどとして変換されるあの仕組みの事ですね。</p>
 <p>HugoではデフォルトでOGP用のテンプレートが用意されており、以下の2行を<code>&lt;head&gt;&lt;/head&gt;</code>内部に追記するだけで使えるようになっています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
   <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
   {{ template &#34;_internal/opengraph.html&#34; . }}
   {{ template &#34;_internal/twitter_cards.html&#34; . }}
   <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
 &lt;/<span style="color:#f92672">head</span>&gt;
 </code></pre></div><p>ただ、このテンプレートでは背後でどのような動作をしているか今一つ分からないので、自分で追加する事にしました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">head</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">head</span>&gt;
   <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
   &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}blog{{ else }}article{{ end }}&#34;</span>&gt;
   &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:url&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span>&gt;
@@ -714,7 +757,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
   <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
 &lt;/<span style="color:#f92672">head</span>&gt;
 </code></pre></div><p>また、<code>ROOT/config.toml</code>には下記のように<code>.Site.Params.XXX</code>の設定をしてあります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">params</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">params</span>]
   <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;snagimmo(すなぎも)の個人サイト&#34;</span>
   <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;snagimmo&#34;</span>
   <span style="color:#75715e"># 以下省略</span>
@@ -740,7 +783,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 </ul>
 <h3 id="rssファイルのリネーム">RSSファイルのリネーム</h3>
 <p>次のように<code>ROOT/config.toml</code>でRSSフィード用の出力ファイル名を<code>feed</code>に指定することでURL上は<code>rss.xml</code>ではなく<code>feed.xml</code>がRSS用URLとなるようにしています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputFormats</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputFormats</span>]
   [<span style="color:#a6e22e">outputFormats</span>.<span style="color:#a6e22e">RSS</span>]
     <span style="color:#a6e22e">mediaType</span> = <span style="color:#e6db74">&#34;application/rss+xml&#34;</span>
     <span style="color:#a6e22e">baseName</span> = <span style="color:#e6db74">&#34;feed&#34;</span>
@@ -757,7 +800,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <p>RSSでは<code>description</code>という項目内に要約文が載っていますが、サイトによってほぼコンテンツ全文を載せるか、要約文のみ載せるか、一行コメントだけ載せるか、やり方は様々だと思います。</p>
 <p>私の場合は、下記のように<code>&lt;content:encoded&gt;</code>へコンテンツ内容を載せてみました。</p>
 <p>実例がこちらです。<code>description</code>は500字程度にまとめつつ、Feedlyなどで見た時には記事内容が表示されるようにしました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml:rss.xml" data-lang="xml:rss.xml"><span style="color:#f92672">&lt;description&gt;</span>{{ if .Description }}{{ .Description }}{{ else }}{{ substr .Summary 0 500 | safeHTML }}{{ if gt (len .Summary) 500 }}...{{ end }}{{ end }}<span style="color:#f92672">&lt;/description&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml:rss.xml" data-lang="xml:rss.xml"><span style="color:#f92672">&lt;description&gt;</span>{{ if .Description }}{{ .Description }}{{ else }}{{ substr .Summary 0 500 | safeHTML }}{{ if gt (len .Summary) 500 }}...{{ end }}{{ end }}<span style="color:#f92672">&lt;/description&gt;</span>
 <span style="color:#f92672">&lt;content:encoded&gt;</span>
         {{ `<span style="color:#75715e">&lt;![CDATA[` | safeHTML }}
 </span><span style="color:#75715e">        {{ .Content }}
@@ -773,7 +816,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 </p>
 <p>それぞれの部分についてはこれから触れていきます。</p>
 <h3 id="ヘッダとフッタのフォント">ヘッダとフッタのフォント</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">header</span><span style="color:#f92672">,</span> <span style="color:#f92672">footer</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">header</span><span style="color:#f92672">,</span> <span style="color:#f92672">footer</span> {
   <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#39;Inter&#39;</span> <span style="color:#75715e">!important</span>;
 }
 </code></pre></div><p>Hugo Classicで元々利用されていた <strong>Inter</strong> というフォントが気に入ったのでこれはこのまま使うことにしました。このサイトではヘッダとフッタの英字部分(home, contactなど)にこのフォントを利用しています。</p>
@@ -783,7 +826,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 </li>
 </ul>
 <h3 id="コードブロックのフォント">コードブロックのフォント</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">pre</span><span style="color:#f92672">,</span> <span style="color:#f92672">code</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">pre</span><span style="color:#f92672">,</span> <span style="color:#f92672">code</span> {
   <span style="color:#66d9ef">font-family</span>:
     <span style="color:#e6db74">&#39;Consolas&#39;</span>,
     <span style="color:#e6db74">&#39;Ricty Diminished&#39;</span>,
@@ -814,7 +857,7 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <p>一番気に入ってメインにしたいと思ったのが <strong>Segoe UI</strong> というフォントだったのですが、Windows以外のiOSなどの環境だと読み込まれなかったのでWebフォントとしてどの環境でも表示されるようにしました。</p>
 <p>こちらの <a href="https://gist.github.com/AndrewCraswell/106143d1bb5d4162689b9e1d89a2d0fb" target="_blank">Andrew CraswellさんのGist</a>
 に情報があり、下記の通り何とかSegoe UIをWebフォント化することが出来ました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#75715e">/* Segoe UI */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#75715e">/* Segoe UI */</span>
 @<span style="color:#66d9ef">font-face</span> {
   <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">SegoeUI</span><span style="color:#f92672">;</span>
   <span style="color:#f92672">src</span><span style="color:#f92672">:</span>
@@ -829,9 +872,9 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <p>GitHub: <a href="https://github.com/snagimmo/hugo-classic/blob/modified/layouts/partials/share.html" target="_blank">hugo-classic/share.html at modified · snagimmo/hugo-classic</a>
 </p>
 <p>CSSはこの通りです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css"><span style="color:#75715e">/* Sharing buttons */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css"><span style="color:#75715e">/* Sharing buttons */</span>
 .<span style="color:#a6e22e">sharing-buttons</span> {
-  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline-block</span>;
   <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">-1.5</span><span style="color:#66d9ef">em</span>;
 }
 .<span style="color:#a6e22e">sharing-buttons-area</span> {
@@ -931,40 +974,40 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <h3 id="ローカルディレクトリとurlの関係">ローカルディレクトリとURLの関係</h3>
 <p>さて、まずはURLに関してですが、Hugoでも通常の(SSG<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>を使わない)サイトと同様、ローカルディレクトリの構造とURLがほぼそのまま一致します。</p>
 <p>例えば<code>ROOT/content/blog/2020/</code>に置いた<code>hoge.md</code>という記事は</p>
-<pre><code>http(s)://DOMAIN/blog/2020/hoge/
+<pre tabindex="0"><code>http(s)://DOMAIN/blog/2020/hoge/
 </code></pre><p>といったURLになります。</p>
 <h3 id="パーマリンクについて">パーマリンクについて</h3>
 <p>この <strong>パーマリンク(Permalinks)</strong> はユーザ側で変更することが出来ます。詳しくは公式Docsに書いてあります。</p>
 <p>公式Docs: <a href="https://gohugo.io/content-management/urls/#permalinks" target="_blank">URL Management #Permalinks | Hugo</a>
 </p>
 <p>Hugo Classicではテーマデフォルトのパーマリンクが下記のように設定されています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">permalinks</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">permalinks</span>]
   <span style="color:#a6e22e">post</span> = <span style="color:#e6db74">&#34;/blog/:year/:month/:day/:slug&#34;</span>
 </code></pre></div><p><code>post =</code>から始まる行は <strong>postというディレクトリ(セクション)以下に置かれたコンテンツファイル</strong> に関する設定です。</p>
 <p>例えば上記のような設定でローカルに<code>ROOT/content/post/2021/hoge.md</code>というコンテンツを作るとします。更にこの記事の編集された日付がMarkdown内部で<code>1999/01/31</code>に設定されているとします。</p>
 <p>この時<code>/blog/:year/:month/:day/:slug</code>という <strong>パーマリンク設定が実ファイルのローカルディレクトリ構造よりも優先</strong> して読み込まれます。</p>
 <p>その結果、URLは</p>
-<pre><code>http(s)://DOMAIN/blog/1999/01/31/hoge/
+<pre tabindex="0"><code>http(s)://DOMAIN/blog/1999/01/31/hoge/
 </code></pre><p>となります。</p>
 <h3 id="slugについて">slugについて</h3>
 <p><code>:slug</code>というのは記事タイトルの代わりにURLの一部とする為の文字列のことで、Hugoに限らずよく利用されています。</p>
 <p>Hugoでは一応 日本語の <strong>マルチバイト文字も<code>:slug</code>としてURLの一部にする事が可能</strong> です。</p>
 <p>また、上記の<code>config.toml</code>の例において<code>:slug</code>だけをパーマリンク設定から削除すると、<code>:year/:month/:day</code>が重複する他の記事と同じURLが生成されてしまいます。その場合のURLは下記のようになります。</p>
-<pre><code>http(s)://DOMAIN/blog/1999/01/30/
+<pre tabindex="0"><code>http(s)://DOMAIN/blog/1999/01/30/
 </code></pre><p>よって、<code>:slug</code>はパーマリンクを設定するなら事実上必須だと言えます。</p>
 <p>一方で、パーマリンクの方に<code>:slug</code>はあるもののFrontMatterに<code>:slug</code>を設定していない場合、<strong>記事タイトルが自動でURLとして利用</strong> されることになっています。</p>
 <p>パーマリンク設定そのものが存在しない場合は冒頭で説明した通り、ほぼローカルディレクトリの構造通りにURLが生成されます。</p>
 <h3 id="ディレクトリ構成を決める">ディレクトリ構成を決める</h3>
 <p>自分の場合は下記のようにしました。<a href="https://snagimmo.net/dev/build-website-using-hugo2/">第2回目の記事</a>
 でも説明したように、<code>content</code>直下のディレクトリ群はそのままセクション(≒Branch Bundle)として機能します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">content
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">content
  ├─blog
  ├─dev
  ├─draft
  └─fontawesome
 </code></pre></div><h3 id="パーマリンクを設定">パーマリンクを設定</h3>
 <p>私は下記のように設定しました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">permalinks</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">permalinks</span>]
   <span style="color:#a6e22e">blog</span> = <span style="color:#e6db74">&#34;/:section/:year/:month/:slug/&#34;</span>
   <span style="color:#a6e22e">dev</span> = <span style="color:#e6db74">&#34;/:section/:slug/&#34;</span>
   <span style="color:#a6e22e">draft</span> = <span style="color:#e6db74">&#34;/:section/:year/:month/:slug/&#34;</span>
@@ -981,13 +1024,13 @@ Hugoの場合は予め 全文検索用JSONファイル出力機能 が存在し�
 <p>公式Docs: <a href="https://gohugo.io/content-management/urls/#aliases" target="_blank">URL Management #Aliases | Hugo</a>
 </p>
 <p>私はこれを利用し、サブセクション(<code>ROOT/content/dev/website/</code>)のページURL</p>
-<pre><code>http(s)://DOMAIN/dev/website/
+<pre tabindex="0"><code>http(s)://DOMAIN/dev/website/
 </code></pre><p>からHugoが自動生成したカテゴリーページ</p>
-<pre><code>http(s)://DOMAIN/categories/website/
+<pre tabindex="0"><code>http(s)://DOMAIN/categories/website/
 </code></pre><p>に自動遷移するように設定しました。</p>
 <h3 id="エイリアスを利用した自動遷移">エイリアスを利用した自動遷移</h3>
 <p>実例を載せておきます。<code>ROOT/content/dev/website/_index.md</code>のFrontMatterに下記のようなエイリアスを設定することでカテゴリーページへの遷移が可能になります(他に良いやり方があるかも知れませんが現時点ではこうしています)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:_index.md" data-lang="yaml:_index.md">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:_index.md" data-lang="yaml:_index.md">---
 title: &#39;website&#39;
 url: /categories/website/
 aliases:
@@ -1010,7 +1053,7 @@ aliases:
 <h2 id="frontmatterにあれこれ追加">FrontMatterにあれこれ追加</h2>
 <p>各記事の <strong>FrontMatter</strong> は前述のパーマリンク設定も含めて色々融通が利くので便利です。</p>
 <p>例えばデフォルトでは</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:hoge.md" data-lang="yaml:hoge.md">draft: true
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:hoge.md" data-lang="yaml:hoge.md">draft: true
 </code></pre></div><p>といった項目が用意されており、この設定によってHugo側が「下書き記事」と見なしてビルドしないでスルーしてくれる訳ですが、これ以外にもユーザが自由に値を追加してHugo側の挙動を変える事が出来ます。</p>
 <p>私は下記のような値を追加しました。詳しくはそれぞれ後述の項目で触れます。</p>
 <ul>
@@ -1027,7 +1070,7 @@ aliases:
 <p>さて、Hugo ClassicのexampleSiteではデフォルトで一応 <strong>TeX</strong><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> 表記が行われているのですが、テーマを弄る内にTeX表記が崩れ無効化されてしまっていました。</p>
 <p>そこであれこれ探した結果、<strong>MathJax</strong> と呼ばれるスクリプトを導入する事にしました。自分が探した範囲内では、下の参考記事にある中国の方の記事が最も参考になりました。日本語の記事も幾つかあったのですが、そちらは情報が少し古く2020年以降のMathJaxのバージョンアップに非対応でした。</p>
 <p>早速、当該記事を参考に下記のPartial Templateを作成しました。CDN経由なのでローカルへの保存は不要です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:mathjax.html" data-lang="html:mathjax.html">{{ if .Params.math }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:mathjax.html" data-lang="html:mathjax.html">{{ if .Params.math }}
 &lt;<span style="color:#f92672">script</span>&gt;
   <span style="color:#a6e22e">MathJax</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">tex</span><span style="color:#f92672">:</span> {
@@ -1052,7 +1095,7 @@ aliases:
 </code></pre></div><p>これを<code>ROOT/layouts/partials/mathjax.html</code>として保存すれば、各Markdown内のFrontMatterに追加した<code>math: true</code> (<a href="https://snagimmo.net/dev/build-website-using-hugo5/#frontmatterにあれこれ追加">ここ</a>
 で前述) の設定によって記事内のTeX表記が実現出来ます。</p>
 <p>使い方は下記の通り通常の(?)TeX記法でOKです。とりあえず信号処理で必須の複素フーリエ係数を載せてみました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">$$
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">$$
 C_k = \langle f(t), e^{jkt} \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t)e^{-jkt} dt
 $$
 </code></pre></div><p>$$
@@ -1132,7 +1175,7 @@ FontAwesomeのGitHub: F...</description>
 <p>ダウンロードしたいSVGファイル名をそれぞれ<code>brands</code>, <code>regular</code>, <code>solid</code>の各種ページを参考に予め<code>icons_*</code>という変数群に文字列として格納しておく必要があります。</p>
 <p>SVGファイル一覧: <a href="https://github.com/FortAwesome/Font-Awesome/tree/master/svgs" target="_blank">https://github.com/FortAwesome/Font-Awesome/tree/master/svgs</a>
 </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell:svg_dl.sh" data-lang="shell:svg_dl.sh"><span style="color:#75715e">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell:svg_dl.sh" data-lang="shell:svg_dl.sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>set -ex
 
 icons_b<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;facebook get-pocket github soundcloud twitter&#34;</span>
@@ -1162,14 +1205,14 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <p>公式Docs: <a href="https://gohugo.io/content-management/shortcodes/#use-shortcodes" target="_blank">Shortcodes | Hugo</a>
 </p>
 <p><strong>他のテンプレート</strong> (e.g. <code>layouts/_default/single.html</code>, <code>layouts/partials/header.html</code>) から呼び出したい時は <strong>Partial Template</strong> として作成し、下記の形で呼び出します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ partial &#34;TEMPLATE_NAME&#34; &#34;ARGS&#34; }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ partial &#34;TEMPLATE_NAME&#34; &#34;ARGS&#34; }}
 </code></pre></div><p><strong>記事</strong> (e.g. <code>content/hoge/fuga.md</code>, <code>content/blog/2021/test.md</code>) から呼び出したい時は <strong>Shortcode</strong> として作成し、下記の形で呼び出します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">{{&lt; <span style="color:#f92672">TEMPLATE_NAME</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">ARGS</span><span style="color:#960050;background-color:#1e0010">&#34;</span> &gt;}}ここの文字列はMarkdownとして解釈されない{{&lt; /<span style="color:#f92672">TEMPLATE_NAME</span> &gt;}}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">{{&lt; <span style="color:#f92672">TEMPLATE_NAME</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">ARGS</span><span style="color:#960050;background-color:#1e0010">&#34;</span> &gt;}}ここの文字列はMarkdownとして解釈されない{{&lt; /<span style="color:#f92672">TEMPLATE_NAME</span> &gt;}}
 {{% TEMPLATE_NAME &#34;ARGS&#34; %}}ここの文字列はMarkdownとして解釈される{{% /TEMPLATE_NAME %}}
 </code></pre></div><p>この際、区切り文字(delimiter)に<code>&lt;</code>を使うか<code>%</code>を使うかで挙動が変わります。Shortcode内部でHTMLタグなど使いたい場合には<code>&lt;</code>を用いる事でMarkdown用のレンダラーが正しくHTMLタグを読み取れるようになるようです。</p>
 <h3 id="partial-templateの作成">Partial Templateの作成</h3>
 <p>実は参考記事のリンク先にもあるようにFontAwesome用のShortcodeを作成することも出来るのですが、今回はテンプレート内部でSVGを表示したいので、FontAwesome用のPartial Templateを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:fontawesome.html" data-lang="html:fontawesome.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inline-svg&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:fontawesome.html" data-lang="html:fontawesome.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inline-svg&#34;</span>&gt;
 {{- $fname:=print &#34;fontawesome/&#34; . &#34;.svg&#34; -}}
 {{- $path:=&#34;&lt;<span style="color:#f92672">path</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
 <span style="color:#960050;background-color:#1e0010">{{</span><span style="color:#a6e22e">-</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fill:</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;path fill=\&#34;</span><span style="color:#a6e22e">currentColor</span><span style="color:#960050;background-color:#1e0010">\&#34;&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
@@ -1184,9 +1227,9 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 </ul>
 <h3 id="テンプレート内からsvgを呼び出す">テンプレート内からSVGを呼び出す</h3>
 <p>例えばローカルの<code>ROOT/content/fontawesome/clock.svg</code>を下記のように<code>ROOT/layouts/partials/header.html</code>から呼び出す事が出来ます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">{{ partial &#34;fontawesome.html&#34; &#34;clock&#34; }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">{{ partial &#34;fontawesome.html&#34; &#34;clock&#34; }}
 </code></pre></div><p>改造したHugo Classic(テーマ)の実例を載せておきますが、ヘッダ部分では下記のように <strong>変数</strong> としてFontAwesome用のファイル名を渡しています。この<code>head_custom.html</code>を<code>header.html</code>から読み込んでいます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">&lt;<span style="color:#f92672">header</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">&lt;<span style="color:#f92672">header</span>&gt;
   &lt;<span style="color:#f92672">nav</span>&gt;
     &lt;<span style="color:#f92672">ul</span>&gt;
       {{ $title := lower .Title }}
@@ -1203,14 +1246,14 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
   &lt;/<span style="color:#f92672">nav</span>&gt;
 &lt;/<span style="color:#f92672">header</span>&gt;
 </code></pre></div><p>上記の例で言うと、変数名で渡しているのは</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ partial &#34;fontawesome.html&#34; $name }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ partial &#34;fontawesome.html&#34; $name }}
 </code></pre></div><p>の部分です。慣れればすぐに読めると思いますが、</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ range .Site.Menus.main }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ range .Site.Menus.main }}
 </code></pre></div><p>の行からはじまる<code>range</code>ブロック内部で<code>.Name</code>を取得し、そのそれぞれを<code>lower</code>関数で小文字化することでタイトル・セクション・タクソノミーの相互一致判定を行っています。そして、その結果を<code>$name</code>変数に格納し、FontAwesomeに渡しているという流れです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ $name := lower .Name }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ $name := lower .Name }}
 </code></pre></div><h3 id="hugo-classic--fontawesomeの注意点">Hugo Classic + FontAwesomeの注意点</h3>
 <p>なお、Hugo Classicでは下記のように<code>config.toml</code>で設定しているタクソノミーの各種ページ名とURLが <strong>複数形(plural)</strong> になっています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
   <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Categories&#34;</span>
   <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/categories/&#34;</span>
   <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
@@ -1244,11 +1287,11 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <p>下記のようなShortcodeを作成し, ローカル環境のサーバ上でのみ表示したいテキストを囲むと色々と捗ります。
 例えばまだ公開したくない記事の一部などをそのままprivateな状態でHugoにビルドしてもらう、といった事も可能です。</p>
 <p>ファイルは<code>ROOT/layouts/shortcodes/private.html</code>として作成しました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:private.html" data-lang="html:private.html">{{ if .Site.IsServer }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:private.html" data-lang="html:private.html">{{ if .Site.IsServer }}
   &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;private&#34;</span>&gt;{{ .Inner }}&lt;/<span style="color:#f92672">div</span>&gt;
 {{ end }}
 </code></pre></div><p>これに合わせてCSSも設定しておきました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">private</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">private</span> {
   <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#2e2222</span>;
   <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#f11</span>;
   <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
@@ -1260,7 +1303,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
   <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
 }
 </code></pre></div><p>使い方は下記の通りです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">private</span> &gt;}}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">private</span> &gt;}}
 これは非公開なメモ
 {{&lt; /<span style="color:#f92672">private</span> &gt;}}
 
@@ -1281,9 +1324,9 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <h3 id="coloredhtmlについて">colored.htmlについて</h3>
 <p>これは自作しました。文中で自由に背景色と文字色を変える為の簡単な1行Shortcodeです(シンタックスハイライトがちょっと崩れてて見にくいですが)。</p>
 <p>これも勿論<code>ROOT/layouts/shortcodes</code>に置いて使います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:colored.html" data-lang="html:colored.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;colored&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background:{{ .Get &#34;</span><span style="color:#a6e22e">bg</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};</span><span style="color:#a6e22e">color:</span><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Get</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">color</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};&#34;</span>&gt;{{- .Inner -}}&lt;/<span style="color:#f92672">span</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:colored.html" data-lang="html:colored.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;colored&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background:{{ .Get &#34;</span><span style="color:#a6e22e">bg</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};</span><span style="color:#a6e22e">color:</span><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Get</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">color</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};&#34;</span>&gt;{{- .Inner -}}&lt;/<span style="color:#f92672">span</span>&gt;
 </code></pre></div><p>例えばMarkdown中ではこのように使います。こうして複数の引数を渡す事も出来るのでShortcodeは慣れてしまえば便利です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#00f&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> &gt;}}青{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#00f&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> &gt;}}青{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
 {{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#000&#34;</span> &gt;}}白{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
 </code></pre></div><p><span class="colored" style="background:#00f;color:#fff;">青</span>
 
@@ -1291,7 +1334,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 </p>
 <h3 id="imagehtmlについて">image.htmlについて</h3>
 <p>これも自作です。サムネイルを表示し、サムネイルがクリックあるいはタップされると元画像が拡大表示されます。<strong>Lightbox2</strong> を利用していますが有名なのでLightbox2の説明は省略します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:image.html" data-lang="html:image.html">&lt;<span style="color:#f92672">figure</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">class</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:image.html" data-lang="html:image.html">&lt;<span style="color:#f92672">figure</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">class</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
   &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;img-wrapper&#34;</span>&gt;
     &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">link</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-lightbox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-lightbox</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-title</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
       &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">width</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>/&gt;
@@ -1299,23 +1342,23 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
   &lt;/<span style="color:#f92672">div</span>&gt;
 &lt;/<span style="color:#f92672">figure</span>&gt;
 </code></pre></div><p>Markdown中ではこのように使います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{% image src=&#34;resize/thumbnail.png&#34; link=&#34;gazou.png&#34; class=&#34;&#34; data-lightbox=&#34;images&#34; data-title=&#34;caption&#34; %}}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{% image src=&#34;resize/thumbnail.png&#34; link=&#34;gazou.png&#34; class=&#34;&#34; data-lightbox=&#34;images&#34; data-title=&#34;caption&#34; %}}
 </code></pre></div><p><code>src</code>でサムネイルの場所を指定、<code>link</code>で大きいサイズの画像を指定します。パスはそれぞれPage Resourcesの仕様に則っているので記事ファイル(<code>.md</code>)と同じ階層からの相対パスです。</p>
 <p><code>class</code>の有無を問わず機能するので、CSSなどで何か表示を変えたい時だけ<code>class=&quot;fuga&quot;</code>などと指定すればOKです。</p>
 <h3 id="steamhtmlについて">steam.htmlについて</h3>
 <p>Steamのウィジェットを表示するShortcodeです。</p>
 <p>TwitterやYouTubeなどはHugo側にデフォルトで用意されているのですがSteamは無かったので用意しました(参考記事のものをそのまま利用)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:steam.html" data-lang="html:steam.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed steam-link&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:steam.html" data-lang="html:steam.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed steam-link&#34;</span>&gt;
   &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;steam-link&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://store.steampowered.com/widget/{{ index .Params 0 }}/&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
 &lt;/<span style="color:#f92672">div</span>&gt;
 </code></pre></div><p>CSSも弄っておきました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">steam-link</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">steam-link</span> {
   <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">450</span><span style="color:#66d9ef">px</span>;
   <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
   <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 }
 </code></pre></div><p>Markdownの中ではこう使います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">steam</span> <span style="color:#a6e22e">814380</span> &gt;}}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">steam</span> <span style="color:#a6e22e">814380</span> &gt;}}
 </code></pre></div><p>実際に使うとこんな感じになります。</p>
 <div class="embedded steam-link">
     <iframe class="steam-link" src="https://store.steampowered.com/widget/814380/" frameborder="0"></iframe>
@@ -1334,7 +1377,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 </p>
 <p>これを利用すれば、見出し行を<code>## 見出し2</code>や<code>### 見出し3</code>のようにMarkdown中に記述するだけで自動でHugoがTOCを出力してくれます。</p>
 <p>各記事の中に目次を追加したかったので、記事用テンプレートの<code>ROOT/layouts/_default/single.html</code>を下記のように編集しました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html"><span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html"><span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content-wrapper&#34;</span>&gt;
   {{- if .Params.toc }}
       {{- with .TableOfContents }}
@@ -1350,12 +1393,12 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 &lt;/<span style="color:#f92672">div</span>&gt;
 <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
 </code></pre></div><p>実を言うと、</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ .TableOfContents }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ .TableOfContents }}
 </code></pre></div><p>この1行だけでもTOCは呼び出せます。しかし各記事のFrontMatter内で<code>toc: true</code>を設定した場合のみ目次が表示されるように</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{- if .Params.toc }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{- if .Params.toc }}
 </code></pre></div><p>という行で条件分岐をしています。</p>
 <p>また、CSSに関しては次のように設定しました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">xToc</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">xToc</span> {
   <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#282C34</span>;
   <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#D0AF4C</span>;
   <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">em</span>;
@@ -1404,7 +1447,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <p>Hugo Classicにはデフォルトで<code>static/images/site.webmanifest</code>ファイルがあります(<code>exampleSite</code>というディレクトリの中にあります)。</p>
 <p>従って、やることと言えばfavicon用<code>.png</code>ファイルの作成と<code>header.html</code>への追記のみですね。faviconに関しては特に言う事は無いです。</p>
 <p><code>.png</code>ファイルは自前のアイコン(トップページに表示されるやつです)をリサイズしただけですね。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180x180&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/apple-touch-icon.png&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180x180&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/apple-touch-icon.png&#34;</span>&gt;
 &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16x16&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-16x16.png&#34;</span>&gt;
 &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;32x32&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-32x32.png&#34;</span>&gt;
 &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;64x64&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-64x64.png&#34;</span>&gt;
@@ -1488,7 +1531,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <li>それらの上書きファイル・追加ファイル(<code>ROOT/</code>直下にある<code>themes</code> <strong>以外</strong> のファイル)群</li>
 </ul>
 <p>の棲み分けが出来るようになります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Hugoコマンドで新規サイト作成&amp;Gitリポジトリ化</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Hugoコマンドで新規サイト作成&amp;Gitリポジトリ化</span>
 hugo new site SITE_NAME
 cd SITE_NAME
 git init
@@ -1538,7 +1581,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 <h2 id="テーマを弄る前に">テーマを弄る前に</h2>
 <p>Hugoの過去のバージョンアップでMarkdown用のレンダラーが <strong>Goldmark</strong> に変更された影響で、デフォルトではHugo用のMarkdownファイル内にHTMLを書いても読み込まれない<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>設定になっています。</p>
 <p>まずは<code>ROOT/config.toml</code>(YAMLの場合もあります)を編集して下記の項目を追加し、Markdown内のHTMLが読み込まれるようにします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">markup</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">markup</span>]
   [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">renderer</span>]
     <span style="color:#a6e22e">unsafe</span> = <span style="color:#66d9ef">true</span>
 </code></pre></div><h2 id="ヘッダや背景や文字の色を変更">ヘッダや背景や文字の色を変更</h2>
@@ -1576,7 +1619,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 </li>
 </ul>
 <p>この途中でJavaScriptの簡易スクリプトを追加し、ファイルタイプやファイル名を自動判別してQiita風<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>に表示してくれるよう改良しました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:codeblock-filename.js" data-lang="js:codeblock-filename.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#34;highlight&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:codeblock-filename.js" data-lang="js:codeblock-filename.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#34;highlight&#34;</span>);
 
 <span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">firstElementChild</span>.<span style="color:#a6e22e">firstElementChild</span>;
@@ -1591,7 +1634,7 @@ cp -v -R ./themes/THEME_NAME/* ./
     <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">div</span>, <span style="color:#a6e22e">code</span>);
   }
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:codeblock-to-line.js" data-lang="js:codeblock-to-line.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeBlocks</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#39;highlight&#39;</span>);
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:codeblock-to-line.js" data-lang="js:codeblock-to-line.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeBlocks</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#39;highlight&#39;</span>);
 
 <span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">codeBlocks</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">codeBlocks</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">firstElementChild</span>.<span style="color:#a6e22e">firstElementChild</span>;
@@ -1613,7 +1656,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 <p>ちなみにここでHugo側からのスクリプト呼び出しに失敗し、少し詰まりました。</p>
 <p>結論から言えば、Hugoのテンプレート内で<code>ROOT/static/js/hoge.js</code>といったローカルスクリプトを呼び出す時は下記のように記述するのが正しいらしいです。</p>
 <p>呼び出し元はフッター用テンプレートの<code>ROOT/layouts/partials/footer.html</code>です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 良い例 --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 良い例 --&gt;</span>
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 
 <span style="color:#75715e">&lt;!-- 悪い例 --&gt;</span>
@@ -1650,7 +1693,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 <p>結果、最終的には <strong>Prism.js</strong> をメインとして採用しました。
 構文解析がそこそこ優れている事と、スキンが豊富でCSSを編集すれば自由に色設定可能なのと、何より扱いやすいのが主な理由です。</p>
 <p>というわけで、暫定的ではありますがPrism.jsに関しては下記のような形に落ち着きました。ちょっと細かいデザインに時間を掛けすぎてしまったかなという気がしますが……(この記事書きながらまた<code>static/css/prism.css</code>を微調整していました)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp:test.cpp" data-lang="cpp:test.cpp"><span style="color:#75715e">#ifndef TEST_CPP
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp:test.cpp" data-lang="cpp:test.cpp"><span style="color:#75715e">#ifndef TEST_CPP
 </span><span style="color:#75715e">#define TEST_CPP
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
@@ -1667,12 +1710,12 @@ cp -v -R ./themes/THEME_NAME/* ./
   <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 <span style="color:#75715e">#endif </span><span style="color:#75715e">//TEST_CPP
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python:test.py" data-lang="python:test.py"><span style="color:#f92672">import</span> time
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python:test.py" data-lang="python:test.py"><span style="color:#f92672">import</span> time
 <span style="color:#75715e"># Quick, count to ten!</span>
 <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
     <span style="color:#75715e"># (but not *too* quick)</span>
     time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
-    <span style="color:#66d9ef">print</span> i
+    print i
 </code></pre></div><ul>
 <li><a href="https://github.com/snagimmo/hugo-classic/commit/3e44a8c111e5c4442b18da418989125f1384387d" target="_blank">adopted changes of style.css on private repo · snagimmo/hugo-classic@3e44a8c</a>
 </li>
@@ -1814,7 +1857,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 <li>基本的に<code>{{</code>と<code>}}</code>でテンプレートを囲み、呼び出す</li>
 <li>テンプレート名の直後に引数(Arguments)を与える事でそれぞれのテンプレートに見合った挙動をさせる仕組み</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- これは一つの例です --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- これは一つの例です --&gt;</span>
 {{ template &#34;ARGUMENTS&#34; . }}
 </code></pre></div><p>※ 例えば<code>{{</code>と<code>}}</code> に<code>&lt; &gt;</code>が挟まれている場合は、外側の<code>{{</code>と内側の<code>&lt;</code>の間に <strong>スペースを空けずに記述するのが正しい記法</strong> です。</p>
 <h2 id="hugoサイトの全体像と概念">Hugoサイトの全体像と概念</h2>
@@ -2029,7 +2072,7 @@ cp -v -R ./themes/THEME_NAME/* ./
 <p>If you wish to display the list of all keys for your site’s taxonomy, you can retrieve them from the .Site variable available on every page.</p>
 </blockquote>
 <p>こちらも公式からの引用ですが、例えば下の<code>.Site.Taxonomies.tags</code>を利用した例ではサイト全体のタグ一覧を表示することが出来ます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
     {{ range .Site.Taxonomies.tags }}
             &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Page.Permalink }}&#34;</span>&gt;{{ .Page.Title }}&lt;/<span style="color:#f92672">a</span>&gt; {{ .Count }}&lt;/<span style="color:#f92672">li</span>&gt;
     {{ end }}
@@ -2096,16 +2139,16 @@ OSがWindows10 Homeなので、Hugo公式のインストールガイドに沿�
 <p>上記インストールガイド内にHomebrewやMacPortsやChocolateyを利用したインストール方法も載っているのでHugoのインストールで悩む方はそんなにいないと思います。</p>
 <p>Scoop自体のインストール方法は <a href="https://scoop.sh" target="_blank">Scoopの公式サイト</a>
 に載っているのでそちらを参照しました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">scoop install hugo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">scoop install hugo
 </code></pre></div><p>上記インストール作業の後にPSやGit Bashなどから<code>hugo</code>コマンドが叩ければ無事インストール完了です。自分の場合はインストール後にOSごと一応再起動しておきました。</p>
 <h2 id="サイトファイルの新規作成">サイト/ファイルの新規作成</h2>
 <p>Hugoでは新規にサイトを作成する際<code>hugo new site</code>コマンドを実行することでディレクトリが自動生成されます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site &lt;SITE_NAME&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site &lt;SITE_NAME&gt;
 </code></pre></div><p>また、<code>hugo new</code>コマンドによってファイルを新規作成することも可能で、その場合は下記を実行すると<code>new-dir</code>ディレクトリの直下に<code>new_contents.md</code>が生成されます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new new_dir/new_contents.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new new_dir/new_contents.md
 </code></pre></div><h2 id="hugoディレクトリの構造">Hugoディレクトリの構造</h2>
 <p>例えば、<code>hugo new site hoge</code>として作成された<code>hoge</code>ディレクトリには下記のディレクトリ群がデフォルトで含まれています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new site hoge
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new site hoge
 <span style="color:#75715e">#(省略)</span>
 $ ls -A ./hoge
 archetypes  config.toml  content  data  layouts  static  themes
@@ -2141,10 +2184,10 @@ archetypes  config.toml  content  data  layouts  static  themes
 </ul>
 <h2 id="サイトのプレビュー">サイトのプレビュー</h2>
 <p>Hugoにはサイト上のファイル群を編集する度に自動でプレビュー&amp;更新が行われる <strong>LiveReload</strong> 機能があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server
 </code></pre></div><p>というコマンドをターミナルから実行することで、<code>http://localhost:1313</code>をデフォルトURLとしてHugo用プレビューサーバが立ち上がります。</p>
 <p><strong>Draft</strong>(下書き記事)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>を含めたプレビューをするためには<code>-D</code>オプションを付けて</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server -D
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server -D
 </code></pre></div><p>などとする必要があります。この<code>-D</code>オプションが無い場合は <strong>公開設定をしたファイルしかプレビューされない</strong> 仕組みになっています。</p>
 <p><code>hugo server</code>にはその他に様々なオプションがあり、</p>
 <ul>
@@ -2163,10 +2206,10 @@ archetypes  config.toml  content  data  layouts  static  themes
 </li>
 </ul>
 <p>ちなみに自分はいつも下記コマンドを実行しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">hugo server -D --ignoreCache --noHTTPCache --disableFastRender --buildFuture
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">hugo server -D --ignoreCache --noHTTPCache --disableFastRender --buildFuture
 </code></pre></div><h2 id="サイトのビルドと公開">サイトのビルドと公開</h2>
 <p>公開用ファイルのビルドは<code>server</code>等オプションなしの</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
 </code></pre></div><p>で実行できます。Hugo用ディレクトリに移動後<code>hugo</code>の4文字を入力してEnterを押すだけです。</p>
 <p><code>hugo</code>コマンドでビルドを実行すると<code>hoge/public</code>ディレクトリ以下に全てのビルド済みファイル群が出力されます。ホスティングサービスや各公開用サーバにはこの<code>public</code>ディレクトリ以下の公開用ファイルのみを配置すれば良い、というわけです。</p>
 <p>なお、公開までの大まかな流れはQiitaのこの記事が分かりやすいと思います。</p>

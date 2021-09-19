@@ -214,11 +214,11 @@
 <h2 id="hugoのビルドについて">Hugoのビルドについて</h2>
 <h3 id="publicディレクトリについて">publicディレクトリについて</h3>
 <p>Hugoは静的サイトをビルドする際、サイト用ディレクトリのルート直下(<code>ROOT/</code>)に</p>
-<pre><code>public
+<pre tabindex="0"><code>public
 </code></pre><p>というディレクトリを作成し、その直下に <strong>ビルド済みファイル群を配置</strong> します。</p>
 <h3 id="publicディレクトリの中身">publicディレクトリの中身</h3>
 <p>例えば、2021年6月現在の当サイトのpublicディレクトリは大体こんな感じの構造です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">D:\proj\hugo\neoclassic\public<span style="color:#75715e">&gt;tree</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">D:\proj\hugo\neoclassic\public<span style="color:#75715e">&gt;tree</span>
 D:.
 ├─blog
 │  └─2021
@@ -256,7 +256,7 @@ D:.
 <h2 id="sshキーを生成してcircleciに登録">SSHキーを生成してCircleCIに登録</h2>
 <p>SSHの詳しい解説は他のサイトでもあるので省略します。</p>
 <p>下記コマンド実行でOKです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -m pem -C <span style="color:#e6db74">&#34;CircleCI&#34;</span> -f id_rsa_circleci -N <span style="color:#e6db74">&#34;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -m pem -C <span style="color:#e6db74">&#34;CircleCI&#34;</span> -f id_rsa_circleci -N <span style="color:#e6db74">&#34;&#34;</span>
 </code></pre></div><p>これで<code>id_rsa_circleci</code>と<code>id_rsa_circleci.pub</code>のペアが作成されます。</p>
 <p>詳しくは下記公式Docsに載っています。「Cloud 版 CircleCI の場合」という項目が今回該当する説明だと思います。</p>
 <ul>
@@ -267,7 +267,7 @@ D:.
 <p>次にビルド&amp;デプロイタスクを設定するためのコンフィグファイルを作成します。</p>
 <h3 id="cimggoの例-駄目な例">cimg/goの例 (駄目な例)</h3>
 <p>色々試しましたが、<code>cimg/go</code>というDockerイメージを使ってあれこれやっている内に自動ビルドとデプロイに成功しました。その<code>config.yml</code>がこちら(無意味なキャッシュ操作も含まれていますが)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:config.yml" data-lang="yml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml:config.yml" data-lang="yml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
 <span style="color:#f92672">jobs</span>:
   <span style="color:#f92672">build</span>:
     <span style="color:#f92672">working_directory</span>: <span style="color:#ae81ff">~/repo</span>
@@ -333,7 +333,7 @@ D:.
 <p>それでも、上記画像のように余りにも遅すぎるので、違う方法を採用することにしました。</p>
 <h3 id="orbcirclecihugoの例-完成例">Orb(circleci/hugo)の例 (完成例)</h3>
 <p>調べた結果、CircleCIの <strong>Orb</strong> というビルド用テンプレートのようなものが実行速度などに優れているらしい事を知り、早速CircleCIのドキュメントなどを読みつつ<code>config.yml</code>を下記の通り書き換えました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2.1</span>
 <span style="color:#f92672">orbs</span>:
   <span style="color:#f92672">hugo</span>: <span style="color:#ae81ff">circleci/hugo@1.2.2</span>
 <span style="color:#f92672">jobs</span>:
@@ -422,7 +422,7 @@ D:.
   </div>
 </figure>
 <p>その代わりと言いますか、SSHキーは削除しなくても良かったのですが、上記の実例にもあるように <code>StrictHostKeyChecking=no</code>というオプションを<code>~/.ssh/config</code>に追記する必要がありました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#ae81ff">echo &#34;Hostname github.com&#34; &gt;&gt; ~/.ssh/config</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#ae81ff">echo &#34;Hostname github.com&#34; &gt;&gt; ~/.ssh/config</span>
 <span style="color:#ae81ff">echo &#34;StrictHostKeyChecking no&#34; &gt;&gt; ~/.ssh/config</span>
 </code></pre></div><p>この行が <strong>重要</strong> です。これを追加するまではリポジトリからのcloneに失敗します。</p>
 <h4>参考記事</h4>
@@ -438,10 +438,10 @@ D:.
 </ul>
 <h3 id="circleciのexecutorについて">CircleCIのExecutorについて</h3>
 <p>実は、<code>cimg/go</code>よりも更に前は下記のようなGo言語用イメージなどを使っていました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
   - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">circleci/golang:1.15.8</span>
 </code></pre></div><p>ドキュメントを読み、これが <strong>古いCircleCI用のイメージ</strong> だと知り、<code>cimg/go</code>を使うようになりました(最終的にOrbに移行するのでこれも使わなくなりますが)。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml"><span style="color:#f92672">docker</span>:
   - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">cimg/go:1.16</span>
 </code></pre></div><p>下記の通り<code>circleci/golang</code>に関しては完全に公式でも旧式のものとして扱われています。</p>
 <p><a href="https://circleci.com/developer/images/image/cimg/go#browsers" target="_blank">cimg/go - CircleCI</a>
@@ -481,7 +481,7 @@ D:.
 <p>ですので、これからCircleCIでHugoを利用される場合、Executorをどうするか悩むよりも初めからOrbを使うのが速くて&amp;早くて良いのではないかと思います。</p>
 <h3 id="2回もcd-deployしている理由">2回もcd deployしている理由</h3>
 <p>気付いた方がおられると思いますが、上記実例では2回<code>cd deploy</code>しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">run</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">run</span>:
     <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Copy built public to cloned public</span>
     <span style="color:#f92672">command</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">        # 省略
@@ -495,7 +495,7 @@ D:.
 </span><span style="color:#e6db74">        git commit -m &#34;$msg&#34;
 </span><span style="color:#e6db74">        git push origin main -f</span>        
 </code></pre></div><p>これは何故かと言うと、Orb使用時に<code>run</code>ジョブを跨ぐとどうやら下記の<code>attach_workspace</code>ジョブで移動(指定)したディレクトリにもう一度移動するらしく、2度目の<code>cd</code>コマンドで移動しないと最後の<code>git</code>コマンドがエラーになるからです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">attach_workspace</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:config.yml" data-lang="yaml:config.yml">- <span style="color:#f92672">attach_workspace</span>:
     <span style="color:#f92672">at</span>: <span style="color:#ae81ff">.</span>
 </code></pre></div><p>個人的にはpush用の<code>run</code>ジョブは名前を付けて分けておきたかったので、こういった形で2回<code>cd</code>する事になりました。</p>
 <h3 id="configymlの構文チェッカーを使う">config.ymlの構文チェッカーを使う</h3>
@@ -504,7 +504,7 @@ D:.
 <p>リンク: <a href="https://github.com/CircleCI-Public/circleci-cli/releases" target="_blank">Releases · CircleCI-Public/circleci-cli</a>
 </p>
 <p>インストール後、<code>ROOT/.circleci</code>ディレクトリに移動して下記コマンドを実行すると<code>.circleci/config.yml</code>が文法的に正しいかどうかチェックすることが出来ます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd .circleci
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd .circleci
 circleci config validate config.yml
 </code></pre></div><h2 id="独自ドメインを利用する">独自ドメインを利用する</h2>
 <p>私の場合はサイト公開後にGoogle Domainsで取得した独自ドメインを設定しました。</p>
