@@ -25,6 +25,14 @@ main p#mail-caption, .contacts p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+.about p, .about ul {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+.about li > ul {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
 main h1 {
   border-left: .35em solid #D0AF4C;
   border-bottom: 1px dashed #D0AF4C;
@@ -54,10 +62,10 @@ main h1, main h2, main h3, main h4 {
   margin-top: 3.5em;
   padding-left: .5em;
 }
-main .updates h1, main .updates h2, main h3, main h4 {
+main .updates h1, main .updates h2, main .about h1, main .about h2, main h3, main h4 {
   margin-top: 1.5em;
 }
-main .updates {
+main .updates, main .about {
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -519,7 +527,7 @@ img, iframe, video {
   max-width: 100%;
   height: auto;
 }
-.inline-svg {
+.inline-svg, .simple-icon {
   display: inline-block;
   height: 1.15rem;
   width: 1.15rem;
