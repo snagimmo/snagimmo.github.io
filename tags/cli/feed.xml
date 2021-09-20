@@ -138,34 +138,28 @@ C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot;
 <h2 id="mydnsjpへの自動ip通知">MyDNS.jpへの自動IP通知</h2>
 <p><a href="http://www.mydns.jp/#howtouse" target="_blank">公式</a>
 にもあるようにMyDNS.jpは<code>curl</code>コマンドを使って特定URLにアクセス(POST)する事でIP通知を行う事が出来る。</p>
-<p>IPv4もIPv6も両方行うようにした。</p>
+<p>IPv4だけ行うようにした。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>set -ex
 
-<span style="color:#75715e">## Load old IP addresses</span>
+<span style="color:#75715e">## Load old IP address</span>
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e ./old_ipv4 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
   touch ./old_ipv4
 <span style="color:#66d9ef">fi</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e ./old_ipv6 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-  touch ./old_ipv6
-<span style="color:#66d9ef">fi</span>
 old_ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat ./old_ipv4<span style="color:#66d9ef">)</span>
-old_ipv6<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat ./old_ipv6<span style="color:#66d9ef">)</span>
 
 <span style="color:#75715e">## Notify MyDNS.jp</span>
 ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -4s ifconfig.io<span style="color:#66d9ef">)</span>
-ipv6<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -6s ifconfig.io<span style="color:#66d9ef">)</span>
-curl <span style="color:#e6db74">&#34;https://www.mydns.jp/directip.html?MID=</span><span style="color:#e6db74">${</span>MYDNS_MID<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;PWD=</span><span style="color:#e6db74">${</span>MYDNS_PASSWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;IPV4ADDR=</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;IPV6ADDR=</span><span style="color:#e6db74">${</span>ipv6<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+curl <span style="color:#e6db74">&#34;https://www.mydns.jp/directip.html?MID=</span><span style="color:#e6db74">${</span>MYDNS_MID<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;PWD=</span><span style="color:#e6db74">${</span>MYDNS_PASSWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;IPV4ADDR=</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
 
 <span style="color:#75715e">## Post JSON to a Slack webhook url</span>
-msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;blocks&#34;: [{&#34;type&#34;: &#34;section&#34;,&#34;text&#34;: {&#34;type&#34;: &#34;mrkdwn&#34;,&#34;text&#34;: &#34;📡DDNS Info📡\n\n&lt;https://www.mydns.jp/|MyDNS.jp&gt; was notified of your IP addresses successfully!\n\nOld IPv4: &#39;</span><span style="color:#e6db74">${</span>old_ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;\n*New* IPv4: *&#39;</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;*\n\nOld IPv6: &#39;</span><span style="color:#e6db74">${</span>old_ipv6<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;\n*New* IPv6: *&#39;</span><span style="color:#e6db74">${</span>ipv6<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;*&#34;}}]}&#39;</span>
+msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;blocks&#34;: [{&#34;type&#34;: &#34;section&#34;,&#34;text&#34;: {&#34;type&#34;: &#34;mrkdwn&#34;,&#34;text&#34;: &#34;📡DDNS Info📡\n\n&lt;https://www.mydns.jp/|MyDNS.jp&gt; was notified of your IP addresses successfully!\n\nOld IPv4: &#39;</span><span style="color:#e6db74">${</span>old_ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;\n*New* IPv4: *&#39;</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;*&#34;}}]}&#39;</span>
 echo <span style="color:#e6db74">${</span>msg<span style="color:#e6db74">}</span> &gt; msg.json
 curl -X POST -H <span style="color:#e6db74">&#39;Content-type: application/json&#39;</span> -d @msg.json <span style="color:#e6db74">${</span>SLACK_WEBHOOK_NOTICE<span style="color:#e6db74">}</span>
 rm ./msg.json
 
-<span style="color:#75715e">## Update old IP addresses</span>
+<span style="color:#75715e">## Update old IP address</span>
 echo $ipv4 &gt; ./old_ipv4
-echo $ipv6 &gt; ./old_ipv6
 </code></pre></div><p><code>$MYDNS_MID</code>、 <code>$MYDNS_PASSWD</code>, <code>$SLACK_WEBHOOK_NOTICE</code>に関してはWindows側のユーザ環境変数を利用している。</p>
 <p>MyDNS.jp利用者であればMIDとパスワードの詳細は説明不要だと思うので省略。</p>
 <h3 id="slackへの自動通知について">Slackへの自動通知について</h3>
