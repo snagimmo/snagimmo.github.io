@@ -254,6 +254,20 @@ a:hover {
   text-decoration: none;
   margin-left: 0.3em;
 }
+.github-link {
+  color: #CCCCCC;
+  background: #1C1C1C;
+  padding: 0.1em 0.5em 0.2em 0.5em;
+  margin-right: 0.1em;
+  border: dashed;
+  border-width: 1px;
+  border-radius: 0.4em;
+}
+.github-link:hover {
+  color: #FFFFFF;
+  background: #3C3C3C;
+  border-color: #CCCCCC;
+}
 
 /* Header and Footer */
 header {
