@@ -10,6 +10,118 @@
         <lastBuildDate>Fri, 02 Jul 2021 17:55:11 +0900</lastBuildDate>
         <atom:link href="https://snagimmo.net/categories/tips/feed.xml" rel="self" type="application/rss+xml" />
         <item>
+            <title>Hugo本体の更新とツイート埋め込み用Shortcodeの変更</title>
+            <link>https://snagimmo.net/blog/2022/08/updating-hugo-etc/</link>
+            <pubDate>Sat, 13 Aug 2022 22:09:37 +0900</pubDate>
+            <guid>https://snagimmo.net/blog/2022/08/updating-hugo-etc/</guid>
+            <description>そろそろサイト放置が1年になりそうなので重い腰を上げて久々にHugo本体を更新したり色々やることに
+Hugo本体の更新 WIndows TerminalのPowerShellから以下のようにコマンドを実行
+scoop update hugo 現バージョン: 0.80.0
+新バージョン: 0.101.0
+あまりにも放置しすぎて不整合が出そうだ……怖いな……と思ったが案外うまく行った
+hugo: 0.80.0 -&gt; 0.101.0 Updating one outdated app: Updating &#39;hugo&#39; (0.80.0 -&gt; 0.101.0) Downloading new version hugo_0.101.0_windows-64bit.zip (15.9 MB) [==========================] 100% Checking hash of hugo_0.101.0_windows-64bit.zip ... ok. Uninstalling &#39;hugo&#39; (0.80.0) Removing shim f...</description>
+            <content:encoded>
+                    <![CDATA[
+                    <p>そろそろサイト放置が1年になりそうなので重い腰を上げて久々にHugo本体を更新したり色々やることに</p>
+<h2 id="hugo本体の更新">Hugo本体の更新</h2>
+<p>WIndows TerminalのPowerShellから以下のようにコマンドを実行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>scoop update hugo
+</span></span></code></pre></div><p>現バージョン: <strong>0.80.0</strong></p>
+<p>新バージョン: <strong>0.101.0</strong></p>
+<p>あまりにも放置しすぎて不整合が出そうだ……怖いな……と思ったが案外うまく行った</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>hugo<span style="color:#960050;background-color:#1e0010">:</span> 0.80.0 -&gt; 0.101.0
+</span></span><span style="display:flex;"><span>Updating one outdated app<span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>Updating <span style="color:#e6db74">&#39;hugo&#39;</span> (0.80.0 -&gt; 0.101.0)
+</span></span><span style="display:flex;"><span>Downloading new version
+</span></span><span style="display:flex;"><span>hugo_0.101.0_windows-64bit.zip (15.9 MB) [==========================] 100%
+</span></span><span style="display:flex;"><span>Checking hash of hugo_0.101.0_windows-64bit.zip ... ok.
+</span></span><span style="display:flex;"><span>Uninstalling <span style="color:#e6db74">&#39;hugo&#39;</span> (0.80.0)
+</span></span><span style="display:flex;"><span>Removing shim <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;hugo&#39;</span>.
+</span></span><span style="display:flex;"><span>Unlinking ~\scoop\apps\hugo\current
+</span></span><span style="display:flex;"><span>Installing <span style="color:#e6db74">&#39;hugo&#39;</span> (0.101.0) [64bit]
+</span></span><span style="display:flex;"><span>Loading hugo_0.101.0_windows-64bit.zip from cache
+</span></span><span style="display:flex;"><span>Extracting hugo_0.101.0_windows-64bit.zip ... done.
+</span></span><span style="display:flex;"><span>Linking ~\scoop\apps\hugo\current =&gt; ~\scoop\apps\hugo\0.101.0
+</span></span><span style="display:flex;"><span>Creating shim <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;hugo&#39;</span>.
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;hugo&#39;</span> (0.101.0) was installed successfully!
+</span></span></code></pre></div><h2 id="問題が2つ発生">問題が2つ発生</h2>
+<p>早速Hugo本体のアップデート後に挙動を確認したところ2点警告＆エラーが出ていた</p>
+<p>また試しにCircleCIでビルドしようとしたところ、同じくWARNが1つ、Errorが1つ出た <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<figure class="">
+  <div class="img-wrapper">
+    <a href="ci-error.png" data-lightbox="images" data-title="">
+      <img src="resize/ci-error.png" width=""/>
+    </a>
+  </div>
+</figure>
+<h2 id="twitter関連shortcodeの仕様変更">Twitter関連Shortcodeの仕様変更</h2>
+<p>1つ目の問題がこちら</p>
+<p>下記の警告が表示された</p>
+<blockquote>
+<p>WARN 2022/08/13 11:04:40 The &ldquo;tweet&rdquo; shortcode will soon require two named parameters: <strong>user and id</strong>.</p>
+</blockquote>
+<p>どうやらHugo標準の <strong>tweet ショートコード(Shortcode)</strong> の仕様が変更される予定で、今のうちに記事内に埋め込んだショートコードの変数を変えておく必要があるらしい</p>
+<p>以前はツイート個別の識別子(ID)のみを指定する形式だったのが今後は <strong>IDと共にユーザ名も必要</strong> になったとのこと</p>
+<p>そこでざっと調べたところ下記の記事を発見</p>
+<ul>
+<li><a href="https://www.isjw.uk/post/blogging/fix-hugo-tweet-shortcodes/" target="_blank">Update Hugo Tweet Shortcodes with PowerShell, Curl, and the Twitter API | IT Should Just Work</a>
+</li>
+</ul>
+<p>要するに、</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>{{&lt; <span style="color:#f92672">tweet</span> <span style="color:#a6e22e">123456789012345</span><span style="color:#960050;background-color:#1e0010">...</span> &gt;}}
+</span></span></code></pre></div><p>で済んでいたものが</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>{{&lt; <span style="color:#f92672">tweet</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;123456789012345...&#34;</span> <span style="color:#a6e22e">user</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;USER_NAME&#34;</span> &gt;}}
+</span></span></code></pre></div><p>になるよ、ということらしいので早速手動で書き換えた</p>
+<p>自分の場合はサイトの <strong>更新をほぼ1年放置</strong> していたこともあり、ツイート埋め込みのある記事が1つだけで済んだが……</p>
+<p>大量に記事がある場合は上記記事にもあるように Twitter API を叩きつつスクリプトで書き換え＆追記を行う必要があるらしい……</p>
+<p>意外に手間のかかる仕様変更だなと思った</p>
+<h2 id="page要素内におけるurlの利用が非推奨に">.Page要素内における.URLの利用が非推奨に</h2>
+<p>2つ目の問題がこちら</p>
+<p>これは以前からHugoのビルド/プレビュー時に警告文が出ていたもので、無視していたらアップデートにより遂に許されなくなってしまった</p>
+<blockquote>
+<p>Page’s <code>.URL</code> is deprecated and will be removed in a future release. Use <code>.Permalink</code> or <code>.RelPermalink</code>. If what you want is the front matter URL value, use <code>.Params.url</code>.</p>
+</blockquote>
+<p>将来のリリースで <code>.URL</code> が非推奨になるから <code>.Permalink</code> か <code>.RelPermalink</code> にしろ、という話らしい</p>
+<p>自分のサイトだと <code>layouts/_default/index.json</code> が影響を受けたので下記の通り変更することで事なきを得た</p>
+<p>※画面外に該当部分がはみ出しているのでShift+スクロールで読んで下さい</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">@@ -2,7 +2,7 @@
+  {{- $section := $.Site.GetPage &#34;section&#34; .Section -}}
+  {{- range .Site.RegularPages -}}
+      {{- if and (.IsDescendant $section) (not .Params.private) -}}
+-         {{- $.Scratch.Add &#34;index&#34; (dict &#34;title&#34; .Title &#34;tags&#34; .Params.tags &#34;categories&#34; .Params.categories &#34;contents&#34; .Plain &#34;href&#34; .URL ) -}}
++         {{- $.Scratch.Add &#34;index&#34; (dict &#34;title&#34; .Title &#34;tags&#34; .Params.tags &#34;categories&#34; .Params.categories &#34;contents&#34; .Plain &#34;href&#34; .Permalink ) -}}
+      {{- end -}}
+  {{- end -}}
+  {{- $.Scratch.Get &#34;index&#34; | jsonify -}}
+</code></pre><p>どうやら <code>{{- range .Site.RegularPages -}}</code> で始まるブロック内部で <code>.URL</code> を使っていたのが原因だったらしいので <code>.Permalink</code> に変更</p>
+<h2 id="circleciのorbもアップデート">CircleCIのOrbもアップデート</h2>
+<p>ついでに <code>.circleci/config.yml</code> も下記の通り変更</p>
+<pre tabindex="0"><code class="language-git" data-lang="git">@@ -1,6 +1,6 @@
+  version: 2.1
+  orbs:
+-   hugo: circleci/hugo@1.2.2
++   hugo: circleci/hugo@1.3.0
+  jobs:
+    deploy:
+      docker:
+</code></pre><p>以上</p>
+<hr>
+<h2 id="終わりに">終わりに</h2>
+<p>ビルドも通ったのでこれで問題はないと思われる</p>
+<p>でも正直Hugoのバージョン更新差分を全部チェックするのは骨が折れるので余りしたくないかも……(多分するけど)</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>自分はCircleCIでHugo用のOrbを使っているが、どうやらCircleCI側のOrbのHugoは内部で勝手にバージョンアップしている(?)らしい&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+                    ]]>
+            </content:encoded>
+        </item>
+        <item>
             <title>自作キーボードで動くゲームを作った</title>
             <link>https://snagimmo.net/blog/2021/09/gaming-on-qmk/</link>
             <pubDate>Sun, 19 Sep 2021 23:30:24 +0900</pubDate>
