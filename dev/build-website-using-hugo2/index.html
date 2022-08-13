@@ -234,9 +234,9 @@
 <li>基本的に<code>{{</code>と<code>}}</code>でテンプレートを囲み、呼び出す</li>
 <li>テンプレート名の直後に引数(Arguments)を与える事でそれぞれのテンプレートに見合った挙動をさせる仕組み</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- これは一つの例です --&gt;</span>
-{{ template &#34;ARGUMENTS&#34; . }}
-</code></pre></div><p>※ 例えば<code>{{</code>と<code>}}</code> に<code>&lt; &gt;</code>が挟まれている場合は、外側の<code>{{</code>と内側の<code>&lt;</code>の間に <strong>スペースを空けずに記述するのが正しい記法</strong> です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- これは一つの例です --&gt;</span>
+</span></span><span style="display:flex;"><span>{{ template &#34;ARGUMENTS&#34; . }}
+</span></span></code></pre></div><p>※ 例えば<code>{{</code>と<code>}}</code> に<code>&lt; &gt;</code>が挟まれている場合は、外側の<code>{{</code>と内側の<code>&lt;</code>の間に <strong>スペースを空けずに記述するのが正しい記法</strong> です。</p>
 <h2 id="hugoサイトの全体像と概念">Hugoサイトの全体像と概念</h2>
 <p>Hugoのサイト構成に関して自分なりに理解した内容をざっくりと書いておきます。</p>
 <ul>
@@ -449,12 +449,12 @@
 <p>If you wish to display the list of all keys for your site’s taxonomy, you can retrieve them from the .Site variable available on every page.</p>
 </blockquote>
 <p>こちらも公式からの引用ですが、例えば下の<code>.Site.Taxonomies.tags</code>を利用した例ではサイト全体のタグ一覧を表示することが出来ます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
-    {{ range .Site.Taxonomies.tags }}
-            &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Page.Permalink }}&#34;</span>&gt;{{ .Page.Title }}&lt;/<span style="color:#f92672">a</span>&gt; {{ .Count }}&lt;/<span style="color:#f92672">li</span>&gt;
-    {{ end }}
-&lt;/<span style="color:#f92672">ul</span>&gt;
-</code></pre></div><h2>次回へ続く</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ range .Site.Taxonomies.tags }}
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Page.Permalink }}&#34;</span>&gt;{{ .Page.Title }}&lt;/<span style="color:#f92672">a</span>&gt; {{ .Count }}&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span></code></pre></div><h2>次回へ続く</h2>
 <p>今回はHugoサイトの全体像とHugoテンプレートに関する話でした。</p>
 <p>次回はテーマ改良を予定しています。</p>
 <section class="footnotes" role="doc-endnotes">
@@ -541,7 +541,7 @@
   <div class="copyright">
     
     ©
-    2021
+    2021-2022
     snagimmo
   </div>
 </footer>

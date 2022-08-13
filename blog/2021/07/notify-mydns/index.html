@@ -137,7 +137,7 @@
 <p>この手の雑務はLinuxでcronを使うのが一般的だとは思うものの、 敢えてWindowsのタスクスケジューラでやってみた。</p>
 <h2 id="シェルスクリプトの自動実行">シェルスクリプトの自動実行</h2>
 <p>Windows環境で <strong>Git for Windows</strong> を入れている場合、 下記コマンドを <strong>タスクスケジューラ</strong> に登録すればシェルスクリプトが自動実行できる</p>
-<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\temp\test.sh&quot;
+<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &#34;&#34;C:\Program Files\Git\bin\sh.exe&#34; --login -i -- D:\temp\test.sh&#34;
 </code></pre><p><code>bash.exe</code>を呼び出してターミナル上で<code>sh</code>コマンドを使うのではなく<code>sh.exe</code>を最初から呼び出すのがコツらしい</p>
 <h4>参考</h4>
 <ul>
@@ -148,28 +148,28 @@
 <p><a href="http://www.mydns.jp/#howtouse" target="_blank">公式</a>
 にもあるようにMyDNS.jpは<code>curl</code>コマンドを使って特定URLにアクセス(POST)する事でIP通知を行う事が出来る。</p>
 <p>IPv4だけ行うようにした。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>set -ex
-
-<span style="color:#75715e">## Load old IP address</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e ./old_ipv4 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-  touch ./old_ipv4
-<span style="color:#66d9ef">fi</span>
-old_ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat ./old_ipv4<span style="color:#66d9ef">)</span>
-
-<span style="color:#75715e">## Notify MyDNS.jp</span>
-ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -4s ifconfig.io<span style="color:#66d9ef">)</span>
-curl <span style="color:#e6db74">&#34;https://www.mydns.jp/directip.html?MID=</span><span style="color:#e6db74">${</span>MYDNS_MID<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;PWD=</span><span style="color:#e6db74">${</span>MYDNS_PASSWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;IPV4ADDR=</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e">## Post JSON to a Slack webhook url</span>
-msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;blocks&#34;: [{&#34;type&#34;: &#34;section&#34;,&#34;text&#34;: {&#34;type&#34;: &#34;mrkdwn&#34;,&#34;text&#34;: &#34;📡DDNS Info📡\n\n&lt;https://www.mydns.jp/|MyDNS.jp&gt; was notified of your IP addresses successfully!\n\nOld IPv4: &#39;</span><span style="color:#e6db74">${</span>old_ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;\n*New* IPv4: *&#39;</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;*&#34;}}]}&#39;</span>
-echo <span style="color:#e6db74">${</span>msg<span style="color:#e6db74">}</span> &gt; msg.json
-curl -X POST -H <span style="color:#e6db74">&#39;Content-type: application/json&#39;</span> -d @msg.json <span style="color:#e6db74">${</span>SLACK_WEBHOOK_NOTICE<span style="color:#e6db74">}</span>
-rm ./msg.json
-
-<span style="color:#75715e">## Update old IP address</span>
-echo $ipv4 &gt; ./old_ipv4
-</code></pre></div><p><code>$MYDNS_MID</code>、 <code>$MYDNS_PASSWD</code>, <code>$SLACK_WEBHOOK_NOTICE</code>に関してはWindows側のユーザ環境変数を利用している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash:notify_mydns.sh" data-lang="bash:notify_mydns.sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>set -ex
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Load old IP address</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -e ./old_ipv4 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  touch ./old_ipv4
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>old_ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat ./old_ipv4<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Notify MyDNS.jp</span>
+</span></span><span style="display:flex;"><span>ipv4<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -4s ifconfig.io<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>curl <span style="color:#e6db74">&#34;https://www.mydns.jp/directip.html?MID=</span><span style="color:#e6db74">${</span>MYDNS_MID<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;PWD=</span><span style="color:#e6db74">${</span>MYDNS_PASSWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&amp;IPV4ADDR=</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Post JSON to a Slack webhook url</span>
+</span></span><span style="display:flex;"><span>msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;blocks&#34;: [{&#34;type&#34;: &#34;section&#34;,&#34;text&#34;: {&#34;type&#34;: &#34;mrkdwn&#34;,&#34;text&#34;: &#34;📡DDNS Info📡\n\n&lt;https://www.mydns.jp/|MyDNS.jp&gt; was notified of your IP addresses successfully!\n\nOld IPv4: &#39;</span><span style="color:#e6db74">${</span>old_ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;\n*New* IPv4: *&#39;</span><span style="color:#e6db74">${</span>ipv4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;*&#34;}}]}&#39;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>msg<span style="color:#e6db74">}</span> &gt; msg.json
+</span></span><span style="display:flex;"><span>curl -X POST -H <span style="color:#e6db74">&#39;Content-type: application/json&#39;</span> -d @msg.json <span style="color:#e6db74">${</span>SLACK_WEBHOOK_NOTICE<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>rm ./msg.json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Update old IP address</span>
+</span></span><span style="display:flex;"><span>echo $ipv4 &gt; ./old_ipv4
+</span></span></code></pre></div><p><code>$MYDNS_MID</code>、 <code>$MYDNS_PASSWD</code>, <code>$SLACK_WEBHOOK_NOTICE</code>に関してはWindows側のユーザ環境変数を利用している。</p>
 <p>MyDNS.jp利用者であればMIDとパスワードの詳細は説明不要だと思うので省略。</p>
 <h3 id="slackへの自動通知について">Slackへの自動通知について</h3>
 <p>メッセージをJSONとして中間ファイルにし、それを<code>curl</code>でSlack AppのIncoming Webhook URLにPOSTしている。</p>
@@ -177,7 +177,7 @@ echo $ipv4 &gt; ./old_ipv4
 <h2 id="タスクスケジューラに登録">タスクスケジューラに登録</h2>
 <p>あとは下記コマンドを各自のパスに合わせつつタスクスケジューラに登録すれば完了。</p>
 <p>通知タイミングは2日に1回・早朝にした。朝4時ごろにWindowsをスリープから叩き起こして活を入れている。</p>
-<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &quot;&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i -- D:\hoge\notify_mydns.sh&quot;
+<pre tabindex="0"><code>C:\Windows\System32\cmd.exe /c &#34;&#34;C:\Program Files\Git\bin\sh.exe&#34; --login -i -- D:\hoge\notify_mydns.sh&#34;
 </code></pre><section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -255,7 +255,7 @@ echo $ipv4 &gt; ./old_ipv4
   <div class="copyright">
     
     ©
-    2021
+    2021-2022
     snagimmo
   </div>
 </footer>

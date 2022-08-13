@@ -217,19 +217,19 @@ snagimmo/snagimmo.github.io</a>
 <li>それらの上書きファイル・追加ファイル(<code>ROOT/</code>直下にある<code>themes</code> <strong>以外</strong> のファイル)群</li>
 </ul>
 <p>の棲み分けが出来るようになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Hugoコマンドで新規サイト作成&amp;Gitリポジトリ化</span>
-hugo new site SITE_NAME
-cd SITE_NAME
-git init
-
-<span style="color:#75715e"># themesディレクトリ直下にテーマをclone</span>
-cd themes
-git clone git@github.com:USER_NAME/THEME_NAME.git
-
-<span style="color:#75715e"># cloneしたテーマ内のファイルをサイト用ディレクトリへコピー</span>
-cd ..
-cp -v -R ./themes/THEME_NAME/* ./
-</code></pre></div><h2 id="手を加えるべきファイル">手を加えるべきファイル</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Hugoコマンドで新規サイト作成&amp;Gitリポジトリ化</span>
+</span></span><span style="display:flex;"><span>hugo new site SITE_NAME
+</span></span><span style="display:flex;"><span>cd SITE_NAME
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># themesディレクトリ直下にテーマをclone</span>
+</span></span><span style="display:flex;"><span>cd themes
+</span></span><span style="display:flex;"><span>git clone git@github.com:USER_NAME/THEME_NAME.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cloneしたテーマ内のファイルをサイト用ディレクトリへコピー</span>
+</span></span><span style="display:flex;"><span>cd ..
+</span></span><span style="display:flex;"><span>cp -v -R ./themes/THEME_NAME/* ./
+</span></span></code></pre></div><h2 id="手を加えるべきファイル">手を加えるべきファイル</h2>
 <p>実際にテーマを編集する前にHugo Classicテーマのどの部分を弄れば良いかあたりをつけました。</p>
 <p>結果、大体下記のファイルを編集すればHugo Classicテーマが改造出来るらしいことが分かりました。構造が分かってしまえば簡単<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>ですね。</p>
 <ul>
@@ -267,10 +267,10 @@ cp -v -R ./themes/THEME_NAME/* ./
 <h2 id="テーマを弄る前に">テーマを弄る前に</h2>
 <p>Hugoの過去のバージョンアップでMarkdown用のレンダラーが <strong>Goldmark</strong> に変更された影響で、デフォルトではHugo用のMarkdownファイル内にHTMLを書いても読み込まれない<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>設定になっています。</p>
 <p>まずは<code>ROOT/config.toml</code>(YAMLの場合もあります)を編集して下記の項目を追加し、Markdown内のHTMLが読み込まれるようにします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">markup</span>]
-  [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">renderer</span>]
-    <span style="color:#a6e22e">unsafe</span> = <span style="color:#66d9ef">true</span>
-</code></pre></div><h2 id="ヘッダや背景や文字の色を変更">ヘッダや背景や文字の色を変更</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">markup</span>]
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">renderer</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">unsafe</span> = <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><h2 id="ヘッダや背景や文字の色を変更">ヘッダや背景や文字の色を変更</h2>
 <p>最初に一番分かりやすいヘッダの色と全体(<code>&lt;body&gt;</code>など)の背景色・文字色を変えて雰囲気を確認したいなと思い、<code>layouts/partials</code>以下のファイル群と<code>style.css</code>を編集しました。</p>
 <p>私はダークモードでWebサイトを見ることが多く、手元の各種ソフト・ツールもほぼ暗色系や紺色の背景で統一しています。そこでWebサイトも暗い色の背景にしたいなと思っていました。</p>
 <p>一方で暗色系の背景に対して文字やその他の色も暗色系にしてしまうと見辛くなってしまうと思った<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>ので、思い切って紺色に対してコントラストのある黄色を採用することにしました。</p>
@@ -379,55 +379,55 @@ a61cc16</a>
 </li>
 </ul>
 <p>この途中でJavaScriptの簡易スクリプトを追加し、ファイルタイプやファイル名を自動判別してQiita風<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>に表示してくれるよう改良しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:codeblock-filename.js" data-lang="js:codeblock-filename.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#34;highlight&#34;</span>);
-
-<span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">firstElementChild</span>.<span style="color:#a6e22e">firstElementChild</span>;
-  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">code</span>){
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeType</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">?</span> <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">:</span> <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/language-/</span>, <span style="color:#e6db74">&#39;&#39;</span>);
-  }
-
-  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">codeType</span>){
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">div</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>);
-    <span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">codeType</span>;
-    <span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#39;code-name&#39;</span>);
-    <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">div</span>, <span style="color:#a6e22e">code</span>);
-  }
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:codeblock-to-line.js" data-lang="js:codeblock-to-line.js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeBlocks</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#39;highlight&#39;</span>);
-
-<span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">codeBlocks</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">codeBlocks</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">firstElementChild</span>.<span style="color:#a6e22e">firstElementChild</span>;
-  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#e6db74">/lang/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>)){
-      <span style="color:#66d9ef">break</span>;
-  }
-  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">code</span>){
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lines</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">innerHTML</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">/\n/</span>);
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeLine</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
-    <span style="color:#a6e22e">lines</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">line</span>){
-      <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">line</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>){
-        <span style="color:#a6e22e">codeLine</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;&lt;div class=&#34;code-line&#34;&gt;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">line</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&lt;/div&gt;&#39;</span>;
-      }
-    })
-    <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">codeLine</span>;
-  }
-}
-</code></pre></div><p>こちらの<code>codeblock-filename.js</code>はファイル名表示用のスクリプトで、<code>codeblock-to-line.js</code>はPygments(後述)で表示する際に行番号を追加する為のスクリプトです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:codeblock-filename.js" data-lang="js:codeblock-filename.js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#34;highlight&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">firstElementChild</span>.<span style="color:#a6e22e">firstElementChild</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">code</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeType</span> <span style="color:#f92672">=</span>  <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">?</span> <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">:</span> <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/language-/</span>, <span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">codeType</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">div</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;div&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">codeType</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">div</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#39;code-name&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">div</span>, <span style="color:#a6e22e">code</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:codeblock-to-line.js" data-lang="js:codeblock-to-line.js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeBlocks</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#39;highlight&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">codeBlocks</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">codeBlocks</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">firstElementChild</span>.<span style="color:#a6e22e">firstElementChild</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#e6db74">/lang/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">className</span>)){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">code</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lines</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">innerHTML</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">/\n/</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">codeLine</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lines</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">line</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">line</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">codeLine</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;&lt;div class=&#34;code-line&#34;&gt;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">line</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&lt;/div&gt;&#39;</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">code</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">codeLine</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>こちらの<code>codeblock-filename.js</code>はファイル名表示用のスクリプトで、<code>codeblock-to-line.js</code>はPygments(後述)で表示する際に行番号を追加する為のスクリプトです。</p>
 <p>ちなみにここでHugo側からのスクリプト呼び出しに失敗し、少し詰まりました。</p>
 <p>結論から言えば、Hugoのテンプレート内で<code>ROOT/static/js/hoge.js</code>といったローカルスクリプトを呼び出す時は下記のように記述するのが正しいらしいです。</p>
 <p>呼び出し元はフッター用テンプレートの<code>ROOT/layouts/partials/footer.html</code>です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 良い例 --&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-
-<span style="color:#75715e">&lt;!-- 悪い例 --&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/../static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p><code>ROOT/static</code>直下に居ることが前提で尚且つ<code>/</code>から始めるのが正しい記法のようです。悪い例の方では全てスクリプト読み込みに失敗しました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 良い例 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 悪い例 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/../static/js/hoge.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p><code>ROOT/static</code>直下に居ることが前提で尚且つ<code>/</code>から始めるのが正しい記法のようです。悪い例の方では全てスクリプト読み込みに失敗しました。</p>
 <p>少し古め(2018年頃)の記事では<code>src=&quot;js/hoge.js&quot;</code>としている記事も見かけるのですが、少なくとも私が使っているHugo ver0.80においてはエラーになるようでした。</p>
 <h3 id="シンタックスハイライト用ツールの選定">シンタックスハイライト用ツールの選定</h3>
 <p>また、良い機会なのでシンタックスハイライター<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>も色々試してみました。</p>
@@ -494,30 +494,30 @@ d1c13a3</a>
 <p>結果、最終的には <strong>Prism.js</strong> をメインとして採用しました。
 構文解析がそこそこ優れている事と、スキンが豊富でCSSを編集すれば自由に色設定可能なのと、何より扱いやすいのが主な理由です。</p>
 <p>というわけで、暫定的ではありますがPrism.jsに関しては下記のような形に落ち着きました。ちょっと細かいデザインに時間を掛けすぎてしまったかなという気がしますが……(この記事書きながらまた<code>static/css/prism.css</code>を微調整していました)。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp:test.cpp" data-lang="cpp:test.cpp"><span style="color:#75715e">#ifndef TEST_CPP
-</span><span style="color:#75715e">#define TEST_CPP
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
-  <span style="color:#66d9ef">int</span> N;
-  cin <span style="color:#f92672">&gt;&gt;</span> N;
-
-  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>){
-    string S;
-    cin <span style="color:#f92672">&gt;&gt;</span> S;
-  }
-  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-<span style="color:#75715e">#endif </span><span style="color:#75715e">//TEST_CPP
-</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python:test.py" data-lang="python:test.py"><span style="color:#f92672">import</span> time
-<span style="color:#75715e"># Quick, count to ten!</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
-    <span style="color:#75715e"># (but not *too* quick)</span>
-    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
-    print i
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp:test.cpp" data-lang="cpp:test.cpp"><span style="display:flex;"><span><span style="color:#75715e">#ifndef TEST_CPP
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define TEST_CPP
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> N;
+</span></span><span style="display:flex;"><span>  cin <span style="color:#f92672">&gt;&gt;</span> N;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    string S;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#f92672">&gt;&gt;</span> S;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif </span><span style="color:#75715e">//TEST_CPP
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python:test.py" data-lang="python:test.py"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Quick, count to ten!</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># (but not *too* quick)</span>
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>    print i
+</span></span></code></pre></div><ul>
 <li>
 
 
@@ -653,7 +653,7 @@ e09ff66</a>
   <div class="copyright">
     
     ©
-    2021
+    2021-2022
     snagimmo
   </div>
 </footer>

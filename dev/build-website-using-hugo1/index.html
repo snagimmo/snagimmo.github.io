@@ -171,20 +171,20 @@
 <p>上記インストールガイド内にHomebrewやMacPortsやChocolateyを利用したインストール方法も載っているのでHugoのインストールで悩む方はそんなにいないと思います。</p>
 <p>Scoop自体のインストール方法は <a href="https://scoop.sh" target="_blank">Scoopの公式サイト</a>
 に載っているのでそちらを参照しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">scoop install hugo
-</code></pre></div><p>上記インストール作業の後にPSやGit Bashなどから<code>hugo</code>コマンドが叩ければ無事インストール完了です。自分の場合はインストール後にOSごと一応再起動しておきました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>scoop install hugo
+</span></span></code></pre></div><p>上記インストール作業の後にPSやGit Bashなどから<code>hugo</code>コマンドが叩ければ無事インストール完了です。自分の場合はインストール後にOSごと一応再起動しておきました。</p>
 <h2 id="サイトファイルの新規作成">サイト/ファイルの新規作成</h2>
 <p>Hugoでは新規にサイトを作成する際<code>hugo new site</code>コマンドを実行することでディレクトリが自動生成されます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site &lt;SITE_NAME&gt;
-</code></pre></div><p>また、<code>hugo new</code>コマンドによってファイルを新規作成することも可能で、その場合は下記を実行すると<code>new-dir</code>ディレクトリの直下に<code>new_contents.md</code>が生成されます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new new_dir/new_contents.md
-</code></pre></div><h2 id="hugoディレクトリの構造">Hugoディレクトリの構造</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site &lt;SITE_NAME&gt;
+</span></span></code></pre></div><p>また、<code>hugo new</code>コマンドによってファイルを新規作成することも可能で、その場合は下記を実行すると<code>new-dir</code>ディレクトリの直下に<code>new_contents.md</code>が生成されます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new new_dir/new_contents.md
+</span></span></code></pre></div><h2 id="hugoディレクトリの構造">Hugoディレクトリの構造</h2>
 <p>例えば、<code>hugo new site hoge</code>として作成された<code>hoge</code>ディレクトリには下記のディレクトリ群がデフォルトで含まれています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new site hoge
-<span style="color:#75715e">#(省略)</span>
-$ ls -A ./hoge
-archetypes  config.toml  content  data  layouts  static  themes
-</code></pre></div><p>Hugoディレクトリの構造に関しては下記リンクが参考になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hugo new site hoge
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#(省略)</span>
+</span></span><span style="display:flex;"><span>$ ls -A ./hoge
+</span></span><span style="display:flex;"><span>archetypes  config.toml  content  data  layouts  static  themes
+</span></span></code></pre></div><p>Hugoディレクトリの構造に関しては下記リンクが参考になります。</p>
 <ul>
 <li><a href="https://gohugo.io/getting-started/directory-structure/" target="_blank">Directory Structure</a>
 </li>
@@ -232,11 +232,11 @@ snagimmo/hugo-classic</a>
 </ul>
 <h2 id="サイトのプレビュー">サイトのプレビュー</h2>
 <p>Hugoにはサイト上のファイル群を編集する度に自動でプレビュー&amp;更新が行われる <strong>LiveReload</strong> 機能があります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server
-</code></pre></div><p>というコマンドをターミナルから実行することで、<code>http://localhost:1313</code>をデフォルトURLとしてHugo用プレビューサーバが立ち上がります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><p>というコマンドをターミナルから実行することで、<code>http://localhost:1313</code>をデフォルトURLとしてHugo用プレビューサーバが立ち上がります。</p>
 <p><strong>Draft</strong>(下書き記事)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>を含めたプレビューをするためには<code>-D</code>オプションを付けて</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server -D
-</code></pre></div><p>などとする必要があります。この<code>-D</code>オプションが無い場合は <strong>公開設定をしたファイルしかプレビューされない</strong> 仕組みになっています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div><p>などとする必要があります。この<code>-D</code>オプションが無い場合は <strong>公開設定をしたファイルしかプレビューされない</strong> 仕組みになっています。</p>
 <p><code>hugo server</code>にはその他に様々なオプションがあり、</p>
 <ul>
 <li><code>--buildDrafts</code>, <code>-D</code>: 下書き(draft)記事も含めてプレビューする</li>
@@ -254,11 +254,11 @@ snagimmo/hugo-classic</a>
 </li>
 </ul>
 <p>ちなみに自分はいつも下記コマンドを実行しています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PowerShell" data-lang="PowerShell">hugo server -D --ignoreCache --noHTTPCache --disableFastRender --buildFuture
-</code></pre></div><h2 id="サイトのビルドと公開">サイトのビルドと公開</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PowerShell" data-lang="PowerShell"><span style="display:flex;"><span>hugo server -D --ignoreCache --noHTTPCache --disableFastRender --buildFuture
+</span></span></code></pre></div><h2 id="サイトのビルドと公開">サイトのビルドと公開</h2>
 <p>公開用ファイルのビルドは<code>server</code>等オプションなしの</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
-</code></pre></div><p>で実行できます。Hugo用ディレクトリに移動後<code>hugo</code>の4文字を入力してEnterを押すだけです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><p>で実行できます。Hugo用ディレクトリに移動後<code>hugo</code>の4文字を入力してEnterを押すだけです。</p>
 <p><code>hugo</code>コマンドでビルドを実行すると<code>hoge/public</code>ディレクトリ以下に全てのビルド済みファイル群が出力されます。ホスティングサービスや各公開用サーバにはこの<code>public</code>ディレクトリ以下の公開用ファイルのみを配置すれば良い、というわけです。</p>
 <p>なお、公開までの大まかな流れはQiitaのこの記事が分かりやすいと思います。</p>
 <ul>
@@ -347,7 +347,7 @@ snagimmo/hugo-classic</a>
   <div class="copyright">
     
     ©
-    2021
+    2021-2022
     snagimmo
   </div>
 </footer>

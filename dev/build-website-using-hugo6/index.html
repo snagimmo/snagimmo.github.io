@@ -192,21 +192,21 @@
 <p>Hugo can output content in multiple formats, including calendar events, e-book formats, Google AMP, and JSON search indexes, or any custom text format.</p>
 </blockquote>
 <p>「 <strong>JSON search indexes</strong> 」とありますね。これの事です。<code>ROOT/config.toml</code>内に下記項目を追加することで自動生成することが出来ます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputs</span>]
-  <span style="color:#a6e22e">home</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
-</code></pre></div><p>この設定により、自動で<code>index.html</code>ファイル<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>と<code>index.xml</code>ファイル<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>と<code>index.json</code>ファイルがドキュメントルートに生成されます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">outputs</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">home</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
+</span></span></code></pre></div><p>この設定により、自動で<code>index.html</code>ファイル<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>と<code>index.xml</code>ファイル<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>と<code>index.json</code>ファイルがドキュメントルートに生成されます。</p>
 <p>実ファイルがローカルに生成されるのではなくURL上で<code>http(s)://DOMAIN/XXX.html</code>などの形でアクセス出来るようになる、という点に注意です。</p>
 <p>この際、<code>ROOT/layouts/_default</code>直下に同名の<code>index.json</code>というテンプレートファイルを作成することで、Hugoによって自動生成された<code>index.json</code>ファイルの内容を制御・変更することが可能になります。</p>
 <p>私が作成した<code>index.json</code>のテンプレートは下記の通りです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json:index.json" data-lang="json:index.json">{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">slice</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$section</span> <span style="color:#960050;background-color:#1e0010">:=</span> <span style="color:#960050;background-color:#1e0010">$.Site.GetPage</span> <span style="color:#f92672">&#34;section&#34;</span> <span style="color:#960050;background-color:#1e0010">.Section</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">range</span> <span style="color:#960050;background-color:#1e0010">.Site.RegularPages</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-    {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">if</span> <span style="color:#960050;background-color:#1e0010">and</span> <span style="color:#960050;background-color:#1e0010">(.IsDescendant</span> <span style="color:#960050;background-color:#1e0010">$section)</span> <span style="color:#960050;background-color:#1e0010">(not</span> <span style="color:#960050;background-color:#1e0010">.Params.private)</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-        {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">(dict</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#960050;background-color:#1e0010">.Title</span> <span style="color:#e6db74">&#34;tags&#34;</span> <span style="color:#960050;background-color:#1e0010">.Params.tags</span> <span style="color:#e6db74">&#34;categories&#34;</span> <span style="color:#960050;background-color:#1e0010">.Params.categories</span> <span style="color:#e6db74">&#34;contents&#34;</span> <span style="color:#960050;background-color:#1e0010">.Plain</span> <span style="color:#e6db74">&#34;href&#34;</span> <span style="color:#960050;background-color:#1e0010">.URL</span> <span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-    {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">end</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">end</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Get</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#960050;background-color:#1e0010">jsonify</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-</code></pre></div><p><code>private: true</code>でない時は全て全文検索用のJSONに含めるという設定です。下記の参考記事群に大分助けられました。感謝です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json:index.json" data-lang="json:index.json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">slice</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$section</span> <span style="color:#960050;background-color:#1e0010">:=</span> <span style="color:#960050;background-color:#1e0010">$.Site.GetPage</span> <span style="color:#f92672">&#34;section&#34;</span> <span style="color:#960050;background-color:#1e0010">.Section</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">range</span> <span style="color:#960050;background-color:#1e0010">.Site.RegularPages</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">if</span> <span style="color:#960050;background-color:#1e0010">and</span> <span style="color:#960050;background-color:#1e0010">(.IsDescendant</span> <span style="color:#960050;background-color:#1e0010">$section)</span> <span style="color:#960050;background-color:#1e0010">(not</span> <span style="color:#960050;background-color:#1e0010">.Params.private)</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Add</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">(dict</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#960050;background-color:#1e0010">.Title</span> <span style="color:#e6db74">&#34;tags&#34;</span> <span style="color:#960050;background-color:#1e0010">.Params.tags</span> <span style="color:#e6db74">&#34;categories&#34;</span> <span style="color:#960050;background-color:#1e0010">.Params.categories</span> <span style="color:#e6db74">&#34;contents&#34;</span> <span style="color:#960050;background-color:#1e0010">.Plain</span> <span style="color:#e6db74">&#34;href&#34;</span> <span style="color:#960050;background-color:#1e0010">.URL</span> <span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">end</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">end</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">{-</span> <span style="color:#960050;background-color:#1e0010">$.Scratch.Get</span> <span style="color:#f92672">&#34;index&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#960050;background-color:#1e0010">jsonify</span> <span style="color:#960050;background-color:#1e0010">-</span>}<span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><p><code>private: true</code>でない時は全て全文検索用のJSONに含めるという設定です。下記の参考記事群に大分助けられました。感謝です。</p>
 <h4>参考記事</h4>
 <ul>
 <li><a href="https://blog.8-p.info/ja/2018/05/26/hugo-json/" target="_blank">Hugo で全記事いりの JSON ファイルをつくる - blog.8-p.info</a>
@@ -223,11 +223,11 @@
 にある。</p>
 </blockquote>
 <p>とあるのですが、Lunr側のスクリプトを読むと事情が少し異なっています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:lunr.jp.js" data-lang="js:lunr.jp.js"><span style="color:#75715e">// jp is the country code, while ja is the language code
-</span><span style="color:#75715e">// a new lunr.ja.js has been created, but in order to
-</span><span style="color:#75715e">// keep the backward compatibility, we&#39;ll leave the lunr.jp.js
-</span><span style="color:#75715e">// here for a while, and just make it use the new lunr.ja.js
-</span></code></pre></div><p>「後方互換性の為に<code>lunr.jp.js</code>を残しておくが、本来<code>jp</code>はカントリーコードであり言語コードは<code>ja</code>なので正式には<code>ja</code>の方が最適な表現だ」ということらしいです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:lunr.jp.js" data-lang="js:lunr.jp.js"><span style="display:flex;"><span><span style="color:#75715e">// jp is the country code, while ja is the language code
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// a new lunr.ja.js has been created, but in order to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// keep the backward compatibility, we&#39;ll leave the lunr.jp.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// here for a while, and just make it use the new lunr.ja.js
+</span></span></span></code></pre></div><p>「後方互換性の為に<code>lunr.jp.js</code>を残しておくが、本来<code>jp</code>はカントリーコードであり言語コードは<code>ja</code>なので正式には<code>ja</code>の方が最適な表現だ」ということらしいです。</p>
 <p>要するに、後から作成された<code>lunr.ja.js</code>の方を使ってくれ、という事でしょう。</p>
 <p>ということで、必要なスクリプト群は下記 <strong>5つ</strong> と判明しました(動作検証済み)。</p>
 <ul>
@@ -254,41 +254,41 @@
 </p>
 <p>素晴らしいスクリプトを公開して下さって大変有難いのですが、ここで一点だけ詰まったので注意点を書いておきます。</p>
 <p>下記のように<code>getJSON()</code>の引数に<code>index.json</code>が指定されている部分が4行目にあるのですが、ここで頭に<code>/</code>を付けないとスクリプトが読み込まれずエラーになります。ここさえ変更すれば動作すると思います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js:search.js" data-lang="js:search.js"><span style="color:#75715e">// 変更前
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
-
-<span style="color:#75715e">// 変更後
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;/index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
-</code></pre></div><p>後はこれを<code>layouts/partials/footer.html</code>から呼び出せばスクリプトの読み込み自体はOKです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:footer.html" data-lang="html:footer.html"><span style="color:#75715e">&lt;!-- search scripts with Lunr &amp; jQuery --&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://code.jquery.com/jquery-3.3.1.min.js&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.stemmer.support.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/tinyseg.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.ja.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.multi.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/search.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="検索窓設置用のpartial-template作成">検索窓設置用のPartial Template作成</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js:search.js" data-lang="js:search.js"><span style="display:flex;"><span><span style="color:#75715e">// 変更前
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 変更後
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getJSON</span>(<span style="color:#e6db74">&#34;/index.json&#34;</span>).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">index</span>) {
+</span></span></code></pre></div><p>後はこれを<code>layouts/partials/footer.html</code>から呼び出せばスクリプトの読み込み自体はOKです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:footer.html" data-lang="html:footer.html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- search scripts with Lunr &amp; jQuery --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://code.jquery.com/jquery-3.3.1.min.js&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.stemmer.support.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/tinyseg.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.ja.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/lunr.multi.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/search.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h3 id="検索窓設置用のpartial-template作成">検索窓設置用のPartial Template作成</h3>
 <p>さて、スクリプトを機能させる為の <strong>検索窓</strong> を付けます。</p>
 <p>私は<code>ROOT/layouts/partials/search.html</code>というPartial Templateとして作成しました。このテンプレートは自作です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:search.html" data-lang="html:search.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-area&#34;</span>&gt;
-  &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink | safeURL }}&#34;</span> <span style="color:#a6e22e">onkeyup</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search()&#34;</span>&gt;
-    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-query&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search this site&#34;</span> <span style="color:#a6e22e">autocomplete</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;off&#34;</span>/&gt;
-  &lt;/<span style="color:#f92672">form</span>&gt;
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-button&#34;</span>&gt;
-    {{ partial &#34;fontawesome.html&#34; &#34;search&#34; }}
-  &lt;/<span style="color:#f92672">div</span>&gt;
-  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-results&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;results&#34;</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;
-</code></pre></div><p>途中まで試行錯誤していた残骸として使っていない<code>onkeyup</code>なども残っていますが、このPartial Templateを下記の通り<code>ROOT/layouts/_default/single.html</code>(各記事用テンプレートファイル)の冒頭で呼び出しています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ partial &#34;header.html&#34; . }}
-{{ partial &#34;search.html&#34; . }}
-&lt;<span style="color:#f92672">br</span>&gt;
-
-&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article&#34;</span>&gt;
-&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-meta&#34;</span>&gt;
-<span style="color:#75715e">&lt;!-- 以下省略 --&gt;</span>
-</code></pre></div><p>以上でHugoとLunr.jsを組み合わせた全文検索用の簡易検索窓がサイト上部に設置できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:search.html" data-lang="html:search.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-area&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink | safeURL }}&#34;</span> <span style="color:#a6e22e">onkeyup</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search()&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-query&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search this site&#34;</span> <span style="color:#a6e22e">autocomplete</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;off&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-button&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ partial &#34;fontawesome.html&#34; &#34;search&#34; }}
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-results&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;results&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>途中まで試行錯誤していた残骸として使っていない<code>onkeyup</code>なども残っていますが、このPartial Templateを下記の通り<code>ROOT/layouts/_default/single.html</code>(各記事用テンプレートファイル)の冒頭で呼び出しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:single.html" data-lang="html:single.html"><span style="display:flex;"><span>{{ partial &#34;header.html&#34; . }}
+</span></span><span style="display:flex;"><span>{{ partial &#34;search.html&#34; . }}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">br</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-meta&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 以下省略 --&gt;</span>
+</span></span></code></pre></div><p>以上でHugoとLunr.jsを組み合わせた全文検索用の簡易検索窓がサイト上部に設置できます。</p>
 <h4>参考記事</h4>
 <ul>
 <li><a href="https://webparts.cman.jp/input/search/" target="_blank">検索窓をデザインする</a>
@@ -298,32 +298,32 @@
 <p>サイトを <strong>Open Graph Protocol(OGP)</strong> に対応させていきます。</p>
 <p>URLがSlackやTwitterなどに貼られると自動でサイトカードなどとして変換されるあの仕組みの事ですね。</p>
 <p>HugoではデフォルトでOGP用のテンプレートが用意されており、以下の2行を<code>&lt;head&gt;&lt;/head&gt;</code>内部に追記するだけで使えるようになっています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
-  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-  {{ template &#34;_internal/opengraph.html&#34; . }}
-  {{ template &#34;_internal/twitter_cards.html&#34; . }}
-  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-&lt;/<span style="color:#f92672">head</span>&gt;
-</code></pre></div><p>ただ、このテンプレートでは背後でどのような動作をしているか今一つ分からないので、自分で追加する事にしました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">head</span>&gt;
-  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}blog{{ else }}article{{ end }}&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:url&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.BaseURL }}images/profile.png&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:title&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:site_name&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $.Site.Title }}&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:description&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Description }}{{ end }}&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:card&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summary&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:site&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{{ .Site.Params.author }}&#34;</span>&gt;
-  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:creator&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{{ .Site.Params.author }}&#34;</span>&gt;
-  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-&lt;/<span style="color:#f92672">head</span>&gt;
-</code></pre></div><p>また、<code>ROOT/config.toml</code>には下記のように<code>.Site.Params.XXX</code>の設定をしてあります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">params</span>]
-  <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;snagimmo(すなぎも)の個人サイト&#34;</span>
-  <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;snagimmo&#34;</span>
-  <span style="color:#75715e"># 以下省略</span>
-</code></pre></div><p><code>IsHome</code>で場合分けをして無駄に<code>og:type</code>を<code>blog</code>か<code>article</code>かで分けたりもしていますが、とにかく無事にOGPが適用されてカードが表示されているのは確認したのでそれで良しとしました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span><span style="display:flex;"><span>  {{ template &#34;_internal/opengraph.html&#34; . }}
+</span></span><span style="display:flex;"><span>  {{ template &#34;_internal/twitter_cards.html&#34; . }}
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span></code></pre></div><p>ただ、このテンプレートでは背後でどのような動作をしているか今一つ分からないので、自分で追加する事にしました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:header.html" data-lang="html:header.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}blog{{ else }}article{{ end }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:url&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Permalink }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.BaseURL }}images/profile.png&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:title&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:site_name&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $.Site.Title }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:description&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Description }}{{ end }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:card&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summary&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:site&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{{ .Site.Params.author }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:creator&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{{ .Site.Params.author }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span></code></pre></div><p>また、<code>ROOT/config.toml</code>には下記のように<code>.Site.Params.XXX</code>の設定をしてあります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;snagimmo(すなぎも)の個人サイト&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;snagimmo&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># 以下省略</span>
+</span></span></code></pre></div><p><code>IsHome</code>で場合分けをして無駄に<code>og:type</code>を<code>blog</code>か<code>article</code>かで分けたりもしていますが、とにかく無事にOGPが適用されてカードが表示されているのは確認したのでそれで良しとしました。</p>
 <p>OGPの厄介だなと思うところはローカルでの確認が難しいところです。デプロイしてから下記の定番ツールで色々検証させて貰いました。</p>
 <h4>参考リンク</h4>>
 <ul>
@@ -345,12 +345,12 @@
 </ul>
 <h3 id="rssファイルのリネーム">RSSファイルのリネーム</h3>
 <p>次のように<code>ROOT/config.toml</code>でRSSフィード用の出力ファイル名を<code>feed</code>に指定することでURL上は<code>rss.xml</code>ではなく<code>feed.xml</code>がRSS用URLとなるようにしています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">outputFormats</span>]
-  [<span style="color:#a6e22e">outputFormats</span>.<span style="color:#a6e22e">RSS</span>]
-    <span style="color:#a6e22e">mediaType</span> = <span style="color:#e6db74">&#34;application/rss+xml&#34;</span>
-    <span style="color:#a6e22e">baseName</span> = <span style="color:#e6db74">&#34;feed&#34;</span>
-    <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;https://&#34;</span>
-</code></pre></div><p>注意すべき点は、繰り返しになりますが <strong>Hugoの探索順序(Lookup Order)</strong> です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">outputFormats</span>]
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">outputFormats</span>.<span style="color:#a6e22e">RSS</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mediaType</span> = <span style="color:#e6db74">&#34;application/rss+xml&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">baseName</span> = <span style="color:#e6db74">&#34;feed&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">protocol</span> = <span style="color:#e6db74">&#34;https://&#34;</span>
+</span></span></code></pre></div><p>注意すべき点は、繰り返しになりますが <strong>Hugoの探索順序(Lookup Order)</strong> です。</p>
 <p>ローカルのファイル名をいきなり<code>feed.xml</code>としても、その <strong><code>feed.xml</code>を含む探索パスをHugoは持たない</strong> 為に、URLにも反映されずRSSフィードの名前は<code>rss.xml</code>から変わりません。</p>
 <p>よって、一度テンプレート用ファイル名を上記のLookup Order内のいずれかから選択しておき、同時に<code>config.toml</code>内で出力名を指定することでしかRSSフィード名を任意の名前にすることは出来ないわけです。</p>
 <h4>参考記事</h4>
@@ -362,13 +362,13 @@
 <p>RSSでは<code>description</code>という項目内に要約文が載っていますが、サイトによってほぼコンテンツ全文を載せるか、要約文のみ載せるか、一行コメントだけ載せるか、やり方は様々だと思います。</p>
 <p>私の場合は、下記のように<code>&lt;content:encoded&gt;</code>へコンテンツ内容を載せてみました。</p>
 <p>実例がこちらです。<code>description</code>は500字程度にまとめつつ、Feedlyなどで見た時には記事内容が表示されるようにしました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml:rss.xml" data-lang="xml:rss.xml"><span style="color:#f92672">&lt;description&gt;</span>{{ if .Description }}{{ .Description }}{{ else }}{{ substr .Summary 0 500 | safeHTML }}{{ if gt (len .Summary) 500 }}...{{ end }}{{ end }}<span style="color:#f92672">&lt;/description&gt;</span>
-<span style="color:#f92672">&lt;content:encoded&gt;</span>
-        {{ `<span style="color:#75715e">&lt;![CDATA[` | safeHTML }}
-</span><span style="color:#75715e">        {{ .Content }}
-</span><span style="color:#75715e">        {{ `]]&gt;</span>` | safeHTML }}
-<span style="color:#f92672">&lt;/content:encoded&gt;</span>
-</code></pre></div><p>Hugoがデフォルトで用意している<code>.Summary</code>という要約文用の変数があるのですが、こちらを更に<code>substr</code>という関数で500文字以下に短くしています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml:rss.xml" data-lang="xml:rss.xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;description&gt;</span>{{ if .Description }}{{ .Description }}{{ else }}{{ substr .Summary 0 500 | safeHTML }}{{ if gt (len .Summary) 500 }}...{{ end }}{{ end }}<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;content:encoded&gt;</span>
+</span></span><span style="display:flex;"><span>        {{ `<span style="color:#75715e">&lt;![CDATA[` | safeHTML }}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        {{ .Content }}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        {{ `]]&gt;</span>` | safeHTML }}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/content:encoded&gt;</span>
+</span></span></code></pre></div><p>Hugoがデフォルトで用意している<code>.Summary</code>という要約文用の変数があるのですが、こちらを更に<code>substr</code>という関数で500文字以下に短くしています。</p>
 <p>仮に500文字をSummaryが超過していた場合のみ、行末に省略記号<code>...</code>を付ける事にしています。</p>
 <p>もし記事のFrontMatterに個別の<code>description</code>が設定されていた場合はそちらを<code>.Summary</code>よりも優先して載せるようにしました。</p>
 <h2 id="フォントの見直し">フォントの見直し</h2>
@@ -378,27 +378,27 @@
 </p>
 <p>それぞれの部分についてはこれから触れていきます。</p>
 <h3 id="ヘッダとフッタのフォント">ヘッダとフッタのフォント</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">header</span><span style="color:#f92672">,</span> <span style="color:#f92672">footer</span> {
-  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#39;Inter&#39;</span> <span style="color:#75715e">!important</span>;
-}
-</code></pre></div><p>Hugo Classicで元々利用されていた <strong>Inter</strong> というフォントが気に入ったのでこれはこのまま使うことにしました。このサイトではヘッダとフッタの英字部分(home, contactなど)にこのフォントを利用しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="display:flex;"><span><span style="color:#f92672">header</span><span style="color:#f92672">,</span> <span style="color:#f92672">footer</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#39;Inter&#39;</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hugo Classicで元々利用されていた <strong>Inter</strong> というフォントが気に入ったのでこれはこのまま使うことにしました。このサイトではヘッダとフッタの英字部分(home, contactなど)にこのフォントを利用しています。</p>
 <h4>リンク</h4>
 <ul>
 <li><a href="https://rsms.me/inter/" target="_blank">Inter font family</a>
 </li>
 </ul>
 <h3 id="コードブロックのフォント">コードブロックのフォント</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#f92672">pre</span><span style="color:#f92672">,</span> <span style="color:#f92672">code</span> {
-  <span style="color:#66d9ef">font-family</span>:
-    <span style="color:#e6db74">&#39;Consolas&#39;</span>,
-    <span style="color:#e6db74">&#39;Ricty Diminished&#39;</span>,
-    <span style="color:#e6db74">&#39;Inconsolata&#39;</span>,
-    Meiryo,
-    <span style="color:#e6db74">&#34;メイリオ&#34;</span>,
-    <span style="color:#e6db74">&#39;Noto Sans JP&#39;</span>,
-    <span style="color:#e6db74">&#39;Kosugi&#39;</span> <span style="color:#75715e">!important</span>;
-}
-</code></pre></div><p>コードブロック系は <strong>Consolas</strong>, Consolasが無い環境では <strong>Inconsolata</strong> を使うようにしました。 <strong>Ricty Diminished</strong>も好きなフォントなので気が変わった時の為に一応加えておきました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="display:flex;"><span><span style="color:#f92672">pre</span><span style="color:#f92672">,</span> <span style="color:#f92672">code</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-family</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Consolas&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Ricty Diminished&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Inconsolata&#39;</span>,
+</span></span><span style="display:flex;"><span>    Meiryo,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;メイリオ&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Noto Sans JP&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Kosugi&#39;</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>コードブロック系は <strong>Consolas</strong>, Consolasが無い環境では <strong>Inconsolata</strong> を使うようにしました。 <strong>Ricty Diminished</strong>も好きなフォントなので気が変わった時の為に一応加えておきました。</p>
 <p>ブロック内の和文フォントに関しては基本的にメイリオで、メイリオが無ければ <strong>Noto Sans JP</strong> を使うようにしています。<strong>Kosugi</strong> は上のRicty Diminishedと同じ位置づけです。</p>
 <h4>リンク</h4>
 <ul>
@@ -419,56 +419,56 @@
 <p>一番気に入ってメインにしたいと思ったのが <strong>Segoe UI</strong> というフォントだったのですが、Windows以外のiOSなどの環境だと読み込まれなかったのでWebフォントとしてどの環境でも表示されるようにしました。</p>
 <p>こちらの <a href="https://gist.github.com/AndrewCraswell/106143d1bb5d4162689b9e1d89a2d0fb" target="_blank">Andrew CraswellさんのGist</a>
 に情報があり、下記の通り何とかSegoe UIをWebフォント化することが出来ました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="color:#75715e">/* Segoe UI */</span>
-@<span style="color:#66d9ef">font-face</span> {
-  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">SegoeUI</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">src</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">local</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Segoe UI&#34;</span><span style="color:#f92672">),</span>
-      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">woff2</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff2&#34;</span><span style="color:#f92672">),</span>
-      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">woff</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff&#34;</span><span style="color:#f92672">),</span>
-      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">ttf</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;truetype&#34;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">font-weight</span><span style="color:#f92672">:</span> <span style="color:#f92672">400</span><span style="color:#f92672">;</span>
-}
-</code></pre></div><h2 id="共有ボタン設置">共有ボタン設置</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:fonts.css" data-lang="css:fonts.css"><span style="display:flex;"><span><span style="color:#75715e">/* Segoe UI */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">font-face</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">SegoeUI</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">src</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">local</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Segoe UI&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">woff2</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff2&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">woff</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span><span style="color:#f92672">(//</span><span style="color:#f92672">c</span>.<span style="color:#a6e22e">s-microsoft</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#f92672">static</span><span style="color:#f92672">/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">segoe-ui</span><span style="color:#f92672">/</span><span style="color:#f92672">west-european</span><span style="color:#f92672">/</span><span style="color:#f92672">normal</span><span style="color:#f92672">/</span><span style="color:#f92672">latest</span>.<span style="color:#a6e22e">ttf</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;truetype&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">font-weight</span><span style="color:#f92672">:</span> <span style="color:#f92672">400</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="共有ボタン設置">共有ボタン設置</h2>
 <p>SNS用の共有ボタンも一応付けておこうということで下記の通り用意してみました。</p>
 <p>GitHub: <a href="https://github.com/snagimmo/hugo-classic/blob/modified/layouts/partials/share.html" target="_blank">hugo-classic/share.html at modified · snagimmo/hugo-classic</a>
 </p>
 <p>CSSはこの通りです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css"><span style="color:#75715e">/* Sharing buttons */</span>
-.<span style="color:#a6e22e">sharing-buttons</span> {
-  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline-block</span>;
-  <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">-1.5</span><span style="color:#66d9ef">em</span>;
-}
-.<span style="color:#a6e22e">sharing-buttons-area</span> {
-  <span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
-  <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
-}
-.<span style="color:#a6e22e">sharing-buttons</span> .<span style="color:#a6e22e">inline-svg</span> {
-  <span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
-  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">0.9</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">0.9</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#ddd</span>;
-  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
-  <span style="color:#66d9ef">border-color</span>: <span style="color:#ae81ff">#fff</span>;
-}
-.<span style="color:#a6e22e">sharing-buttons</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
-}
-.<span style="color:#a6e22e">sharing-button-twitter</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#1d9bf0</span> <span style="color:#75715e">!important</span>;
-}
-.<span style="color:#a6e22e">sharing-button-facebook</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#1778f2</span> <span style="color:#75715e">!important</span>;
-}
-.<span style="color:#a6e22e">sharing-button-hatena</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#00a4de</span> <span style="color:#75715e">!important</span>;
-}
-.<span style="color:#a6e22e">sharing-button-pocket</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#ee4056</span> <span style="color:#75715e">!important</span>;
-}
-</code></pre></div><p>出来栄えはこんな感じです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:style.css" data-lang="css:style.css"><span style="display:flex;"><span><span style="color:#75715e">/* Sharing buttons */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-buttons</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline-block</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">-1.5</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-buttons-area</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-buttons</span> .<span style="color:#a6e22e">inline-svg</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">0.9</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-right</span>: <span style="color:#ae81ff">0.9</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-color</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-buttons</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-button-twitter</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#1d9bf0</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-button-facebook</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#1778f2</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-button-hatena</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#00a4de</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">sharing-button-pocket</span> .<span style="color:#a6e22e">inline-svg</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#ee4056</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>出来栄えはこんな感じです。</p>
 <p>※画像をクリックorタップするとgifアニメが表示されます</p>
 <figure class="">
   <div class="img-wrapper">
@@ -565,7 +565,7 @@
   <div class="copyright">
     
     ©
-    2021
+    2021-2022
     snagimmo
   </div>
 </footer>

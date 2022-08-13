@@ -189,9 +189,9 @@
 <p>公式Docs: <a href="https://gohugo.io/content-management/urls/#permalinks" target="_blank">URL Management #Permalinks | Hugo</a>
 </p>
 <p>Hugo Classicではテーマデフォルトのパーマリンクが下記のように設定されています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">permalinks</span>]
-  <span style="color:#a6e22e">post</span> = <span style="color:#e6db74">&#34;/blog/:year/:month/:day/:slug&#34;</span>
-</code></pre></div><p><code>post =</code>から始まる行は <strong>postというディレクトリ(セクション)以下に置かれたコンテンツファイル</strong> に関する設定です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">permalinks</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">post</span> = <span style="color:#e6db74">&#34;/blog/:year/:month/:day/:slug&#34;</span>
+</span></span></code></pre></div><p><code>post =</code>から始まる行は <strong>postというディレクトリ(セクション)以下に置かれたコンテンツファイル</strong> に関する設定です。</p>
 <p>例えば上記のような設定でローカルに<code>ROOT/content/post/2021/hoge.md</code>というコンテンツを作るとします。更にこの記事の編集された日付がMarkdown内部で<code>1999/01/31</code>に設定されているとします。</p>
 <p>この時<code>/blog/:year/:month/:day/:slug</code>という <strong>パーマリンク設定が実ファイルのローカルディレクトリ構造よりも優先</strong> して読み込まれます。</p>
 <p>その結果、URLは</p>
@@ -208,18 +208,18 @@
 <h3 id="ディレクトリ構成を決める">ディレクトリ構成を決める</h3>
 <p>自分の場合は下記のようにしました。<a href="https://snagimmo.net/dev/build-website-using-hugo2/">第2回目の記事</a>
 でも説明したように、<code>content</code>直下のディレクトリ群はそのままセクション(≒Branch Bundle)として機能します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">content
- ├─blog
- ├─dev
- ├─draft
- └─fontawesome
-</code></pre></div><h3 id="パーマリンクを設定">パーマリンクを設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>content
+</span></span><span style="display:flex;"><span> ├─blog
+</span></span><span style="display:flex;"><span> ├─dev
+</span></span><span style="display:flex;"><span> ├─draft
+</span></span><span style="display:flex;"><span> └─fontawesome
+</span></span></code></pre></div><h3 id="パーマリンクを設定">パーマリンクを設定</h3>
 <p>私は下記のように設定しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[<span style="color:#a6e22e">permalinks</span>]
-  <span style="color:#a6e22e">blog</span> = <span style="color:#e6db74">&#34;/:section/:year/:month/:slug/&#34;</span>
-  <span style="color:#a6e22e">dev</span> = <span style="color:#e6db74">&#34;/:section/:slug/&#34;</span>
-  <span style="color:#a6e22e">draft</span> = <span style="color:#e6db74">&#34;/:section/:year/:month/:slug/&#34;</span>
-</code></pre></div><p>他のサイトの設定例も幾つか見ましたが、下記のパターンが多かったです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">permalinks</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">blog</span> = <span style="color:#e6db74">&#34;/:section/:year/:month/:slug/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dev</span> = <span style="color:#e6db74">&#34;/:section/:slug/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">draft</span> = <span style="color:#e6db74">&#34;/:section/:year/:month/:slug/&#34;</span>
+</span></span></code></pre></div><p>他のサイトの設定例も幾つか見ましたが、下記のパターンが多かったです。</p>
 <ul>
 <li><code>/blog/:year/:month/:day/:slug/</code></li>
 <li><code>/posts/:section/:slug/</code></li>
@@ -238,15 +238,15 @@
 </code></pre><p>に自動遷移するように設定しました。</p>
 <h3 id="エイリアスを利用した自動遷移">エイリアスを利用した自動遷移</h3>
 <p>実例を載せておきます。<code>ROOT/content/dev/website/_index.md</code>のFrontMatterに下記のようなエイリアスを設定することでカテゴリーページへの遷移が可能になります(他に良いやり方があるかも知れませんが現時点ではこうしています)。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:_index.md" data-lang="yaml:_index.md">---
-title: &#39;website&#39;
-url: /categories/website/
-aliases:
-    <span style="color:#66d9ef">-</span> /dev/website/
-    <span style="color:#66d9ef">-</span> /categories/website/
-# 省略
----
-</code></pre></div><h3 id="自動遷移の注意点">自動遷移の注意点</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml:_index.md" data-lang="yaml:_index.md"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#39;website&#39;
+</span></span><span style="display:flex;"><span>url: /categories/website/
+</span></span><span style="display:flex;"><span>aliases:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">-</span> /dev/website/
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">-</span> /categories/website/
+</span></span><span style="display:flex;"><span># 省略
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><h3 id="自動遷移の注意点">自動遷移の注意点</h3>
 <p>当初詰まったのは、<code>url</code>にカテゴリーページへのリンクを設定する必要がある事です。
 これが無いと <strong>遷移が機能しません</strong> ので注意して下さい。</p>
 <p><code>aliases</code>の設定だけで<code>url</code>の設定が無いと、遷移が発生せずカテゴリーページとサブセクションページが別々に存在する状態になります。</p>
@@ -261,8 +261,8 @@ aliases:
 <h2 id="frontmatterにあれこれ追加">FrontMatterにあれこれ追加</h2>
 <p>各記事の <strong>FrontMatter</strong> は前述のパーマリンク設定も含めて色々融通が利くので便利です。</p>
 <p>例えばデフォルトでは</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml:hoge.md" data-lang="yaml:hoge.md">draft: true
-</code></pre></div><p>といった項目が用意されており、この設定によってHugo側が「下書き記事」と見なしてビルドしないでスルーしてくれる訳ですが、これ以外にもユーザが自由に値を追加してHugo側の挙動を変える事が出来ます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml:hoge.md" data-lang="yaml:hoge.md"><span style="display:flex;"><span>draft: true
+</span></span></code></pre></div><p>といった項目が用意されており、この設定によってHugo側が「下書き記事」と見なしてビルドしないでスルーしてくれる訳ですが、これ以外にもユーザが自由に値を追加してHugo側の挙動を変える事が出来ます。</p>
 <p>私は下記のような値を追加しました。詳しくはそれぞれ後述の項目で触れます。</p>
 <ul>
 <li><code>toc</code>: 記事にTOC(目次)を表示するか否か</li>
@@ -278,35 +278,35 @@ aliases:
 <p>さて、Hugo ClassicのexampleSiteではデフォルトで一応 <strong>TeX</strong><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> 表記が行われているのですが、テーマを弄る内にTeX表記が崩れ無効化されてしまっていました。</p>
 <p>そこであれこれ探した結果、<strong>MathJax</strong> と呼ばれるスクリプトを導入する事にしました。自分が探した範囲内では、下の参考記事にある中国の方の記事が最も参考になりました。日本語の記事も幾つかあったのですが、そちらは情報が少し古く2020年以降のMathJaxのバージョンアップに非対応でした。</p>
 <p>早速、当該記事を参考に下記のPartial Templateを作成しました。CDN経由なのでローカルへの保存は不要です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:mathjax.html" data-lang="html:mathjax.html">{{ if .Params.math }}
-&lt;<span style="color:#f92672">script</span>&gt;
-  <span style="color:#a6e22e">MathJax</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">tex</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">inlineMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#e6db74">&#34;$&#34;</span>]],
-    },
-    <span style="color:#a6e22e">displayMath</span><span style="color:#f92672">:</span> [
-      [<span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#e6db74">&#34;$$&#34;</span>],
-      [<span style="color:#e6db74">&#34;\[\[&#34;</span>, <span style="color:#e6db74">&#34;\]\]&#34;</span>],
-    ],
-    <span style="color:#a6e22e">svg</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">fontCache</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;global&#34;</span>,
-    },
-  };
-&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span>
-  <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;MathJax-script&#34;</span>
-  <span style="color:#a6e22e">async</span>
-  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span>
-&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-{{ end }}
-</code></pre></div><p>これを<code>ROOT/layouts/partials/mathjax.html</code>として保存すれば、各Markdown内のFrontMatterに追加した<code>math: true</code> (<a href="https://snagimmo.net/dev/build-website-using-hugo5/#frontmatterにあれこれ追加">ここ</a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:mathjax.html" data-lang="html:mathjax.html"><span style="display:flex;"><span>{{ if .Params.math }}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MathJax</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tex</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">inlineMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#e6db74">&#34;$&#34;</span>]],
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">displayMath</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      [<span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#e6db74">&#34;$$&#34;</span>],
+</span></span><span style="display:flex;"><span>      [<span style="color:#e6db74">&#34;\[\[&#34;</span>, <span style="color:#e6db74">&#34;\]\]&#34;</span>],
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">svg</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">fontCache</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;global&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;MathJax-script&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">async</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span>
+</span></span><span style="display:flex;"><span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div><p>これを<code>ROOT/layouts/partials/mathjax.html</code>として保存すれば、各Markdown内のFrontMatterに追加した<code>math: true</code> (<a href="https://snagimmo.net/dev/build-website-using-hugo5/#frontmatterにあれこれ追加">ここ</a>
 で前述) の設定によって記事内のTeX表記が実現出来ます。</p>
 <p>使い方は下記の通り通常の(?)TeX記法でOKです。とりあえず信号処理で必須の複素フーリエ係数を載せてみました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">$$
-C_k = \langle f(t), e^{jkt} \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t)e^{-jkt} dt
-$$
-</code></pre></div><p>$$
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md:hoge.md" data-lang="md:hoge.md"><span style="display:flex;"><span>$$
+</span></span><span style="display:flex;"><span>C_k = \langle f(t), e^{jkt} \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t)e^{-jkt} dt
+</span></span><span style="display:flex;"><span>$$
+</span></span></code></pre></div><p>$$
 C_k = \langle f(t), e^{jkt} \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t)e^{-jkt} dt
 $$</p>
 <h4>参考記事</h4>
@@ -400,7 +400,7 @@ $$</p>
   <div class="copyright">
     
     ©
-    2021
+    2021-2022
     snagimmo
   </div>
 </footer>

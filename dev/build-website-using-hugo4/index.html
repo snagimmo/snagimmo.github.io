@@ -201,50 +201,50 @@ FortAwesome/Font-Awesome</a>
 <p>ダウンロードしたいSVGファイル名をそれぞれ<code>brands</code>, <code>regular</code>, <code>solid</code>の各種ページを参考に予め<code>icons_*</code>という変数群に文字列として格納しておく必要があります。</p>
 <p>SVGファイル一覧: <a href="https://github.com/FortAwesome/Font-Awesome/tree/master/svgs" target="_blank">https://github.com/FortAwesome/Font-Awesome/tree/master/svgs</a>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell:svg_dl.sh" data-lang="shell:svg_dl.sh"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>set -ex
-
-icons_b<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;facebook get-pocket github soundcloud twitter&#34;</span>
-icons_r<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;calendar clipboard&#34;</span>
-icons_s<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arrow-circle-left arrow-circle-right folder search tag clock rss share-alt&#34;</span>
-
-url_b<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/brands
-url_r<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/regular
-url_s<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid
-
-dest<span style="color:#f92672">=</span>../content/fontawesome
-mkdir -p <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-
-<span style="color:#66d9ef">for</span> icon in $icons_b; <span style="color:#66d9ef">do</span>
-  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_b<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
-<span style="color:#66d9ef">done</span>
-<span style="color:#66d9ef">for</span> icon in $icons_r; <span style="color:#66d9ef">do</span>
-  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_r<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
-<span style="color:#66d9ef">done</span>
-<span style="color:#66d9ef">for</span> icon in $icons_s; <span style="color:#66d9ef">do</span>
-  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_s<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>スクリプトの置き場所が<code>ROOT/bin/</code>直下なので途中にある<code>dest</code>(ダウンロード先)のパスも<code>../content/fontawesome</code>になっています。もし利用される場合、ここは各自のディレクトリ構造に合わせて下さい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell:svg_dl.sh" data-lang="shell:svg_dl.sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>set -ex
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>icons_b<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;facebook get-pocket github soundcloud twitter&#34;</span>
+</span></span><span style="display:flex;"><span>icons_r<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;calendar clipboard&#34;</span>
+</span></span><span style="display:flex;"><span>icons_s<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arrow-circle-left arrow-circle-right folder search tag clock rss share-alt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url_b<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/brands
+</span></span><span style="display:flex;"><span>url_r<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/regular
+</span></span><span style="display:flex;"><span>url_s<span style="color:#f92672">=</span>https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dest<span style="color:#f92672">=</span>../content/fontawesome
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>dest<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> icon in $icons_b; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_b<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> icon in $icons_r; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_r<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> icon in $icons_s; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  curl -O <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>url_s<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>icon<span style="color:#e6db74">}</span><span style="color:#e6db74">.svg&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>スクリプトの置き場所が<code>ROOT/bin/</code>直下なので途中にある<code>dest</code>(ダウンロード先)のパスも<code>../content/fontawesome</code>になっています。もし利用される場合、ここは各自のディレクトリ構造に合わせて下さい。</p>
 <h3 id="テンプレートの復習">テンプレートの復習</h3>
 <p>第2回目でも紹介したように、自作したHugoテンプレートを呼び出したい場合は <strong>どこから呼び出すか</strong> によってテンプレートの種類を変える必要があります。</p>
 <p>公式Docs: <a href="https://gohugo.io/content-management/shortcodes/#use-shortcodes" target="_blank">Shortcodes | Hugo</a>
 </p>
 <p><strong>他のテンプレート</strong> (e.g. <code>layouts/_default/single.html</code>, <code>layouts/partials/header.html</code>) から呼び出したい時は <strong>Partial Template</strong> として作成し、下記の形で呼び出します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ partial &#34;TEMPLATE_NAME&#34; &#34;ARGS&#34; }}
-</code></pre></div><p><strong>記事</strong> (e.g. <code>content/hoge/fuga.md</code>, <code>content/blog/2021/test.md</code>) から呼び出したい時は <strong>Shortcode</strong> として作成し、下記の形で呼び出します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">{{&lt; <span style="color:#f92672">TEMPLATE_NAME</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">ARGS</span><span style="color:#960050;background-color:#1e0010">&#34;</span> &gt;}}ここの文字列はMarkdownとして解釈されない{{&lt; /<span style="color:#f92672">TEMPLATE_NAME</span> &gt;}}
-{{% TEMPLATE_NAME &#34;ARGS&#34; %}}ここの文字列はMarkdownとして解釈される{{% /TEMPLATE_NAME %}}
-</code></pre></div><p>この際、区切り文字(delimiter)に<code>&lt;</code>を使うか<code>%</code>を使うかで挙動が変わります。Shortcode内部でHTMLタグなど使いたい場合には<code>&lt;</code>を用いる事でMarkdown用のレンダラーが正しくHTMLタグを読み取れるようになるようです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ partial &#34;TEMPLATE_NAME&#34; &#34;ARGS&#34; }}
+</span></span></code></pre></div><p><strong>記事</strong> (e.g. <code>content/hoge/fuga.md</code>, <code>content/blog/2021/test.md</code>) から呼び出したい時は <strong>Shortcode</strong> として作成し、下記の形で呼び出します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>{{&lt; <span style="color:#f92672">TEMPLATE_NAME</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">ARGS</span><span style="color:#960050;background-color:#1e0010">&#34;</span> &gt;}}ここの文字列はMarkdownとして解釈されない{{&lt; /<span style="color:#f92672">TEMPLATE_NAME</span> &gt;}}
+</span></span><span style="display:flex;"><span>{{% TEMPLATE_NAME &#34;ARGS&#34; %}}ここの文字列はMarkdownとして解釈される{{% /TEMPLATE_NAME %}}
+</span></span></code></pre></div><p>この際、区切り文字(delimiter)に<code>&lt;</code>を使うか<code>%</code>を使うかで挙動が変わります。Shortcode内部でHTMLタグなど使いたい場合には<code>&lt;</code>を用いる事でMarkdown用のレンダラーが正しくHTMLタグを読み取れるようになるようです。</p>
 <h3 id="partial-templateの作成">Partial Templateの作成</h3>
 <p>実は参考記事のリンク先にもあるようにFontAwesome用のShortcodeを作成することも出来るのですが、今回はテンプレート内部でSVGを表示したいので、FontAwesome用のPartial Templateを作成します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:fontawesome.html" data-lang="html:fontawesome.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inline-svg&#34;</span>&gt;
-{{- $fname:=print &#34;fontawesome/&#34; . &#34;.svg&#34; -}}
-{{- $path:=&#34;&lt;<span style="color:#f92672">path</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
-<span style="color:#960050;background-color:#1e0010">{{</span><span style="color:#a6e22e">-</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fill:</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;path fill=\&#34;</span><span style="color:#a6e22e">currentColor</span><span style="color:#960050;background-color:#1e0010">\&#34;&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
-<span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#a6e22e">replace</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">readFile</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fname</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">path</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fill</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">safeHTML</span> <span style="color:#960050;background-color:#1e0010">}}</span>
-<span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">span</span>&gt;
-</code></pre></div><p>記法や文法などは省略しますが、これを<code>ROOT/layouts/partials/fontawesome.html</code>として配置すれば使えるようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:fontawesome.html" data-lang="html:fontawesome.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inline-svg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>{{- $fname:=print &#34;fontawesome/&#34; . &#34;.svg&#34; -}}
+</span></span><span style="display:flex;"><span>{{- $path:=&#34;&lt;<span style="color:#f92672">path</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">{{</span><span style="color:#a6e22e">-</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fill:</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;path fill=\&#34;</span><span style="color:#a6e22e">currentColor</span><span style="color:#960050;background-color:#1e0010">\&#34;&#34;</span> <span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#a6e22e">replace</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">readFile</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fname</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">path</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">fill</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">safeHTML</span> <span style="color:#960050;background-color:#1e0010">}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">span</span>&gt;
+</span></span></code></pre></div><p>記法や文法などは省略しますが、これを<code>ROOT/layouts/partials/fontawesome.html</code>として配置すれば使えるようになります。</p>
 <p>上記にある<code>{{}}</code>内部のハイフン<code>-</code>はそれぞれ直前・直後の空白文字を削除する為のもので、HTMLのDOM構造を改行・空白なしで保つためのものです(削除しなくても大抵機能します)。</p>
 <h4>参考記事</h4>
 <ul>
@@ -253,41 +253,41 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 </ul>
 <h3 id="テンプレート内からsvgを呼び出す">テンプレート内からSVGを呼び出す</h3>
 <p>例えばローカルの<code>ROOT/content/fontawesome/clock.svg</code>を下記のように<code>ROOT/layouts/partials/header.html</code>から呼び出す事が出来ます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">{{ partial &#34;fontawesome.html&#34; &#34;clock&#34; }}
-</code></pre></div><p>改造したHugo Classic(テーマ)の実例を載せておきますが、ヘッダ部分では下記のように <strong>変数</strong> としてFontAwesome用のファイル名を渡しています。この<code>head_custom.html</code>を<code>header.html</code>から読み込んでいます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">&lt;<span style="color:#f92672">header</span>&gt;
-  &lt;<span style="color:#f92672">nav</span>&gt;
-    &lt;<span style="color:#f92672">ul</span>&gt;
-      {{ $title := lower .Title }}
-      {{ $section := lower .Section }}
-      <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-      {{ range .Site.Menus.main }}
-      {{ $name := lower .Name }}
-      &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}&#34;</span>&gt;
-        {{ if eq $name $title }}&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;current-header&#34;</span>&gt;{{ partial &#34;fontawesome.html&#34; $name }}&lt;/<span style="color:#f92672">span</span>&gt;{{ else }}&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL }}&#34;</span>&gt;{{ partial &#34;fontawesome.html&#34; $name }}&lt;/<span style="color:#f92672">a</span>&gt;{{ end }}
-      &lt;/<span style="color:#f92672">li</span>&gt;
-      {{end}}
-      <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-    &lt;/<span style="color:#f92672">ul</span>&gt;
-  &lt;/<span style="color:#f92672">nav</span>&gt;
-&lt;/<span style="color:#f92672">header</span>&gt;
-</code></pre></div><p>上記の例で言うと、変数名で渡しているのは</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ partial &#34;fontawesome.html&#34; $name }}
-</code></pre></div><p>の部分です。慣れればすぐに読めると思いますが、</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ range .Site.Menus.main }}
-</code></pre></div><p>の行からはじまる<code>range</code>ブロック内部で<code>.Name</code>を取得し、そのそれぞれを<code>lower</code>関数で小文字化することでタイトル・セクション・タクソノミーの相互一致判定を行っています。そして、その結果を<code>$name</code>変数に格納し、FontAwesomeに渡しているという流れです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:head_custom.html" data-lang="html:head_custom.html">{{ $name := lower .Name }}
-</code></pre></div><h3 id="hugo-classic--fontawesomeの注意点">Hugo Classic + FontAwesomeの注意点</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:header.html" data-lang="html:header.html"><span style="display:flex;"><span>{{ partial &#34;fontawesome.html&#34; &#34;clock&#34; }}
+</span></span></code></pre></div><p>改造したHugo Classic(テーマ)の実例を載せておきますが、ヘッダ部分では下記のように <strong>変数</strong> としてFontAwesome用のファイル名を渡しています。この<code>head_custom.html</code>を<code>header.html</code>から読み込んでいます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:head_custom.html" data-lang="html:head_custom.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">header</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">nav</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>      {{ $title := lower .Title }}
+</span></span><span style="display:flex;"><span>      {{ $section := lower .Section }}
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span><span style="display:flex;"><span>      {{ range .Site.Menus.main }}
+</span></span><span style="display:flex;"><span>      {{ $name := lower .Name }}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ if eq $name $title }}&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;current-header&#34;</span>&gt;{{ partial &#34;fontawesome.html&#34; $name }}&lt;/<span style="color:#f92672">span</span>&gt;{{ else }}&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL }}&#34;</span>&gt;{{ partial &#34;fontawesome.html&#34; $name }}&lt;/<span style="color:#f92672">a</span>&gt;{{ end }}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>      {{end}}
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">nav</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">header</span>&gt;
+</span></span></code></pre></div><p>上記の例で言うと、変数名で渡しているのは</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:head_custom.html" data-lang="html:head_custom.html"><span style="display:flex;"><span>{{ partial &#34;fontawesome.html&#34; $name }}
+</span></span></code></pre></div><p>の部分です。慣れればすぐに読めると思いますが、</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:head_custom.html" data-lang="html:head_custom.html"><span style="display:flex;"><span>{{ range .Site.Menus.main }}
+</span></span></code></pre></div><p>の行からはじまる<code>range</code>ブロック内部で<code>.Name</code>を取得し、そのそれぞれを<code>lower</code>関数で小文字化することでタイトル・セクション・タクソノミーの相互一致判定を行っています。そして、その結果を<code>$name</code>変数に格納し、FontAwesomeに渡しているという流れです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:head_custom.html" data-lang="html:head_custom.html"><span style="display:flex;"><span>{{ $name := lower .Name }}
+</span></span></code></pre></div><h3 id="hugo-classic--fontawesomeの注意点">Hugo Classic + FontAwesomeの注意点</h3>
 <p>なお、Hugo Classicでは下記のように<code>config.toml</code>で設定しているタクソノミーの各種ページ名とURLが <strong>複数形(plural)</strong> になっています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml:config.toml" data-lang="toml:config.toml">[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
-  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Categories&#34;</span>
-  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/categories/&#34;</span>
-  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
-[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
-  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Tags&#34;</span>
-  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/tags/&#34;</span>
-  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">2</span>
-</code></pre></div><p>これに合わせ、FontAwesomeのSVGファイル名も次のようにリネームして読み込んでいます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml:config.toml" data-lang="toml:config.toml"><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Categories&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/categories/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Tags&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/tags/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>これに合わせ、FontAwesomeのSVGファイル名も次のようにリネームして読み込んでいます。</p>
 <ul>
 <li><code>folder.svg</code>から<code>categories.svg</code>へリネーム</li>
 <li><code>tag.svg</code>から<code>tags.svg</code>へリネーム</li>
@@ -313,28 +313,28 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <p>下記のようなShortcodeを作成し, ローカル環境のサーバ上でのみ表示したいテキストを囲むと色々と捗ります。
 例えばまだ公開したくない記事の一部などをそのままprivateな状態でHugoにビルドしてもらう、といった事も可能です。</p>
 <p>ファイルは<code>ROOT/layouts/shortcodes/private.html</code>として作成しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:private.html" data-lang="html:private.html">{{ if .Site.IsServer }}
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;private&#34;</span>&gt;{{ .Inner }}&lt;/<span style="color:#f92672">div</span>&gt;
-{{ end }}
-</code></pre></div><p>これに合わせてCSSも設定しておきました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">private</span> {
-  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#2e2222</span>;
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#f11</span>;
-  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#f11</span>;
-}
-.<span style="color:#a6e22e">private</span>::<span style="color:#a6e22e">before</span> {
-  <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;------Private------&#34;</span>;
-  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
-  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
-}
-</code></pre></div><p>使い方は下記の通りです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">private</span> &gt;}}
-これは非公開なメモ
-{{&lt; /<span style="color:#f92672">private</span> &gt;}}
-
-これは公開されるメモ
-</code></pre></div><p>例えば上のように書くと、このような表示になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:private.html" data-lang="html:private.html"><span style="display:flex;"><span>{{ if .Site.IsServer }}
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;private&#34;</span>&gt;{{ .Inner }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span></code></pre></div><p>これに合わせてCSSも設定しておきました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:style.css" data-lang="css:style.css"><span style="display:flex;"><span>.<span style="color:#a6e22e">private</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#2e2222</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#f11</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0.5</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#f11</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">private</span>::<span style="color:#a6e22e">before</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;------Private------&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>使い方は下記の通りです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md:hoge.md" data-lang="md:hoge.md"><span style="display:flex;"><span>{{&lt; <span style="color:#f92672">private</span> &gt;}}
+</span></span><span style="display:flex;"><span>これは非公開なメモ
+</span></span><span style="display:flex;"><span>{{&lt; /<span style="color:#f92672">private</span> &gt;}}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>これは公開されるメモ
+</span></span></code></pre></div><p>例えば上のように書くと、このような表示になります。</p>
 <figure class="">
   <div class="img-wrapper">
     <a href="private_memo.png" data-lightbox="images" data-title="">
@@ -350,42 +350,42 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <h3 id="coloredhtmlについて">colored.htmlについて</h3>
 <p>これは自作しました。文中で自由に背景色と文字色を変える為の簡単な1行Shortcodeです(シンタックスハイライトがちょっと崩れてて見にくいですが)。</p>
 <p>これも勿論<code>ROOT/layouts/shortcodes</code>に置いて使います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:colored.html" data-lang="html:colored.html">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;colored&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background:{{ .Get &#34;</span><span style="color:#a6e22e">bg</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};</span><span style="color:#a6e22e">color:</span><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Get</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">color</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};&#34;</span>&gt;{{- .Inner -}}&lt;/<span style="color:#f92672">span</span>&gt;
-</code></pre></div><p>例えばMarkdown中ではこのように使います。こうして複数の引数を渡す事も出来るのでShortcodeは慣れてしまえば便利です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#00f&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> &gt;}}青{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
-{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#000&#34;</span> &gt;}}白{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
-</code></pre></div><p><span class="colored" style="background:#00f;color:#fff;">青</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:colored.html" data-lang="html:colored.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;colored&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background:{{ .Get &#34;</span><span style="color:#a6e22e">bg</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};</span><span style="color:#a6e22e">color:</span><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">Get</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">color</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}};&#34;</span>&gt;{{- .Inner -}}&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span></code></pre></div><p>例えばMarkdown中ではこのように使います。こうして複数の引数を渡す事も出来るのでShortcodeは慣れてしまえば便利です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md:hoge.md" data-lang="md:hoge.md"><span style="display:flex;"><span>{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#00f&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> &gt;}}青{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
+</span></span><span style="display:flex;"><span>{{&lt; <span style="color:#f92672">colored</span> <span style="color:#a6e22e">bg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#000&#34;</span> &gt;}}白{{&lt; /<span style="color:#f92672">colored</span> &gt;}}
+</span></span></code></pre></div><p><span class="colored" style="background:#00f;color:#fff;">青</span>
 
 <span class="colored" style="background:#fff;color:#000;">白</span>
 </p>
 <h3 id="imagehtmlについて">image.htmlについて</h3>
 <p>これも自作です。サムネイルを表示し、サムネイルがクリックあるいはタップされると元画像が拡大表示されます。<strong>Lightbox2</strong> を利用していますが有名なのでLightbox2の説明は省略します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:image.html" data-lang="html:image.html">&lt;<span style="color:#f92672">figure</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">class</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;img-wrapper&#34;</span>&gt;
-    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">link</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-lightbox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-lightbox</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-title</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
-      &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">width</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>/&gt;
-    &lt;/<span style="color:#f92672">a</span>&gt;
-  &lt;/<span style="color:#f92672">div</span>&gt;
-&lt;/<span style="color:#f92672">figure</span>&gt;
-</code></pre></div><p>Markdown中ではこのように使います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{% image src=&#34;resize/thumbnail.png&#34; link=&#34;gazou.png&#34; class=&#34;&#34; data-lightbox=&#34;images&#34; data-title=&#34;caption&#34; %}}
-</code></pre></div><p><code>src</code>でサムネイルの場所を指定、<code>link</code>で大きいサイズの画像を指定します。パスはそれぞれPage Resourcesの仕様に則っているので記事ファイル(<code>.md</code>)と同じ階層からの相対パスです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:image.html" data-lang="html:image.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">figure</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">class</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;img-wrapper&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">link</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-lightbox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-lightbox</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">data-title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">data-title</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">src</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Get &#34;</span><span style="color:#a6e22e">width</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">figure</span>&gt;
+</span></span></code></pre></div><p>Markdown中ではこのように使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md:hoge.md" data-lang="md:hoge.md"><span style="display:flex;"><span>{{% image src=&#34;resize/thumbnail.png&#34; link=&#34;gazou.png&#34; class=&#34;&#34; data-lightbox=&#34;images&#34; data-title=&#34;caption&#34; %}}
+</span></span></code></pre></div><p><code>src</code>でサムネイルの場所を指定、<code>link</code>で大きいサイズの画像を指定します。パスはそれぞれPage Resourcesの仕様に則っているので記事ファイル(<code>.md</code>)と同じ階層からの相対パスです。</p>
 <p><code>class</code>の有無を問わず機能するので、CSSなどで何か表示を変えたい時だけ<code>class=&quot;fuga&quot;</code>などと指定すればOKです。</p>
 <h3 id="steamhtmlについて">steam.htmlについて</h3>
 <p>Steamのウィジェットを表示するShortcodeです。</p>
 <p>TwitterやYouTubeなどはHugo側にデフォルトで用意されているのですがSteamは無かったので用意しました(参考記事のものをそのまま利用)。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:steam.html" data-lang="html:steam.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed steam-link&#34;</span>&gt;
-  &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;steam-link&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://store.steampowered.com/widget/{{ index .Params 0 }}/&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;
-</code></pre></div><p>CSSも弄っておきました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">steam-link</span> {
-  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">450</span><span style="color:#66d9ef">px</span>;
-  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
-  <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
-}
-</code></pre></div><p>Markdownの中ではこう使います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md:hoge.md" data-lang="md:hoge.md">{{&lt; <span style="color:#f92672">steam</span> <span style="color:#a6e22e">814380</span> &gt;}}
-</code></pre></div><p>実際に使うとこんな感じになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:steam.html" data-lang="html:steam.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;embed steam-link&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;steam-link&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://store.steampowered.com/widget/{{ index .Params 0 }}/&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>CSSも弄っておきました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:style.css" data-lang="css:style.css"><span style="display:flex;"><span>.<span style="color:#a6e22e">steam-link</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">450</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Markdownの中ではこう使います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md:hoge.md" data-lang="md:hoge.md"><span style="display:flex;"><span>{{&lt; <span style="color:#f92672">steam</span> <span style="color:#a6e22e">814380</span> &gt;}}
+</span></span></code></pre></div><p>実際に使うとこんな感じになります。</p>
 <div class="embedded steam-link">
     <iframe class="steam-link" src="https://store.steampowered.com/widget/814380/" frameborder="0"></iframe>
 </div>
@@ -403,67 +403,67 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 </p>
 <p>これを利用すれば、見出し行を<code>## 見出し2</code>や<code>### 見出し3</code>のようにMarkdown中に記述するだけで自動でHugoがTOCを出力してくれます。</p>
 <p>各記事の中に目次を追加したかったので、記事用テンプレートの<code>ROOT/layouts/_default/single.html</code>を下記のように編集しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html"><span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content-wrapper&#34;</span>&gt;
-  {{- if .Params.toc }}
-      {{- with .TableOfContents }}
-      &lt;<span style="color:#f92672">aside</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xToc&#34;</span>&gt;
-          &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xToc_title&#34;</span>&gt;目次&lt;/<span style="color:#f92672">div</span>&gt;
-          {{ . }}
-      &lt;/<span style="color:#f92672">aside</span>&gt;
-      {{- end }}
-  {{- end }}
-  &lt;<span style="color:#f92672">main</span>&gt;
-    {{ with .Content }}{{ . }}{{ else }}This content is empty. {{ end }}
-  &lt;/<span style="color:#f92672">main</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;
-<span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
-</code></pre></div><p>実を言うと、</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{ .TableOfContents }}
-</code></pre></div><p>この1行だけでもTOCは呼び出せます。しかし各記事のFrontMatter内で<code>toc: true</code>を設定した場合のみ目次が表示されるように</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:single.html" data-lang="html:single.html">{{- if .Params.toc }}
-</code></pre></div><p>という行で条件分岐をしています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:single.html" data-lang="html:single.html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content-wrapper&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  {{- if .Params.toc }}
+</span></span><span style="display:flex;"><span>      {{- with .TableOfContents }}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">aside</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xToc&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xToc_title&#34;</span>&gt;目次&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          {{ . }}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">aside</span>&gt;
+</span></span><span style="display:flex;"><span>      {{- end }}
+</span></span><span style="display:flex;"><span>  {{- end }}
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ with .Content }}{{ . }}{{ else }}This content is empty. {{ end }}
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 省略 --&gt;</span>
+</span></span></code></pre></div><p>実を言うと、</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:single.html" data-lang="html:single.html"><span style="display:flex;"><span>{{ .TableOfContents }}
+</span></span></code></pre></div><p>この1行だけでもTOCは呼び出せます。しかし各記事のFrontMatter内で<code>toc: true</code>を設定した場合のみ目次が表示されるように</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:single.html" data-lang="html:single.html"><span style="display:flex;"><span>{{- if .Params.toc }}
+</span></span></code></pre></div><p>という行で条件分岐をしています。</p>
 <p>また、CSSに関しては次のように設定しました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css:style.css" data-lang="css:style.css">.<span style="color:#a6e22e">xToc</span> {
-  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#282C34</span>;
-  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#D0AF4C</span>;
-  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">.8</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.7</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">%</span>;
-  <span style="color:#66d9ef">margin</span>: <span style="color:#66d9ef">auto</span>;
-  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>;
-}
-.<span style="color:#a6e22e">xToc_title</span> {
-  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
-}
-.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">ul</span> {
-  <span style="color:#66d9ef">list-style-type</span>: <span style="color:#66d9ef">none</span>;
-  <span style="color:#66d9ef">padding-left</span>: <span style="color:#ae81ff">0.8</span><span style="color:#66d9ef">em</span>;
-}
-.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span> {
-  <span style="color:#66d9ef">padding-top</span>: <span style="color:#ae81ff">0</span> <span style="color:#75715e">!important</span>;
-}
-.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">border-left</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">em</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#D0AF4C</span>;
-  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">-.3</span><span style="color:#66d9ef">em</span>;
-}
-.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">ul</span> {
-  <span style="color:#66d9ef">padding-left</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>;
-  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
-}
-.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">a</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#c0c0c0</span> <span style="color:#75715e">!important</span>;
-  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">normal</span>;
-  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
-  <span style="color:#66d9ef">border-bottom</span>: <span style="color:#66d9ef">dashed</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#999</span>;
-  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">.5</span><span style="color:#66d9ef">em</span>;
-}
-.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">a</span>:<span style="color:#a6e22e">hover</span> {
-  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#FFD700</span> <span style="color:#75715e">!important</span>;
-}
-</code></pre></div><p>Hugo側が自動で出力してくれるTOCは<code>&lt;li&gt;&lt;/li&gt;</code>と<code>&lt;ul&gt;&lt;/ul&gt;</code>によって構成されていますので、それに合わせてCSSを編集する必要があります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css:style.css" data-lang="css:style.css"><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#282C34</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#D0AF4C</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">.8</span><span style="color:#66d9ef">em</span> <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.7</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc_title</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">ul</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">list-style-type</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding-left</span>: <span style="color:#ae81ff">0.8</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding-top</span>: <span style="color:#ae81ff">0</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-left</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">em</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#D0AF4C</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">-.3</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">li</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">ul</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding-left</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">a</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#c0c0c0</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">normal</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-bottom</span>: <span style="color:#66d9ef">dashed</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#999</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">.5</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">xToc</span> <span style="color:#f92672">a</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#FFD700</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hugo側が自動で出力してくれるTOCは<code>&lt;li&gt;&lt;/li&gt;</code>と<code>&lt;ul&gt;&lt;/ul&gt;</code>によって構成されていますので、それに合わせてCSSを編集する必要があります。</p>
 <h4>参考記事</h4>
 <ul>
 <li><a href="https://maku77.github.io/hugo/template/table-of-contents.html" target="_blank">各ページに目次を表示する (.TableOfContents) | まくまくHugo/Goノート</a>
@@ -473,13 +473,13 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
 <p>Hugo Classicにはデフォルトで<code>static/images/site.webmanifest</code>ファイルがあります(<code>exampleSite</code>というディレクトリの中にあります)。</p>
 <p>従って、やることと言えばfavicon用<code>.png</code>ファイルの作成と<code>header.html</code>への追記のみですね。faviconに関しては特に言う事は無いです。</p>
 <p><code>.png</code>ファイルは自前のアイコン(トップページに表示されるやつです)をリサイズしただけですね。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html:header.html" data-lang="html:header.html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180x180&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/apple-touch-icon.png&#34;</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16x16&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-16x16.png&#34;</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;32x32&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-32x32.png&#34;</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;64x64&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-64x64.png&#34;</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;128x128&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-128x128.png&#34;</span>&gt;
-&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;manifest&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/site.webmanifest&#34;</span>&gt;
-</code></pre></div><h4>参考リンク</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html:header.html" data-lang="html:header.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180x180&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/apple-touch-icon.png&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16x16&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-16x16.png&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;32x32&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-32x32.png&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;64x64&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-64x64.png&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;128x128&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/favicon-128x128.png&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;manifest&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/images/site.webmanifest&#34;</span>&gt;
+</span></span></code></pre></div><h4>参考リンク</h4>
 <ul>
 <li><a href="https://favicon-generator.mintsu-dev.com" target="_blank">Favicon ジェネレーター</a>
 </li>
@@ -566,7 +566,7 @@ cd <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>
   <div class="copyright">
     
     ©
-    2021
+    2021-2022
     snagimmo
   </div>
 </footer>
